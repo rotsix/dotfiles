@@ -1,0 +1,29 @@
+#include ".xdefaults/color.rc"
+#include ".xdefaults/main.rc"
+#include ".xdefaults/keysym.rc"
+
+!!Liens cliquables (perl, et URL)
+
+URxvt.url-launcher :	firefox
+URxvt.url-underline :	true
+URxvt.matcher.button :	3
+URxvt.colorUL :		#81a2be
+
+
+
+!!Noms des fenêtes
+
+
+!! Scrollbar / Border
+
+URxvt.scrollBar :	false
+URxvt.borderless :	1
+URxvt.secondaryScroll :	true
+
+
+!! onglets
+URxvt.perl-ext-common:	default,matcher,tabbed
+URxvt.tabbed.tabbar-fg:	8
+URxvt.tabbed.tabbar-bg:	0
+URxvt.tabbed.tab-fg:	7
+URxvt.tabbed.tab-bg:	0
