@@ -1,6 +1,5 @@
 --------------------------
 ----- awesome/rc.lua -----
------ 	By Piczel    ----- 
 --------------------------
 
 
@@ -27,8 +26,8 @@ os.execute("nm-applet &")
 os.execute("checkgmail &")
 
 --lancer xautolock
-os.execute("xautolock -time 8 -locker ${HOME}/.lock_screen/lock -notify 30 -notifier 'notify-send --urgency=critical \"Screen lock\" \"Screen will be locked in 30s\" -i ${HOME}/.lock_screen/lock.png -t 5000' &")
-
+--os.execute("xautolock -time 8 -locker $HOME/.lock_screen/lock -notify 30 -notifier 'notify-send --urgency=critical \"Screen lock\" \"Screen will be locked in 30s\" -i $HOME/.lock_screen/lock.png -t 5000' &")
+--i've a home made lock screen (see i3lock-color-git on google)
 
 -- Mettre en français les langues
 os.setlocale("fr_FR.UTF-8", "time")
@@ -60,10 +59,12 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/vicious/theme.lua")
+beautiful.init("/usr/share/awesome/themes/gladious/theme.lua")
 
 -- SET WALLPAPER
-theme.wallpaper = "/home/victor/Wallpaper/wp_darktosun.png"
+--theme.wallpaper = "$HOME/Wallpaper/wp_darktosun.png"
+-- set your own wallpaper here
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -119,34 +120,36 @@ end
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "Manual", terminal .. " -e man awesome" , "/home/victor/.config/awesome/icones/man.png" },
-   { "Edit config", terminal .. " -e nano /home/victor/.config/awesome/rc.lua" },
-   { "Restart", awesome.restart, "/home/victor/.config/awesome/icones/restart.png" },
-   { "Quit", awesome.quit , "/home/victor/.config/awesome/icones/shutdown.png" }
+   { "Manual", terminal .. " -e man awesome" , "$HOME/.config/awesome/icones/man.png" },
+   { "Edit config", terminal .. " -e nano $HOME/.config/awesome/rc.lua" },
+   { "Restart", awesome.restart, "$HOME/.config/awesome/icones/restart.png" },
+   { "Quit", awesome.quit , "$HOME/.config/awesome/icones/shutdown.png" }
    
 }
 
 menuapplications = {
-   { "Firefox", "firefox", "/home/victor/.config/awesome/icones/firefox.png" },
-   { "Emacs",  "emacs", "/home/victor/.config/awesome/icones/emacs.png" },
-   { "gVim",  "gvim" , "/home/victor/.config/awesome/icones/gvim.png" },
-   { "Eclipse", "eclipse" , "/home/victor/.config/awesome/icones/eclipse.png" },
-   { "TexStudio", "texstudio" , "/home/victor/.config/awesome/icones/texstudio.png" },
-   { "gEdit",  "gedit" , "/home/victor/.config/awesome/icones/gedit.png" },
-   { "Sublime Text", "subl" , "/home/victor/.config/awesome/icones/sublimetext.png" },
-   { "LibreOffice", "libreoffice" , "/home/victor/.config/awesome/icones/libreoffice.png" },
-   { "CherryTree", "cherrytree", "/home/victor/.config/awesome/icones/cherrytree.png" },
-   { "PCManFM", "pcmanfm" , "/home/victor/.config/awesome/icones/pcmanfm.png" },
-   { "irssi", terminal .. " -e irssi" , "/home/victor/.config/awesome/icones/irssi.png" },
-   { "weechat", terminal .. " -e weechat" , "/home/victor/.config/awesome/icones/weechat.png" }
+   { "Firefox", "firefox", "$HOME/.config/awesome/icones/firefox.png" },
+   { "Emacs",  "emacs", "$HOME/.config/awesome/icones/emacs.png" },
+   { "gVim",  "gvim" , "$HOME/.config/awesome/icones/gvim.png" },
+   { "Eclipse", "eclipse" , "$HOME/.config/awesome/icones/eclipse.png" },
+   { "TexStudio", "texstudio" , "$HOME/.config/awesome/icones/texstudio.png" },
+   { "gEdit",  "gedit" , "$HOME/.config/awesome/icones/gedit.png" },
+   { "Sublime Text", "subl" , "$HOME/.config/awesome/icones/sublimetext.png" },
+   { "LibreOffice", "libreoffice" , "$HOME/.config/awesome/icones/libreoffice.png" },
+   { "CherryTree", "cherrytree", "$HOME/.config/awesome/icones/cherrytree.png" },
+   { "PCManFM", "pcmanfm" , "$HOME/.config/awesome/icones/pcmanfm.png" },
+   { "Dropbox", "dropbox" , "$HOME/.config/awesome/icones/dropbox.png" },
+   { "irssi", terminal .. " -e irssi" , "$HOME/.config/awesome/icones/irssi.png" },
+   { "weechat", terminal .. " -e weechat" , "$HOME/.config/awesome/icones/weechat.png" },
+   { "HexChat", "hexchat" , "$HOME/.config/awesome/icones/hexchat.png" }
 }
 
 mymainmenu = awful.menu({ items = { { "Awesome", myawesomemenu },
 			   	    { "Applications", menuapplications, beautiful.awesome_icon },
-                                    { "Terminal", terminal , "/home/victor/.config/awesome/icones/term_logo.png" },
-                                    { "Lock", "/home/victor/.lock_screen/lock", "/home/victor/.config/awesome/icones/lock.png" },
+                                    { "Terminal", terminal , "$HOME/.config/awesome/icones/term_logo.png" },
+                                    { "Lock", "$HOME/.lock_screen/lock", "$HOME/.config/awesome/icones/lock.png" },
 				    { "Reboot", terminal .. " -e reboot" },
-   				    { "Shutdown", terminal .. " -e shutdown -f now" , "/home/victor/.config/awesome/icones/shutdown.png" }
+   				    { "Shutdown", terminal .. " -e shutdown -f now" , "$HOME/.config/awesome/icones/shutdown.png" }
                                   }
                         })
 
@@ -403,9 +406,9 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5+ unmute; amixer set Headphone unmute; amixer set Speaker unmute") end),
     awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5- unmute") end),
     awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end),
-    awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight +10") end),
-    awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -10") end),
-    awful.key({ "Control", "Shift" }, "l", function() awful.util.spawn("/home/victor/.lock_screen/lock") end),
+    awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight +5") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -5") end),
+    awful.key({ "Control", "Shift" }, "l", function() awful.util.spawn("$HOME/.lock_screen/lock") end),
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn("firefox") end),
 
 
