@@ -40,15 +40,15 @@ alias xs='cd'
 alias sl='ls'
 alias rrm='\rm'
 alias rm='\mv --target-directory ${HOME}/Corbeille'
-alias CLEAN='rrm -R ${HOME}/Corbeille/*; rrm -R ${HOME}/Corbeille/.*; rrm -R ${HOME}/Corbeille/..*'
+alias CLEAN='rrm -fr ${HOME}/Corbeille/*; rrm -fr ${HOME}/Corbeille/.*; rrm -fr ${HOME}/Corbeille/..*'
 alias nano='nano -c'
 alias syu='pacman -Syu'
 
 function SWAP(){
 	local TMPFILE=tmp.$$
-	cp "$1" $TEMPFILE
+	cp "$1" "$TMPFILE"
 	mv "$2" "$1"
-	mv $TEMPFILE "$2"
+	mv "$TMPFILE" "$2"
 }
 
 
