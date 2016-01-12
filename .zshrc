@@ -1,5 +1,12 @@
 #####################
-###     ZSHRC     ###
+###
+###   _________  _   _ ____   ____ 
+###  |__  / ___|| | | |  _ \ / ___|
+###    / /\___ \| |_| | |_) | |    
+### _ / /_ ___) |  _  |  _ <| |___ 
+###(_)____|____/|_| |_|_| \_\\____|
+###
+###
 ##################### 
 
 
@@ -44,6 +51,11 @@ alias CLEAN='rrm -fr ${HOME}/Corbeille/*; rrm -fr ${HOME}/Corbeille/.*; rrm -fr 
 alias nano='nano -c'
 alias syu='pacman -Syu'
 
+alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3 --output=${HOME}/Musique/ATrier'
+
+
+alias -s pdf="evince "
+
 function SWAP(){
 	local TMPFILE=tmp.$$
 	cp --reflink=auto -- "$1" "$TMPFILE"
@@ -64,7 +76,9 @@ export GREP_COLOR=31
 alias grep='grep --color=auto'
 alias xte='nohup xterm &' # xte lancera un xterm qui ne se fermera pas si on ferme le terminal
 
-alias curly="curl -F 'f:1=<-' ix.io"
+alias curlix="curl -F 'f:1=<-' ix.io"
+alias curlsprunge="curl -F 'sprunge=<-' http://sprunge.us"
+
 
 bindkey -e
 bindkey "^[[5~"	beginning-of-line
@@ -159,3 +173,6 @@ git_prompt_string() {
 
 # Set the right-hand prompt
 RPS1='$(git_prompt_string)'
+                  
+
+                                
