@@ -46,9 +46,9 @@ alias syu='pacman -Syu'
 
 function SWAP(){
 	local TMPFILE=tmp.$$
-	cp "$1" "$TMPFILE"
-	mv "$2" "$1"
-	mv "$TMPFILE" "$2"
+	cp --reflink=auto -- "$1" "$TMPFILE"
+	mv -- "$2" "$1"
+	mv -- "$TMPFILE" "$2"
 }
 
 
