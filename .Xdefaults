@@ -4,15 +4,15 @@
 
 !!Liens cliquables (perl, et URL)
 
-URxvt.url-launcher :	firefox
+URxvt.url-launcher :	/usr/binfirefox
 URxvt.url-underline :	true
-URxvt.matcher.button :	3
+URxvt.matcher.button :	1
 URxvt.colorUL :		#81a2be
 
 
 
 !!Noms des fenêtes
-
+!URxvt.iconFile: /path/to/icon
 
 !! Scrollbar / Border
 
@@ -22,8 +22,11 @@ URxvt.secondaryScroll :	true
 
 
 !! onglets
-URxvt.perl-ext-common:	default,matcher,tabbed
+URxvt.perl-ext-common:	default,matcher
 URxvt.tabbed.tabbar-fg:	8
 URxvt.tabbed.tabbar-bg:	0
 URxvt.tabbed.tab-fg:	7
 URxvt.tabbed.tab-bg:	0
+
+URxvt.iso14755: False
+URxvt.iso14755_52: False
