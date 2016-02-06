@@ -1,1 +1,0 @@
-/home/victor/.config/i3/
