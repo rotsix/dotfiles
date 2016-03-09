@@ -81,12 +81,12 @@ $endif
 
 #HOME
 ${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 95 }\
-    {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+    {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
     ${else}
     ${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 90 }\
-        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
         ${else}
-        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
 
     $endif
 $endif
@@ -106,7 +106,7 @@ $endif
 #    $endif
 #$endif
 
-${execi 120 ~/TEST/bat.sh}
+${execi 120 ~/.config/i3/bat.sh}
 
 ###########
 
