@@ -12,6 +12,7 @@
 
 
 export EDITOR=nano
+export PATH=$PATH:$HOME/bin
 
 autoload -U compinit
 compinit
@@ -37,24 +38,31 @@ autoload -U promptinit
 promptinit
 #prompt swaggy 
 
-alias ls='ls -F --color=auto'
-alias la='ls -AF '
-alias ll='ls -lh '
-alias lla='ls -AFlh '
-alias lll='ls -lh | less'
-alias llla='ls -lhA | less'
+alias ls='ls -Fh --color=auto'
+alias la='ls -A'
+alias ll='ls -l '
+alias lla='ll -A'
+alias lll='ll | less'
+alias llla='ll -A | less'
 alias xs='cd'
 alias sl='ls'
 alias rrm='\rm'
 alias rm='\mv --target-directory ${HOME}/Corbeille'
 alias CLEAN='rrm -fr ${HOME}/Corbeille/*; rrm -fr ${HOME}/Corbeille/.*; rrm -fr ${HOME}/Corbeille/..*'
 alias nano='nano -c'
-alias syu='pacman -Syu'
+alias syu='sudo pacman -Syu'
+alias sudo='sudo '
 
-alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3 --output=${HOME}/Musique/ATrier'
 
+alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
+alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && yaourt -Syy'
+
+alias uzbl='uzbl-tabbed'
 
 alias -s pdf="evince "
+alias -s html="firefox "
+alias -s png="display "
+alias -s jpg="display "
 
 function SWAP(){
 	local TMPFILE=tmp.$$
@@ -62,6 +70,10 @@ function SWAP(){
 	mv -- "$2" "$1"
 	mv -- "$TMPFILE" "$2"
 }
+
+ix(){ [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
+
+sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
 
 
 ### mega alias
@@ -96,7 +108,7 @@ bindkey "^[[3~"	delete-char
 
 local text=${1:-'red'}
 local punctuation=${2:-'blue'}
-PROMPT="%F{$text}┌── [%F{$punctuation} %~%F{$text} ]$prompt_newline%F{$text}└────%#%f "
+PROMPT="%F{$text}┌──[%F{$punctuation} %~%F{$text} ]$prompt_newline%F{$text}└────%#%f "
 
 
 
@@ -112,8 +124,8 @@ autoload -U colors && colors # Enable colors in prompt
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"
-GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
+GIT_PROMPT_PREFIX="%{$fg[green]%}%{$reset_color%}"
+GIT_PROMPT_SUFFIX="%{$fg[green]%}%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
@@ -175,4 +187,12 @@ git_prompt_string() {
 RPS1='$(git_prompt_string)'
                   
 
-                                
+################################
+#syntax-coloration and co
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/victor/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+

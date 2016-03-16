@@ -1,0 +1,142 @@
+!!Informations générales
+URxvt.perl-ext-common:   default,matcher
+URxvt.url-launcher :    /usr/binfirefox
+URxvt.url-underline :   true
+URxvt.matcher.button :  1
+URxvt.colorUL :         #81a2be
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+URxvt.iso14755:     False
+URxvt.iso14755_52:  False
+URxvt.saveLines: 1000
+URxvt.lineSpace: 0
+URxvt.loginShell: true
+URxvt.urgentOnBell: true
+
+
+
+!!Noms des fenêtes
+!URxvt.iconFile: /path/to/icon
+
+
+
+!! Scrollbar / Border
+URxvt.scrollBar :        false
+URxvt.borderless :       1
+URxvt.secondaryScroll :  true
+
+
+
+!! Onglets
+!!rajouter tabbed à URxvt.perl-ext-common
+URxvt.tabbed.tabbar-fg:  8
+URxvt.tabbed.tabbar-bg:  0
+URxvt.tabbed.tab-fg:     7
+URxvt.tabbed.tab-bg:     0
+
+
+!! Transparence
+!!URxvt.inheritPixmap: true
+!!URxvt.transparent: true
+!!URxvt.shading: 20
+!!URxvt.fading: 28
+!!pour retirer : urxvt.transparent: false
+!!URxvt.tintColor: #48737E
+
+!!32 pour i3
+!URxvt.depth: 32
+URxvt.background: [60]#001b29
+!URxvt.background: [39]black
+
+
+
+!! Polices
+URxvt.allow_bold: true
+URxvt.font: xft:Roboto Mono for Powerline-11
+URxvt.boldFont: xft:Roboto Mono for Powerline-11:bold
+URxvt.italicFont: xft:Roboto Mono for Powerline-11:italic
+URxvt.boldItalicFont: xft:Roboto Mono for Powerline-11:bold:italic
+!!URxvt.boldFont: xft:Monospace-11:bold
+!!URxvt.italicFont: xft:Monospace-11:italic
+!!URxvt.boldItalicFont: xft:Monospace-11:bold:italic
+URxvt.letterSpace: 0
+
+
+
+!! Couleurs
+!!TERMCOL   HEX     RGB
+!!-------   ------- -----------
+!!black     #073642   7  54  66
+!!red       #dc322f 220  50  47
+!!green     #859900 133 153   0
+!!yellow    #b58900 181 137   0
+!!blue      #268bd2  38 139 210
+!!magenta   #d33682 211  54 130
+!!cyan      #2aa198  42 161 152
+!!white     #eee8d5 238 232 213
+!
+!!brblack   #002b36   0  43  54
+!!brred     #cb4b16 203  75  22
+!!brgreen   #586e75  88 110 117
+!!bryellow  #657b83 101 123 131
+!!brblue    #839496 131 148 150
+!!brmagenta #6c71c4 108 113 196
+!!brcyan    #93a1a1 147 161 161
+!!brwhite   #fdf6e3 253 246 227
+
+!!THEME POUR SOLARIZED SUR VIM
+
+!! black dark/light
+*.color0:			#073642
+*.color8:			#002b36
+
+!! red dark/light
+*.color1:			#dc322f
+*.color9:          	      	#cb4b16
+
+!! green dark/light
+*.color2:                	#859900
+*.color10:    		        #586e75
+
+!! yellow dark/light
+*.color3:             		#b58900
+*.color11:               	#657b83
+
+!! blue dark/light
+*.color4:                	#268bd2
+*.color12:               	#839496
+
+!! magenta dark/light
+*.color5:                	#d33682
+*.color13:               	#6c71c4
+
+!! cyan dark/light
+*.color6:                	#2aa198
+*.color14:               	#93a1a1
+
+!! white dark/light
+*.color7:                	#eee8d5
+*.color15:               	#fdf6e3
+
+!!*background:            	#002b36
+*foreground:            	#839496
+*fadeColor:             	#002b36
+*cursorColor:           	#93a1a1
+*pointerColorBackground:	#586e75
+*pointerColorForeground:	#93a1a1
+
+
+
+!! ROFI ---------
+
+rofi.font: Roboto 10
+rofi.opacity: 85
+rofi.lines: 3
+rofi.width: 40
+rofi.color-enabled: true
+rofi.color-normal: #222222, #666666, #222222, #222222, #dddddd
+rofi.color-window: #222222, #222222
+rofi.padding: 5
+rofi.bw: 0
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
