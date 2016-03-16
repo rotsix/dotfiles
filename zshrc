@@ -13,6 +13,8 @@
 
 export EDITOR=nano
 export PATH=$PATH:$HOME/bin
+export MAKEFLAGS=' -j 4'
+
 
 autoload -U compinit
 compinit
