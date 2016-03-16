@@ -16,16 +16,11 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango: Ubuntu Mono, Icons 10
-font pango: Roboto Medium 10
+font pango: Roboto Medium 9
 
 # resolv i3 transparancy bug
 new_window pixel
 
-
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
 
 
@@ -120,6 +115,11 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# specifics floating windows
+for_window[class="Transmission"] floating enable
+for_window[class="GParted"] floating enable
+for_window[class="System-config-lvm"] floating enable
+
 
 
 # change focus between tiling / floating windows
@@ -143,7 +143,7 @@ set $tag2 "2:"
 set $tag3 "3:"
 set $tag4 "4:"
 set $tag5 "5:"
-set $tag6 "6:6"
+set $tag6 "6:"
 set $tag7 "7:7"
 set $tag8 "8:8"
 set $tag9 "9:9"
@@ -265,5 +265,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -5"
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5- unmute"
-bindsym XF86AudioMute exec "amixer set Master toggle; amixet set Headphone unmute; amixer set Speaker unmute"
+bindsym XF86AudioMute exec "amixer set Master toggle; amixer set Headphone unmute; amixer set Speaker unmute"
 
+
+bindsym $mod+c exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -i -dmenu -p ''"

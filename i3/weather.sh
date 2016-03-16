@@ -1,6 +1,6 @@
 #!/bin/bash
 
-loc="34090"
+loc="75013"
 
 mph=$(cliweather $loc| grep 'Wind:' | cut -d' ' -f2)
 kmh=$(echo "$(($mph*(8/5)))" | cut -d'.' -f1)

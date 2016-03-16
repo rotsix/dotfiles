@@ -20,10 +20,15 @@ vicious = require("vicious")
 -- assault -> batterie
 local assault = require('assault')
 
+--lancer nm-applet
+os.execute("nm-applet &")
+
+--lancer xautolock
+os.execute("xautolock -time 8 -locker /home/victor/.lock_screen/lock -notify 30 -notifier 'notify-send --urgency=critical \"Screen lock\" \"Screen will be locked in 30s\" -i /home/victor/.lock_screen/lock.png -t 5000' &")
+os.execute("notify-send \"Bienvenue\" \"Bonjour seigneur, comment allez-vous ?\" -t 10000 -i &")
+
 -- Mettre en français les langues
 os.setlocale("fr_FR.UTF-8", "time")
-
-
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -52,10 +57,10 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/gladious/theme.lua")
+beautiful.init("/usr/share/awesome/themes/vicious/theme.lua")
 
 -- SET WALLPAPER
-theme.wallpaper = "/home/victor/Wallpaper/square_final.png"
+theme.wallpaper = "/home/victor/Wallpaper/wp_darktosun.png"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvtc"
@@ -129,24 +134,16 @@ menuapplications = {
    { "LibreOffice", "libreoffice" , "/home/victor/.config/awesome/icones/libreoffice.png" },
    { "CherryTree", "cherrytree", "/home/victor/.config/awesome/icones/cherrytree.png" },
    { "PCManFM", "pcmanfm" , "/home/victor/.config/awesome/icones/pcmanfm.png" },
-   { "Dropbox", "dropbox" , "/home/victor/.config/awesome/icones/dropbox.png" },
    { "irssi", terminal .. " -e irssi" , "/home/victor/.config/awesome/icones/irssi.png" },
-   { "weechat", terminal .. " -e weechat" , "/home/victor/.config/awesome/icones/weechat.png" },
-   { "HexChat", "hexchat" , "/home/victor/.config/awesome/icones/hexchat.png" }
-}
-
-menujeux = {
-	{ "GLTron", "gltron" },
-	{ "TeeWorlds", "teeworlds", "/home/victor/.config/awesome/icones/teeworlds.png" }
+   { "weechat", terminal .. " -e weechat" , "/home/victor/.config/awesome/icones/weechat.png" }
 }
 
 mymainmenu = awful.menu({ items = { { "Awesome", myawesomemenu },
-								    { "Applications", menuapplications, beautiful.awesome_icon },
-									{ "Jeux", menujeux, "/home/victor/.config/awesome/icones/menujeux.png" },
+			   	    { "Applications", menuapplications, beautiful.awesome_icon },
                                     { "Terminal", terminal , "/home/victor/.config/awesome/icones/term_logo.png" },
                                     { "Lock", "/home/victor/.lock_screen/lock", "/home/victor/.config/awesome/icones/lock.png" },
 				    { "Reboot", terminal .. " -e reboot" },
-   				    { "Shutdown", terminal .. " -e poweroff" , "/home/victor/.config/awesome/icones/shutdown.png" }
+   				    { "Shutdown", terminal .. " -e shutdown -f now" , "/home/victor/.config/awesome/icones/shutdown.png" }
                                   }
                         })
 
@@ -399,14 +396,12 @@ globalkeys = awful.util.table.join(
 
 
     awful.key({}, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Images/ 2>/dev/null'") end),
-    awful.key({}, "XF86MyComputer", function() awful.util.spawn("pcmanfm") end),
-    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5+ unmute; amixer set Headphone unmute; amixer set Speaker unmute") end),
-    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5- unmute; amixer set Headphone unmute; amixer set Speaker unmute") end),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("amixer set Master 5%+ unmute") end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("amixer set Master 5%- unmute") end),
     awful.key({}, "XF86AudioMute", function() awful.util.spawn("amixer set Master toggle") end),
-    awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight +5") end),
-    awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -5") end),
+    awful.key({}, "XF86MonBrightnessUp", function() awful.util.spawn("xbacklight +10") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.util.spawn("xbacklight -10") end),
     awful.key({ "Control", "Shift" }, "l", function() awful.util.spawn("/home/victor/.lock_screen/lock") end),
-    awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn("firefox") end),
 
 
     -- Standard program

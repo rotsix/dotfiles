@@ -12,8 +12,11 @@
 
 file="$HOME/.todo"
 ( [ -e "$file" ] || touch "$file" ) && [ ! -w "$file" ] && echo cannot write to $file && exit 1
+
+
+
 if [[ -z $1 || $1 == "--help" || $1 == "-h" || $1 == "help" ]]; then
-	echo "┌──────[ todo ]──[ version 0.0.1 ]─────── ─ ─"
+	echo "┌──────[ todo ]──[ version 0.0.2 ]─────── ─ ─"
 	echo "│ usage: todo <options>"
 	echo "│ author: xero harrison - http://xero.nu"
 	echo "├────────────────[ options ]"───────────── ─ ─

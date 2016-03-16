@@ -4,7 +4,7 @@ function uploadImage {
 }
 
 uploadImage "$@" | xclip -selection c
-notify-send "Done"
+notify-send "Done" -t 5000
 
 exit
 
