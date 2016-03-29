@@ -263,8 +263,8 @@ bar {
 bindsym XF86MonBrightnessUp exec "xbacklight +5"
 bindsym XF86MonBrightnessDown exec "xbacklight -5"
 
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer set Master 5- unmute"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5+ unmute; aplay ~/.config/i3/audio-volume-change.wav"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5- unmute; aplay ~/.config/i3/audio-volume-change.wav"
 bindsym XF86AudioMute exec "amixer set Master toggle; amixer set Headphone unmute; amixer set Speaker unmute"
 
 

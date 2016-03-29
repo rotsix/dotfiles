@@ -29,11 +29,11 @@ else #black
 fi
 
 # try to use a forked version of i3lock with prepared parameters
-i3lock-color $PARAM -i $IMAGE > /dev/null 2>&1
+i3lock $PARAM -i $IMAGE > /dev/null 2>&1
 
 if [ $? -ne 0 ]; then
     # We have failed, lets get back to stock one
-    i3lock-color -i $IMAGE
+    i3lock -i $IMAGE
 fi
 
 rm $IMAGE
