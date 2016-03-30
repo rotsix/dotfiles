@@ -73,6 +73,8 @@ function SWAP(){
 	mv -- "$TMPFILE" "$2"
 }
 
+function ssh_tmux(){ ssh -t "$1" tmux a || ssh -t "$1" tmux; }
+
 ix(){ [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
 
 sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
