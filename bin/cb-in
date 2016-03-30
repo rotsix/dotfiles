@@ -1,0 +1,35 @@
+#!/bin/bash
+# Copy file or pipe to Xorg clipboard
+
+# Required program(s)
+req_progs=(xclip)
+for p in ${req_progs[@]}; do
+  hash "$p" 2>&- || \
+  { echo >&2 " Required program \"$p\" not installed."; exit 1; }
+done
+
+# Check user is not root (root doesn't have access to user Xorg server)
+if [[ "$USER" == root ]]; then
+  echo " Must be regular user to copy a file to the clipboard"
+  exit
+fi
+
+# Copy stdin to clipboard
+if ! [ -t 0 ]; then
+  echo -n "$(< /dev/stdin)" | xclip -selection clipboard && \
+  echo " Copied stdout to clipboard"
+# Copy file to clipboard
+else
+  # Display usage if no parameters given
+  if [[ -z "$@" ]]; then
+    echo " ${0##*/} <filename> - copy a file to the clipboard
+ command | ${0##*/}  - copy stdout to the clipboard" && exit
+  fi
+  # Copy file to clipboard
+  if [[ ! -f "$@" ]]; then
+    echo "$warn File ${txtund}$filename${txtrst} doesn't exist" && exit
+  else
+    xclip -in -selection clipboard "$@" && \
+    echo " Copied file "$@" to the clipboard"
+  fi
+fi

@@ -1,0 +1,34 @@
+#!/bin/bash
+# Paste contents of Xorg clipboard to a file from the command line
+
+filename=$@
+pasteinfo="clipboard contents"
+
+# Display usage if no parameters given
+if [[ -z "$@" ]]; then
+  echo " ${0##*/} <filename> - paste contents of context-menu clipboard to file"
+  exit
+fi
+
+# If filename matches a directory name exit
+if [ -d "$filename" ]; then
+  echo " Directory already has the name ""$filename""" && exit
+fi
+
+# Check if file exists, prompt to append or override, else create new
+if [[ -f "$filename" ]]; then
+  echo " File \""${filename##*/}"\" already exists - (e)xit, (a)ppend, (o)verwrite: "
+  read edit
+  case "$edit" in
+    [aA] )  xclip -out -selection clipboard >> "$filename"
+            echo " File \""$filename"\" appended with clipboard contents"
+            ;;
+    [oO] )  xclip -out -selection clipboard > "$filename"
+            echo " File \""$filename"\" overwrote with clipboard contents"
+            ;;
+    * )     exit
+  esac;
+else
+  xclip -out -selection clipboard >> "$filename"
+  echo " File \""$filename"\" created with clipboard contents"
+fi
