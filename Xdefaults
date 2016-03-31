@@ -29,24 +29,20 @@ URxvt.secondaryScroll :  true
 
 !! Onglets
 !!rajouter tabbed à URxvt.perl-ext-common
-URxvt.tabbed.tabbar-fg:  8
-URxvt.tabbed.tabbar-bg:  0
-URxvt.tabbed.tab-fg:     7
-URxvt.tabbed.tab-bg:     0
+!URxvt.tabbed.tabbar-fg:  8
+!URxvt.tabbed.tabbar-bg:  0
+!URxvt.tabbed.tab-fg:     7
+!URxvt.tabbed.tab-bg:     0
 
 
 !! Transparence
-!!URxvt.inheritPixmap: true
-!!URxvt.transparent: true
-!!URxvt.shading: 20
-!!URxvt.fading: 28
-!!pour retirer : urxvt.transparent: false
-!!URxvt.tintColor: #48737E
-
-!!32 pour i3
-!URxvt.depth: 32
-URxvt.background: [60]#001b29
-!URxvt.background: [39]black
+! Config Xfce :
+! URxvt.background: [60]#001b29
+! Config i3 :
+URxvt.shading: 20
+URxvt.fading: 28
+URxvt.background: [39]black
+URxvt.depth: 32
 
 
 
@@ -56,9 +52,6 @@ URxvt.font: xft:Roboto Mono for Powerline-11
 URxvt.boldFont: xft:Roboto Mono for Powerline-11:bold
 URxvt.italicFont: xft:Roboto Mono for Powerline-11:italic
 URxvt.boldItalicFont: xft:Roboto Mono for Powerline-11:bold:italic
-!!URxvt.boldFont: xft:Monospace-11:bold
-!!URxvt.italicFont: xft:Monospace-11:italic
-!!URxvt.boldItalicFont: xft:Monospace-11:bold:italic
 URxvt.letterSpace: 0
 
 
@@ -120,7 +113,10 @@ URxvt.letterSpace: 0
 
 !!*background:            	#002b36
 *foreground:            	#839496
-*fadeColor:             	#002b36
+!Xfce
+!*fadeColor:             	#002b36
+!i3
+*fadeColor:                 #000000
 *cursorColor:           	#93a1a1
 *pointerColorBackground:	#586e75
 *pointerColorForeground:	#93a1a1
