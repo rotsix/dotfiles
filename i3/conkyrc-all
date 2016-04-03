@@ -67,16 +67,6 @@ ${if_match "${execi 120 ping -c 1 archlinux.polymorf.fr > /dev/null && echo ok}"
 
 $endif
 
-#ADD DYNAMIC INTERFACE
-
-{"full_text":" ${downspeed wlp4s0}","color":"\#00AE58","separator":false,"separator_block_width":15, "min_width": 65, "align": "left"},\
-
-#UP
-
-#ADD DYNAMIC INTERFACE
-
-{"full_text":" ${upspeed wlp4s0}","color":"\#D0151E","separator":false,"separator_block_width":15, "min_width": 65, "align": "left"},\
-
 #WIRED
 ${if_match "${addr enp3s0}" != "No Address" }\
     ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat ~/.i3/mac_orig}" }\
@@ -101,81 +91,10 @@ ${if_match "${wireless_essid wlp4s0}" != "off/any" }\
     $endif
 $endif
 
-#VPN CONNECTED
-${if_match "${exec ip address show | grep tun}" != "" }\
-{"full_text":"   VPN","color":"\#F15D25","separator":false,"separator_block_width":6},\
-$endif
+{"full_text":" ","separator":false}\
 
-#TOR CONNECTED
-${if_match "${exec systemctl status tor | grep 'active (running)'}" != "" }\
-{"full_text":"   TOR${execi 10 proxychains wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1}","color":"\#F15D25","separator":false,"separator_block_width":6},\
-$endif
-
-#CPU
-
-${if_match ${cpu cpu0} >= 80}\
-{"full_text":" ${cpu cpu0}%","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-${else}
-    ${if_match ${cpu cpu0} >= 50}\
-    {"full_text":"       ${cpu cpu0}%","color":"\#E56C08","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-    ${else}
-    {"full_text":"       ${cpu cpu0}%","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-    $endif
-$endif
-    
-#MEM
-
-# CHANGE COLOR IN HIGH MEMORY USAGE
-{"full_text":" ${mem}","color":"\#C5C5C5","separator":false,"separator_block_width":20, "min_width": 65, "align": "left"},\
-
-#SYSTEM
-${if_match ${execi 60 df -h | grep sqrt_part | awk '{print $5}' | cut -d"%" -f1} >= 95 }\
-    {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-    ${else}
-    ${if_match ${execi 60 df -h | grep sqrt_part | awk '{print $5}' | cut -d"%" -f1} >= 90 }\
-        {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-        ${else}
-        {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-
-$endif
-
-
-#HOME
-${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 95 }\
-    {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
-    ${else}
-    ${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 90 }\
-        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
-        ${else}
-        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
-
-    $endif
-$endif
-
-
-########### CRASH TEST
-#SWAP
-# 
-#${if_match ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'} >= 75 }\
-#    {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print $2/4194300*100}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
-#    ${else}
-#    ${if_match ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'} >= 90 }\
-#        {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
-#        ${else}
-#        {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
-
-#    $endif
-#$endif
 
 ${execi 120 ~/.config/i3/bat.sh},\
-
-#MPV
-
-#${if_match "${exec xdotool search --class mpv}"==""}\
-#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 570, "align": "right"},\
-#${else}
-#{"full_text": "    ${exec xprop -id $(xdotool search --class mpv) | grep 'NET_WM_NAME(UTF8_STRING)' | cut -d'"' -f2}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width":570 , "align": "right"}\
-#$endif
 
 #MUSIC
 
