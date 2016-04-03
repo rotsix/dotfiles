@@ -67,36 +67,20 @@ ${if_match "${execi 120 ping -c 1 archlinux.polymorf.fr > /dev/null && echo ok}"
 
 $endif
 
-#VOLUME
-${if_match "${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}" == "" }\
-{"full_text":" ","color":"\#D0151E","separator":false,"separator_block_width":6},\
-${else}
-    ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 75 }\
-    {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-    ${else}
-        ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 50 }\
-        {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-        ${else}
-            {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-        $endif
-    $endif
-$endif
+#ADD DYNAMIC INTERFACE
 
+{"full_text":" ${downspeed wlp4s0}","color":"\#00AE58","separator":false,"separator_block_width":15, "min_width": 65, "align": "left"},\
 
+#UP
 
-#SEPARATOR
-{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":15},\
+#ADD DYNAMIC INTERFACE
 
-#BACKLIGHT
-{"full_text":"  ${exec xbacklight -get | cut -d"." -f1}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-
-#SEPARATOR
-{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":15},\
+{"full_text":" ${upspeed wlp4s0}","color":"\#D0151E","separator":false,"separator_block_width":15, "min_width": 65, "align": "left"},\
 
 #WIRED
 ${if_match "${addr enp3s0}" != "No Address" }\
     ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat ~/.i3/mac_orig}" }\
-    {"full_text":"ORIG       ${addr enp3s0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+    {"full_text":"ORIG       ${addr br0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
     ${else}
     {"full_text":" ${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}       ${addr br0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
     $endif
@@ -126,6 +110,111 @@ $endif
 ${if_match "${exec systemctl status tor | grep 'active (running)'}" != "" }\
 {"full_text":"   TOR${execi 10 proxychains wget http://checkip.dyndns.org/ -O - -o /dev/null | cut -d: -f 2 | cut -d\< -f 1}","color":"\#F15D25","separator":false,"separator_block_width":6},\
 $endif
+
+#CPU
+
+${if_match ${cpu cpu0} >= 80}\
+{"full_text":" ${cpu cpu0}%","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+${else}
+    ${if_match ${cpu cpu0} >= 50}\
+    {"full_text":"       ${cpu cpu0}%","color":"\#E56C08","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+    ${else}
+    {"full_text":"       ${cpu cpu0}%","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+    $endif
+$endif
+    
+#MEM
+
+# CHANGE COLOR IN HIGH MEMORY USAGE
+{"full_text":" ${mem}","color":"\#C5C5C5","separator":false,"separator_block_width":20, "min_width": 65, "align": "left"},\
+
+#SYSTEM
+${if_match ${execi 60 df -h | grep sqrt_part | awk '{print $5}' | cut -d"%" -f1} >= 95 }\
+    {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+    ${else}
+    ${if_match ${execi 60 df -h | grep sqrt_part | awk '{print $5}' | cut -d"%" -f1} >= 90 }\
+        {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+        ${else}
+        {"full_text":" ${execi 60 df -h | grep sqrt_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+
+$endif
+
+
+#HOME
+${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 95 }\
+    {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+    ${else}
+    ${if_match ${execi 60 df -h | grep home_part | awk '{print $5}' | cut -d"%" -f1} >= 90 }\
+        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+        ${else}
+        {"full_text":" ${execi 60 df -h | grep home_part | awk '{print $5}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+
+    $endif
+$endif
+
+
+########### CRASH TEST
+#SWAP
+# 
+#${if_match ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'} >= 75 }\
+#    {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print $2/4194300*100}'}","color":"\#D0151E","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+#    ${else}
+#    ${if_match ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'} >= 90 }\
+#        {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'}","color":"\#F15D25","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"}\
+#        ${else}
+#        {"full_text":" ${execi 60 grep 'SwapFree' /proc/meminfo | awk '{print (1- $2/4194300*100)}'}","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
+
+#    $endif
+#$endif
+
+${execi 120 ~/.config/i3/bat.sh},\
+
+#MPV
+
+#${if_match "${exec xdotool search --class mpv}"==""}\
+#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 570, "align": "right"},\
+#${else}
+#{"full_text": "    ${exec xprop -id $(xdotool search --class mpv) | grep 'NET_WM_NAME(UTF8_STRING)' | cut -d'"' -f2}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width":570 , "align": "right"}\
+#$endif
+
+#MUSIC
+
+#${if_match "${exec mpc -f %artist% | head  -n 1 | grep -v 'consume: off'| sed 's/\\n//g'}"==""}\
+#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 600, "align": "left"}\
+#${else}
+#    ${if_match "${exec mpc status | egrep 'paused|playing' | cut -d" " -f1}"=="[playing]"}\
+#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 600, "align": "right"}\
+#    ${else}
+#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6,"min_width": 600, "align": "right"},\
+#    $endif
+#SEPARATOR
+#$endif
+
+
+
+
+#VOLUME
+${if_match "${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}" == "" }\
+{"full_text":" ","color":"\#D0151E","separator":false,"separator_block_width":6},\
+${else}
+    ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 75 }\
+    {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+    ${else}
+        ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 50 }\
+        {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+        ${else}
+            {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+        $endif
+    $endif
+$endif
+
+
+
+#SEPARATOR
+{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":15},\
+
+#BACKLIGHT
+{"full_text":"  ${exec xbacklight -get | cut -d"." -f1}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
 
 #SEPARATOR
 {"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":15},\
@@ -183,5 +272,11 @@ $endif
 #TIME
 {"full_text":"${time %H:%M:%S}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
 {"full_text":"  ","color":"\#00AE58","separator":false,"separator_block_width":6}\
+
+
+###########
+
+
+
 
 ],

@@ -39,8 +39,6 @@ URxvt.secondaryScroll :  true
 ! Config Xfce :
 ! URxvt.background: [60]#001b29
 ! Config i3 :
-URxvt.shading: 20
-URxvt.fading: 28
 URxvt.background: [39]black
 URxvt.depth: 32
 
