@@ -59,7 +59,8 @@ bindsym $mod+Shift+Backspace kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+r exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+r exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+r exec dmenu_run -l 0 -x 700 -y 400 -w 450 -h 40 -fn "Roboto Medium-14" -nb "#2B303B" -nf "#8FA1B3" -sb "#8FA1B3" -sf "#2B303B" -p ">" -q -i 
 
 
 
