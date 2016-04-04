@@ -268,7 +268,17 @@ bar {
         strip_workspace_numbers yes
         colors{
             background #202020
+
+            # class 			border     	backgrd 	text
+        	focused_workspace  #285577  	#285577  	#ffffff
+        	active_workspace   #161616  	#161616  	#a5a5a5
+        	inactive_workspace #545454  	#545454  	#a5a5a5
+        	urgent_workspace   #000000  	#FF0000  	#ffffff
+
         }
+
+        
+
 }
 
 
