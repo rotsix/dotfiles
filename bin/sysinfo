@@ -1,6 +1,49 @@
 #!/bin/sh
 
 #############
+# Functions #
+#############
+
+getColor() {
+	if [[ -n "$1" ]]; then
+		if [[ ${BASH_VERSINFO[0]} -ge 4 ]]; then
+			if [[ ${BASH_VERSINFO[0]} -eq 4 && ${BASH_VERSINFO[1]} -gt 1 ]] || [[ ${BASH_VERSINFO[0]} -gt 4 ]]; then
+				tmp_color=${1,,}
+			else
+				tmp_color="$(tr '[:upper:]' '[:lower:]' <<< ${1})"
+			fi
+		else
+			tmp_color="$(tr '[:upper:]' '[:lower:]' <<< ${1})"
+		fi
+		case "${tmp_color}" in
+			'black')		color_ret='\033[0m\033[30m';;
+			'red')			color_ret='\033[0m\033[31m';;
+			'green')		color_ret='\033[0m\033[32m';;
+			'brown')		color_ret='\033[0m\033[33m';;
+			'blue')			color_ret='\033[0m\033[34m';;
+			'purple')		color_ret='\033[0m\033[35m';;
+			'cyan')			color_ret='\033[0m\033[36m';;
+			'light grey')	color_ret='\033[0m\033[37m';;
+			'dark grey')	color_ret='\033[0m\033[1;30m';;
+			'light red')	color_ret='\033[0m\033[1;31m';;
+			'light green')	color_ret='\033[0m\033[1;32m';;
+			'yellow')		color_ret='\033[0m\033[1;33m';;
+			'light blue')	color_ret='\033[0m\033[1;34m';;
+			'light purple')	color_ret='\033[0m\033[1;35m';;
+			'light cyan')	color_ret='\033[0m\033[1;36m';;
+			'white')		color_ret='\033[0m\033[1;37m';;
+			# Some 256 colors
+			'orange') color_ret="$(colorize '202')";;
+			# HaikuOS
+			'black_haiku') color_ret="$(colorize '7')";;
+		esac
+		[[ -n "${color_ret}" ]] && echo "${color_ret}"
+	else
+		:
+	fi
+}
+
+#############
 # Variables #
 #############
 
@@ -22,34 +65,32 @@ if pgrep "mocp" > /dev/null; then
 	mocpplaying=$(mocp -Q "%artist - %song")
 fi
 
-#####################
-# Draw DeaDSeC logo #
-#####################
 
-printf "\e[1;36m " 
+printf "\e[1;36m "
 cat << 'EOF'
-          .                                                      .
-        .n                   .                 .                  n.
-  .   .dP                  dP                   9b                 9b.    .
- 4    qXb         .       dX                     Xb       .        dXp     t
-dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
-9XXb._       _.dXXXXb dXXXXbo.                 .odXXXXb dXXXXb._       _.dXXP
- 9XXXXXXXXXXXXXXXXXXXVXXXXXXXXOo.           .oOXXXXXXXXVXXXXXXXXXXXXXXXXXXXP
-  `9XXXXXXXXXXXXXXXXXXXXX'~   ~`OOO8b   d8OOO'~   ~`XXXXXXXXXXXXXXXXXXXXXP'
-    `9XXXXXXXXXXXP' `9XX'   DeaD   `98v8P'   SeC    `XXP' `9XXXXXXXXXXXP'
-        ~~~~~~~       9X.          .db|db.          .XP       ~~~~~~~
-                        )b.  .dbo.dP'`v'`9b.odb.  .dX(
-                      ,dXXXXXXXXXXXb     dXXXXXXXXXXXb.
-                     dXXXXXXXXXXXP'   .   `9XXXXXXXXXXXb
-                    dXXXXXXXXXXXXb   d|b   dXXXXXXXXXXXXb
-                    9XXb'   `XXXXXb.dX|Xb.dXXXXX'   `dXXP
-                     `'      9XXXXXX(   )XXXXXXP      `'
-                              XXXX X.`v'.X XXXX
-                              XP^X'`b   d'`X^XX
-                              X. 9  `   '  P )X
-                              `b  `       '  d'
-                               `             '
+
+                                      -`
+                                     .o+`            
+                                    `ooo/            
+                                   `+oooo:           
+                                  `+oooooo:          
+                                  -+oooooo+:          
+                                `/:-:++oooo+:        
+                               `/++++/+++++++:       
+                              `/++++++++++++++:      
+                             `/+++ooooooooooooo/`        
+                            ./ooosssso++osssssso+`       
+                           .oossssso-````/ossssss+`      
+                          -osssssso.      :ssssssso.     
+                         :osssssss/        osssso+++.    
+                        /ossssssss/        +ssssooo/-    
+                      `/ossssso+/:-        -:/+osssso+-  
+                     `+sso+:-\`                 `.-/+oso: 
+                    `++:.                           `-/+/
+                    .`                                 `/
+
 EOF
+
 ###########################
 # Function to draw status #
 ###########################
