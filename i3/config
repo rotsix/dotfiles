@@ -144,7 +144,7 @@ bindsym $mod+space focus mode_toggle
 
 # set workspace names
 set $tag1 "1:"
-set $tag2 "2:"
+set $tag2 "2:"
 set $tag3 "3:"
 set $tag4 "4:"
 set $tag5 "5:"
