@@ -1,5 +1,6 @@
 # dotfiles
 all my config files
+
 This contains all my config files, there's too some extensions like txt2tags ext for gedit. There's too a home-made gedit theme
 
 
@@ -10,4 +11,5 @@ xfce theme inspired by a theme found on reddit : https://www.reddit.com/r/unixpo
 
 # how to : 
 pacman -S rxvt-unicode zsh git weechat imagemagick conky xclip
+
 yaourt i3-gaps powerline ttf-font-awesome i3lock-color-git ttf-roboto 
