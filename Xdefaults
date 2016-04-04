@@ -53,6 +53,7 @@ URxvt.boldItalicFont: xft:Roboto Mono for Powerline-11:bold:italic
 URxvt.letterSpace: 0
 
 URxvt.cursorUnderline : true
+URxvt.cursorBlink : true
 
 
 !! Couleurs
