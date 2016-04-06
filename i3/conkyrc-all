@@ -39,6 +39,20 @@ TEXT
 
 [
 
+
+#MUSIC
+${if_match "${exec mpc -f %artist% | head -n 1 | grep -v 'consume: off'| sed 's/\\n//g'}"==""}\
+{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 600, "align": "left"},\
+${else}
+    ${if_match "${exec mpc status | egrep 'paused|playing' | cut -d" " -f1}"=="[playing]"}\
+    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 600, "align": "right"},\
+    ${else}
+    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6,"min_width": 600, "align": "right"},\
+    $endif
+#SEPARATOR
+$endif
+
+
 #IF INTERNET CONNECTED PART
 
 #${if_match "${execi 120 ping -q -w 2 -c 1 90.3.245.13 > /dev/null && echo ok}"=="ok"}
@@ -57,20 +71,12 @@ ${if_match "${execi 120 ping -c 1 archlinux.polymorf.fr > /dev/null && echo ok}"
     {"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":15},\
     $endif
 
-    #WEATHER
-    #{"full_text":"${execi 1800 ~/.config/i3/weather.sh | cut -d' ' -f1}","color":"\#C5C5C5","separator":false,"separator_block_width":0},\
-    #{"full_text":"  ","color":"\#00AE58","separator":false,"separator_block_width":6},\
-    #{"full_text":" ${execi 1800 ~/.config/i3/weather.sh | cut -d' ' -f2}","color":"\#4285F4","separator":false,"separator_block_width":0},\
-    #{"full_text":"  ","color":"\#00AE58","separator":false,"separator_block_width":6},\
-    #{"full_text":" ${execi 1800 ~/.config/i3/weather.sh | cut -d' ' -f3}","color":"\#C5C5C5","separator":false,"separator_block_width":0},\
-    #{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":20},\
-
 $endif
 
 #WIRED
 ${if_match "${addr enp3s0}" != "No Address" }\
-    ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat ~/.i3/mac_orig}" }\
-    {"full_text":"ORIG       ${addr br0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+    ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat ~/.config/i3/mac_orig}" }\
+    {"full_text":"ORIG       ${addr enp3s0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
     ${else}
     {"full_text":" ${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}       ${addr br0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
     $endif
@@ -94,22 +100,7 @@ $endif
 {"full_text":" ","separator":false}\
 
 
-${execi 120 ~/.config/i3/bat.sh},\
-
-#MUSIC
-
-#${if_match "${exec mpc -f %artist% | head  -n 1 | grep -v 'consume: off'| sed 's/\\n//g'}"==""}\
-#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 600, "align": "left"}\
-#${else}
-#    ${if_match "${exec mpc status | egrep 'paused|playing' | cut -d" " -f1}"=="[playing]"}\
-#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 600, "align": "right"}\
-#    ${else}
-#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6,"min_width": 600, "align": "right"},\
-#    $endif
-#SEPARATOR
-#$endif
-
-
+${execi 120 ~/bin/bat.sh},\
 
 
 #VOLUME
