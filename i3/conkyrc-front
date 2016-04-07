@@ -60,26 +60,26 @@ conky.config = {
 }
 
 conky.text = [[
-${alignc -10}${font Open Sans:size=20}${color dodgerblue3}Arch${color}Linux$font$color
-${voffset 4}$color${font}${font Open Sans:size=15}$alignr${voffset -15}${time %H:%M}$font
-${voffset -4}${color dodgerblue3}${font Open Sans:Bold:size=10}DATE ${hr 5}$color$font
-$color${font Open Sans:size=12}$alignc${time %A}, ${time %d %B %Y}$font$color
+${alignc -10}${font Roboto Mono:size=20}${color dodgerblue3}Arch${color}Linux$font$color
+${voffset 4}$color${font}${font Roboto Mono:size=15}$alignr${voffset -15}${time %H:%M}$font
+${voffset -4}${color dodgerblue3}${font Roboto Mono:Bold:size=10}DATE ${hr 5}$color$font
+$color${font Roboto Mono:size=12}$alignc${time %A}, ${time %d %B %Y}$font$color
 
 
 # SYS
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}SYSTEM ${hr 5}$color${font}
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}SYSTEM ${hr 5}$color${font}
 $sysname $kernel $alignr $machine
 Uptime: $alignr $uptime
 
 
 # MEMORY
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}MEMORY ${membar 4} 
-$color${font Open Sans:bold:size=8.5}Used:$font $mem of $memmax$alignr$memperc%
-$color${font Open Sans:bold:size=8.5}Free:$font $memeasyfree
-$color${font Open Sans:bold:size=8.5}Buffers / Cached:$font$alignr$buffers / $cached
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}MEMORY ${membar 4} 
+$color${font Roboto Mono:bold:size=8}Used:$font $mem of $memmax$alignr$memperc%
+$color${font Roboto Mono:bold:size=8}Free:$font $memeasyfree
+$color${font Roboto Mono:bold:size=8}Buffers / Cached:$font$alignr$buffers / $cached
 
 
-${voffset -10}------------------------------------------------- ${font Open Sans:Bold:size=10}${color dodgerblue3}${voffset -2}RAM${color}${font}${voffset -1} ---- ${font Open Sans:Bold:size=10}${color dodgerblue3}${voffset -2}CPU${color}${font}${voffset -1} -
+${voffset -10}------------------------------------------------- ${font Roboto Mono:Bold:size=10}${color dodgerblue3}${voffset -2}RAM${color}${font}${voffset -1} ---- ${font Roboto:Bold:size=10}${color dodgerblue3}${voffset -2}CPU${color}${font}${voffset -1} -
 ${top_mem name 1}${alignr}${top_mem cpu 1} %
 ${voffset -13}${alignr}${offset -60}${top_mem mem 1} %
 ${top_mem name 2}${alignr}${top_mem cpu 2} %
@@ -90,19 +90,19 @@ ${top_mem name 4}${alignr}${top_mem cpu 4} %
 ${voffset -13}${alignr}${offset -60}${top_mem mem 4} %
 
 
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}SWAP ${swapbar 4}
-$color${font Open Sans:bold:size=8.5}Used:$font $swap of $swapmax$alignr$swapperc%
-$color${font Open Sans:bold:size=8.5}Free:$font $swapfree
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}SWAP ${swapbar 4}
+$color${font Roboto Mono:bold:size=8}Used:$font $swap of $swapmax$alignr$swapperc%
+$color${font Roboto Mono:bold:size=8}Free:$font $swapfree
 
 
 # CPU
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}CPU ${cpubar 4}
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}CPU ${cpubar 4}
 $color${font}Intel® Core™ i5-4670K @ ${freq_g cpu0}GHz $alignr $cpu% @ ${execi 2 sensors | grep 'Physical id 0' | cut -c18-19}°C
 ${font}Core 0 - ${execi 2 sensors | grep 'Core 0' | cut -c18-19}°C ${alignc 60}${color dodgerblue3}${cpubar cpu1}${color}
 ${font}Core 1 - ${execi 2 sensors | grep 'Core 1' | cut -c18-19}°C ${alignc 60}${color dodgerblue3}${cpubar cpu2}${color}
 
 
-${voffset -10}------------------------------------------------- ${font Open Sans:Bold:size=10}${color dodgerblue3}${voffset -2}RAM${color}${font}${voffset -1} ---- ${font Open Sans:Bold:size=10}${color dodgerblue3}${voffset -2}CPU${color}${font}${voffset -1} -
+${voffset -10}------------------------------------------------- ${font Roboto Mono:Bold:size=10}${color dodgerblue3}${voffset -2}RAM${color}${font}${voffset -1} ---- ${font Roboto:Bold:size=10}${color dodgerblue3}${voffset -2}CPU${color}${font}${voffset -1} -
 #${hr 1}
 ${top name 1}${alignr}${top cpu 1} %
 ${voffset -13}${alignr}${offset -60}${top mem 1} %
@@ -115,42 +115,42 @@ ${voffset -13}${alignr}${offset -60}${top mem 4} %
 
 
 # NETWORK
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}NETWORK ${hr 5}
-$color${font Open Sans:bold:size=8.5}External IP ${font}${alignr}${execi 60 curl icanhazip.com }$font
-${voffset -14}$alignc${execpi 4 echo "\${font}\${color}ping: \${font Open Sans:bold:size=8.5}\${color #66aaff}$(ping -W 1 -c 1 8.8.8.8 -q | grep rtt | egrep [0-9]+\.[0-9]+ -o | head -n 2 | tail -n 1)\${font}\${color} ms"}
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}NETWORK ${hr 5}
+$color${font Roboto Mono:bold:size=8}External IP ${font}${alignr}${execi 60 curl icanhazip.com }$font
+${voffset -14}$alignc${execpi 4 echo "\${font}\${color}ping: \${font Roboto Mono:bold:size=8}\${color #66aaff}$(ping -W 1 -c 1 8.8.8.8 -q | grep rtt | egrep [0-9]+\.[0-9]+ -o | head -n 2 | tail -n 1)\${font}\${color} ms"}
 
-${if_match "${addr eno1}" != "No Address"}
-${voffset -10}${font Open Sans:bold:size=8.5}Ethernet $font$alignr ${addr eno1}
- ${upspeed eno1}/s $alignr ${totalup eno1}
-${voffset -14}$alignc${upspeedgraph eno1 10,120  000000 aaddff}
- ${downspeed eno1}/s $alignr ${totaldown eno1}
-${voffset -14}$alignc${downspeedgraph eno1 10,120  000000 66aaff}
+${if_match "${addr enp3s0}" != "No Address"}
+${voffset -10}${font Roboto Mono:bold:size=8}Ethernet $font$alignr ${addr enp3s0}
+ ${upspeed enp3s0}/s $alignr ${totalup enp3s0}
+${voffset -14}$alignc${upspeedgraph enp3s0 10,120  000000 aaddff}
+ ${downspeed enp3s0}/s $alignr ${totaldown enp3s0}
+${voffset -14}$alignc${downspeedgraph enp3s0 10,120  000000 66aaff}
 
 ${endif}
-${if_match "${addr wlp2s0}" != "No Address"}
-${voffset -10}${font Open Sans:bold:size=8.5}WiFi $font${wireless_link_qual_perc wlp2s0}% $alignr ${addr wlp2s0}
-${voffset -14}$alignc${wireless_essid wlp2s0}
-$alignc${wireless_link_bar 4,260 wlp2s0}   
-↑ ${upspeed wlp2s0}/s $alignr ${totalup wlp2s0}
-${voffset -14}$alignc${upspeedgraph wlp2s0 10,120 000000 aaddff}
-↓ ${downspeed wlp2s0}/s $alignr ${totaldown wlp2s0}
-${voffset -14}$alignc${downspeedgraph wlp2s0 10,120 000000 66aaff}
+${if_match "${addr wlp4s0}" != "No Address"}
+${voffset -10}${font Roboto Mono:bold:size=8}WiFi $font${wireless_link_qual_perc wlp4s0}% $alignr ${addr wlp4s0}
+${voffset -14}$alignc${wireless_essid wlp4s0}
+$alignc${wireless_link_bar 4,260 wlp4s0}   
+↑ ${upspeed wlp4s0}/s $alignr ${totalup wlp4s0}
+${voffset -14}$alignc${upspeedgraph wlp4s0 10,120 000000 aaddff}
+↓ ${downspeed wlp4s0}/s $alignr ${totaldown wlp4s0}
+${voffset -14}$alignc${downspeedgraph wlp4s0 10,120 000000 66aaff}
 ${endif}
 
 
 # DISC
-${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}DISCS ${hr 5}
+${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}DISCS ${hr 5}
 ${alignc}${color aaddff}write: ${diskio_write /dev/sda}${color 66aaff} read:${diskio_read /dev/sda}$color
 
-$color${voffset -10}${font Open Sans:bold:size=8.5}ROOT $font$alignr ${fs_type /}
+$color${voffset -10}${font Roboto Mono:bold:size=8}ROOT $font$alignr ${fs_type /}
 ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /} %
 ${fs_bar /}
 
-${voffset -10}${font Open Sans:bold:size=8.5}HOME $font$alignr ${fs_type /home/user}
-${fs_used /home/user} / ${fs_size /home/user} $alignr ${fs_used_perc /home/user} %
-${fs_bar /home/user}
+${voffset -10}${font Roboto Mono:bold:size=8}HOME $font$alignr ${fs_type /home/victor}
+${fs_used /home/victor} / ${fs_size /home/victor} $alignr ${fs_used_perc /home/victor} %
+${fs_bar /home/victor}
 
-#${voffset -8}${font Open Sans:Bold:size=10}${color dodgerblue3}WEATHER ${hr 5}
-#${alignc -10}$font$color${execi 1800 ~/.i3/weather.sh }
+#${voffset -8}${font Roboto Mono:Bold:size=10}${color dodgerblue3}WEATHER ${hr 5}
+#${alignc -10}$font$color${execi 1800 ~/.config//weather.sh }
 
 ]]
