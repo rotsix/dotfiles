@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=test
+Comment=A modern flat theme with a Solarized twist
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=test
+MetacityTheme=test
+ButtonLayout=:minimize,maximize,close
