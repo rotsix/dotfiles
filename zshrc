@@ -55,6 +55,7 @@ alias nano='nano -c'
 alias syu='sudo pacman -Syu'
 alias sudo='sudo '
 
+alias ncmpcpp='urxvtc -name ncmpcpp -cd /home/victor -e ncmpcpp'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && yaourt -Syy'
