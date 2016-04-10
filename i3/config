@@ -15,8 +15,18 @@ set $mod Mod4
 # configs for i3-gaps
 #####
 
+bindsym $mod+KP_Add gaps inner current plus 3
+bindsym $mod+KP_Subtract gaps inner current minus 3
+bindsym $mod+KP_0 gaps inner current set 12
+
+bindsym $mod+Shift+KP_Add gaps outer current plus 3
+bindsym $mod+Shift+KP_Subtract gaps outer current minus 3
+bindsym $mod+Shift+KP_0 gaps outer current set 3
+
 gaps inner 12
 gaps outer 3
+
+#####
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -152,7 +162,8 @@ set $tag6 "6:"
 set $tag7 "7:7"
 set $tag8 "8:8"
 set $tag9 "9:9"
-set $tag10 "10:10"
+set $tag10 "10:"
+
 
 
 
@@ -186,6 +197,7 @@ bindsym $mod+egrave workspace $tag7
 bindsym $mod+underscore workspace $tag8
 bindsym $mod+ccedilla workspace $tag9
 bindsym $mod+agrave workspace $tag10
+bindsym $mod+twosuperior workspace $tag10
 
 
 
