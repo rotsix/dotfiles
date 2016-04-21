@@ -24,7 +24,7 @@
 	--tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: -12px; --tab-overlap: -5px;
 	--tab-fonts: "Droid Sans","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 10pt;
 	--tab-text-align: left; /* left | center | right */
-	--tab-triangle: block;  /* block | none */
+	--tab-triangle: none;  /* block | none */
 
 	/* URL VARIABLES */
 	--url-background: var(--bg-light); --url-color: var(--fg-dark);
