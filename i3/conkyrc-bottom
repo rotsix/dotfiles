@@ -18,7 +18,7 @@ short_units yes
 # How strict should if_up be when testing an interface for being up?
 # The value is one of up, link or address, to check for the interface
 # being solely up, being up and having link or being up, having link
-# and an assigned IP address. 
+# and an assigned IP address.
 if_up_strictness address
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
@@ -61,7 +61,7 @@ ${else}
     {"full_text":" ${cpu cpu0}%","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 65, "align": "left"},\
     $endif
 $endif
-    
+
 #MEM
 
 # CHANGE COLOR IN HIGH MEMORY USAGE
@@ -106,7 +106,7 @@ $endif
 #    $endif
 #$endif
 
-${execi 120 ~/.config/i3/bat.sh}
+${execi 120 $HOME/.config/i3/bat.sh}
 
 ###########
 
