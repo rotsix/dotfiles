@@ -55,7 +55,8 @@ alias nano='nano -c'
 alias syu='sudo pacman -Syu'
 alias sudo='sudo '
 
-alias ncmpcpp='urxvtc -name ncmpcpp -cd /home/victor -e ncmpcpp'
+alias ncmpcpp='urxvtc -name ncmpcpp -cd /home/victor -e ncmpcpp && exit'
+alias ranger='urxvtc -name ranger -depth 0 -bg "#202020" -cd /home/victor -e ranger && exit'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && yaourt -Syy'
@@ -64,6 +65,7 @@ alias uzbl='uzbl-tabbed'
 
 alias -s pdf="evince "
 alias -s html="firefox "
+alias -s php="firefox "
 alias -s png="display "
 alias -s jpg="display "
 
@@ -80,6 +82,7 @@ ix(){ [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n
 
 sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
 
+imgur() { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
 
 ### mega alias
 alias f='firefox'
