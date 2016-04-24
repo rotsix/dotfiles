@@ -61,6 +61,8 @@ au BufNewFile,BufRead *.t2t                     setf txt2tags
 
 set laststatus=2
 
+
+
 set encoding=utf-8
 scriptencoding utf-8
 
