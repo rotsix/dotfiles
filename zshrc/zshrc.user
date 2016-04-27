@@ -1,0 +1,61 @@
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+alias sudo='sudo '
+alias tmania='env WINEPREFIX="/home/victor/.wine" wine C:\\windows\\command\\start.exe /Unix /home/victor/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk'
+alias boisaac='cd ~/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe'
+
+alias ps_mem='\sudo ps_mem'
+alias nichons='curl z3bra.org/tits'
+
+npp() {
+  if [ -n "$DISPLAY" ]; then
+	urxvtc -name ncmpcpp -cd /home/victor -e ncmpcpp && exit
+  else
+	ncmpcpp
+  fi
+}
+
+rgr() {
+  if [ -n "$DISPLAY" ]; then
+	urxvtc -name ranger -depth 0 -bg "#202020" -cd /home/victor -e ranger && exit
+  else
+	ranger
+  fi
+}
+
+alias ncmpcpp='npp'
+alias ranger='rgr'
+
+#for a pwd in tmux (when tmux was launched)
+#PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+
+###
+# colors in tty
+###
+if [ "$TERM" = "linux" ]; then
+  echo -en "\e]P0202020" # black dark
+  echo -en "\e]P8363636" # black light
+  echo -en "\e]P1dc322f" # red dark
+  echo -en "\e]P9cb4b16" # red light
+  echo -en "\e]P2859900" # green dark
+  echo -en "\e]PA1Aff28" # green light
+  echo -en "\e]P3b58900" # yellow dark
+  echo -en "\e]PBfff200" # yellow light
+  echo -en "\e]P4268bd2" # blue dark
+  echo -en "\e]PC0073ff" # blue light
+  echo -en "\e]P5d33682" # magenta dark
+  echo -en "\e]PD6c71c4" # magenta light
+  echo -en "\e]P62aa198" # cyan dark
+  echo -en "\e]PE00e6ff" # cyan light
+  echo -en "\e]P7eee8d5" # white dark
+  echo -en "\e]PFfdf6e3" # white light
+
+  clear # against bg artifacts
+fi
+

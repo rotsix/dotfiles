@@ -134,6 +134,7 @@ bindsym $mod+Shift+space floating toggle
 for_window[class="Transmission"] floating enable
 for_window[class="GParted"] floating enable
 for_window[class="System-config-lvm"] floating enable
+for_window[class="mpv"] floating enable
 
 assign [class="URxvt" instance="ncmpcpp"] $tag10
 
@@ -163,7 +164,7 @@ set $tag5 "5:"
 set $tag6 "6:"
 set $tag7 "7:7"
 set $tag8 "8:8"
-set $tag9 "9:9"
+set $tag9 "9:"
 set $tag10 "10:"
 
 
