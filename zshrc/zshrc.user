@@ -39,22 +39,22 @@ alias ranger='rgr'
 # colors in tty
 ###
 if [ "$TERM" = "linux" ]; then
-  echo -en "\e]P0202020" # black dark
-  echo -en "\e]P8363636" # black light
-  echo -en "\e]P1dc322f" # red dark
-  echo -en "\e]P9cb4b16" # red light
-  echo -en "\e]P2859900" # green dark
-  echo -en "\e]PA1Aff28" # green light
-  echo -en "\e]P3b58900" # yellow dark
-  echo -en "\e]PBfff200" # yellow light
+  echo -en "\e]P0161616" # black dark
+  #echo -en "\e]P8363636" # black light
+  #echo -en "\e]P1dc322f" # red dark
+  #echo -en "\e]P9cb4b16" # red light
+  #echo -en "\e]P2859900" # green dark
+  #echo -en "\e]PA1Aff28" # green light
+  #echo -en "\e]P3b58900" # yellow dark
+  #echo -en "\e]PBfff200" # yellow light
   echo -en "\e]P4268bd2" # blue dark
   echo -en "\e]PC0073ff" # blue light
-  echo -en "\e]P5d33682" # magenta dark
-  echo -en "\e]PD6c71c4" # magenta light
-  echo -en "\e]P62aa198" # cyan dark
-  echo -en "\e]PE00e6ff" # cyan light
-  echo -en "\e]P7eee8d5" # white dark
-  echo -en "\e]PFfdf6e3" # white light
+  #echo -en "\e]P5d33682" # magenta dark
+  #echo -en "\e]PD6c71c4" # magenta light
+  #echo -en "\e]P62aa198" # cyan dark
+  #echo -en "\e]PE00e6ff" # cyan light
+  #echo -en "\e]P7eee8d5" # white dark
+  #echo -en "\e]PFfdf6e3" # white light
 
   clear # against bg artifacts
 fi

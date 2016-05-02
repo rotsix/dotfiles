@@ -114,24 +114,24 @@ ${execi 120 $HOME/.config/i3/bat.sh}
 
 #MPV
 
-#${if_match "${exec xdotool search --class mpv}"==""}\
-#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 570, "align": "right"},\
-#${else}
-#{"full_text": "    ${exec xprop -id $(xdotool search --class mpv) | grep 'NET_WM_NAME(UTF8_STRING)' | cut -d'"' -f2}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width":570 , "align": "right"}\
-#$endif
+${if_match "${exec xdotool search --class mpv}"==""}\
+{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 570, "align": "right"},\
+${else}
+{"full_text": "    ${exec xprop -id $(xdotool search --class mpv) | grep 'NET_WM_NAME(UTF8_STRING)' | cut -d'"' -f2}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width":570 , "align": "right"}\
+$endif
 
 #MUSIC
 
-#${if_match "${exec mpc -f %artist% | head  -n 1 | grep -v 'consume: off'| sed 's/\\n//g'}"==""}\
-#{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 600, "align": "left"}\
-#${else}
-#    ${if_match "${exec mpc status | egrep 'paused|playing' | cut -d" " -f1}"=="[playing]"}\
-#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 600, "align": "right"}\
-#    ${else}
-#    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6,"min_width": 600, "align": "right"}\
-#    $endif
+${if_match "${exec mpc -f %artist% | head  -n 1 | grep -v 'consume: off'| sed 's/\\n//g'}"==""}\
+{"full_text":" ","color":"\#00AE58","separator":false,"separator_block_width":6, "min_width": 600, "align": "left"}\
+${else}
+    ${if_match "${exec mpc status | egrep 'paused|playing' | cut -d" " -f1}"=="[playing]"}\
+    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6, "min_width": 600, "align": "right"}\
+    ${else}
+    {"full_text": "    ${exec echo $(mpc -f "%artist%" | head -n 1 | head -c 40 | cut -d"%" -f1) - $(mpc -f "%title%" | head -n 1 | head -c 40 | cut -d"%" -f1)}   ","color":"\#C5C5C5","separator":false,"separator_block_width":6,"min_width": 600, "align": "right"}\
+    $endif
 #SEPARATOR
-#$endif
+$endif
 
 
 ],
