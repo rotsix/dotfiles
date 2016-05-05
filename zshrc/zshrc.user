@@ -34,6 +34,11 @@ alias ranger='rgr'
 #for a pwd in tmux (when tmux was launched)
 #PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+#####
+# ssh
+#####
+alias ssh_sushi='ssh user@163.172.129.135'
+alias ssh_sushi-root='ssh root@163.172.129.135'
 
 ###
 # colors in tty
