@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $explorer vivaldi-stable
 
 #####
 # configs for i3-gaps
@@ -52,9 +53,9 @@ floating_modifier $mod
 
 
 
-# start a terminal & firefox
+# start a terminal & $explorer
 bindsym $mod+Return exec urxvtc
-bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+Return exec $explorer
 bindsym $mod+Shift+u exec uzbl-tabbed
 bindsym $mod+u exec subl3
 
@@ -172,7 +173,7 @@ set $tag10 "10:"
 
 
 # exec startup apps
-#exec --no-startup-id i3-msg 'workspace $tag1; exec firefox'
+#exec --no-startup-id i3-msg 'workspace $tag1; exec $explorer'
 #exec --no-startup-id i3-msg 'workspace $tag2; exec urxvtc'
 
 
@@ -225,11 +226,11 @@ bindsym $mod+Shift+c reload
 bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+a exec $HOME/bin/kill_x.sh
+bindsym $mod+Shift+a exec "i3-msg exit"
 
-# for firefox/pcmanfm with keyboard shortcuts
+# for $explorer/pcmanfm with keyboard shortcuts
 bindsym XF86MyComputer exec pcmanfm
-bindsym XF86HomePage exec firefox
+bindsym XF86HomePage exec $explorer
 
 
 
