@@ -38,10 +38,10 @@ alias ranger='rgr'
 #####
 # ssh
 #####
-alias ssh_sushi='ssh user@IP'
-alias ssh_sushi-root='ssh root@IP'
-function ssh_tmux_sushi() { ssh -t "user@IP" tmux a || ssh -t "user@IP" tmux;}
-function ssh_tmux_sushi-root() { ssh -t "root@IP" tmux a || ssh -t "root@IP" tmux;}
+alias ssh_sushi='ssh user@sushi'
+alias ssh_sushi-root='ssh root@sushi'
+function ssh_tmux_sushi() { ssh -t "user@sushi" tmux a || ssh -t "user@sushi" tmux;}
+function ssh_tmux_sushi-root() { ssh -t "root@sushi" tmux a || ssh -t "root@sushi" tmux;}
 
 
 ###
