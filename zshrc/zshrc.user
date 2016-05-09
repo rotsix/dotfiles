@@ -8,6 +8,7 @@ source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 alias sudo='sudo '
 alias tmania='env WINEPREFIX="/home/victor/.wine" wine C:\\windows\\command\\start.exe /Unix /home/victor/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk'
 alias boisaac='cd ~/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe'
+alias dofus='cd ~/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe'
 
 alias ps_mem='\sudo ps_mem'
 alias nichons='curl z3bra.org/tits'
@@ -37,8 +38,11 @@ alias ranger='rgr'
 #####
 # ssh
 #####
-alias ssh_sushi='ssh user@163.172.129.135'
-alias ssh_sushi-root='ssh root@163.172.129.135'
+alias ssh_sushi='ssh user@IP'
+alias ssh_sushi-root='ssh root@IP'
+function ssh_tmux_sushi() { ssh -t "user@IP" tmux a || ssh -t "user@IP" tmux;}
+function ssh_tmux_sushi-root() { ssh -t "root@IP" tmux a || ssh -t "root@IP" tmux;}
+
 
 ###
 # colors in tty
