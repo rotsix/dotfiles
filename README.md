@@ -10,6 +10,6 @@ xfce theme inspired by a theme found on reddit : https://www.reddit.com/r/unixpo
 
 
 # how to : 
-pacman -S rxvt-unicode zsh git weechat imagemagick conky xclip mpd mpc ncmpcpp
+sudo pacman -S rxvt-unicode zsh git weechat imagemagick conky xclip mpd mpc ncmpcpp tmux zathura zathura-pdf-mupdf
 
-yaourt i3-gaps powerline ttf-font-awesome i3lock-color-git ttf-roboto 
+yaourt i3-gaps powerline ttf-font-awesome i3lock-color-git ttf-roboto vivaldi tty-clock
