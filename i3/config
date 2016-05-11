@@ -54,7 +54,7 @@ floating_modifier $mod
 
 
 # start a terminal & $explorer
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec $explorer
 bindsym $mod+Shift+u exec uzbl-tabbed
 bindsym $mod+u exec subl3
@@ -139,7 +139,7 @@ for_window[class="mpv"] floating enable
 for_window[instance="sun-awt-X11-XFramePeer"] floating enable
 
 assign [class="URxvt" instance="ncmpcpp"] $tag10
-
+assign [class="Termite" instance="ncmpcpp"] $tag10
 
 
 # change focus between tiling / floating windows

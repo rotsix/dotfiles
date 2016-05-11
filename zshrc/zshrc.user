@@ -3,29 +3,31 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 alias sudo='sudo '
-alias tmania='env WINEPREFIX="/home/victor/.wine" wine C:\\windows\\command\\start.exe /Unix /home/victor/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk'
-alias boisaac='cd ~/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe'
-alias dofus='cd ~/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe'
+alias tmania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk'
+alias boisaac='cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe'
+alias dofus='cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe'
 
 alias ps_mem='\sudo ps_mem'
 alias nichons='curl z3bra.org/tits'
 
 npp() {
-  if [ -n "$DISPLAY" ]; then
-	urxvtc -name ncmpcpp -cd /home/victor -e ncmpcpp && exit
+	if [ -n "$DISPLAY" ]; then
+		#urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit
+		termite --name=ncmpcpp -d $HOME -e ncmpcpp && exit
   else
-	ncmpcpp
+		ncmpcpp
   fi
 }
 
 rgr() {
   if [ -n "$DISPLAY" ]; then
-	urxvtc -name ranger -depth 0 -bg "#202020" -cd /home/victor -e ranger && exit
-  else
-	ranger
+		#urxvtc -name ranger -depth 0 -bg "#202020" -cd $HOME -e ranger && exit
+		termite --name=ranger -d $HOME -e ranger -c $HOME/.config/termite/config.ranger
+	else
+		ranger
   fi
 }
 

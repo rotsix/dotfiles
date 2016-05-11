@@ -70,7 +70,7 @@ scriptencoding utf-8
 let g:lightline = {
       \ 'colorscheme': 'default',
       \ 'component': {
-      \   'readonly': '%{&readonly?"\uf26b":""}',
+      \   'readonly': '%{&readonly?"\uf023":""}',
       \ }
       \ }
 
