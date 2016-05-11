@@ -13,6 +13,8 @@ cursor_blink = system
 # block, underline, ibeam
 cursor_shape = underline
 
+
+
 [colors]
 background = rgba(0,0,0,0.39)
 # black dark/light
