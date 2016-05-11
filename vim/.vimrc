@@ -6,7 +6,7 @@ syntax on
 set number
 set tabstop=2
 set autoindent
-set smartindent
+set cindent
 set mouse=a
 set showcmd
 set backspace=indent,eol,start
@@ -32,9 +32,8 @@ set guifont=Mono\ 11
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 
 
-set  tabstop =4
-set  shiftwidth =4
-set  softtabstop =4
+set shiftwidth=2
+set softtabstop=2
 set whichwrap+=<,>,h,l,[,]
 
 set smartcase
@@ -81,6 +80,7 @@ set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 map <Tab> i<Tab><Esc>^
 filetype indent on
-" set cineoptions=:0,(0,u0,W1s
+" set cinoptions=:0,(0,u0,W1s
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
+
