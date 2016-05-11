@@ -70,7 +70,7 @@ scriptencoding utf-8
 let g:lightline = {
       \ 'colorscheme': 'default',
       \ 'component': {
-      \   'readonly': '%{&readonly?"\uf056":""}',
+      \   'readonly': '%{&readonly?"\ue0a2":""}',
       \ }
       \ }
 
@@ -83,4 +83,7 @@ filetype indent on
 " set cinoptions=:0,(0,u0,W1s
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
+
+
+highlight Cursorline cterm=bold
 
