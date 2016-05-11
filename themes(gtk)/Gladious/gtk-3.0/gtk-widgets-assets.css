@@ -22,9 +22,9 @@
     background-repeat: no-repeat;
 }
 
-.check:insensitive,
-.check row:selected:insensitive,
-.check row:selected:focus:insensitive {
+.check:disabled,
+.check row:selected:disabled,
+.check row:selected:focus:disabled {
     background-image: linear-gradient(to bottom, shade(@theme_base_color, 0.85), shade(@theme_base_color, 0.85)),
                       linear-gradient(to bottom, shade(@theme_base_color, 0.85), shade(@theme_base_color, 0.85)),
                       linear-gradient(to bottom, shade(@theme_base_color, 0.6), shade(@theme_base_color, 0.6)),
@@ -69,9 +69,9 @@
     background-repeat: no-repeat;
 }
 
-.check:active:insensitive,
-.check row:selected:active:insensitive,
-.check row:selected:focus:active:insensitive {
+.check:active:disabled,
+.check row:selected:active:disabled,
+.check row:selected:focus:active:disabled {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent)),
@@ -95,9 +95,9 @@
     background-repeat: no-repeat;
 }
 
-.check:inconsistent,
-.check row:selected:inconsistent,
-.check row:selected:focus:inconsistent {
+.check:indeterminate,
+.check row:selected:indeterminate,
+.check row:selected:focus:indeterminate {
     background-image: linear-gradient(to bottom, @theme_selected_bg_color, @theme_selected_bg_color),
                       linear-gradient(to bottom, @theme_base_color, @theme_base_color),
                       linear-gradient(to bottom, @theme_base_color, @theme_base_color),
@@ -117,9 +117,9 @@
     background-repeat: no-repeat;
 }
 
-.check:inconsistent:insensitive,
-.check row:selected:inconsistent:insensitive,
-.check row:selected:focus:inconsistent:insensitive {
+.check:indeterminate:disabled,
+.check row:selected:indeterminate:disabled,
+.check row:selected:focus:indeterminate:disabled {
     background-image: linear-gradient(to bottom, shade(@theme_base_color, 0.6), shade(@theme_base_color, 0.6)),
                       linear-gradient(to bottom, shade(@theme_base_color, 0.85), shade(@theme_base_color, 0.85)),
                       linear-gradient(to bottom, shade(@theme_base_color, 0.85), shade(@theme_base_color, 0.85)),
@@ -150,9 +150,9 @@
     background-repeat: no-repeat;
 }
 
-.radio:insensitive,
-.radio row:selected:insensitive,
-.radio row:selected:focus:insensitive {
+.radio:disabled,
+.radio row:selected:disabled,
+.radio row:selected:focus:disabled {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.85)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent));
 
@@ -173,9 +173,9 @@
     background-repeat: no-repeat;
 }
 
-.radio:active:insensitive,
-.radio row:selected:active:insensitive,
-.radio row:selected:focus:active:insensitive {
+.radio:active:disabled,
+.radio row:selected:active:disabled,
+.radio row:selected:focus:active:disabled {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.85)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent));
@@ -185,9 +185,9 @@
     background-repeat: no-repeat;
 }
 
-.radio:inconsistent,
-.radio row:selected:inconsistent,
-.radio row:selected:focus:inconsistent {
+.radio:indeterminate,
+.radio row:selected:indeterminate,
+.radio row:selected:focus:indeterminate {
     background-image: linear-gradient(to bottom, @theme_selected_bg_color, @theme_selected_bg_color),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(@theme_base_color), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent));
@@ -197,9 +197,9 @@
     background-repeat: no-repeat;
 }
 
-.radio:inconsistent:insensitive,
-.radio row:selected:inconsistent:insensitive,
-.radio row:selected:focus:inconsistent:insensitive {
+.radio:indeterminate:disabled,
+.radio row:selected:indeterminate:disabled,
+.radio row:selected:focus:indeterminate:disabled {
     background-image: linear-gradient(to bottom, shade(@theme_base_color, 0.6), shade(@theme_base_color, 0.6)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.85)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(shade(@theme_base_color, 0.6)), to(transparent));
@@ -233,7 +233,7 @@
     background-repeat: no-repeat;
 }
 
-.menuitem.check:active:insensitive {
+.menuitem.check:active:disabled {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(mix(@menu_fg_color, @menu_bg_color, 0.5)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(mix(@menu_fg_color, @menu_bg_color, 0.5)), to(transparent)),
                       -gtk-gradient(radial, center center, 0, center center, 0.5, to(mix(@menu_fg_color, @menu_bg_color, 0.5)), to(transparent)),
@@ -259,15 +259,15 @@
     background-repeat: no-repeat;
 }
 
-.menuitem.radio:active:insensitive {
+.menuitem.radio:active:disabled {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(mix(@menu_fg_color, @menu_bg_color, 0.5)), to(transparent));
     background-position: center center;
     background-size: 40% 40%;
     background-repeat: no-repeat;
 }
 
-.menuitem.check:inconsistent,
-.menuitem.radio:inconsistent {
+.menuitem.check:indeterminate,
+.menuitem.radio:indeterminate {
     background-image: linear-gradient(to bottom, @theme_selected_bg_color, @theme_selected_bg_color);
 
     background-position: center center;
@@ -275,8 +275,8 @@
     background-repeat: no-repeat;
 }
 
-.menuitem.check:inconsistent:hover,
-.menuitem.radio:inconsistent:hover {
+.menuitem.check:indeterminate:hover,
+.menuitem.radio:indeterminate:hover {
     background-image: linear-gradient(to bottom, @theme_selected_fg_color, @theme_selected_fg_color);
 
     background-position: center center;
@@ -284,8 +284,8 @@
     background-repeat: no-repeat;
 }
 
-.menuitem.check:inconsistent:insensitive,
-.menuitem.radio:inconsistent:insensitive {
+.menuitem.check:indeterminate:disabled,
+.menuitem.radio:indeterminate:disabled {
     background-image: linear-gradient(to bottom, mix(@menu_fg_color, @menu_bg_color, 0.5), mix(@menu_fg_color, @menu_bg_color, 0.5));
 
     background-position: center center;
