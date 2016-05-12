@@ -67,12 +67,17 @@ set encoding=utf-8
 scriptencoding utf-8
 
 
+" lightline.vim {
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'seoul256',
       \ 'component': {
       \   'readonly': '%{&readonly?"\ue0a2":""}',
       \ }
       \ }
+
+set noshowmode
+
+" }
 
 
 " indentation comme emacs
