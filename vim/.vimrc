@@ -85,5 +85,5 @@ set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
 
 
-highlight Cursorline cterm=bold
+hi Cursorline cterm=bold term=bold gui=bold
 
