@@ -16,10 +16,12 @@ set backspace=indent,eol,start
 set background=dark
 let g:solarized_termcolors=256
 " colorscheme flattened-dark
-colorscheme desert
+" colorscheme desert
+colorscheme brogrammer
 
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
+" hi Cursorline cterm=bold term=bold gui=bold
 hi luaFunction ctermfg=27
 hi t2tTable ctermfg=155
 hi t2tTableTit ctermfg=155
@@ -90,5 +92,4 @@ set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
 
 
-hi Cursorline cterm=bold term=bold gui=bold
 
