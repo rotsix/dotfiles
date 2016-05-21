@@ -1,6 +1,6 @@
 !!Informations générales
 URxvt.perl-ext-common:   default,matcher
-URxvt.url-launcher :    /usr/bin/vivaldi-stable
+URxvt.url-launcher :    /usr/bin/firefox
 URxvt.url-underline :   true
 URxvt.matcher.button :  1
 URxvt.colorUL :         #81a2be
