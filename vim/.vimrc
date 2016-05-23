@@ -28,7 +28,7 @@ hi t2tTableTit ctermfg=155
 hi t2tList ctermfg=127
 
 
-set guifont=Mono\ 11
+set guifont=Roboto\ Mono\ for\ Powerline\ 11
 
 
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"

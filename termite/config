@@ -3,7 +3,7 @@ font = Roboto Mono for Powerline 11
 
 ##
 clickable_url = true
-browser = vivaldi-stable
+browser = firefox
 
 allow_bold = true
 

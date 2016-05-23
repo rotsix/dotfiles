@@ -61,3 +61,11 @@ if [ "$TERM" = "linux" ]; then
   clear # against bg artifacts
 fi
 
+
+
+local red=${1:-'red'}
+local blue=${2:-'blue'}
+local green=${3:-'green'}
+local cyan=${4:-'cyan'}
+
+PROMPT="%F{$green}%#%F{$cyan} %~ %F{$red}>%f "

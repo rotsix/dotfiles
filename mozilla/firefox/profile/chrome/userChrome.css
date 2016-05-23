@@ -22,14 +22,14 @@
 	--fg-light: #CECFD1; --fg-dark: #AAABAD;
 	--tab-triangle-correction: -1px;
 	--tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: -12px; --tab-overlap: -5px;
-	--tab-fonts: "Droid Sans","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 10pt;
+	--tab-fonts: "Roboto Mono for Powerline","Droid Sans","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 10pt;
 	--tab-text-align: left; /* left | center | right */
 	--tab-triangle: none;  /* block | none */
 
 	/* URL VARIABLES */
 	--url-background: var(--bg-light); --url-color: var(--fg-dark);
 	--url-height: 24px; --url-right-margin: 6px;
-	--url-fonts: "Droid Sans", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
+	--url-fonts: "Roboto Mono for Powerline","Droid Sans", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
 	--url-text-align: center; /* left | center | right */
 	--url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
