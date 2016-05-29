@@ -37,6 +37,13 @@ alias ranger='rgr'
 #for a pwd in tmux (when tmux was launched)
 #PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
+local red=${1:-'red'}
+local blue=${2:-'blue'}
+local green=${3:-'green'}
+local cyan=${4:-'cyan'}
+
+
+
 ###
 # colors in tty
 ###
@@ -58,14 +65,12 @@ if [ "$TERM" = "linux" ]; then
   #echo -en "\e]P7eee8d5" # white dark
   #echo -en "\e]PFfdf6e3" # white light
 
+	PROMPT="%F{$cyan}%~ %F{$red}> %f"
   clear # against bg artifacts
+else
+	PROMPT="%F{$cyan}%~ %F{$red} %f"
 fi
 
 
 
-local red=${1:-'red'}
-local blue=${2:-'blue'}
-local green=${3:-'green'}
-local cyan=${4:-'cyan'}
 
-PROMPT="%F{$green}%#%F{$cyan} %~ %F{$red}>%f "

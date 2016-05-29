@@ -75,7 +75,7 @@ $endif
 
 #WIRED
 ${if_match "${addr enp3s0}" != "No Address" }\
-    ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat ~/.config/i3/mac_orig}" }\
+    ${if_match "${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}" == "${exec cat $HOME/.config/i3/mac_orig}" }\
     {"full_text":"ORIG       ${addr enp3s0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
     ${else}
     {"full_text":" ${exec ip a | grep -A 1 ' enp3s0:' | grep ether | awk '{print $2}'}       ${addr enp3s0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
@@ -89,7 +89,7 @@ ${if_match "${wireless_essid wlp4s0}" != "off/any" }\
     {"full_text":"${wireless_essid wlp4s0}","color":"\#00AE58","separator":false,"separator_block_width":6},\
     ${else}
         ${if_match ${wireless_link_qual_perc wlp4s0} <= 25 }\
-        {"full_text":"${wireless_essid wlp4s0","color":"\#D0151E","separator":false,"separator_block_width":6},\
+        {"full_text":"${wireless_essid wlp4s0}","color":"\#D0151E","separator":false,"separator_block_width":6},\
         ${else}
         {"full_text":"${wireless_essid wlp4s0}","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
 
@@ -100,7 +100,7 @@ $endif
 {"full_text":" ","separator":false}\
 
 
-${execi 120 ~/bin/bat.sh},\
+${execi 120 $HOME/bin/bat.sh},\
 
 
 #VOLUME

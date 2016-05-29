@@ -91,5 +91,10 @@ filetype indent on
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
 
-
-
+" des binds pour aller en fin/début de ligne
+map <C-S-E> <Home>
+map <C-E> <End>
+imap <C-S-E> <Home>
+imap <C-E> <End>
+cmap <C-S-E> <Home>
+cmap <C-E> <End>
