@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "There is a problem Houston"
+else
+	text=$(cat "$1")
+  ext=$(echo ${RANDOM})
+  final=/tmp/$ext
+  cp $1 $final
+
+  scp $final root@sushi:/srv/Piczel/haste/
+
+	lien="http://haste.piczel.tk/$ext"
+  echo "$lien"
+	echo "$lien" | xclip -selection primary
+	echo "$lien" | xclip -selection clipboard
+
+
+fi
+
+

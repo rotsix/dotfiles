@@ -1,0 +1,6 @@
+#!/bin/bash
+
+(while true;do printf "^tw()^ib(1)^fg(red)^ro(80x13)^p(-60)^fg()MAJ: "$(checkupdates | wc -l)"\n";printf "^cs()\n$(checkupdates | while read line;do printf " ^fg(red)^r(8x8)^fg() $line\n\n";done)\n";sleep 1h;done) | dzen2 -ta l -tw 80 -l 20 -x 1820 -y 2 -w 450 -h 13 -bg "#212121" -fg "#ffffff" -fn "Roboto:11" -sa l -e 'entertitle=uncollapse,grabkeys;enterslave=grabkeys;leaveslave=collapse,ungrabkeys;button2=togglestick;button4=scrollup;button5=scrolldown;key_Escape=ungrabkeys,exit'
+
+	
+exit 0

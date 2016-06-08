@@ -11,7 +11,7 @@
 
 
 
-export EDITOR=nano
+export EDITOR=vim
 export PATH=$PATH:$HOME/bin
 export MAKEFLAGS=' -j 4'
 
@@ -80,6 +80,16 @@ sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.u
 
 imgur() { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
 
+
+function cdcd(){
+	case $TERM in
+		xterm-termite) nohup termite -d $(pwd) > /dev/null & ;;
+		*) echo "Eeeeeeeh, add some options in your zshrc" ;;
+	esac
+}
+
+
+
 ### mega alias
 alias f='firefox'
 
@@ -133,9 +143,9 @@ GIT_PROMPT_SUFFIX="%{$fg[green]%}%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
-GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
-GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"
-GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
+GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}● %{$reset_color%}"
+GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}● %{$reset_color%}"
+GIT_PROMPT_STAGED="%{$fg_bold[green]%}● %{$reset_color%}"
 
 # Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
