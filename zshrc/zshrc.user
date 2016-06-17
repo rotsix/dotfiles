@@ -34,14 +34,17 @@ rgr() {
 alias ncmpcpp='npp'
 alias ranger='rgr'
 
+alias mpv='mpv --geometry=1366x768-277-156'
+alias mpv-tty='mpv --vo drm'
+
 #for a pwd in tmux (when tmux was launched)
 #PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 local red=${1:-'red'}
-local blue=${2:-'blue'}
-local green=${3:-'green'}
-local cyan=${4:-'cyan'}
-
+local blue=${4:-'blue'}
+local green=${2:-'green'}
+local cyan=${6:-'cyan'}
+local grey=${7:-'white'}
 
 
 ###

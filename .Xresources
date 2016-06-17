@@ -91,8 +91,6 @@ URxvt.cursorBlink : true
 *.color15:               	#fdf6e3
 
 
-
-
 *background:            	#002b36
 *foreground:            	#839496
 !Xfce
