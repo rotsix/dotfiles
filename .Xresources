@@ -60,7 +60,7 @@ URxvt.cursorBlink : true
 !defaults
 !! black dark/light
 *.color0:					#202020
-*.color8:					#002b36
+*.color8:					#606060
 
 !! red dark/light
 *.color1:					#dc322f
@@ -91,7 +91,7 @@ URxvt.cursorBlink : true
 *.color15:               	#fdf6e3
 
 
-*background:            	#002b36
+*background:            	#202020
 *foreground:            	#839496
 !Xfce
 !*fadeColor:             	#002b36

@@ -71,7 +71,9 @@ if [ "$TERM" = "linux" ]; then
 	PROMPT="%F{$cyan}%~ %F{$red}> %f"
   clear # against bg artifacts
 else
-	PROMPT="%F{$cyan}%~ %F{$red} %f"
+	PROMPT="%F{$cyan}%~ $prompt_newline%F{$red} %f"
+	#PROMPT="$fg_no_bold[cyan]%~$prompt_newline%f "	
+	
 fi
 
 
