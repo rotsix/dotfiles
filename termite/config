@@ -19,7 +19,7 @@ cursor_shape = underline
 background = rgba(0,0,0,0.39)
 # black dark/light
 color0 =	#202020
-color8 =	#002b36
+color8 =	#606060
 
 # red dark/light
 color1 =	#dc322f
