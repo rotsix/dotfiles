@@ -74,7 +74,9 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'component': {
       \   'readonly': '%{&readonly?"\ue0a2":""}',
-      \ }
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 set noshowmode
@@ -98,3 +100,18 @@ imap <C-S-E> <Home>
 imap <C-E> <End>
 cmap <C-S-E> <Home>
 cmap <C-E> <End>
+
+
+" binds for tabs
+nnoremap <silent> <C-Right> :tabnext<CR>
+nnoremap <silent> <C-Left> :tabprev<CR>
+
+nnoremap <silent> <C-S-Tab> :tabprev<CR>
+nnoremap <silent> <C-Tab> :tabnext<CR>
+"nnoremap <silent> <A-h> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"nnoremap <silent> <A-l> :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+inoremap <C-w> <Esc>:tabclose<CR>
+

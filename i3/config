@@ -263,24 +263,31 @@ bindsym $mod+d mode "resize"
 
 bar {
         position top
-        status_command $HOME/.config/i3/conky-all.sh
+        status_command /usr/bin/i3blocks
+				font pango:Roboto for Powerline 9
         strip_workspace_numbers yes
+				separator_symbol "-"
+				workspace_buttons yes
+				bindsym button4 nop
+				bindsym button5 nop
+				tray_output none
+				tray_padding 0
+				height 20
+
         colors{
             background #202020
+						statusline #C5C5C5
 
             # class 			border     	backgrd 	text
-        	#focused_workspace  #285577  	#285577  	#ffffff
-        	#active_workspace   #161616  	#161616  	#a5a5a5
-        	#inactive_workspace #545454  	#545454  	#a5a5a5
-        	#urgent_workspace   #000000  	#FF0000  	#ffffff
+            #focused_workspace  #285577  	#285577  	#ffffff
+        	  #active_workspace   #161616  	#161616  	#a5a5a5
+        	  #inactive_workspace #545454  	#545454  	#a5a5a5
+        	  #urgent_workspace   #000000  	#FF0000  	#ffffff
             focused_workspace   #202020 #202020 #418AC2
             active_workspace    #202020 #202020 #161616
             inactive_workspace  #202020 #202020 #A5A5A5
             urgent_workspace    #202020 #202020 #FF0000
-
-        }
-
-
+				}
 
 }
 

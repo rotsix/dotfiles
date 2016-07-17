@@ -13,6 +13,8 @@ alias dofus='cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.ex
 alias ps_mem='\sudo ps_mem'
 alias nichons='curl z3bra.org/tits'
 
+alias pavucontrol='GTK_THEME=Numix pavucontrol'
+
 npp() {
 	if [ -n "$DISPLAY" ]; then
 		#urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit

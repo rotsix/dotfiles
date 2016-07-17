@@ -97,26 +97,27 @@ ${if_match "${wireless_essid wlp4s0}" != "off/any" }\
     $endif
 $endif
 
-{"full_text":" ","separator":false}\
 
+${execi 120 $HOME/bin/bat.sh}\
 
-${execi 120 $HOME/bin/bat.sh},\
+### SOUND FOR ALSA
 
+#{"full_text":" ","separator":false},\
 
 #VOLUME
-${if_match "${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}" == "" }\
-{"full_text":" ","color":"\#D0151E","separator":false,"separator_block_width":6},\
-${else}
-    ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 75 }\
-    {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-    ${else}
-        ${if_match ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1} >= 50 }\
-        {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-        ${else}
-            {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
-        $endif
-    $endif
-$endif
+#${if_match "${exec amixer get 'Master' | grep '\[on\]' | grep 'Left' | cut -d"[" -f2 | cut -d"%" -f1}" == "" }\
+#{"full_text":" ","color":"\#D0151E","separator":false,"separator_block_width":6},\
+#${else}
+#    ${if_match "${exec amixer get 'Master' | grep '\[on\]' | grep 'Left' | cut -d"[" -f2 | cut -d"%" -f1}" >= "75" }\
+#    {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+#    ${else}
+#        ${if_match ${exec amixer get 'Master' | grep '\[on\]' | grep 'Left' | cut -d"[" -f2 | cut -d"%" -f1} >= 50 }\
+#        {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | grep 'Left' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+#        ${else}
+#            {"full_text":"  ${exec amixer get 'Master' | grep '\[on\]' | grep 'Left' | cut -d"[" -f2 | cut -d"%" -f1}%","color":"\#C5C5C5","separator":false,"separator_block_width":6},\
+#        $endif
+#    $endif
+#$endif
 
 
 
