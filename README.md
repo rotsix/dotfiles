@@ -7,4 +7,4 @@ I use bspwm, sxhkd, lemon{bar,buddy}, firefox and vim. Termite as terminal for s
 
 
 Deps : 
-> bspwm, sxhkd, lemonbar, lemonbuddy, termite, firefox, vim, zsh
+> bspwm, sxhkd, lemonbar, lemonbuddy, termite, firefox, vim, zsh, hsetroot
