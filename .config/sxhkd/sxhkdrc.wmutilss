@@ -1,0 +1,91 @@
+# Volume buttons
+XF86Audio{Raise,Lower}Volume
+  pactl set-sink-mute 1 false && pactl set-sink-volume 1 {+,-}3% && aplay $HOME/.config/i3/audio-volume-change.wav
+
+XF86AudioMute
+  pactl set-sink-mute 1 toggle && aplay $HOME/.config/i3/audio-volume-change.wav
+
+
+# Apps launchers 
+super + Return
+	termite
+
+# browsers
+super + shift + {Return,u}
+  {firefox,luakit}
+
+super + u
+  subl3
+
+XF86MyComputer
+  pcmanfm
+
+XF86HomePage
+  firefox
+
+super + r
+  dmenu_run -l 0 -x 700 -y 400 -w 450 -h 40 -fn "Roboto Medium-14" -nb "#2B2B2B" -nf "#7A7A7A" -sb "#7A7A7A" -sf "#2B2B2B" -p ">" -q -i
+
+ctrl + shift + l
+  /home/victor/.lock_screen/lock
+
+XF86MonBrightness{Up,Down}
+  xbacklight {+,-}5
+
+super + a
+  GTK_THEME='Numix' pavucontrol
+
+super + space
+  ds "$(xclip -o)"
+
+## WmUtils
+
+super + shift + q
+  killall swm
+
+super + q
+  pkill -USR1 -c sxhkd
+
+# move windows around
+super + {Left,Down,Up,Right}
+  wmv {-20 0, 0 20, 0 -20, 20 0} $(pfw)
+
+# resize windows
+super + shift + {Left,Down,Up,Right}
+  wrs {-20 0, 0 20, 0 -20, 20 0} $(pfw)
+
+# and with mouse :
+super + !button{1,3}
+  {wmv,wrs} -a %i %i $(pfw)
+
+
+# select nears windows
+alt + {_,shift} + Tab
+  focus {next,prev} $(pfw)
+
+# set fullscreen
+super + f
+  fullscreen.sh $(pfw)
+
+# groups and co
+super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+  workspace.sh -g {1-9,0} && popup -t "1s" -f "FontAwesome-13" -g "120x40+20+20" $(getWp.sh)
+
+super + shift + {1-9,0}
+  workspace.sh -m {1-9,0}
+
+# and the most important : tiling
+super + t
+  tile.sh
+
+# set on the full screen      set 0 20 1920 1060 when bar
+super + shift + t
+  wtp 0 0 1910 1070 $(pfw)
+
+# display the status bar
+super + twosuperior
+  popup -t 2 -B "#C6C6C6" -F "#202020" -f "Roboto Mono for Powerline-10" -g "$(txtw -s 10 -f \"mono\" "$(getInfos.sh 2> /dev/null)")x30+20+20" $(getInfos.sh)
+# and the maj bar
+super + shift + asciitilde
+  popup -t 5 -g "145x35+1750+20" -f "Roboto-12" $(getMaj.sh)
+

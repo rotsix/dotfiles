@@ -1,0 +1,270 @@
+;=====================================================
+;
+;   To learn more about how to configure Lemonbuddy
+;   go to https://github.com/jaagr/lemonbuddy
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[settings]
+; Limit the amount of events sent to lemonbar within a set timeframe:
+; - "Allow <throttle_limit> updates within <throttle_ms> of time"
+; Default values:
+;throttle_limit = 5
+;throttle_ms = 50
+
+[bar/top]
+;monitor = eDP1
+bottom = false
+dock = false
+
+width = 100%
+height = 25
+
+;offset_x = 0
+;offset_y = 0
+
+background = #00ffffff
+foreground = #A2A5AC
+;linecolor = #ff0000
+
+spacing = 5
+lineheight = 1
+
+;separator = |
+
+;locale = fr_FR.UTF-8
+
+padding_left = 1
+padding_right = 1
+module_margin_left = 0
+module_margin_right = 1
+
+font-0 = Roboto:size=10;0
+font-1 = FontAwesome:size=10:weight=heavy;0
+
+modules-left = mpd
+modules-center = bspwm
+modules-right = pkgupdates-available wired-network wireless-network volume backlight battery clock
+
+[module/label]
+type = custom/text
+content = Lemonbuddy example
+content-background = #af2031
+content-underline = #cf4253
+content-overline = #cf4253
+content-padding = 2
+
+[module/cpu]
+type = internal/cpu
+label = CPU: %percentage%
+format-background = #51c4d4
+format-underline = #A2A5AC
+;format-overline = #f75
+format-padding = 2
+
+[module/ram]
+type = internal/memory
+label = RAM: %percentage_used%
+format-background = #42c
+format-underline = #75f
+format-overline = #75f
+format-padding = 2
+
+[module/clock]
+type = internal/date
+date = %H:%M   %d/%m/%Y
+format-background = #252525
+format-foreground = #A2A5AC
+;format-overline = #7a6
+format-padding = 2
+
+[module/volume]
+type = internal/volume
+;speaker_mixer = Speaker
+;headphone_mixer = Headphone
+;headphone_control_numid = 9
+
+;format-volume = <ramp-volume> <label-volume>
+format-volume-background = #252525
+format-volume-foreground = #A2A5AC
+;format-volume-overline = #9d6294
+format-volume-padding = 2
+;format-muted = Muted
+format-muted-background = #252525
+format-muted-foreground = #A2A5AC
+format-muted-underline = #9b0a20
+format-muted-padding = 2
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-volume = Volume: %percentage%
+label-muted = Muted
+
+[module/bspwm]
+type = internal/bspwm
+workspace_icon-0 = I;
+workspace_icon-1 = II;
+workspace_icon-2 = III;
+workspace_icon-3 = IV;
+workspace_icon-4 = V;
+
+label-active = %icon%
+label-active-padding = 2
+label-active-underline = #FDFBFE
+label-active-foreground = #FDFBFE
+label-active-background = #414E5E
+
+label-occupied = %icon%
+label-occupied-padding = 2
+label-occupied-underline = #A2A5AC
+label-occupied-background = #252525
+
+label-urgent = %icon%
+label-urgent-underline = #9b0a20
+label-urgent-background = #252525
+
+label-empty = %icon%
+label-empty-padding = 2
+label-empty-background = #252525
+
+[module/battery]
+type = internal/battery
+
+full_at = 99
+
+battery = BAT0
+adapter = AC
+label-full = Fully charged
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%
+label-discharging = %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate_ms = 750
+
+format-charging-padding = 2
+format-charging-foreground = #A2A5AC
+format-charging-background = #252525
+
+format-discharging-padding = 2
+format-discharging-background = #252525
+format-discharging-foreground = #A2A5AC
+
+format-full-padding = 2
+format-full-background = #252525
+format-full-foreground = #A2A5AC
+format-full-underline = #9d0a20
+
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = Backlight: <label>
+label = %percentage%
+
+format-padding = 2
+format-background = #252525
+format-foreground = #A2A5AC
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+#format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <label-time>  <label-song>
+format-online-foreground = #A2A5AC
+format-online-background = #252525
+format-online-padding = 2
+
+#format-offline = <label-offline>
+label-offline = mpd is offline 
+#format-offline-background = #252525
+#format-offline-underline = #A2A5AC
+#format-offline-padding = 2
+
+icon-play = 
+icon-pause =  
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-seekb = 
+icon-seekf = 
+icon-random = 
+icon-repeat = 
+
+toggle_on-foreground = #FBFDFE
+toggle_off-foreground = #A2A5AC
+
+bar-progress-width = 65
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+
+[module/wired-network]
+type = internal/network
+interface = enp3s0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-background = #252525
+format-connected-foreground = #A2A5AC
+format-connected-padding = 2
+
+ramp-signal-0 = 
+label-connected = %essid% %local_ip%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp4s0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-background = #252525
+format-connected-foreground = #A2A5AC
+format-connected-padding = 2
+
+ramp-signal-0 = 
+label-connected = %essid%
+
+[module/pkgupdates-available]
+type = custom/script
+
+exec = count=$(checkupdates | wc -l); [ $count -gt 0 ] && echo " $count"
+
+interval = 90
+format-background = #252525
+format-foreground = #A2A5AC
+format-padding = 2
+
+[module/aurupdates-available]
+type = custom/script
+exec = count=$(cower -u | wc -l); [ $count -gt 0 ] && echo "AUR $count"
+
+interval = 90
+format-background = #252525
+format-foreground = #A2A5AC
+format-padding = 2
+
+; vim:ft=dosini

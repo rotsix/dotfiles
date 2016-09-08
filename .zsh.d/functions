@@ -1,0 +1,58 @@
+function SWAP(){
+	local TMPFILE=tmp.$$
+	cp --reflink=auto -- "$1" "$TMPFILE"
+	mv -- "$2" "$1"
+	mv -- "$TMPFILE" "$2"
+}
+
+
+function cdcd(){
+	case $TERM in
+		xterm-termite) nohup termite -d $(pwd) &> /dev/null & ;;
+		*) echo "Eeeeeeeh, add some options in your zshrc" ;;
+	esac
+}
+
+function conf(){
+	case $1 in
+		vi|vim) $EDITOR ~/.vimrc ;;
+		ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
+		xrdb) $EDITOR ~/.Xresources ;;
+		tmux) $EDITOR ~/.tmux.conf ;;
+		zsh) $EDITOR ~/.zshrc ;;
+		zsh-global) sudo $EDITOR /etc/zsh/zshrc ;;
+		i3) $EDITOR ~/.config/i3/config ;;
+		awesome) $EDITOR ~/.config/awesome/rc.lua ;;
+		*) echo "Mh, something goes wrong" ;;
+	esac
+}
+
+
+function src(){
+	case $1 in
+		zsh) source /etc/zsh/zshrc && sleep .5s && source $HOME/.zshrc ;;
+		xrdb) xrdb -merge ~/.Xresources ;;
+		*) echo "Mh, something goes wrong" ;;
+	esac
+}
+
+function autogit(){
+	git add -A && git ci -m "$1" && git push
+}
+
+ix(){ [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
+
+sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
+
+imgur() { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
+
+npp() {
+	if [ -n "$DISPLAY" ]; then
+		#urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit
+		termite --name=ncmpcpp -d $HOME -e ncmpcpp && exit
+  else
+		ncmpcpp
+  fi
+}
+
+# vim: ft=sh:

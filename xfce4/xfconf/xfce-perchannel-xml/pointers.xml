@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<channel name="pointers" version="1.0">
-  <property name="DisableTouchpadWhileTyping" type="bool" value="true"/>
-  <property name="DisableTouchpadDuration" type="double" value="0.700000"/>
-</channel>
