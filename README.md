@@ -3,9 +3,7 @@ dotfiles
 
 Here is my dotfiles !
 
-I use bspwm, sxhkd, lemon{bar,buddy}.
-
-On this, I use some scripts I made :)
+I use bspwm, sxhkd, lemon{bar,buddy}, firefox and vim. Termite as terminal for sure.
 
 
 Deps : 
