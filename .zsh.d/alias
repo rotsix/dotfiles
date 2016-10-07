@@ -8,9 +8,15 @@ alias xs='cd'
 alias sl='ls'
 alias rrm='\rm'
 alias rm='\mv --target-directory ${HOME}/trash'
+
+alias lh='du -hsc * | sort -hr'
+alias lha='du -hsc .* | sort -hr'
+alias lhs='(lh;lha) | sort -hr'
+
 alias CLEAN='rrm -fr ${HOME}/trash/*; rrm -fr ${HOME}/trash/.*; rrm -fr ${HOME}/trash/..*'
 alias nano='nano -c -w'
 alias syu='sudo pacman -Syu'
+alias orphans='pacman -Qdtq | sudo pacman -Rnsc -'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && yaourt -Syy'
@@ -26,24 +32,18 @@ alias -s png="display "
 alias -s jpg="display "
 
 
-alias f='firefox'
-
-alias mplayerfb='mplayer -vo fbdev -vf scale=1920:1080'
-
 alias grep='grep --color=auto'
-alias xte='nohup xterm &' # xte lancera un xterm qui ne se fermera pas si on ferme le terminal
 
 alias sudo='sudo '
-alias tmania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk'
-alias boisaac='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe; cd $pref'
-alias dofus='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe; cd $pref'
+alias tmania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk; clear'
+alias boisaac='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe; cd $pref; clear'
+alias dofus='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe; cd $pref; clear'
 
 alias ps_mem='\sudo ps_mem'
 alias nichons='curl z3bra.org/tits'
 
-alias pavucontrol='GTK_THEME=Numix pavucontrol'
+alias mpv='mpv --geometry=1366x768-277-156 --vo opengl'
 
-alias mpv='mpv --geometry=1366x768-277-156'
-alias mpv-tty='mpv --vo drm'
+alias t411='sshfs -p 22202 piczel@krkrkr.org:/srv/deluge/Downloads /home/victor/mnt'
 
 # vim: ft=sh:

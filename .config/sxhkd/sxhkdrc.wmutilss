@@ -15,7 +15,7 @@ super + shift + {Return,u}
   {firefox,luakit}
 
 super + u
-  subl3
+  atom
 
 XF86MyComputer
   pcmanfm
@@ -88,4 +88,3 @@ super + twosuperior
 # and the maj bar
 super + shift + asciitilde
   popup -t 5 -g "145x35+1750+20" -f "Roboto-12" $(getMaj.sh)
-

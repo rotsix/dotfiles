@@ -25,12 +25,11 @@ height = 25
 ;offset_x = 0
 ;offset_y = 0
 
-background = #00ffffff
+background = #00252525
 foreground = #A2A5AC
-;linecolor = #ff0000
 
 spacing = 5
-lineheight = 1
+lineheight = 2
 
 ;separator = |
 
@@ -45,32 +44,8 @@ font-0 = Roboto:size=10;0
 font-1 = FontAwesome:size=10:weight=heavy;0
 
 modules-left = mpd
-modules-center = bspwm
-modules-right = pkgupdates-available wired-network wireless-network volume backlight battery clock
-
-[module/label]
-type = custom/text
-content = Lemonbuddy example
-content-background = #af2031
-content-underline = #cf4253
-content-overline = #cf4253
-content-padding = 2
-
-[module/cpu]
-type = internal/cpu
-label = CPU: %percentage%
-format-background = #51c4d4
-format-underline = #A2A5AC
-;format-overline = #f75
-format-padding = 2
-
-[module/ram]
-type = internal/memory
-label = RAM: %percentage_used%
-format-background = #42c
-format-underline = #75f
-format-overline = #75f
-format-padding = 2
+modules-center = i3
+modules-right = aurupdates-available pkgupdates-available wired-network wireless-network volume backlight battery clock
 
 [module/clock]
 type = internal/date
@@ -104,24 +79,24 @@ ramp-volume-2 = 
 label-volume = Volume: %percentage%
 label-muted = Muted
 
-[module/bspwm]
-type = internal/bspwm
+[module/i3]
+type = internal/i3
 workspace_icon-0 = I;
 workspace_icon-1 = II;
 workspace_icon-2 = III;
 workspace_icon-3 = IV;
 workspace_icon-4 = V;
 
-label-active = %icon%
-label-active-padding = 2
-label-active-underline = #FDFBFE
-label-active-foreground = #FDFBFE
-label-active-background = #414E5E
+label-focused = %icon%
+label-focused-padding = 2
+label-focused-underline = #FDFBFE
+label-focused-foreground = #FDFBFE
+label-focused-background = #414E5E
 
-label-occupied = %icon%
-label-occupied-padding = 2
-label-occupied-underline = #A2A5AC
-label-occupied-background = #252525
+label-unfocused = %icon%
+label-unfocused-padding = 2
+label-unfocused-underline = #A2A5AC
+label-unfocused-background = #252525
 
 label-urgent = %icon%
 label-urgent-underline = #9b0a20
@@ -135,6 +110,7 @@ label-empty-background = #252525
 type = internal/battery
 
 full_at = 99
+#low_at = 15
 
 battery = BAT0
 adapter = AC
@@ -147,6 +123,7 @@ label-charging = %percentage%
 label-discharging = %percentage%
 
 ramp-capacity-0 = 
+ramp-capacity-0-foreground = #9d0a20
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
@@ -172,7 +149,12 @@ format-discharging-foreground = #A2A5AC
 format-full-padding = 2
 format-full-background = #252525
 format-full-foreground = #A2A5AC
-format-full-underline = #9d0a20
+format-full-underline = #1Aff28
+
+#format-low-padding = 2
+#format-low-background = #9d0a20
+#format-low-foreground = #F5FCFD
+#format-low-underline = #F5FCFD
 
 
 
@@ -200,13 +182,13 @@ format-online-background = #252525
 format-online-padding = 2
 
 #format-offline = <label-offline>
-label-offline = mpd is offline 
+label-offline = mpd is offline
 #format-offline-background = #252525
 #format-offline-underline = #A2A5AC
 #format-offline-padding = 2
 
 icon-play = 
-icon-pause =  
+icon-pause = 
 icon-stop = 
 icon-prev = 
 icon-next = 
@@ -233,8 +215,8 @@ format-connected-background = #252525
 format-connected-foreground = #A2A5AC
 format-connected-padding = 2
 
-ramp-signal-0 = 
-label-connected = %essid% %local_ip%
+ramp-signal-0 = 
+label-connected = %local_ip%
 
 [module/wireless-network]
 type = internal/network
@@ -251,7 +233,7 @@ label-connected = %essid%
 [module/pkgupdates-available]
 type = custom/script
 
-exec = count=$(checkupdates | wc -l); [ $count -gt 0 ] && echo " $count"
+exec = count=$(checkupdates 2> /dev/null | wc -l); [ $count -gt 0 ] && echo " $count"
 
 interval = 90
 format-background = #252525
@@ -260,7 +242,7 @@ format-padding = 2
 
 [module/aurupdates-available]
 type = custom/script
-exec = count=$(cower -u | wc -l); [ $count -gt 0 ] && echo "AUR $count"
+exec = count=$(cower -u 2> /dev/null | wc -l); [ $count -gt 0 ] && echo "AUR $count"
 
 interval = 90
 format-background = #252525

@@ -3,6 +3,7 @@
 lemonbuddy_terminate noconfirm
 lemonbuddy_wrapper top &
 
+
 bspc config border_width         5
 bspc config window_gap          10
 bspc config top_padding         30

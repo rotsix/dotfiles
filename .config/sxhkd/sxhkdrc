@@ -15,7 +15,7 @@ super + shift + {Return,u}
   {firefox,luakit}
 
 super + u
-  subl3
+  atom
 
 XF86MyComputer
   pcmanfm
@@ -33,36 +33,37 @@ XF86MonBrightness{Up,Down}
   xbacklight {+,-}5
 
 super + a
-  GTK_THEME='Numix' pavucontrol
+  pavucontrol
 
 super + space
   ds "$(xclip -o)"
 
-## WmUtils
-
+## reload shxkd and kill bspwm
 super + shift + q
   bspc quit
 
 super + q
   pkill -USR1 -c sxhkd
 
-
 # set fullscreen
 super + f
   bspc node -t {fullscreen,tiled}
 
+# swap between tiled and floating
+super + x
+  bspc node -t {floating,tiled}
+
+# move and resize floating windows
+#move
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
 # groups and co
 super + {ampersand,eacute,quotedbl,apostrophe,parenleft}
   bspc desktop -f ^{1-5}
-#popup -t "1s" -f "FontAwesome-13" -g "120x40+20+20" $(getWp.sh)
 
 super + shift + {1-5}
   bspc node -d {I,II,III,IV,V}
 
-# display the status bar
-super + twosuperior
-  popup -t 2 -B "#C6C6C6" -F "#202020" -f "Roboto Mono for Powerline-10" -g "$(txtw -s 10 -f \"mono\" "$(getInfos.sh 2> /dev/null)")x30+20+20" $(getInfos.sh)
-# and the maj bar
-super + shift + asciitilde
-  popup -t 5 -g "145x35+1750+20" -f "Roboto-12" $(getMaj.sh)
+# 
 

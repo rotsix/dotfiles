@@ -66,7 +66,7 @@
 		margin: 0 !important; background: transparent !important;
 
 		/* --- Uncomment section below to attach url-bar to the tab-bar [EXPERIMENTAL] (Require a line in "#TabsToolbar" below) --- */
-		
+
 		/*position: fixed !important; top: 0 !important; left: 0 !important;
 		width: 315px !important; max-width: 315px !important;
 		z-index: 100 !important;
@@ -95,7 +95,7 @@
 
 
 	/* --- Uncomment the section below to enable the back/forward buttons [EXPERIMENTAL] (Requires url-bar) --- */
-	
+
 	#back-button, #forward-button { display: block !important;}
 	#back-button::before, #forward-button::before {
 		display: inline-block !important; position: absolute !important;
@@ -340,4 +340,3 @@ tabbrowser tabpanels, #appcontent > #content { background: var(--bg-light) !impo
 	input, textarea { color: #222628 !important; -moz-appearance: none !important; }
 }
 /**/
-

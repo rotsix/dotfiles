@@ -4,7 +4,14 @@ autoload -U colors && colors
 
 setopt prompt_subst
 
-PROMPT_CHAR="❯"
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+
+if [ "$TERM" = "linux" ]; then
+	PROMPT_CHAR=">"
+else
+	PROMPT_CHAR="❯"
+fi
+
 
 ON_COLOR="%{$fg[green]%}"
 OFF_COLOR="%{$reset_color%}"
@@ -104,3 +111,14 @@ zle -N zle-line-finish
 #PROMPT='$(prompt_hostname)$(prompt_user)$(prompt_jobs)$(prompt_vimode)$(prompt_status) '
 PROMPT='$(prompt_hostname)$(prompt_user)$(prompt_jobs)$(prompt_status) '
 RPROMPT='$(prompt_path)$(prompt_git)'
+
+###
+## for man pages in color
+###
+export LESS_TERMCAP_mb=$'\e[0;33m'
+export LESS_TERMCAP_md=$'\e[0;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;34;30m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[0;31m'

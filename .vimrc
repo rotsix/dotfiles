@@ -15,10 +15,7 @@ set backspace=indent,eol,start
 
 set background=dark
 let g:solarized_termcolors=256
-" colorscheme desert
 colorscheme brogrammer
-"colorscheme gruvbox
-"let g:gruvbox_contrast_dark=1
 
 
 hi Normal ctermbg=none
@@ -132,4 +129,3 @@ nnoremap <C-w> :tabclose<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 inoremap <C-w> <Esc>:tabclose<CR>
 """"
-

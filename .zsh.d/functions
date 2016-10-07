@@ -55,4 +55,22 @@ npp() {
   fi
 }
 
+pbx() {
+	curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+}
+
+function tmux_tty(){
+	tmux \
+		new -s tty -n "I" \; \
+		neww -n "II" \; \
+		neww -n "III" \; \
+		neww -n "IV" \; \
+		neww -n "V" \; \
+		selectw -t "I" \; \
+}
+
+mk(){
+	mkdir -p $@ && cd $@
+}
+
 # vim: ft=sh:

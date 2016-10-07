@@ -45,12 +45,14 @@ pulseaudio --start
 #sxhkd -m 1 &
 # battery reminder
 bat.sh &
+# for cursor
+#xsetroot -cursor_name left_ptr
 
 # workspaces initialization
 #workspace.sh -i
 # bar
 #start_lemonbar.sh &
 
-exec bspwm
+exec i3
+#exec bspwm
 #exec /home/victor/src/swm/swm
-
