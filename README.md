@@ -3,7 +3,7 @@ dotfiles
 
 Here is my dotfiles !
 
-I use bspwm, sxhkd, lemon{bar,buddy}, firefox, luakit and vim. Termite as terminal for sure.
+I use i3, polybar, luakit and vim. Termite as terminal for sure.
 
 
 Deps :
