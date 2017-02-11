@@ -22,12 +22,7 @@ autoload -U promptinit
 promptinit
 
 zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-bindkey -e
 bindkey "^[[5~"	beginning-of-line
 bindkey "^[[6~"	end-of-line
 bindkey "^[[2~"	overwrite-mode
@@ -39,4 +34,9 @@ bindkey "^[[3~"	delete-char
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"   beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" end-of-buffer-or-history
 
-# vim: ft=sh:
+if [[ $TERM == xterm-termite ]]; then
+	source /etc/profile.d/vte.sh
+	__vte_osc7
+fi
+
+# vim: ft=zsh:

@@ -4,18 +4,27 @@ call pathogen#helptags()
 
 syntax on
 set number
-set tabstop=2
 set autoindent
-set cindent
 set mouse=a
 set showcmd
 set backspace=indent,eol,start
+set whichwrap+=<,>,h,l,[,]
+
+" indentation
+set cindent
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
 
 
 
 set background=dark
 let g:solarized_termcolors=256
 colorscheme brogrammer
+"colorscheme dracula
 
 
 hi Normal ctermbg=none
@@ -33,9 +42,6 @@ set guifont=Roboto\ Mono\ for\ Powerline\ 11
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 
 
-set shiftwidth=2
-set softtabstop=2
-set whichwrap+=<,>,h,l,[,]
 
 set smartcase
 
@@ -78,19 +84,69 @@ scriptencoding utf-8
 """"
 
 
-
-" lightline.vim {
+" lightline {
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"\ue0a2":""}',
+      \ 'colorscheme': 'wombat',
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'LightlineModified',
+      \   'readonly': 'LightlineReadonly',
+      \   'fugitive': 'LightlineFugitive',
+      \   'filename': 'LightlineFilename',
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
+      \   'fileencoding': 'LightlineFileencoding',
+      \   'mode': 'LightlineMode',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+ 			\ }
+
+function! LightlineModified()
+	return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+	return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
+endfunction
+
+function! LightlineFilename()
+	return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+				\ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+				\  &ft == 'unite' ? unite#get_status_string() :
+				\  &ft == 'vimshell' ? vimshell#get_status_string() :
+				\ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+				\ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+	if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+		let branch = fugitive#head()
+		return branch !=# '' ? ' '.branch : ''
+	endif
+	return ''
+endfunction
+
+function! LightlineFileformat()
+	return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+	return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+	return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineMode()
+	return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 
 set noshowmode
-
 " }
 
 
@@ -113,7 +169,25 @@ imap <C-A> <Home>
 imap <C-E> <End>
 cmap <C-A> <Home>
 cmap <C-E> <End>
-""""
+"""
+
+
+" TO SET THE TITLE IN TERM
+"""
+"let &titlestring = "vim - " . expand("%:t")
+"set t_ts=^[k
+"set t_fs=^[\
+"set title
+"auto VimLeave * :set t_ts=^[k^[\
+"""
+
+"""
+" pour pas qu'il pète les couilles avec un shell qu'est pas POSIX
+"""
+if &shell =~# 'fish$'
+	set shell=bash
+endif
+
 
 """"
 " binds for tabs
