@@ -24,7 +24,9 @@ promptinit
 zmodload zsh/terminfo
 
 bindkey "^[[5~"	beginning-of-line
+bindkey "^A"	beginning-of-line
 bindkey "^[[6~"	end-of-line
+bindkey "^E"	end-of-line
 bindkey "^[[2~"	overwrite-mode
 bindkey "^[[3~"	delete-char
 [[ -n "${key[Up]}"       ]]  && bindkey  "${key[Up]}"       up-line-or-history
