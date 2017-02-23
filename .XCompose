@@ -14,6 +14,11 @@ include "%L"
 <Multi_key>	<Up>		<Down>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 <Multi_key>	<Down>		<Up>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 
+<Multi_key> <=>         <Left> : "⇐"
+<Multi_key> <=>         <Right> : "⇒"
+<Multi_key> <=>         <Up> : "⇑"
+<Multi_key> <=>         <Down> : "⇓"
+
 
 # Greek letters
 <Multi_key> <asterisk> <a>		: "α"	U03B1		# GREEK SMALL LETTER ALPHA
