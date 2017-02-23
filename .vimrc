@@ -71,6 +71,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """"
 " Txt2tags syntax
 au BufNewFile,BufRead *.t2t                     setf txt2tags
+au BufNewFile,BufRead *.flex                    setf jflex
 """"
 
 
