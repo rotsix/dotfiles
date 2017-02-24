@@ -11,9 +11,24 @@ set $term termite
 exec --no-startup-id "hsetroot -fill $HOME/.wallpaper.jpg"
 # notifications
 exec --no-startup-id "dunst"
+# bar
 exec --no-startup-id "polybar top"
-# systray
+# tray icons
 exec --no-startup-id "volumeicon"
+exec --no-startup-id "nm-applet"
+# auto numlock
+exec --no-startup-id "numlockx"
+# hide idle
+exec --no-startup-id "unclutter -idle 5"
+# transparency
+exec --no-startup-id "xcompmgr"
+# sound
+exec --no-startup-id "pulseaudio --start"
+# battery reminder
+exec --no-startup-id "bat.sh"
+
+# volume management is made by volumeicon
+bindsym $mod+a exec pavucontrol
 
 # gaps, relative to i3-gaps
 gaps inner 15
