@@ -62,12 +62,18 @@ font-1 = FontAwesome:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = mpd github pkg battery date
+modules-right = mpd github pkg redshift battery date
 
 tray-position = right
 tray-padding = 1
 tray-maxsize = 16
 tray-scale = 1
+
+[module/redshift]
+type = custom/script
+interval = 5
+
+exec = ~/.config/polybar/redshift.sh
 
 [module/battery]
 type = internal/battery
