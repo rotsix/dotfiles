@@ -107,7 +107,7 @@ rofi.click-to-exit:                  true
 ! "Indicate how it match by underlining it." Set from: Default
 rofi.show-match:                     true
 ! "Pidfile location" Set from: Default
-rofi.pid:                            /run/user/1001/rofi.pid
+!rofi.pid:                            /run/user/1001/rofi.pid
 ! "Paste primary selection" Set from: Default
 rofi.kb-primary-paste:               Control+V,Shift+Insert
 ! "Paste clipboard" Set from: Default
