@@ -51,23 +51,57 @@ overline-size = 0
 underline-size = 0
 border-bottom-size = 0
 
-spacing = 3
+spacing = 0
 padding-left = 0
 padding-right = 0
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 font-0 = Iosevka:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center =
-modules-right = mpd github pkg date
+modules-right = mpd github pkg battery date
 
 tray-position = right
 tray-padding = 1
 tray-maxsize = 16
 tray-scale = 1
+
+[module/battery]
+type = internal/battery
+; if battery never reachs 100%
+full-at = 99
+poll-interval = 5
+
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = full
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 500
 
 [module/pkg]
 type = custom/script
