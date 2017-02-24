@@ -217,15 +217,15 @@ rofi.kb-custom-18:                   Alt+asterisk
 ! "Custom Keybinding 19" Set from: Default
 rofi.kb-custom-19:                   Alt+parenleft
 ! "The display name of this browser" Set from: Default
-rofi.display-ssh:                    
+!rofi.display-ssh:                    
 ! "The display name of this browser" Set from: Default
-rofi.display-run:                    
+!rofi.display-run:                    
 ! "The display name of this browser" Set from: Default
-rofi.display-drun:                   
+!rofi.display-drun:                   
 ! "The display name of this browser" Set from: Default
-rofi.display-window:                 
+!rofi.display-window:                 
 ! "The display name of this browser" Set from: Default
-rofi.display-windowcd:               
+!rofi.display-windowcd:               
 ! "The display name of this browser" Set from: Default
-rofi.display-combi:
+!rofi.display-combi:
 
