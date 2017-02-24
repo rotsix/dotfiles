@@ -51,8 +51,8 @@ include "%L"
 <Multi_key>	<Up>		<n>		: "ⁿ"		# super n
 
 # Subscript
-<Multi_key>	<Down>		<+>		: "₊"		# sub +
-<Multi_key>	<Down>		<->		: "₋"		# sub -
+<Multi_key>	<Down>		<plus>		: "₊"		# sub +
+<Multi_key>	<Down>		<minus>		: "₋"		# sub -
 
 <Multi_key>	<Down>		<1>		: "₁"		# sub 1
 <Multi_key>	<Down>		<2>		: "₂"		# sub 2
