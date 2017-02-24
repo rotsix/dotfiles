@@ -14,10 +14,46 @@ include "%L"
 <Multi_key>	<Up>		<Down>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 <Multi_key>	<Down>		<Up>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 
-<Multi_key> <=>         <Left> : "⇐"
-<Multi_key> <=>         <Right> : "⇒"
-<Multi_key> <=>         <Up> : "⇑"
-<Multi_key> <=>         <Down> : "⇓"
+<Multi_key> <=>			<Left>	: "⇐"
+<Multi_key> <=>			<Right>	: "⇒"
+<Multi_key> <=>			<Up>	: "⇑"
+<Multi_key> <=>			<Down>	: "⇓"
+
+# Superscript
+<Multi_key>	<Up>		<+>		: "⁺"
+<Multi_key>	<Up>		<->		: "⁻"
+
+<Multi_key>	<Up>		<4>		: "⁴"
+<Multi_key>	<Up>		<5>		: "⁵"
+<Multi_key>	<Up>		<6>		: "⁶"
+<Multi_key>	<Up>		<7>		: "⁷"
+<Multi_key>	<Up>		<8>		: "⁸"
+<Multi_key>	<Up>		<9>		: "⁹"
+<Multi_key>	<Up>		<0>		: "⁰"
+<Multi_key>	<Up>		<=>		: "⁼"
+<Multi_key>	<Up>		<(>		: "⁽"
+<Multi_key>	<Up>		<)>		: "⁾"
+<Multi_key>	<Up>		<i>		: "ⁱ"
+<Multi_key>	<Up>		<n>		: "ⁿ"
+
+# Subscript
+<Multi_key>	<Down>		<+>		: "₊"
+<Multi_key>	<Down>		<->		: "₋"
+
+<Multi_key>	<Down>		<1>		: "₁"
+<Multi_key>	<Down>		<2>		: "₂"
+<Multi_key>	<Down>		<3>		: "₃"
+<Multi_key>	<Down>		<4>		: "₄"
+<Multi_key>	<Down>		<5>		: "₅"
+<Multi_key>	<Down>		<6>		: "₆"
+<Multi_key>	<Down>		<7>		: "₇"
+<Multi_key>	<Down>		<8>		: "₈"
+<Multi_key>	<Down>		<9>		: "₉"
+<Multi_key>	<Down>		<0>		: "₀"
+<Multi_key>	<Down>		<=>		: "₌"
+<Multi_key>	<Down>		<(>		: "₍"
+<Multi_key>	<Down>		<)>		: "₎"
+<Multi_key>	<Down>		<n>		: "ₙ"
 
 
 # Greek letters
