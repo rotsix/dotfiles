@@ -1,9 +1,18 @@
 include "%L"
 
-<Multi_key>	<e>		<e>	: "∈"
-<Multi_key>	<E>		<E>	: "∃"
-<Multi_key>	<A>		<A>	: "∀"
-<Multi_key>	<exclam>	<equal>	: "≠"
+<Multi_key>	<e>		<e>	: "∈"		# Elem of…
+<Multi_key>	<E>		<E>	: "∃"		# Exist
+<Multi_key>	<A>		<A>	: "∀"		# For all
+<Multi_key>	<exclam>	<equal>	: "≠"		# Different
+
+<Multi_key>	<equal>	<equal>	<equal>	: "≡"   U2261   # Identical to
+
+
+<Multi_key>	<s>	<q>		: "√"   U221A   # Square Root
+<Multi_key>	<3>	<s>	<q>	: "∛"   U221B   # Cube Root
+<Multi_key>	<4>	<s>	<q>	: "∜"   U221C   # Fourth Root
+<Multi_key>	<i>	<n>	<t>	: "∫"   U222B   # Integral
+
 
 <Multi_key>	<Left>		<Left>	: "←"	leftarrow	# LEFTWARDS ARROW
 <Multi_key>	<Up>		<Up>	: "↑"	uparrow		# UPWARDS ARROW
@@ -14,49 +23,54 @@ include "%L"
 <Multi_key>	<Up>		<Down>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 <Multi_key>	<Down>		<Up>	: "↕"	U2195           # UP DOWN ARROW (kragen's)
 
-<Multi_key> <equal>		<Left>	: "⇐"
-<Multi_key> <equal>		<Right>	: "⇒"
-<Multi_key> <equal>		<Up>	: "⇑"
-<Multi_key> <equal>		<Down>	: "⇓"
+<Multi_key> <equal>		<Left>	: "⇐"		# Left = Arrow
+<Multi_key> <equal>		<Right>	: "⇒"		# Right = Arrow
+<Multi_key> <equal>		<Up>	: "⇑"		# Top = Arrow
+<Multi_key> <equal>		<Down>	: "⇓"		# Down = Arrow
 
 # Superscript
-<Multi_key>	<Up>		<plus>		: "⁺"
-<Multi_key>	<Up>		<minus>		: "⁻"
+<Multi_key>	<Up>		<plus>		: "⁺"		# super +
+<Multi_key>	<Up>		<minus>		: "⁻"		# super -
 
-<Multi_key>	<Up>		<1>		: "¹"
-<Multi_key>	<Up>		<2>		: "²"
-<Multi_key>	<Up>		<3>		: "³"
-<Multi_key>	<Up>		<4>		: "⁴"
-<Multi_key>	<Up>		<5>		: "⁵"
-<Multi_key>	<Up>		<6>		: "⁶"
-<Multi_key>	<Up>		<7>		: "⁷"
-<Multi_key>	<Up>		<8>		: "⁸"
-<Multi_key>	<Up>		<9>		: "⁹"
-<Multi_key>	<Up>		<0>		: "⁰"
-<Multi_key>	<Up>		<equal>		: "⁼"
-<Multi_key>	<Up>		<parenleft>	: "⁽"
-<Multi_key>	<Up>		<parenright>	: "⁾"
-<Multi_key>	<Up>		<i>		: "ⁱ"
-<Multi_key>	<Up>		<n>		: "ⁿ"
+<Multi_key>	<Up>		<1>		: "¹"		# super 1
+<Multi_key>	<Up>		<2>		: "²"		# super 2
+<Multi_key>	<Up>		<3>		: "³"		# super 3
+<Multi_key>	<Up>		<4>		: "⁴"		# super 4
+<Multi_key>	<Up>		<5>		: "⁵"		# super 5
+<Multi_key>	<Up>		<6>		: "⁶"		# super 6
+<Multi_key>	<Up>		<7>		: "⁷"		# super 7
+<Multi_key>	<Up>		<8>		: "⁸"		# super 8
+<Multi_key>	<Up>		<9>		: "⁹"		# super 9
+<Multi_key>	<Up>		<0>		: "⁰"		# super 0
+<Multi_key>	<Up>		<equal>		: "⁼"		# super =
+<Multi_key>	<Up>		<parenleft>	: "⁽"		# super (
+<Multi_key>	<Up>		<parenright>	: "⁾"		# super )
+<Multi_key>	<Up>		<i>		: "ⁱ"		# super i
+<Multi_key>	<Up>		<j>		: "ʲ"		# super j
+<Multi_key>	<Up>		<k>		: "ᵏ"		# super k
+<Multi_key>	<Up>		<n>		: "ⁿ"		# super n
 
 # Subscript
-<Multi_key>	<Down>		<+>		: "₊"
-<Multi_key>	<Down>		<->		: "₋"
+<Multi_key>	<Down>		<+>		: "₊"		# sub +
+<Multi_key>	<Down>		<->		: "₋"		# sub -
 
-<Multi_key>	<Down>		<1>		: "₁"
-<Multi_key>	<Down>		<2>		: "₂"
-<Multi_key>	<Down>		<3>		: "₃"
-<Multi_key>	<Down>		<4>		: "₄"
-<Multi_key>	<Down>		<5>		: "₅"
-<Multi_key>	<Down>		<6>		: "₆"
-<Multi_key>	<Down>		<7>		: "₇"
-<Multi_key>	<Down>		<8>		: "₈"
-<Multi_key>	<Down>		<9>		: "₉"
-<Multi_key>	<Down>		<0>		: "₀"
-<Multi_key>	<Down>		<equal>		: "₌"
-<Multi_key>	<Down>		<parenleft>		: "₍"
-<Multi_key>	<Down>		<parenright>		: "₎" 
-<Multi_key>	<Down>		<n>		: "ₙ"
+<Multi_key>	<Down>		<1>		: "₁"		# sub 1
+<Multi_key>	<Down>		<2>		: "₂"		# sub 2
+<Multi_key>	<Down>		<3>		: "₃"		# sub 3
+<Multi_key>	<Down>		<4>		: "₄"		# sub 4
+<Multi_key>	<Down>		<5>		: "₅"		# sub 5
+<Multi_key>	<Down>		<6>		: "₆"		# sub 6
+<Multi_key>	<Down>		<7>		: "₇"		# sub 7
+<Multi_key>	<Down>		<8>		: "₈"		# sub 8
+<Multi_key>	<Down>		<9>		: "₉"		# sub 9
+<Multi_key>	<Down>		<0>		: "₀"		# sub 0
+<Multi_key>	<Down>		<equal>		: "₌"		# sub =
+<Multi_key>	<Down>		<parenleft>	: "₍"		# sub (
+<Multi_key>	<Down>		<parenright>	: "₎"		# sub )
+<Multi_key>	<Down>		<i>		: "ᵢ"		# sub i
+<Multi_key>	<Down>		<j>		: "ⱼ"		# sub j
+<Multi_key>	<Down>		<k>		: "ₖ"		# sub k
+<Multi_key>	<Down>		<n>		: "ₙ"		# sub n
 
 
 # Greek letters
