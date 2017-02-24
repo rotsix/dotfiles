@@ -9,4 +9,3 @@ source $HOME/.zsh.d/termsupport.zsh
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh.d/zsh-history-substring-search/zsh-history-substring-search.zsh
