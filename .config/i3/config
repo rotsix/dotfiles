@@ -158,7 +158,7 @@ bindsym $mod+q restart
 bindsym $mod+Shift+q exec "i3-msg exit"
 
 # reload polybar
-bindsym $mod+Shift+r exec "killall -q polybar && polybar top"
+bindsym $mod+Shift+r exec "killall -q polybar; polybar top"
 
 
 # specefics floating windows
