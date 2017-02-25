@@ -61,18 +61,27 @@ font-0 = Iosevka:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;1
 
 modules-left = i3 xwindow
-modules-center =
-modules-right = mpd github pkg redshift battery date
+modules-center = 
+modules-right = mpd github pkg wifi battery date
 
 tray-position = right
 tray-padding = 1
 tray-maxsize = 16
 tray-scale = 1
 
+[module/wifi]
+type = internal/network
+interface = wlp4s0
+
+interval = 3
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+ramp-signal-0 = 
+
+
 [module/redshift]
 type = custom/script
 interval = 5
-
 exec = ~/.config/polybar/redshift.sh
 
 [module/battery]
@@ -123,7 +132,7 @@ type = internal/mpd
 host = localhost
 port = 6600
 
-format-online = <icon-prev><icon-seekb><icon-stop><toggle><icon-seekf><icon-next><icon-repeat><icon-random><label-time><label-song><bar-progress>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next> <icon-repeat> <icon-random> | <label-song> <bar-progress>
 format-online-foreground = ${colors.foreground}
 format-online-padding = 2
 
@@ -151,6 +160,7 @@ bar-progress-empty-foreground = ${colors.gray}
 
 [module/github]
 type = internal/github
+; set your own home !
 token = ${file:/home/victor/.github/notifications.token}
 
 label = "%notifications%"
@@ -171,7 +181,7 @@ pin-workspaces = true
 
 ;label-mode = %mode%
 label-mode-padding = 5
-label-mode-foreground = ${colors.selected}
+label-mode-foreground = ${colors.red}
 
 ; focused
 label-focused-foreground = ${colors.selected}
@@ -192,7 +202,9 @@ label-visible-padding = 1
 [module/date]
 type = internal/date
 date = %d.%m.%Y
+date-alt = %A, %d %B %Y 
 time = %H:%M
+time-alt = %H:%M:%S
 format-foreground = ${colors.foreground}
 format-padding = 2
 label = %time%   %date%
