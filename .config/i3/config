@@ -28,6 +28,8 @@ exec --no-startup-id "pulseaudio --start"
 exec --no-startup-id "bat.sh"
 # redshift, easy for eyes
 exec --no-startup-id "redshift -l 48.5140:2.2111"
+# screenlock
+exec --no-startup-id "xautolock -time 8 -locker \"$HOME/.lock_screen/lock\" -notify 30 -notifier \"popup -t 5 -g 210x40+1650+20 -B \#888 -F \#000 -p '%{r}' -f 'Iosevka Term-11' 'Screen will be locked in 30s'\""
 
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
