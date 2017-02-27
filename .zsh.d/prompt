@@ -20,7 +20,7 @@ OFF_COLOR="%{$reset_color%}"
 ERR_COLOR="%{$fg[red]%}"
 
 function prompt_user() {
-  echo "%(!.$ON_COLOR.$OFF_COLOR)$PROMPT_CHAR%{$reset_color%}"
+  echo "%(!.$ERR_COLOR.$OFF_COLOR)$PROMPT_CHAR%{$reset_color%}"
 }
 
 function prompt_jobs() {
