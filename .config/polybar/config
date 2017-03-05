@@ -97,6 +97,7 @@ format-discharging = <ramp-capacity> <label-discharging>
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = full
+label-full-foreground = ${colors.green}
 
 ; Only applies if <ramp-capacity> is used
 ramp-capacity-0 = 
