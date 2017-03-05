@@ -15,7 +15,7 @@ function cdcd(){
 
 function conf(){
 	case $1 in
-		vi|vim) $EDITOR ~/.vimrc ;;
+		vi|nvim) $EDITOR ~/.nvimrc ;;
 		ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
 		xrdb) $EDITOR ~/.Xresources ;;
 		tmux) $EDITOR ~/.tmux.conf ;;
@@ -145,7 +145,7 @@ dvtm-status(){
 }
 
 omx() {
-	regex='^(https?://)?(www\.)?(youtu(be\.(com|([a-z]{2}))|\.be)|vimeo\.com|twitch\.tv)/[^ ]+$'
+	regex='^(https?://)?(www\.)?(youtu(be\.(com|([a-z]{2}))|\.be)|nvimeo\.com|twitch\.tv)/[^ ]+$'
 	#if printf '%s' "$1" | grep -Ee "${regex}"; then
 	if grep -Ee "${regex}" <<< "$1"; then
 		omxplayer -o local `youtube-dl -g -f 22/18/43/36/17 "$@"`

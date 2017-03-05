@@ -1,4 +1,4 @@
-export EDITOR=vim
+export EDITOR=nvim
 export BROWSER=luakit
 export PATH=$HOME/src/bin:$HOME/bin:$PATH
 export MAKEFLAGS=' -j 4'

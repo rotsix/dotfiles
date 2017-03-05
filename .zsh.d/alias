@@ -66,5 +66,7 @@ alias mpv='mpv --geometry=1366x768-277-156'
 
 alias t411='sshfs -p 22202 piczel@krkrkr.org:/srv/deluge/Downloads /home/victor/mnt'
 
+alias vim='nvim'
+
 
 # vim: ft=zsh:
