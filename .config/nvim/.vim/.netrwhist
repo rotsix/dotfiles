@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/victor'
+let g:netrw_dirhist_2='/home/victor/cours'
+let g:netrw_dirhist_3='/home/victor/cours/L2'
+let g:netrw_dirhist_4='/home/victor/cours/L2/S1'
+let g:netrw_dirhist_5='/home/victor/cours/L2/S1/POO-IG3'
+let g:netrw_dirhist_6='/home/victor/cours/L2/S1/POO-IG3/TP2'
+let g:netrw_dirhist_7='/home/victor'
