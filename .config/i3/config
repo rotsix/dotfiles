@@ -5,6 +5,7 @@
 set $mod Mod4
 set $browser luakit
 set $term termite
+set $editor atom
 
 ## start-up
 # wallpaper
@@ -64,6 +65,8 @@ floating_modifier $mod
 bindsym $mod+Return exec $term
 # start browser
 bindsym $mod+Shift+Return exec $browser
+# start editor
+bindsym $mod+u exec $editor
 
 # kill focused window
 bindsym $mod+Shift+X kill
@@ -77,8 +80,6 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+m focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
