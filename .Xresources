@@ -41,7 +41,7 @@ rofi.terminal:                       rofi-sensible-terminal
 ! "Ssh client to use" Set from: Default
 rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default
-rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
 ! "Run command to execute" Set from: Default
 rofi.run-command:                    {cmd}
 ! "Command to get extra run targets" Set from: Default
