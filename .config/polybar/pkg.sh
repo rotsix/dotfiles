@@ -1,6 +1,6 @@
 #!/bin/bash
-pac=$(checkupdates | wc -l 2> /dev/null)
-aur=$(cower -u | wc -l 2> /dev/null)
+pac=$(checkupdates 2> /dev/null | wc -l)
+aur=$(cower -u 2> /dev/null | wc -l)
 
 check=$((pac + aur))
 if [[ "$check" != "0" ]]
