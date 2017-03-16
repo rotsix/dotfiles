@@ -56,9 +56,6 @@ alias isaacwold='pref=$(pwd); cd $HOME/.isaac; wine Isaac.exe; cd $pref; clear'
 alias portal2='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Valve/Portal\ 2; wine Launcher.exe; cd $pref; clear'
 alias smania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/SMStorm.lnk; clear'
 
-
-alias dofus='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Dofus; wine Dofus.exe; cd $pref; clear'
-
 alias ps_mem='\sudo ps_mem'
 alias nichons='curl z3bra.org/tits'
 
@@ -67,6 +64,5 @@ alias mpv='mpv --geometry=1366x768-277-156'
 alias t411='sshfs -p 22202 piczel@krkrkr.org:/srv/deluge/Downloads /home/victor/mnt'
 
 alias vim='nvim'
-
 
 # vim: ft=zsh:
