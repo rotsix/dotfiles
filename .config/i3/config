@@ -168,6 +168,7 @@ bindsym $mod+Shift+r exec "killall -q polybar; polybar top"
 for_window[class="mpv"] floating enable
 for_window[class=".*"] split h
 for_window[class=".*"] border pixel 7
+for_window[instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
 #for_window[class="Adl"] floating enable # Dofus
 
 
