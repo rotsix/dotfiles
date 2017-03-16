@@ -6,21 +6,14 @@ function SWAP(){
 }
 
 
-function cdcd(){
-	case $TERM in
-		xterm-termite) nohup termite -d $(pwd) &> /dev/null & ;;
-		*) echo "Eeeeeeeh, add some options in your zshrc" ;;
-	esac
-}
-
 function conf(){
 	case $1 in
-		vi|nvim) $EDITOR ~/.nvimrc ;;
+		vi|nvim|vim) $EDITOR ~/.config/nvim/init.vim ;;
 		ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
 		xrdb) $EDITOR ~/.Xresources ;;
 		tmux) $EDITOR ~/.tmux.conf ;;
 		zsh) $EDITOR ~/.zshrc ;;
-		zsh-global) sudo $EDITOR /etc/zsh/zshrc ;;
+		zsh-global) sudo -e /etc/zsh/zshrc ;;
 		i3) $EDITOR ~/.config/i3/config ;;
 		awesome) $EDITOR ~/.config/awesome/rc.lua ;;
 		dwm) $EDITOR ~/src/c/dwm/config.h ;;
@@ -105,12 +98,6 @@ echo -e "$(curl -s https://archlinux.fr/feed |sed """$sed_trt""")"
 
 }
 
-maj(){
-	repo="$(checkupdates | wc -l)"
-	aur="$(cower -u | wc -l)"
-
-	echo -e "MaJ : ${repo}, AUR : ${aur}"
-}
 
 dvtm-status(){
   FIFO="/tmp/dvtm-status.$$"
