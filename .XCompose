@@ -28,6 +28,8 @@ include "%L"
 <Multi_key> <equal>		<Up>	: "⇑"		# Top = Arrow
 <Multi_key> <equal>		<Down>	: "⇓"		# Down = Arrow
 
+
+# https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
 # Superscript
 <Multi_key>	<Up>		<plus>		: "⁺"		# super +
 <Multi_key>	<Up>		<minus>		: "⁻"		# super -
@@ -45,6 +47,7 @@ include "%L"
 <Multi_key>	<Up>		<equal>		: "⁼"		# super =
 <Multi_key>	<Up>		<parenleft>	: "⁽"		# super (
 <Multi_key>	<Up>		<parenright>	: "⁾"		# super )
+<Multi_key>	<Up>		<h>		: "ʰ"		# super h
 <Multi_key>	<Up>		<i>		: "ⁱ"		# super i
 <Multi_key>	<Up>		<j>		: "ʲ"		# super j
 <Multi_key>	<Up>		<k>		: "ᵏ"		# super k
@@ -67,6 +70,7 @@ include "%L"
 <Multi_key>	<Down>		<equal>		: "₌"		# sub =
 <Multi_key>	<Down>		<parenleft>	: "₍"		# sub (
 <Multi_key>	<Down>		<parenright>	: "₎"		# sub )
+<Multi_key>	<Down>		<h>		: "ₕ"		# sub h
 <Multi_key>	<Down>		<i>		: "ᵢ"		# sub i
 <Multi_key>	<Down>		<j>		: "ⱼ"		# sub j
 <Multi_key>	<Down>		<k>		: "ₖ"		# sub k
