@@ -80,6 +80,7 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+m focus right
 
+bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
