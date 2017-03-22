@@ -7,6 +7,11 @@ include "%L"
 
 <Multi_key>	<equal>	<equal>	<equal>	: "≡"   U2261   # Identical to
 
+# floor and ceil
+<Multi_key>	<asterisk>	<Down>	<Left>	: "⌊"
+<Multi_key>	<asterisk>	<Down>	<Right>	: "⌋"
+<Multi_key>	<asterisk>	<Up>	<Left>	: "⌈"
+<Multi_key>	<asterisk>	<Up>	<Right>	: "⌉"
 
 <Multi_key>	<s>	<q>		: "√"   U221A   # Square Root
 <Multi_key>	<3>	<s>	<q>	: "∛"   U221B   # Cube Root
