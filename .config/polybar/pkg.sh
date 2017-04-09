@@ -7,5 +7,5 @@ if [[ "$check" != "0" ]]
 then
     echo -n "$pac %{F#5b5b5b}%{F-} $aur"
 else
-    echo -n ""
+    echo ""
 fi
