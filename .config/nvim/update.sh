@@ -11,5 +11,6 @@ cd ..
 
 echo -e "Updating \033[31mpathogen\033[0m:"
 curl -LSso ~/.config/nvim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+echo -e "Done.\n"
 
 echo -e "\n\nAll your plugins are now up-to-date."
