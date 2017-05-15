@@ -9,7 +9,7 @@ set $editor atom
 
 ## start-up
 # wallpaper
-exec --no-startup-id "hsetroot -fill $HOME/.wallpaper.jpg"
+exec --no-startup-id "hsetroot -fill $HOME/.wallpaper.png"
 # notifications
 exec --no-startup-id "dunst"
 # bar
@@ -34,6 +34,7 @@ exec --no-startup-id "redshift -l 48.5140:2.2111"
 
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
+bindsym $mod+Shift+a exec blueman-applet
 bindsym XF86MonBrightnessDown exec "stm bl down"
 bindsym XF86MonBrightnessUp exec "stm bl up"
 
@@ -71,8 +72,10 @@ bindsym $mod+u exec $editor
 # kill focused window
 bindsym $mod+Shift+X kill
 
-# start dmenu (a program launcher)
+# start rofi
 bindsym $mod+r exec "rofi -show run"
+# start rofi-pass
+bindsym $mod+Shift+r exec "rofi-pass"
 
 # change focus
 bindsym $mod+j focus left
@@ -156,13 +159,14 @@ bindsym $mod+Shift+agrave move container to workspace $workspace10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+q restart
+# bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+q exec "i3-msg exit"
+bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit' 'i3-msg exit' -b 'restart' 'i3-msg restart'"
+#bindsym $mod+Shift+q exec "i3-msg exit"
 
 # reload polybar
-bindsym $mod+Shift+r exec "killall -q polybar; polybar top"
+bindsym $mod+q exec "killall -q polybar; polybar top"
 
 
 # specefics floating windows
