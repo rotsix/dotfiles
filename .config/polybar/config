@@ -9,7 +9,7 @@
 
 [colors]
 ;; dark theme
-background = #15191B
+background = #202020
 foreground = #a6a6a6
 red = #CB2B16
 green = #859900
