@@ -23,7 +23,7 @@ alias orphans='pacman -Qdtq | sudo pacman -Rnsc -'
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
 
-alias pkgfile='pacman -Fs'
+alias pkgfile='sudo pacman -Fy && pacman -Fs'
 
 alias uzbl='uzbl-tabbed'
 
