@@ -13,7 +13,7 @@ exec --no-startup-id "hsetroot -fill $HOME/.wallpaper.png"
 # notifications
 exec --no-startup-id "dunst"
 # bar
-exec --no-startup-id "date '+%d.%m.%Y %H:%M' >> /home/victor/log/polybar-top.log; polybar top &>> /home/victor/log/polybar-top.log"
+exec --no-startup-id "date '+%d.%m.%Y %H:%M' >> $HOME/log/polybar-top.log; polybar top &>> $HOME/log/polybar-top.log"
 # tray icons
 exec --no-startup-id "volumeicon"
 exec --no-startup-id "nm-applet"
@@ -35,8 +35,8 @@ exec --no-startup-id "redshift -l 48.5140:2.2111"
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
-bindsym XF86MonBrightnessDown exec "stm bl down"
-bindsym XF86MonBrightnessUp exec "stm bl up"
+bindsym XF86MonBrightnessDown exec "$HOME/src/bin/stm bl down"
+bindsym XF86MonBrightnessUp exec "$HOME/src/bin/stm bl up"
 
 # gaps, relative to i3-gaps
 gaps inner 15
@@ -166,7 +166,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit'
 #bindsym $mod+Shift+q exec "i3-msg exit"
 
 # reload polybar
-bindsym $mod+q exec "killall -q polybar; date '+%d.%m.%Y %H:%M' >> /home/victor/log/polybar-top.log; polybar top &>> /home/victor/log/polybar-top.log"
+bindsym $mod+q exec "killall -q polybar; date '+%d.%m.%Y %H:%M' >> $HOME/log/polybar-top.log; polybar top &>> $HOME/log/polybar-top.log"
 
 
 # specefics floating windows
@@ -204,10 +204,10 @@ mode "resize" {
 bindsym $mod+d mode "resize"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #202020 #202020 #ffffff #252525   #202020
-client.unfocused        #202020 #202020 #ffffff #252525   #202020
-client.urgent           #202020 #900000 #ffffff #900000   #900000
+client.focused          #4c7899 #285577 #ffffff #4591CC   #285577
+client.focused_inactive #132838 #132838 #ffffff #132838   #132838
+client.unfocused        #132838 #132838 #ffffff #132838   #132838
+client.urgent           #132838 #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 

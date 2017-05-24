@@ -20,8 +20,8 @@ cursor_shape = underline
 
 [colors]
 #background = rgba(0,0,0,0.39)
-#background = rgba(21,25,27,1.0)
-background = rgba(32,32,32,0.9)
+background = rgba(21,25,27,0.9)
+#background = rgba(32,32,32,0.9)
 #background = #202020
 #background = #1C1C1C
 
