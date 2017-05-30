@@ -65,4 +65,6 @@ alias t411='sshfs -p 22202 piczel@krkrkr.org:/srv/deluge/Downloads /home/victor/
 
 alias vim='nvim'
 
+alias hoogle='hoogle --color=true'
+
 # vim: ft=zsh:
