@@ -1,5 +1,19 @@
 include "%L"
 
+# emoticons
+# for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; done
+<Multi_key>	<colon>		<parenright>		: "☺"	 # :)
+<Multi_key>	<colon>		<parenleft>		: "🙁"	# :(
+<Multi_key>	<colon>	<apostroph>	<parenleft>	: "😭""	 # :'(
+<Multi_key>	<colon>		<D>			: "😄""	# :D
+<Multi_key>	<O>	<colon>	<parenright>		: "😇"	# O:)
+<Multi_key>	<colon>		<asterisk>		: "😙"	# :*
+<Multi_key>	<colon>		<O>			: "😮"	# :O
+<Multi_key>	<h>		<i>			: "🙋"	# hi		
+
+
+
+
 <Multi_key>	<e>		<e>	: "∈"		# Elem of…
 <Multi_key>	<E>		<E>	: "∃"		# Exist
 <Multi_key>	<A>		<A>	: "∀"		# For all
