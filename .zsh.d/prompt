@@ -35,7 +35,7 @@ function prompt_git() {
 
 function prompt_hostname(){
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-        echo "$(hostname -s) "
+        echo "\033[0;34m$(hostname -s) \033[m"
     fi
 }
 
