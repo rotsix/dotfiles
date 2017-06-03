@@ -111,18 +111,8 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 
 #PROMPT='$(prompt_hostname)$(prompt_user)$(prompt_jobs)$(prompt_vimode)$(prompt_status) '
-#PROMPT='$(prompt_hostname)$(prompt_user)$(prompt_jobs)$(prompt_status) '
-#RPROMPT='$(prompt_path)$(prompt_git)'
-
-PROMPT='$(
-[ $? -eq 0 ] && color=2 || color=1
-[ -z "${PWD##$HOME*}" ] && pwd="~${PWD#$HOME}" || pwd="$PWD"
-
-printf "\n"
-printf "\033[1;3%sm│\033[m %s%s\n" "$color" "$pwd" "$(prompt_git)"
-printf "\033[1;3%sm│\033[m " "$color"
-)'
-RPROMPT='$(prompt_hostname)'
+PROMPT='$(prompt_hostname)$(prompt_user)$(prompt_jobs)$(prompt_status) '
+RPROMPT='$(prompt_path)$(prompt_git)'
 
 ###
 # for man pages in color
