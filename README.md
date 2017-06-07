@@ -7,8 +7,8 @@ I'm using `stow` to manage my dots.
 
 To import them:
 > stow <package>
-> > tmux/nvim
-> git submodule update
+> -> tmux/nvim
+>    git submodule update
 
 > example:
 > stow neovim
