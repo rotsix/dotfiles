@@ -20,7 +20,7 @@ exec --no-startup-id "nm-applet"
 # auto numlock
 exec --no-startup-id "numlockx"
 # hide idle
-exec --no-startup-id "unclutter -idle 5"
+exec --no-startup-id "unclutter -grab -idle 5"
 # transparency
 exec --no-startup-id "xcompmgr"
 # sound
@@ -175,6 +175,9 @@ for_window[class=".*"] split h
 for_window[class=".*"] border pixel 7
 for_window[instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
 #for_window[class="Adl"] floating enable # Dofus
+
+assign [class="Google-chrome"] 
+assign [class="Atom"] 
 
 
 # resize window (you can also use the mouse for that)

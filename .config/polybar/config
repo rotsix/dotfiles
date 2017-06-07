@@ -95,7 +95,7 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
 label-charging = %percentage%%
-label-discharging = %percentage%%
+label-discharging = %percentage%% (%time%)
 label-full = full
 label-full-foreground = ${colors.green}
 
@@ -202,10 +202,10 @@ label-visible-padding = 1
 
 [module/date]
 type = internal/date
-date = %d.%m.%Y
-date-alt = %A, %d %B %Y 
-time = %H:%M
-time-alt = %H:%M:%S
+date-alt = %d.%m.%Y
+date = %A, %d %B %Y 
+time-alt = %H:%M
+time = %H:%M:%S
 format-foreground = ${colors.foreground}
 format-padding = 2
 label = %time%   %date%
