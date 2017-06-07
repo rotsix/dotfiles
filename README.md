@@ -9,7 +9,9 @@ To import them:
 `stow <package>`
 
 example:
-`stow neovim`
-`stow tmux`
-`stow i3`
+```
+stow neovim
+stow tmux
+stow i3
+```
 
