@@ -20,30 +20,30 @@ cursor_shape = underline
 
 [colors]
 #background = rgba(0,0,0,0.39)
-background = rgba(253,246,227,0.9)
-#background = rgba(32,32,32,0.5)
+background = rgba(21,25,27,0.9)
+#background = rgba(32,32,32,0.9)
 #background = #202020
 #background = #1C1C1C
 
 # black dark/light
-color0 =	#fdf6e3
-color8 =	#a6a6a6
+color0 =	#151515
+color8 =	#606060
 
 # red dark/light
-color1 =	#dc322f
-color9 =	#cb4b16
+color1 =	#cb2b16
+color9 =	#dc322f
 
 # green dark/light
 color2 =	#859900
-color10 =	#93a1a1
+color10 =	#1Aff28
 
 # yellow dark/light
 color3 =	#b58900
-color11 =	#839496
+color11 =	#fff200
 
 # blue dark/light
 color4 =	#268bd2
-color12 =	#657b83
+color12 =	#0073ff
 
 # magenta dark/light
 color5 =	#d33682
@@ -51,8 +51,8 @@ color13 =	#6c71c4
 
 # cyan dark/light
 color6 =	#2aa198
-color14 =	#548e75
+color14 =	#00e6ff
 
 # white dark/light
-color7 =	#073642
-color15 =	#002b36
+color7 =	#a6a6a6
+color15 =	#fdfdfd
