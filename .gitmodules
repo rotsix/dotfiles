@@ -1,0 +1,30 @@
+[submodule "tmux/.tmux.laptop/plugins/tmux-battery"]
+	path = tmux/.tmux.laptop/plugins/tmux-battery
+	url = https://github.com/tmux-plugins/tmux-battery
+[submodule "tmux/.tmux.laptop/plugins/tpm"]
+	path = tmux/.tmux.laptop/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "neovim/.config/nvim/bundle/colorizer"]
+	path = neovim/.config/nvim/bundle/colorizer
+	url = https://github.com/lilydjwg/colorizer
+[submodule "neovim/.config/nvim/bundle/lightline.vim"]
+	path = neovim/.config/nvim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "neovim/.config/nvim/bundle/supertab"]
+	path = neovim/.config/nvim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "neovim/.config/nvim/bundle/vim-nerdtree-tabs"]
+	path = neovim/.config/nvim/bundle/vim-nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "neovim/.config/nvim/bundle/delimitMate"]
+	path = neovim/.config/nvim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "neovim/.config/nvim/bundle/nerdtree"]
+	path = neovim/.config/nvim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "neovim/.config/nvim/bundle/tabular"]
+	path = neovim/.config/nvim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "neovim/.config/nvim/bundle/vim-sensible"]
+	path = neovim/.config/nvim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
