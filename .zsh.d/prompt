@@ -39,14 +39,6 @@ function prompt_hostname(){
     fi
 }
 
-function prompt_path() {
-  local path_color="%{%}%}"
-  local rsc="%{$reset_color%}"
-  local sep="$rsc/$path_color"
-
-  echo "$path_color$(print -P %3~ | sed s_/_${sep}_g)$rsc" # %N : number of directories
-}
-
 
 function zle-line-init zle-line-finish zle-keymap-select {
   zle reset-prompt
