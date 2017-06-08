@@ -9,8 +9,8 @@
 
 [colors]
 ;; dark theme
-background = #15191B
-foreground = #a6a6a6
+background = #fbf4e1
+foreground = #073642
 red = #CB2B16
 green = #859900
 yellow = #B58900
@@ -18,7 +18,7 @@ blue = #268BD2
 gray = #787878
 magenta = #D33682
 cyan = #2AA198
-selected = #FFFFFF
+selected = #000000
 unselected = ${colors.foreground}
 
 ;; light theme, transparency
