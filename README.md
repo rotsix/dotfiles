@@ -17,3 +17,6 @@ stow tmux
 stow i3
 ```
 
+
+I recommand you to use (this)[https://github.com/rotsix/bin/blob/master/themer] small script I did to manage my themes.
+
