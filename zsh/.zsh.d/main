@@ -37,7 +37,7 @@ bindkey "^[[3~"	delete-char
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" end-of-buffer-or-history
 
 if [[ $TERM == xterm-termite ]]; then
-	source /etc/profile.d/vte.sh
+	. /etc/profile.d/vte.sh
 	__vte_osc7
 fi
 
