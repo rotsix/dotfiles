@@ -42,6 +42,10 @@ set guifont=Roboto\ Mono\ for\ Powerline\ 11
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 
 
+" restore shape when leaving
+au VimLeave * set guicursor=a:hor20-blinkon175
+
+
 
 set smartcase
 
