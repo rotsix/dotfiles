@@ -2,6 +2,8 @@ set nocompatible
 
 
 """"
+"" VIM-PLUG
+"{{{
 " auto-install vim-plug + plugins
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -10,26 +12,35 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 " colorize all text in the form #rgb, #rgba, #rrggbb, #rrggbbaa, rgb(…), rgba(…)
-Plug 'https://github.com/lilydjwg/colorizer'
+Plug 'lilydjwg/colorizer'
 " status bar
-Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " auto-completion with tab-key
-Plug 'https://github.com/ervandew/supertab.git'
+Plug 'ervandew/supertab'
 " same NERDTree on all tabs
-Plug 'https://github.com/jistr/vim-nerdtree-tabs.git'
+Plug 'jistr/vim-nerdtree-tabs'
 " auto-close backets…
-Plug 'https://github.com/Raimondi/delimitMate.git'
+Plug 'Raimondi/delimitMate'
 " trololo, NERDTree
-Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }
 " tabs, easy
-Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'godlygeek/tabular'
 " prettier parentheses
 Plug 'https://github.com/kien/rainbow_parentheses.vim'
 " colorscheme
 Plug 'https://github.com/junegunn/seoul256.vim'
+" git integration
+Plug 'tpope/vim-fugitive'
+" show methods/functions/… on right
+Plug 'majutsushi/tagbar'
 call plug#end()
+"}}}
 """"
 
+
+""""
+"" COMMON OPTIONS
+"{{{
 " lol, gotta explain ?
 syntax on
 " show line numbers
@@ -51,9 +62,17 @@ set autoread
 set smartcase
 " highlight current line
 set cursorline
+"
+filetype plugin on
+filetype indent on
+set laststatus=2
+"}}}
+""""
+
 
 """"
-" indentation
+"" INDENTATION
+"{{{
 set cindent
 set noexpandtab
 set copyindent
@@ -61,13 +80,13 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
+"}}}
 """"
 
 
-filetype plugin on
-filetype indent on
-
-
+""""
+"" COLORS
+"{{{
 colorscheme brogrammer
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
@@ -76,29 +95,42 @@ hi luaFunction ctermfg=27
 hi t2tTable ctermfg=155
 hi t2tTableTit ctermfg=155
 hi t2tList ctermfg=127
+"}}}
+""""
 
 
 """"
+"" GUI-FONT
+"{{{
 " i don't use GUI :(
 "set guifont=Roboto\ Mono\ for\ Powerline\ 11
+"}}}
 """"
 
 
 """"
+"" STATUS-BAR
+"{{{
 " useful when not using lightline
 "set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+"}}}
 """"
 
 
 """"
+"" CURSOR SHAPE
+"{{{
 " restore shape when leaving
 set guicursor=
 " set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " au VimLeave * set guicursor=a:hor20-blinkon175
+"}}}
 """"
 
 
 """"
+"" HIGHLIGHT CLASSES
+"{{{
 " name, use for hilighting
 nmap <C-S-N> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -107,48 +139,71 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+"}}}
 """"
 
 
 """"
+"" NERDTREE
+"{{{
 " open NerdTree when nothing is opened
 nmap <C-S-P> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"}}}
 """"
 
 
 """"
+"" RAINBOW-PARENTHESES
+"{{{
 " always-on colorize parentheses
-"au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesActivate
+"}}}
+""""
+
+""""
+"" TAGBAR
+"{{{
+" open tagbar on startup
+autocmd VimEnter * nested :TagbarOpen
+" default : 40
+let g:tagbar_width = 40
+" hide <F1>, ? for help
+let g:tagbar_compact = 1
+"}}}
 """"
 
 
 """"
+"" TXT2TAGS
+"{{{
 " Txt2tags syntax
 au BufNewFile,BufRead *.t2t                     setf txt2tags
 au BufNewFile,BufRead *.flex                    setf jflex
+"}}}
 """"
 
 
-set laststatus=2
-
 
 """"
+"" ENCODAGE
+"{{{
 " should I explain ?
 set encoding=utf-8
 scriptencoding utf-8
+"}}}
 """"
 
 
 """"
-" lightline {
+"" LIGHTLINE
+"{{{
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'mode_map': { 'c': 'NORMAL' },
@@ -212,21 +267,50 @@ endfunction
 
 " hide -- INSERT bar
 set noshowmode
+"}}}
 """"
 
 
 """"
-" indentation, tabs to indent (emacs-like)
+"" INDENTATION
+"{{{
+" tab to indent (emacs-like)
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 map <Tab> i<Tab><Esc>^
 " set cinoptions=:0,(0,u0,W1s
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
+"}}}
 """"
 
 
 """"
+"" TO SET THE TITLE IN TERM
+"{{{
+"let &titlestring = "vim - " . expand("%:t")
+"set t_ts=^[k
+"set t_fs=^[\
+"set title
+"auto VimLeave * :set t_ts=^[k^[\
+"}}}
+""""
+
+
+""""
+"" FISH
+"{{{
+" 'cuz fish isn't posix
+if &shell =~# 'fish$'
+	set shell=bash
+endif
+"}}}
+""""
+
+
+""""
+"" BINDS
+"{{{
 " home/end -> begin/end of line
 map <C-A> <Home>
 map <C-E> <End>
@@ -234,38 +318,20 @@ imap <C-A> <Home>
 imap <C-E> <End>
 cmap <C-A> <Home>
 cmap <C-E> <End>
-"""
-
-
-""""
-" TO SET THE TITLE IN TERM
-"let &titlestring = "vim - " . expand("%:t")
-"set t_ts=^[k
-"set t_fs=^[\
-"set title
-"auto VimLeave * :set t_ts=^[k^[\
+"}}}
 """"
 
-
 """"
-" 'cuz fish isn't posix
-if &shell =~# 'fish$'
-	set shell=bash
-endif
-""""
-
-
-""""
-" binds for tabs
-nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <silent> <C-Left> :tabprev<CR>
-
+"" VIM-NERDTREE-TABS
+"{{{
+" binds
+nnoremap <silent> <C-Right> <Esc>:tabnext<CR>
+nnoremap <silent> <C-Left> <Esc>:tabprev<CR>
 nnoremap <silent> <C-S-Tab> :tabprev<CR>
 nnoremap <silent> <C-Tab> :tabnext<CR>
-"nnoremap <silent> <A-h> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-"nnoremap <silent> <A-l> :execute 'silent! tabmove ' . tabpagenr()<CR>
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
 inoremap <C-t> <Esc>:tabnew<CR>
 inoremap <C-w> <Esc>:tabclose<CR>
+"}}}
 """"
+
+" vim: fdm=marker:
