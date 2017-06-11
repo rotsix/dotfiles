@@ -171,11 +171,14 @@ au Syntax * RainbowParenthesesActivate
 "" TAGBAR
 "{{{
 " open tagbar on startup
-autocmd VimEnter * nested :TagbarOpen
+"autocmd StdinReadPre * let s:std_in = 1
+"autocmd vimenter * f argc() == 0 || !exists("s:std_in") | TagbarClose | TagbarOpen | endif
 " default : 40
 let g:tagbar_width = 40
 " hide <F1>, ? for help
 let g:tagbar_compact = 1
+" more compact
+let g:tagbar_indent = 1
 "}}}
 """"
 
