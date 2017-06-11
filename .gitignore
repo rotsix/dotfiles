@@ -1,2 +1,6 @@
 *.swp
 *~
+
+# neovim plugins
+neovim/.config/nvim/plugged/*
+neovim/.config/nvim/autoload/*

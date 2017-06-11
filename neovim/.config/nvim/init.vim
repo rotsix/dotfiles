@@ -1,6 +1,37 @@
 set nocompatible
-call pathogen#infect()
-call pathogen#helptags()
+
+
+""""
+" auto-install vim-plug + plugins
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.config/nvim/plugged')
+" colorize all text in the form #rgb, #rgba, #rrggbb, #rrggbbaa, rgb(…), rgba(…)
+Plug 'https://github.com/lilydjwg/colorizer'
+" status bar
+Plug 'https://github.com/itchyny/lightline.vim'
+" auto-completion with tab-key
+Plug 'https://github.com/ervandew/supertab.git'
+" same NERDTree on all tabs
+Plug 'https://github.com/jistr/vim-nerdtree-tabs.git'
+" auto-close backets…
+Plug 'https://github.com/Raimondi/delimitMate.git'
+" trololo, NERDTree
+Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle' }
+" tabs, easy
+Plug 'https://github.com/godlygeek/tabular.git'
+"
+Plug 'https://github.com/tpope/vim-sensible.git'
+" prettier parentheses
+Plug 'https://github.com/kien/rainbow_parentheses.vim'
+" colorscheme
+Plug 'https://github.com/junegunn/seoul256.vim'
+call plug#end()
+""""
+
 
 syntax on
 set number
@@ -27,12 +58,7 @@ filetype plugin on
 filetype indent on
 
 
-set background=dark
-let g:solarized_termcolors=256
 colorscheme brogrammer
-"colorscheme dracula
-
-
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
 " hi Cursorline cterm=bold term=bold gui=bold
@@ -86,6 +112,16 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+""""
+
+
+""""
+" always-on colorize parentheses
+"au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesActivate
 """"
 
 
@@ -170,6 +206,7 @@ function! LightlineMode()
 	return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+" hide -- INSERT bar
 set noshowmode
 """"
 
