@@ -30,15 +30,27 @@ Plug 'https://github.com/junegunn/seoul256.vim'
 call plug#end()
 """"
 
-
+" lol, gotta explain ?
 syntax on
+" show line numbers
 set number
+" mh, same, no explainations required
 set autoindent
 set mouse=a
+" show cmd on right
 set showcmd
+" can go everywhere
 set backspace=indent,eol,start
+" go to next line with h/l/keys
 set whichwrap+=<,>,h,l,[,]
-
+" always show N lines above/below cursor
+set scrolloff=5
+" autoload file changes
+set autoread
+" http://vim.wikia.com/wiki/Searching
+set smartcase
+" highlight current line
+set cursorline
 
 """"
 " indentation
@@ -86,11 +98,6 @@ set guicursor=
 """"
 
 
-set smartcase
-
-set cursorline
-
-
 """"
 " name, use for hilighting
 nmap <C-S-N> :call <SID>SynStack()<CR>
@@ -128,7 +135,6 @@ au Syntax * RainbowParenthesesActivate
 au BufNewFile,BufRead *.t2t                     setf txt2tags
 au BufNewFile,BufRead *.flex                    setf jflex
 """"
-
 
 
 set laststatus=2
