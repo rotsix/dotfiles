@@ -23,8 +23,6 @@ Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle' }
 " tabs, easy
 Plug 'https://github.com/godlygeek/tabular.git'
-"
-Plug 'https://github.com/tpope/vim-sensible.git'
 " prettier parentheses
 Plug 'https://github.com/kien/rainbow_parentheses.vim'
 " colorscheme
