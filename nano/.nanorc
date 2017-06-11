@@ -39,7 +39,7 @@ set autoindent
 ## paragraphs.  They cannot contain blank characters.  Only closing
 ## punctuation, optionally followed by closing brackets, can end
 ## sentences.
- set brackets ""')>]}"
+set brackets ""')>]}"
 
 ## Do case-sensitive searches by default.
 # set casesensitive
@@ -170,7 +170,7 @@ set smooth
 # set suspend
 
 ## Use this tab size instead of the default; it must be greater than 0.
-# set tabsize 8
+set tabsize 4
 
 ## Convert typed tabs to spaces.
 # set tabstospaces
