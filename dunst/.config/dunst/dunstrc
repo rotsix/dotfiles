@@ -42,7 +42,7 @@ context = ctrl+shift+twosuperior
 [urgency_low]
 background = "#171717"
 foreground = "#a6a6a6"
-frame_color = "#222222"
+frame_color = "#132838"
 timeout = 10
 
 [urgency_normal]

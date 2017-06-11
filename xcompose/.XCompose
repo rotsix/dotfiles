@@ -4,8 +4,8 @@ include "%L"
 # for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; done
 <Multi_key>	<colon>		<parenright>		: "☺"	 # :)
 <Multi_key>	<colon>		<parenleft>		: "🙁"	# :(
-<Multi_key>	<colon>	<apostroph>	<parenleft>	: "😭""	 # :'(
-<Multi_key>	<colon>		<D>			: "😄""	# :D
+<Multi_key>	<colon>	<apostrophe>	<parenleft>	: "😭"	 # :'(
+<Multi_key>	<colon>		<D>			: "😄"	# :D
 <Multi_key>	<O>	<colon>	<parenright>		: "😇"	# O:)
 <Multi_key>	<colon>		<asterisk>		: "😙"	# :*
 <Multi_key>	<colon>		<O>			: "😮"	# :O

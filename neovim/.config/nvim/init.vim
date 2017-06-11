@@ -1,6 +1,37 @@
 set nocompatible
-call pathogen#infect()
-call pathogen#helptags()
+
+
+""""
+" auto-install vim-plug + plugins
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.config/nvim/plugged')
+" colorize all text in the form #rgb, #rgba, #rrggbb, #rrggbbaa, rgb(…), rgba(…)
+Plug 'https://github.com/lilydjwg/colorizer'
+" status bar
+Plug 'https://github.com/itchyny/lightline.vim'
+" auto-completion with tab-key
+Plug 'https://github.com/ervandew/supertab.git'
+" same NERDTree on all tabs
+Plug 'https://github.com/jistr/vim-nerdtree-tabs.git'
+" auto-close backets…
+Plug 'https://github.com/Raimondi/delimitMate.git'
+" trololo, NERDTree
+Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle' }
+" tabs, easy
+Plug 'https://github.com/godlygeek/tabular.git'
+"
+Plug 'https://github.com/tpope/vim-sensible.git'
+" prettier parentheses
+Plug 'https://github.com/kien/rainbow_parentheses.vim'
+" colorscheme
+Plug 'https://github.com/junegunn/seoul256.vim'
+call plug#end()
+""""
+
 
 syntax on
 set number
@@ -10,6 +41,8 @@ set showcmd
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 
+
+""""
 " indentation
 set cindent
 set noexpandtab
@@ -18,17 +51,14 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
+""""
+
 
 filetype plugin on
 filetype indent on
 
 
-set background=dark
-let g:solarized_termcolors=256
 colorscheme brogrammer
-"colorscheme dracula
-
-
 hi Normal ctermbg=none
 hi CursorLine ctermbg=none
 " hi Cursorline cterm=bold term=bold gui=bold
@@ -38,17 +68,24 @@ hi t2tTableTit ctermfg=155
 hi t2tList ctermfg=127
 
 
-set guifont=Roboto\ Mono\ for\ Powerline\ 11
+""""
+" i don't use GUI :(
+"set guifont=Roboto\ Mono\ for\ Powerline\ 11
+""""
 
 
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+""""
+" useful when not using lightline
+"set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+""""
 
 
+""""
 " restore shape when leaving
 set guicursor=
 " set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 " au VimLeave * set guicursor=a:hor20-blinkon175
-
+""""
 
 
 set smartcase
@@ -57,6 +94,7 @@ set cursorline
 
 
 """"
+" name, use for hilighting
 nmap <C-S-N> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
 	if !exists("*synstack")
@@ -68,11 +106,22 @@ endfunc
 
 
 """"
+" open NerdTree when nothing is opened
 nmap <C-S-P> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+""""
+
+
+""""
+" always-on colorize parentheses
+"au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesActivate
 """"
 
 
@@ -88,11 +137,13 @@ set laststatus=2
 
 
 """"
+" should I explain ?
 set encoding=utf-8
 scriptencoding utf-8
 """"
 
 
+""""
 " lightline {
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -155,12 +206,13 @@ function! LightlineMode()
 	return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+" hide -- INSERT bar
 set noshowmode
-" }
+""""
 
 
 """"
-" indentation comme emacs
+" indentation, tabs to indent (emacs-like)
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 map <Tab> i<Tab><Esc>^
@@ -169,8 +221,9 @@ set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
 """"
 
+
 """"
-" des binds pour aller en fin/début de ligne
+" home/end -> begin/end of line
 map <C-A> <Home>
 map <C-E> <End>
 imap <C-A> <Home>
@@ -180,21 +233,22 @@ cmap <C-E> <End>
 """
 
 
+""""
 " TO SET THE TITLE IN TERM
-"""
 "let &titlestring = "vim - " . expand("%:t")
 "set t_ts=^[k
 "set t_fs=^[\
 "set title
 "auto VimLeave * :set t_ts=^[k^[\
-"""
+""""
 
-"""
-" pour pas qu'il pète les couilles avec un shell qu'est pas POSIX
-"""
+
+""""
+" 'cuz fish isn't posix
 if &shell =~# 'fish$'
 	set shell=bash
 endif
+""""
 
 
 """"

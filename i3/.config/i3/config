@@ -69,11 +69,14 @@ bindsym $mod+Shift+Return exec $browser
 # start editor
 bindsym $mod+u exec $editor
 
+# todo list
+bindsym $mod+twosuperior exec "$HOME/src/bin/todo --read"
+
 # kill focused window
 bindsym $mod+Shift+X kill
 
 # start rofi
-bindsym $mod+r exec "rofi -show run"
+bindsym $mod+r exec "zsh -c 'rofi -show run'"
 # start rofi-pass
 bindsym $mod+Shift+r exec "rofi-pass"
 
