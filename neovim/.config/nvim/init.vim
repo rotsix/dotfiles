@@ -57,11 +57,14 @@ let g:limelight_conceal_ctermfg = 240
 "" GOYO
 "{{{
 function! s:goyo_enter()
+  RainbowParenthesesToggleAll
   Limelight
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 function! s:goyo_leave()
   hi Normal ctermbg=NONE
+  hi CursorLine ctermbg=NONE
+  RainbowParenthesesToggleAll
   Limelight!
 endfunction
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
