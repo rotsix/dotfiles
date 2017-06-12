@@ -31,6 +31,8 @@ Plug 'https://github.com/kien/rainbow_parentheses.vim'
 Plug 'https://github.com/junegunn/seoul256.vim'
 " git integration
 Plug 'tpope/vim-fugitive'
+" git modifications
+Plug 'airblade/vim-gitgutter'
 " show methods/functions/… on right
 Plug 'majutsushi/tagbar'
 call plug#end()
@@ -247,7 +249,7 @@ endfunction
 function! LightlineFugitive()
 	if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
 		let branch = fugitive#head()
-		return branch !=# '' ? ' '.branch : ''
+		return branch !=# '' && winwidth(0) > 50 ? ' '.branch : ''
 	endif
 	return ''
 endfunction
