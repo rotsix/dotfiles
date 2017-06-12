@@ -6,7 +6,7 @@ show_notification=true
 notification_type=0
 
 [StatusIcon]
-stepsize=5
+stepsize=3
 onclick=pavucontrol
 theme=White Gnome
 use_panel_specific_icons=false
