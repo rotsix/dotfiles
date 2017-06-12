@@ -35,7 +35,23 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " show methods/functions/… on right
 Plug 'majutsushi/tagbar'
+" fuzzy file and buffer finder
+Plug 'ctrlpvim/ctrlp.vim'
+" hide every thing (reading, and writing texts)
+Plug 'junegunn/goyo.vim'
+" more focus on current paragraph
+Plug 'junegunn/limelight.vim'
 call plug#end()
+"}}}
+""""
+
+
+""""
+"" LIMELIGHT
+"{{{
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+let g:limelight_conceal_ctermfg = 240
 "}}}
 """"
 
@@ -61,6 +77,7 @@ set scrolloff=5
 " autoload file changes
 set autoread
 " http://vim.wikia.com/wiki/Searching
+set ignorecase
 set smartcase
 " highlight current line
 set cursorline
