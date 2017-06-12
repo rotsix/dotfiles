@@ -1,5 +1,5 @@
 " Vim color file
-" Converted from Textmate theme Brogrammer using Coloration v0.4.0 
+" Converted from Textmate theme brogrammer using Coloration v0.4.0 
 " (http://github.com/sickill/coloration)
 
 set background=dark
@@ -9,7 +9,7 @@ if exists("syntax_on")
 	syntax reset
 endif
 
-let g:colors_name = "Brogrammer"
+let g:colors_name = "brogrammer"
 
 hi Cursor ctermfg=234 ctermbg=231 cterm=NONE guifg=#1a1a1a guibg=#ecf0f1 gui=NONE
 hi Visual ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#444444 gui=NONE
