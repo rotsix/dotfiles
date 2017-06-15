@@ -1,4 +1,4 @@
-function SWAP(){
+SWAP () {
   local TMPFILE=tmp.$$
   cp --reflink=auto -- "$1" "$TMPFILE"
   mv -- "$2" "$1"
@@ -6,7 +6,7 @@ function SWAP(){
 }
 
 
-function conf(){
+conf () {
   case $1 in
 	vi|nvim) $EDITOR ~/.nvimrc ;;
 	ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
@@ -25,7 +25,7 @@ function conf(){
 }
 
 
-function src(){
+src () {
   case $1 in
 	zsh) source /etc/zsh/zshrc && sleep .5s && source $HOME/.zshrc ;;
 	xrdb) xrdb -merge ~/.Xresources ;;
@@ -36,16 +36,15 @@ function src(){
   esac
 }
 
-function autogit(){
+autogit () {
   git add -A && git ci -m "$1" && git push
 }
 
-ix(){ [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
-sprunge(){ [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
-imgur() { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
+ix () { [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
+sprunge () { [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
+imgur () { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
 
-
-function npp() {
+npp () {
   if [ -n "$DISPLAY" ]; then
 	#urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit
 	termite --name=ncmpcpp -d $HOME -e ncmpcpp && exit
@@ -54,11 +53,11 @@ function npp() {
   fi
 }
 
-function pbx() {
+pbx () {
   curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
-function tmux_tty(){
+tmux_tty () {
   tmux \
 	new -s tty -n "I" \; \
 	neww -n "II" \; \
@@ -68,11 +67,11 @@ function tmux_tty(){
 	selectw -t "I" \;
 }
 
-function mk(){
+mk () {
   mkdir -p $@ && cd $@
 }
 
-function news(){
+news () {
   #echo -e "\\e[01;31m\t\t >> News Archlinux.fr << \\e[00m\n$(curl -s https://archlinux.fr/feed | sed '/<title\|<pubDate/!d;s/\t*//g;s/<\/*title>/ - /g;s/[0-9]*:.*/\\e[00m/g;s/&#8217;/'"'"'/g;s/&#8211;/-/g;/Archlinux.fr/d' | sed 'N;s/\n<pubDate>/\\033[1;34m/g;P;D;')"
 
   read -r -d '' sed_trt <<EOF
@@ -98,14 +97,14 @@ echo -e "$(curl -s https://archlinux.fr/feed |sed """$sed_trt""")"
 
 }
 
-function maj(){
+maj () {
   repo="$(checkupdates 2> /dev/null | wc -l)"
   aur="$(cower -u 2> /dev/null | wc -l)"
 
   echo -e "MaJ : ${repo}, AUR : ${aur}"
 }
 
-function dvtm-status(){
+dvtm-status () {
   FIFO="/tmp/dvtm-status.$$"
   [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
 
@@ -137,7 +136,7 @@ function dvtm-status(){
   rm -f "$FIFO"
 }
 
-function omx() {
+omx () {
   regex='^(https?://)?(www\.)?(youtu(be\.(com|([a-z]{2}))|\.be)|nvimeo\.com|twitch\.tv)/[^ ]+$'
   #if printf '%s' "$1" | grep -Ee "${regex}"; then
   if grep -Ee "${regex}" <<< "$1"; then
@@ -146,4 +145,5 @@ function omx() {
 	omxplayer -o local "$@"
   fi
 }
+
 # vim: ft=zsh:
