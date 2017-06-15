@@ -51,10 +51,9 @@ zle -N zle-line-finish
 
 PROMPT='$(
 [ $? -eq 0 ] && color=2 || color=1
-[ -z "${PWD##$HOME*}" ] && pwd="~${PWD#$HOME}" || pwd="$PWD"
 
 printf "\n"
-echo -e "%{\033[1;3${color}m│\033[m%} $(prompt_hostname)${pwd}$(prompt_git)"
+echo -e "%{\033[1;3${color}m│\033[m%} $(prompt_hostname)%~$(prompt_git)"
 echo -e "%2{\033[1;3${color}m│\033[m %}"
 )'
 RPROMPT=''
