@@ -43,6 +43,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " syntastic lol
 Plug 'vim-syntastic/syntastic'
+" autocomment
+Plug 'tomtom/tcomment_vim'
 call plug#end()
 "}}}
 """"
@@ -109,6 +111,9 @@ set ignorecase
 set smartcase
 " highlight current line
 set cursorline
+" treat broken lines as multiple lines with j/k
+map j gj
+map k gk
 "
 filetype plugin on
 filetype indent on
