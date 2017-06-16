@@ -41,10 +41,22 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/goyo.vim'
 " more focus on current paragraph
 Plug 'junegunn/limelight.vim'
+" syntastic lol
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 "}}}
 """"
 
+
+""""
+"" SYNTASTIC
+"{{{
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"}}}
+""""
 
 """"
 "" LIMELIGHT
