@@ -44,4 +44,7 @@ if [[ $TERM == xterm-termite ]]; then
 	__vte_osc7
 fi
 
+# the fuck men ?
+eval $(thefuck --alias)
+
 # vim: ft=zsh:
