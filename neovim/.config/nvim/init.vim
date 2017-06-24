@@ -89,6 +89,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 """"
 "" COMMON OPTIONS
 "{{{
+" indent guide
+let g:indentLine_char = '┆'
 " lol, gotta explain ?
 syntax on
 " show line numbers
