@@ -1,0 +1,154 @@
+# Name: rotsix Openbox Thele
+# Author: rotsix
+
+# @TODO: finish replacing the colors here
+
+
+# Menu
+menu.border.color: #a6a6a6
+
+menu.title.bg: Solid Flat
+menu.title.bg.color: #181C1F
+menu.title.bg.shadow: 0
+menu.title.text.color: #eeeeee
+menu.title.text.justify: Center
+
+menu.items.bg: Solid Flat
+menu.items.bg.color: #181C1F
+menu.items.text.color: #eeeeee
+menu.items.disabled.text.color: #b8b9ba
+
+menu.items.active.bg: Solid Flat
+menu.items.active.bg.color: #4591CC
+menu.items.active.text.color: #eeeeee
+
+menu.separator.color: #b8b9ba
+menu.separator.width: 1
+menu.separator.padding.width: 2
+menu.separator.padding.height: 4
+
+# Window focused
+window.active.title.separator.color: #181C1F
+
+# Active window
+window.active.border.color: #4591CC
+
+
+window.active.title.bg: flat solid
+window.active.title.bg.color: #181C1F
+window.active.title.separator.color: #181C1F
+window.active.text.justify: center
+
+window.active.label.bg: parentrelative
+window.active.label.text.color: #eeeeee
+
+window.active.handle.bg: flat solid
+window.active.handle.bg.color: #181C1F
+
+window.active.grip.bg: flat solid
+window.active.grip.bg.color: #181C1F
+
+window.active.button.unpressed.bg: flat solid
+window.active.button.unpressed.bg.color: #181C1F
+window.active.button.unpressed.image.color: #eeeeee
+
+window.active.button.pressed.bg: flat solid
+window.active.button.pressed.bg.color: #4591CC
+window.active.button.pressed.image.color: #fdfdfd
+
+window.active.button.disabled.bg: flat solid
+window.active.button.disabled.bg.color: #181C1F
+window.active.button.disabled.image.color: #b8b9ba
+
+window.active.button.hover.bg: flat solid
+window.active.button.hover.bg.color: #181C1F
+window.active.button.hover.image.color: #4591CC
+
+#window.active.button.toggled.bg: #4591CC
+#window.active.button.toggled.image.color: #fdfdfd
+
+# Inactive window
+window.inactive.border.color: #132838
+
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #181C1F
+window.inactive.title.separator.color: #181C1F
+window.inactive.text.justify: center
+
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #b8b9ba
+
+window.inactive.handle.bg: flat solid
+window.inactive.handle.bg.color: #181C1F
+
+window.inactive.grip.bg: flat solid
+window.inactive.grip.bg.color: #181C1F
+
+window.inactive.button.unpressed.bg: flat solid
+window.inactive.button.unpressed.bg.color: #181C1F
+window.inactive.button.unpressed.image.color: #b8b9ba
+
+window.inactive.button.pressed.bg: flat solid
+window.inactive.button.pressed.bg.color: #4591CC
+window.inactive.button.pressed.image.color: #fdfdfd
+
+window.inactive.button.disabled.bg: flat solid
+window.inactive.button.disabled.bg.color: #b8b9ba
+window.inactive.button.disabled.image.color: #181C1F
+
+window.inactive.button.hover.bg: flat solid
+window.inactive.button.hover.bg.color: #181C1F
+window.inactive.button.hover.image.color: #4591CC
+
+
+# OSD
+osd.border.width: 1
+osd.border.color: #4591CC
+
+osd.bg: flat solid
+osd.bg.color: #181C1F
+osd.label.bg: flat solid
+osd.label.bg.color: #181C1F
+osd.label.text.color: #eeeeee
+
+# OSD
+osd.bg: Solid Flat
+osd.bg.color: #181C1F
+osd.bg.shadow: 0
+
+osd.border.width: 2
+osd.hilight.bg: Solid Flat
+osd.hilight.bg.color: #4591CC
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #15191B
+
+osd.button.unpressed.bg: flat border
+osd.button.unpressed.bg.color: #181C1F
+#osd.button.unpressed.*.border.color: #eeeeee
+
+osd.button.pressed.bg: flat border
+osd.button.pressed.bg.color: #4591CC
+#osd.button.pressed.*.border.color: #fdfdfd
+
+osd.button.focused.bg: flat solid border
+osd.button.focused.bg.color: #a6a6a6
+#osd.button.focused.*.border.color: #15191B
+
+osd.button.focused.box.color: #4591CC
+
+
+# Fonts
+window.active.label.text.font:shadow=n
+window.inactive.label.text.font:shadow=n
+menu.items.font:shadow=n
+menu.title.text.font:shadow=n
+
+
+# Everything else
+border.width: 3
+padding.width: 8
+padding.height: 3
+window.handle.width: 0
+window.client.padding.width: 0
+window.label.text.justify: center
+#menu.overlap: 0
