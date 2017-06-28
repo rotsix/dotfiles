@@ -73,7 +73,7 @@ tray-scale = 1
 type = custom/menu
 
 label-open = " Menu"
-label-close = "X"
+label-close = " X"
 label-separator = " | "
 
 menu-0-0 = Multimedia

@@ -180,6 +180,7 @@ for_window[instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
 #for_window[class="Adl"] floating enable # Dofus
 
 assign [class="Google-chrome"] 
+assign [class="Firefox"] 
 assign [class="Atom"] 
 
 
