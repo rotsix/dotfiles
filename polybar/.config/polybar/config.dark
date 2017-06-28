@@ -60,7 +60,7 @@ module-margin-right = 2
 font-0 = Iosevka Term:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;1
 
-modules-left = i3 xwindow
+modules-left = menu i3 xwindow
 modules-center = 
 modules-right = mpd github pkg wifi battery date
 
@@ -68,6 +68,30 @@ tray-position = right
 tray-padding = 1
 tray-maxsize = 16
 tray-scale = 1
+
+[module/menu]
+type = custom/menu
+
+label-open = " Menu"
+label-close = " X"
+label-separator = " | "
+
+menu-0-0 = Multimedia
+menu-0-0-exec = menu-open-1
+menu-0-1 = System
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = LibreOffice
+menu-1-1-exec = libreoffice &
+
+menu-2-0 = Disconnect
+menu-2-0-exec = termite -e "echo 'do it lol'"
+menu-2-1 = Reboot
+menu-2-1-exec = reboot
+menu-2-2 = Shutdown
+menu-2-2-exec = poweroff
 
 [module/wifi]
 type = internal/network
