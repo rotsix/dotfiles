@@ -1,7 +1,9 @@
-HOSTNAME=$(hostname)
+HOSTNAME := $(shell hostname)
 
 
-all: $(HOSTNAME)
+default: $(HOSTNAME)
+
+all: default
 	@echo "$@"
 
 
