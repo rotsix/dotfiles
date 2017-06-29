@@ -8,7 +8,6 @@
 ;=====================================================
 
 [colors]
-;; dark theme
 background = #15191B
 foreground = #a6a6a6
 red = #CB2B16
@@ -20,19 +19,6 @@ magenta = #D33682
 cyan = #2AA198
 selected = #FFFFFF
 unselected = ${colors.foreground}
-
-;; light theme, transparency
-;background = #FFFFFF00
-;foreground = #15191B
-;red = #CB2B16
-;green = #859900
-;yellow = #B58900
-;blue = #269BD2
-;gray = #787878
-;magenta = #D33682
-;cyan = #2AA198
-;selected = ${colors.foreground}
-;unselected = #677B85
 
 [global/wm]
 margin-top = 3
