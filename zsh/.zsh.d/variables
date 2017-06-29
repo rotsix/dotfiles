@@ -1,5 +1,5 @@
 export EDITOR=nvim
-export BROWSER=luakit
+export BROWSER=firefox
 export PATH=$HOME/src/bin:$HOME/bin:$PATH
 export MAKEFLAGS=' -j 4'
 
