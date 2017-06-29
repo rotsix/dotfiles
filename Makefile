@@ -46,7 +46,7 @@ laptop:
 	@stow xorg
 	@stow xscreensaver
 	@# in case of an update
-	@ln -sf "$HOME/.tmux.conf.laptop" "${HOME}/.tmux.conf"
+	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
 
 server:
 	@echo "$@"
