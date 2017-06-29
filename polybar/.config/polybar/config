@@ -87,7 +87,7 @@ menu-1-1 = LibreOffice
 menu-1-1-exec = libreoffice &
 
 menu-2-0 = Disconnect
-menu-2-0-exec = termite -e "echo 'do it lol'"
+menu-2-0-exec = i3-msg exit
 menu-2-1 = Reboot
 menu-2-1-exec = reboot
 menu-2-2 = Shutdown
