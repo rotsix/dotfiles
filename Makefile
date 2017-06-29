@@ -37,6 +37,7 @@ laptop:
 	@stow homePage
 	@stow i3
 	@stow locker
+	@stow mpv
 	@stow polybar
 	@stow sounds
 	@stow termite
