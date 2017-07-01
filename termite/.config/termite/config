@@ -4,7 +4,7 @@ font = Iosevka Term 11
 
 ##
 clickable_url = true
-browser = luakit
+browser = firefox
 urgent_on_bell = true
 audible_bell = false
 
