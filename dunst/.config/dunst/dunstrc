@@ -25,7 +25,7 @@ horizontal_padding = 12
 separator_color = frame
 startup_notification = false # yes
 dmenu = /usr/bin/dmenu -p dunst:
-browser = /usr/bin/luakit
+browser = /usr/bin/firefox
 icon_position = left
 icon_folders = /usr/share/icons/Numix-Circle/16x16/panel
 
