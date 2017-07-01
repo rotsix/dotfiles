@@ -27,7 +27,7 @@ startup_notification = false # yes
 dmenu = /usr/bin/dmenu -p dunst:
 browser = /usr/bin/luakit
 icon_position = left
-icon_folders = /usr/share/icons/Numix-Circle/16x16/status/:/usr/share/icons/Numix-Circle/16x16/devices/
+icon_folders = /usr/share/icons/Numix-Circle/16x16/panel
 
 [frame]
 width = 7
