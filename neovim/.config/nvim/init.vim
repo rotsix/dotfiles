@@ -49,7 +49,6 @@ call plug#end()
 "}}}
 """"
 
-
 """"
 "" SYNTASTIC
 "{{{
@@ -83,14 +82,12 @@ function! s:goyo_leave()
 endfunction
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 "}}}
-"""""
-
+""""
 
 """"
 "" COMMON OPTIONS
 "{{{
 " indent guide
-let g:indentLine_char = '┆'
 " lol, gotta explain ?
 syntax on
 " show line numbers
@@ -123,7 +120,6 @@ set laststatus=2
 "}}}
 """"
 
-
 """"
 "" INDENTATION
 "{{{
@@ -136,7 +132,6 @@ set shiftwidth=4
 set tabstop=4
 "}}}
 """"
-
 
 """"
 "" COLORS
@@ -152,7 +147,6 @@ hi t2tList ctermfg=127
 "}}}
 """"
 
-
 """"
 "" GUI-FONT
 "{{{
@@ -161,7 +155,6 @@ hi t2tList ctermfg=127
 "}}}
 """"
 
-
 """"
 "" STATUS-BAR
 "{{{
@@ -169,7 +162,6 @@ hi t2tList ctermfg=127
 "set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 "}}}
 """"
-
 
 """"
 "" CURSOR SHAPE
@@ -180,7 +172,6 @@ set guicursor=
 " au VimLeave * set guicursor=a:hor20-blinkon175
 "}}}
 """"
-
 
 """"
 "" HIGHLIGHT CLASSES
@@ -196,7 +187,6 @@ endfunc
 "}}}
 """"
 
-
 """"
 "" NERDTREE
 "{{{
@@ -210,7 +200,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 let NERDTreeMinimalUI = 1
 "}}}
 """"
-
 
 """"
 "" RAINBOW-PARENTHESES
@@ -238,7 +227,6 @@ let g:tagbar_indent = 1
 "}}}
 """"
 
-
 """"
 "" TXT2TAGS
 "{{{
@@ -248,8 +236,6 @@ au BufNewFile,BufRead *.flex                    setf jflex
 "}}}
 """"
 
-
-
 """"
 "" ENCODAGE
 "{{{
@@ -258,7 +244,6 @@ set encoding=utf-8
 scriptencoding utf-8
 "}}}
 """"
-
 
 """"
 "" LIGHTLINE
@@ -329,7 +314,6 @@ set noshowmode
 "}}}
 """"
 
-
 """"
 "" INDENTATION
 "{{{
@@ -343,7 +327,6 @@ autocmd FileType * setlocal indentkeys+=!<Tab>
 "}}}
 """"
 
-
 """"
 "" TO SET THE TITLE IN TERM
 "{{{
@@ -355,7 +338,6 @@ autocmd FileType * setlocal indentkeys+=!<Tab>
 "}}}
 """"
 
-
 """"
 "" FISH
 "{{{
@@ -365,7 +347,6 @@ if &shell =~# 'fish$'
 endif
 "}}}
 """"
-
 
 """"
 "" BINDS
