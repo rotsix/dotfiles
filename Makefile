@@ -51,3 +51,4 @@ laptop:
 
 server:
 	@echo "$@"
+	@ln -sf "${HOME}/.tmux.conf.rpi" "${HOME}/.tmux.conf"
