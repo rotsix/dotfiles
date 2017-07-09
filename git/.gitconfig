@@ -1,21 +1,22 @@
 [user]
   name = rotsix
   email = victor.franzi@gmail.com
-[color]
-  diff = auto
-  branch = auto
-  status = auto
 	
 [alias]
   ci = commit
   co = checkout
   st = status
   br = branch
+
 [push]
   default = simple
 
 [color]
   ui = auto
+  diff = auto
+  branch = auto
+  status = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
