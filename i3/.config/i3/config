@@ -13,7 +13,7 @@ exec --no-startup-id "hsetroot -fill $HOME/.wallpaper.png"
 # notifications
 exec --no-startup-id "dunst"
 # bar
-exec --no-startup-id "date '+%d.%m.%Y %H:%M' >> $HOME/log/polybar-top.log; polybar top --log=info &>> $HOME/log/polybar-top.log"
+exec --no-startup-id "mv $HOME/log/polybar-top.log $HOME/log/polybar-top.log.save; date '+%d.%m.%Y %H:%M' > $HOME/log/polybar-top.log; polybar top --log=info &>> $HOME/log/polybar-top.log"
 # tray icons
 exec --no-startup-id "volumeicon"
 exec --no-startup-id "nm-applet"
@@ -171,7 +171,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit'
 #bindsym $mod+Shift+q exec "i3-msg exit"
 
 # reload polybar
-bindsym $mod+q exec "killall -q polybar; date '+%d.%m.%Y %H:%M' >> $HOME/log/polybar-top.log; polybar top --log=info &>> $HOME/log/polybar-top.log"
+bindsym $mod+q exec "killall -q polybar; mv $HOME/log/polybar-top.log $HOME/log/polybar-top.log.save; date '+%d.%m.%Y %H:%M' > $HOME/log/polybar-top.log; polybar top --log=info &>> $HOME/log/polybar-top.log"
 
 
 # specefics floating windows
