@@ -134,20 +134,6 @@ set tabstop=4
 """"
 
 """"
-"" COLORS
-"{{{
-colorscheme brogrammer
-hi Normal ctermbg=none
-hi CursorLine ctermbg=none
-" hi Cursorline cterm=bold term=bold gui=bold
-hi luaFunction ctermfg=27
-hi t2tTable ctermfg=155
-hi t2tTableTit ctermfg=155
-hi t2tList ctermfg=127
-"}}}
-""""
-
-""""
 "" GUI-FONT
 "{{{
 " i don't use GUI :(
@@ -311,6 +297,21 @@ endfunction
 
 " hide -- INSERT bar
 set noshowmode
+"}}}
+""""
+
+""""
+"" COLORS
+"{{{
+colorscheme brogrammer
+hi Normal ctermbg=none
+hi CursorLine ctermbg=none
+" hi Cursorline cterm=bold term=bold gui=bold
+hi luaFunction ctermfg=27
+hi t2tTable ctermfg=155
+hi t2tTableTit ctermfg=155
+hi t2tList ctermfg=127
+hi Comment cterm=italic
 "}}}
 """"
 
