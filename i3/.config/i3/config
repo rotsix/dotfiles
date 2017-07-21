@@ -54,6 +54,8 @@ bindsym $mod+Shift+KP_Add      gaps outer current plus 3
 bindsym $mod+Shift+KP_Subtract gaps outer current minus 3
 bindsym $mod+Shift+KP_0        gaps outer current set 8
 
+bindsym $mod+Shift+colon move scratchpad
+bindsym $mod+colon scratchpad show
 
 font pango:Iosevka 8
 
