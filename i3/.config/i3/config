@@ -42,6 +42,9 @@ bindsym $mod+Shift+a exec blueman-applet
 bindsym XF86MonBrightnessDown exec "$HOME/src/bin/stm bl down"
 bindsym XF86MonBrightnessUp exec "$HOME/src/bin/stm bl up"
 
+
+bindsym $mod+w --release exec "xdo hide -N Polybar"
+
 # gaps, relative to i3-gaps
 gaps inner 15
 gaps outer 6
@@ -184,8 +187,10 @@ for_window[class=".*"] split h
 for_window[class=".*"] border pixel 7
 for_window[instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
 #for_window[class="Adl"] floating enable # Dofus
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="(?i)authy"] floating enable
 
-assign [class="Google-chrome"] 
 assign [class="Firefox"] 
 assign [class="Atom"] 
 
