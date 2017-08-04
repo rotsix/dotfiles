@@ -10,11 +10,9 @@ all: default
 
 fry: common laptop
 	@echo "$@"
-	@sed -i 's/^interface = .*$$/interface = wlp2s0/g' "$(HOME)/.config/polybar/config"
 
 lili: common laptop
 	@echo "$@"
-	@sed -i 's/^interface = .*$$/interface = wlp4s0/g' "$(HOME)/.config/polybar/config"
 
 isaac: common server
 	@echo "$@"
