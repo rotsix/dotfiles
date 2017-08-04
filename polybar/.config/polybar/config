@@ -81,7 +81,12 @@ menu-2-2-exec = poweroff
 
 [module/wifi]
 type = internal/network
+; BEGIN lili
 interface = wlp4s0
+; END lili
+; BEGIN fry
+interface = wlp4s0
+; END fry
 
 interval = 3
 format-connected = <ramp-signal> <label-connected>
