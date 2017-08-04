@@ -8,7 +8,7 @@ launch_polybar () {
   echo "Launching polybar $1"
   mv "$log" "$log.save"
   date '+%d.%m.%Y %H:%L' > "$log"
-  polybar "$1" --log=info -r &>> "$log"
+  polybar "$1" --log=info -r &>> "$log" &
 }
 
 kill_polybar () {
