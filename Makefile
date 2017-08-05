@@ -32,6 +32,7 @@ laptop:
 	@stow compton
 	@stow dunst
 	@stow firefox
+	@stow greenclip
 	@stow gtk-theme
 	@stow homePage
 	@stow i3
