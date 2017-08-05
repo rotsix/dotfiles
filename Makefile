@@ -4,23 +4,23 @@ HOSTNAME := $(shell hostname)
 default: $(HOSTNAME)
 
 all: default
-	@echo "$@"
+	@echo "stow $@"
 
 
 
 fry: common laptop
-	@echo "$@"
+	@echo "stow $@"
 
 lili: common laptop
-	@echo "$@"
+	@echo "stow $@"
 
 isaac: common server
-	@echo "$@"
+	@echo "stow $@"
 
 
 
 common:
-	@echo "$@"
+	@echo "stow $@"
 	@stow git
 	@stow nano
 	@stow neovim
@@ -28,7 +28,7 @@ common:
 	@stow zsh
 
 laptop:
-	@echo "$@"
+	@echo "stow $@"
 	@stow compton
 	@stow dunst
 	@stow firefox
@@ -49,5 +49,5 @@ laptop:
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
 
 server:
-	@echo "$@"
+	@echo "stow $@"
 	@ln -sf "${HOME}/.tmux.conf.rpi" "${HOME}/.tmux.conf"
