@@ -7,7 +7,7 @@ Xcursor.size:  16
 !!! ROFI !!!
 !!!!!!!!!!!!
 ! "Enabled modi" Set from: Default
-rofi.modi:                           window,run,ssh,clip:greenclip
+rofi.modi:                           window,run,ssh,clip:greenclip print
 ! "Window width" Set from: Default
 rofi.width:                          15
 ! "Number of lines" Set from: Default

@@ -35,6 +35,8 @@ exec --no-startup-id "redshift -l 48.5140:2.2111"
 exec --no-startup-id "xscreensaver -no-splash"
 # manage removeable media
 exec --no-startup-id "udiskie --tray"
+# clipboard manager using rofi
+exec --no-startup-id "greenclip daemon"
 
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
