@@ -85,7 +85,7 @@ type = internal/network
 ;interface = wlp4s0
 ; END lili
 ; BEGIN fry
-;interface = wlp4s0
+;interface = wlp2s0
 ; END fry
 
 interval = 3
