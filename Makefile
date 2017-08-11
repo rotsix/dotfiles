@@ -23,6 +23,7 @@ isaac: common server
 
 common:
 	@echo "stow $@"
+	@stow bin
 	@stow git
 	@stow nano
 	@stow neovim
