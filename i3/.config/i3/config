@@ -26,7 +26,7 @@ exec --no-startup-id "compton"
 # sound
 exec --no-startup-id "pulseaudio --start"
 # battery reminder
-exec --no-startup-id "$HOME/src/bin/bat.sh"
+exec --no-startup-id "$HOME/bin/bat.sh"
 # redshift, easy for eyes
 exec --no-startup-id "redshift -l 48.5140:2.2111"
 # screenlock
@@ -41,8 +41,8 @@ exec --no-startup-id "greenclip daemon"
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
-bindsym XF86MonBrightnessDown exec "$HOME/src/bin/stm bl down"
-bindsym XF86MonBrightnessUp exec "$HOME/src/bin/stm bl up"
+bindsym XF86MonBrightnessDown exec "$HOME/bin/stm bl down"
+bindsym XF86MonBrightnessUp exec "$HOME/bin/stm bl up"
 
 
 bindsym $mod+w --release exec "xdo hide -N Polybar"
@@ -81,7 +81,7 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+u exec $editor
 
 # todo list
-bindsym $mod+twosuperior exec "$HOME/src/bin/todo --read"
+bindsym $mod+twosuperior exec "$HOME/bin/todo --read"
 
 # kill focused window
 bindsym $mod+Shift+X kill
