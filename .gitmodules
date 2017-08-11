@@ -4,3 +4,6 @@
 [submodule "tmux/.tmux.laptop/plugins/tpm"]
 	path = tmux/.tmux.laptop/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "bin/bin"]
+	path = bin/bin
+	url = git@github.com:rotsix/bin.git
