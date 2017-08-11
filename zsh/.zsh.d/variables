@@ -1,6 +1,6 @@
 export EDITOR=nvim
 export BROWSER=firefox
-export PATH=$HOME/src/bin:$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH
 export MAKEFLAGS=' -j 4'
 
 export HISTFILE=$HOME/.zsh_history
