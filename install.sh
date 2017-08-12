@@ -21,3 +21,13 @@ echo "Done"
 echo "Managing simlinks"
 cd "$HOME/dotfiles" && make
 echo "Done"
+
+echo "Creating default folders"
+mkdir -pv "$HOME/backup"
+mkdir -pv "$HOME/log"
+mkdir -pv "$HOME/mnt"
+mkdir -pv "$HOME/src"
+mkdir -pv "$HOME/tmp"
+mkdir -pv "$HOME/trash"
+mkdir -pv "$HOME/usr"
+echo "Done"
