@@ -12,13 +12,15 @@ launch_polybar () {
 }
 
 kill_polybar () {
+  echo "Killing polybar $1"
   killall -q polybar &>/dev/null ; shift
   local i=0;
   while (( ++i < 5 )) && pgrep -x polybar >/dev/null; do sleep 1; done
 }
 
 reload_polybar () {
-  pkill -10 polybar
+  echo "Reloading polybar $1"
+  pkill -10 polybar || launch_polybar "$1"
 }
 
 "$1"_polybar "$2" || echo "Mh, add this in manager.sh"
