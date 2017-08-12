@@ -44,6 +44,10 @@ alias -s svg="display "
 alias -s gif="mpv "
 alias -s mp4="mpv "
 alias -s mkv="mpv "
+
+# libreoffice
+alias -s ods="libreoffice "
+alias -s odt="libreoffice "
 ###
 
 alias grep='grep --color=auto'
