@@ -18,8 +18,7 @@ kill_polybar () {
 }
 
 reload_polybar () {
-  kill_polybar "$1"
-  launch_polybar "$1"
+  pkill -10 polybar
 }
 
 "$1"_polybar "$2" || echo "Mh, add this in manager.sh"
