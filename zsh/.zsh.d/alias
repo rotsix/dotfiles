@@ -16,6 +16,7 @@ alias lhs='(lh;lha) | sort -hr'
 alias CLEAN='rrm -fr ${HOME}/trash/{expunged,files,info}/*; rrm -fr ${HOME}/trash/.*; rrm -fr ${HOME}/trash/..*'
 alias nano='nano -c -w'
 
+alias up='pacaur -Syu'
 alias syu='sudo pacman -Syu'
 alias aur='pacaur -Syua'
 alias orphans='pacman -Qdtq | sudo pacman -Rnsc -'
