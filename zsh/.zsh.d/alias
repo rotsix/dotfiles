@@ -37,9 +37,9 @@ alias -s html="$BROWSER "
 alias -s php="$BROWSER "
 
 # images
-alias -s png="display "
-alias -s jpg="display "
-alias -s svg="display "
+alias -s png="sxiv "
+alias -s jpg="sxiv "
+alias -s svg="sxiv "
 
 # videos
 alias -s gif="mpv "
