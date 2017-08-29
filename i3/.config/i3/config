@@ -197,6 +197,7 @@ for_window [title="(?i)authy"] floating enable
 
 assign [class="Firefox"] 
 assign [class="Atom"] 
+assign [class="Gummi"] 
 
 
 # resize window (you can also use the mouse for that)
