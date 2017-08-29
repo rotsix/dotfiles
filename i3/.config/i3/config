@@ -45,7 +45,9 @@ bindsym XF86MonBrightnessDown exec "$HOME/bin/stm bl down"
 bindsym XF86MonBrightnessUp exec "$HOME/bin/stm bl up"
 
 
-bindsym $mod+w --release exec "xdo hide -N Polybar"
+# open a terminal in the current working directory of the currently focused window
+bindsym $mod+Shift+t exec "$term -d $(xcwd)"
+
 
 # gaps, relative to i3-gaps
 gaps inner 15
