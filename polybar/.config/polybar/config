@@ -93,12 +93,6 @@ format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 ramp-signal-0 = 
 
-
-[module/redshift]
-type = custom/script
-interval = 5
-exec = ~/.config/polybar/redshift.sh
-
 [module/battery]
 type = internal/battery
 ; if battery never reachs 100%
