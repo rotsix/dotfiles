@@ -195,6 +195,8 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="(?i)authy"] floating enable
 
+for_window [class="Rambox"] move scratchpad
+
 assign [class="Firefox"] 
 assign [class="Atom"] 
 assign [class="Gummi"] 
