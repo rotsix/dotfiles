@@ -254,5 +254,6 @@ interval = 600
 format = <label>
 format-prefix = " "
 exec = ~/.config/polybar/weather
+exec-if = "ping -q -w 2 -c 1 138.201.197.100 > /dev/null"
 
 ; vim:ft=dosini
