@@ -178,7 +178,7 @@ format-prefix = " "
 
 [module/xwindow]
 type = internal/xwindow
-label = "%{F#5b5b5b}%{F-} %title:0:50:..%"
+label = "%{F#5b5b5b}%{F-} %title:0:40:…%"
 
 [module/i3]
 type = internal/i3
