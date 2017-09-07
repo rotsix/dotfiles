@@ -27,7 +27,12 @@ startup_notification = false # yes
 dmenu = /usr/bin/dmenu -p dunst:
 browser = /usr/bin/firefox
 icon_position = left
-icon_folders = /usr/share/icons/Numix-Circle/16x16/panel
+# BEGIN lili
+#icon_folders = /usr/share/icons/Numix-Circle/16x16/panel
+# END lili
+# BEGIN fry
+#icon_folders = /usr/share/icons/Numix-Circle/16/panel
+# END fry
 
 [frame]
 width = 7
