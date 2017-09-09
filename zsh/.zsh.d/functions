@@ -146,4 +146,8 @@ omx () {
   fi
 }
 
+open () {
+  nohup xdg-open "$@" 2> /dev/null &
+}
+
 # vim: ft=zsh:
