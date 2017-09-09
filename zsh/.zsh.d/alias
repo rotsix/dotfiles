@@ -17,39 +17,12 @@ alias CLEAN='rrm -fr ${HOME}/trash/{expunged,files,info}/*; rrm -fr ${HOME}/tras
 alias nano='nano -c -w'
 
 alias up='pacaur -Syu'
-alias syu='sudo pacman -Syu'
-alias aur='pacaur -Syua'
 alias orphans='pacman -Qdtq | sudo pacman -Rnsc - 2> /dev/null || echo "Nothing to delete"'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
 
 alias pkgfile='sudo pacman -Fy && pacman -Fs'
-
-alias uzbl='uzbl-tabbed'
-
-
-###
-alias -s pdf="zathura "
-
-# internet
-alias -s html="$BROWSER "
-alias -s php="$BROWSER "
-
-# images
-alias -s png="sxiv "
-alias -s jpg="sxiv "
-alias -s svg="sxiv "
-
-# videos
-alias -s gif="mpv "
-alias -s mp4="mpv "
-alias -s mkv="mpv "
-
-# libreoffice
-alias -s ods="libreoffice "
-alias -s odt="libreoffice "
-###
 
 alias grep='grep --color=auto'
 
