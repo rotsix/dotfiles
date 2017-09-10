@@ -1,0 +1,10 @@
+[
+  {
+    title: "PI4"
+    paths: [
+      "/home/victor/ProjetInfo"
+    ]
+    settings:
+      "linter-javac": additionalJavacOptions: "-d /home/victor/ProjetInfo/bin"
+  }
+]
