@@ -32,6 +32,7 @@ common:
 
 laptop:
 	@echo "stow $@"
+	@stow atom
 	@stow compton
 	@stow dunst
 	@stow firefox
@@ -40,6 +41,7 @@ laptop:
 	@stow homePage
 	@stow i3
 	@stow locker
+	@stow mime
 	@stow mpv
 	@stow polybar
 	@stow sounds
@@ -49,7 +51,6 @@ laptop:
 	@stow xcompose
 	@stow xorg
 	@stow xscreensaver
-	@# in case of an update
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
 
 server:
