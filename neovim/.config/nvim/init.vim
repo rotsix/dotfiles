@@ -26,9 +26,9 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }
 " tabs, easy
 Plug 'godlygeek/tabular'
 " prettier parentheses
-Plug 'https://github.com/kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 " colorscheme
-Plug 'https://github.com/junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 " git integration
 Plug 'tpope/vim-fugitive'
 " git modifications
