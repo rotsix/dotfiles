@@ -44,6 +44,7 @@ laptop:
 	@stow mime
 	@stow mpv
 	@stow polybar
+	@stow rofi-pass
 	@stow sounds
 	@stow termite
 	@stow volumeicon
