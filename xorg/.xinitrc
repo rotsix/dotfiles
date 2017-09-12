@@ -16,5 +16,7 @@ xset fp rehash
 
 xsetroot -cursor_name left_ptr
 
+setxkbmap -model pc105 -layout fr -variant oss
+
 exec i3
 
