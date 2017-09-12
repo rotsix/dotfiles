@@ -22,7 +22,7 @@ delay=2
 EDITOR='nvim'
 
 # Browser
-BROWSER='luakit'
+BROWSER='firefox'
 
 ## Misc settings
 
@@ -41,7 +41,7 @@ clip=primary
 # Options for generating new password entries
 default_user=victor
 default_user2=rotsix
-password_length=12
+password_length=16
 
 # Custom Keybindings
 autotype="Alt+1"
