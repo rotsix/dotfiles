@@ -37,6 +37,8 @@ exec --no-startup-id "xscreensaver -no-splash"
 exec --no-startup-id "udiskie --tray"
 # clipboard manager using rofi
 exec --no-startup-id "greenclip daemon"
+# whatsapp/messenger
+exec --no-startup-id "rambox"
 
 # volume management is made by volumeicon
 bindsym $mod+a exec pavucontrol
