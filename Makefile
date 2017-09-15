@@ -19,6 +19,9 @@ lili: common laptop
 isaac: common server
 	@echo "stow $@"
 
+tati: common server
+	@echo "stow $@"
+
 
 
 common:
