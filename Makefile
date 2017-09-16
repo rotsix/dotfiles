@@ -2,8 +2,6 @@ HOSTNAME := $(shell hostname)
 
 
 default: $(HOSTNAME)
-
-all: default
 	@echo "stow $@"
 	@git config filter.qualia.clean qualia
 	@git config filter.qualia.smudge "qualia $(HOSTNAME)"
