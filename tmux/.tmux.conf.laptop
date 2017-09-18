@@ -144,14 +144,3 @@ set -g message-fg colour232
 set -g message-bg colour166
 
 # }
-
-## plugins
-set -g @plugin 'tmux-plugins/tpm'
-# display battery
-set -g @plugin 'tmux-plugins/tmux-battery'
-set -g @batt_charging_icon "+"
-set -g @batt_discharging_icon "-"
-set -g @batt_charged_icon "FULL "
-
-# and finaly load plugins
-run '~/.tmux/plugins/tpm/tpm'
