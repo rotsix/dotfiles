@@ -36,6 +36,7 @@ laptop:
 	@stow atom
 	@stow compton
 	@stow dunst
+	@stow emacs
 	@stow firefox
 	@stow greenclip
 	@stow gtk-theme
