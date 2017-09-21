@@ -1,0 +1,46 @@
+#open document in fit-widht mode by default
+set adjust-open "best-fit"
+
+
+# zathurarc-dark
+
+set font "Iosevka Term 11"
+set default-bg "#1C1C1C" #00
+set default-fg "#F7F7F7" #01
+
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#1C1C1C" #01
+
+set inputbar-bg "#1C1C1C" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
+
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#1C1C1C" #00
+
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#1C1C1C" #00
+
+set highlight-color "#1C1C1C" #0A
+set highlight-active-color "#6A9FB5" #0D
+
+set completion-highlight-fg "#1C1C1C" #02
+set completion-highlight-bg "#E0E0E0" #0C
+
+set completion-bg "#1C1C1C" #02
+set completion-fg "#E0E0E0" #0C
+
+set notification-bg "#E0E0E0" #0B
+set notification-fg "#1C1C1C" #00
+
+set recolor "true"
+set recolor-lightcolor "#1C1C1C" #00
+set recolor-darkcolor "#A6A6A6" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+
+set render-loading "false"
+set scroll-step 50
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen

@@ -25,6 +25,7 @@ tati: common server
 common:
 	@echo "stow $@"
 	@stow bin
+	@stow emacs
 	@stow git
 	@stow nano
 	@stow neovim
@@ -36,7 +37,6 @@ laptop:
 	@stow atom
 	@stow compton
 	@stow dunst
-	@stow emacs
 	@stow firefox
 	@stow greenclip
 	@stow gtk-theme
@@ -54,6 +54,7 @@ laptop:
 	@stow xcompose
 	@stow xorg
 	@stow xscreensaver
+	@stow zathura
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
 
 server:
