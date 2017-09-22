@@ -5,3 +5,6 @@
 # neovim plugins
 neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
+
+# emacs plugins
+emacs/.emacs.d/elpa/archives/*

@@ -21,7 +21,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -52,7 +51,7 @@
 ;; lol, should I explain?
 (set-language-environment "UTF-8")
 
-;; no bars on emacs -nw
+;; no bars
 ;(menu-bar-mode -1)
 ;(tool-bar-mode -1)
 ;(scroll-bar-mode -1)
@@ -107,9 +106,9 @@
               (set (make-local-variable 'compile-command)
                    (let ((file (file-name-nondirectory buffer-file-name)))
                      (format "%s -o %s %s %s"
-                             (or (getenv "CC") "clang")
+                             (or (getenv "CC") "gcc")
                              (file-name-sans-extension file)
-                             (or (getenv "CFLAGS") "-O0 -g -std=c99 -Wall -Wextra")
+                             (or (getenv "CFLAGS") "-g -std=c11 -Wall -Wextra -pedentic")
                              file))))))
 
 
@@ -161,3 +160,9 @@
       kept-new-versions 2
       kept-old-versions 0
       delete-old-versions t)
+
+;; don't highlight current line
+(global-hl-line-mode -1)
+
+;; auto-close parenthesis, braces, quotes...
+(electric-pair-mode 1)
