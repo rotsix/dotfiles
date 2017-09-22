@@ -17,7 +17,7 @@ alias CLEAN='rrm -fr ${HOME}/trash/{expunged,files,info}/*; rrm -fr ${HOME}/tras
 alias nano='nano -c -w'
 
 alias up='pacaur -Syu'
-alias orphans='pacman -Qdtq | sudo pacman -Rnsc --no-confirm - 2> /dev/null || echo "Nothing to delete"'
+alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
