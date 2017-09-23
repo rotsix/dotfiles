@@ -38,6 +38,9 @@ help_color="#4872FF"
 # Possible options: primary, clipboard, both
 clip=primary
 
+# show help header
+help_header="false"
+
 # Options for generating new password entries
 default_user=victor
 default_user2=rotsix
