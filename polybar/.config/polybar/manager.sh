@@ -7,7 +7,7 @@ launch_polybar () {
   log="$HOME/log/polybar-$1.log"
   echo "Launching polybar $1"
   mv "$log" "$log.save"
-  date '+%d.%m.%Y %H:%L' > "$log"
+  date '+%d.%m.%Y %H:%M' > "$log"
   polybar "$1" --log=info -r &>> "$log" &
 }
 
