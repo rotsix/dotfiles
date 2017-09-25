@@ -169,3 +169,8 @@
 
 ;; case-insensitive C-x C-f
 (setq read-file-name-completion-ignore-case t)
+
+;; open pdf with zathura
+(require 'openwith)
+(openwith-mode t)
+(setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
