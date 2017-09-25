@@ -166,3 +166,6 @@
 
 ;; auto-close parenthesis, braces, quotes...
 (electric-pair-mode 1)
+
+;; case-insensitive C-x C-f
+(setq read-file-name-completion-ignore-case t)
