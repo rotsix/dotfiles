@@ -14,13 +14,23 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(display-time-24hr-format nil)
+ '(display-time-day-and-date nil)
  '(package-selected-packages (quote (helm tuareg))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(term-color-black ((t (:foreground "#151515" :background "#1A1A1A"))))
+ '(term-color-blue ((t (:foreground "#268bd2" :background "#1A1A1A"))))
+ '(term-color-cyan ((t (:foreground "#2aa198" :background "#1A1A1A"))))
+ '(term-color-green ((t (:foreground "#859900" :background "#1A1A1A"))))
+ '(term-color-magenta ((t (:foreground "#d33682" :background "#1A1A1A"))))
+ '(term-color-red ((t (:foreground "#cb2b16" :background "#1A1A1A"))))
+ '(term-color-white ((t (:foreground "#a6a6a6" :background "#1A1A1A"))))
+ '(term-color-yellow ((t (:foreground "#b58900" :background "#1A1A1A")))))
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -50,11 +60,16 @@
 
 ;; lol, should I explain?
 (set-language-environment "UTF-8")
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
 
 ;; no bars
-;(menu-bar-mode -1)
-;(tool-bar-mode -1)
-;(scroll-bar-mode -1)
+;;(menu-bar-mode -1)
+;;(tool-bar-mode -1)
+;;(scroll-bar-mode -1)
 
 ;; CUA mode (C-c, C-v, C-x)
 ;; To use C-c, C-v, C-x for copy/paste/cut, just uncomment (remove ;) the following line
@@ -108,7 +123,7 @@
                      (format "%s -o %s %s %s"
                              (or (getenv "CC") "gcc")
                              (file-name-sans-extension file)
-                             (or (getenv "CFLAGS") "-g -std=c11 -Wall -Wextra -pedentic")
+                             (or (getenv "CFLAGS") "-g -std=c11 -Wall -Wextra -pedantic")
                              file))))))
 
 
@@ -167,8 +182,39 @@
 ;; auto-close parenthesis, braces, quotes...
 (electric-pair-mode 1)
 
+;; allow pasting selection outside of emacs
+(setq x-select-enable-clipboard t)
+
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
+
+;; Answering just 'y' or 'n' will do
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; case-insensitive C-x C-f
 (setq read-file-name-completion-ignore-case t)
+
+;; Save a list of recent files visited. (open recent file with C-x f)
+(recentf-mode 1)
+(setq recentf-max-saved-items 100) ;; just 20 is too recent
+
+;; Save minibuffer history
+(savehist-mode 1)
+(setq history-length 1000)
+
+;; Add parts of each file's directory to the buffer name if not unique
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+;; Offer to create parent directories if they do not exist
+;; http://iqbalansari.github.io/blog/2014/12/07/automatically-create-parent-directories-on-visiting-a-new-file-in-emacs/
+(defun my-create-non-existent-directory ()
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+               (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+
+(add-to-list 'find-file-not-found-functions 'my-create-non-existent-directory)
 
 ;; open pdf with zathura
 (require 'openwith)
