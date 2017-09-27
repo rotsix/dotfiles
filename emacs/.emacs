@@ -14,10 +14,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-auto-show-menu 0.1)
  '(column-number-mode t)
  '(display-time-24hr-format nil)
  '(display-time-day-and-date nil)
- '(package-selected-packages (quote (helm tuareg))))
+ '(package-selected-packages (quote (auto-complete helm tuareg))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -220,3 +221,7 @@
 (require 'openwith)
 (openwith-mode t)
 (setq openwith-associations '(("\\.pdf\\'" "zathura" (file))))
+
+;; AUTO-COMPLETE
+(global-auto-complete-mode t)
+(setq ac-ignore-case 'smart)
