@@ -5,7 +5,7 @@
 set $mod Mod4
 set $browser firefox
 set $term termite
-set $editor atom
+set $editor emacs
 
 ## start-up
 # wallpaper
