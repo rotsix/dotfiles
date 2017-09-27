@@ -8,3 +8,6 @@ neovim/.config/nvim/autoload/*
 
 # emacs plugins
 emacs/.emacs.d/elpa/archives/*
+emacs/.emacs.d/elpa/*-readme.txt
+emacs/.emacs.d/history
+emacs/.emacs.d/recentf
