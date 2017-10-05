@@ -14,9 +14,10 @@ xset fp rehash
 
 [[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
 
-xsetroot -cursor_name left_ptr
+#xsetroot -cursor_name left_ptr
 
-setxkbmap -model pc105 -layout fr -variant oss
+#setxkbmap -model pc105 -layout fr -variant oss
 
-exec i3
+export XDG_CURRENT_DESKTOP=Budgie:GNOME
+exec budgie-desktop
 
