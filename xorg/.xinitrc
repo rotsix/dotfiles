@@ -18,6 +18,10 @@ xset fp rehash
 
 #setxkbmap -model pc105 -layout fr -variant oss
 
+udiskie --tray &
+greenclip daemon &
+unclutter -grab -idle 5 &
+
 export XDG_CURRENT_DESKTOP=Budgie:GNOME
 exec budgie-desktop
 
