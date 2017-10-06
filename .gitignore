@@ -10,3 +10,4 @@ neovim/.config/nvim/autoload/*
 emacs/.emacs.d/elpa/
 emacs/.emacs.d/history
 emacs/.emacs.d/recentf
+emacs/.emacs.d/ac-comphist.dat
