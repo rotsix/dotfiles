@@ -6,4 +6,8 @@
 	url = https://github.com/tmux-plugins/tpm
 [submodule "bin/bin"]
 	path = bin/bin
-	url = git@github.com:rotsix/bin.git
+    url = git@github.com:rotsix/bin.git
+[submodule "emacs/.emacs.d"]
+    path = emacs/.emacs.d
+    url = https://github.com/hlissner/.emacs.d
+
