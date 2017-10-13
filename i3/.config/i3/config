@@ -26,7 +26,7 @@ exec --no-startup-id "compton"
 # sound
 exec --no-startup-id "pulseaudio --start"
 # battery reminder
-exec --no-startup-id "$HOME/bin/bat.sh"
+#exec --no-startup-id "$HOME/bin/bat.sh"
 # redshift, easy for eyes
 exec --no-startup-id "redshift -l 48.5140:2.2111"
 # screenlock
