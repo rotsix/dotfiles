@@ -20,6 +20,9 @@ isaac: common server
 tati: common server
 	@echo "stow $@"
 
+abraham: common server
+	@echo "stow $@"
+
 
 
 common:
