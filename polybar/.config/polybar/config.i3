@@ -8,8 +8,8 @@
 ;=====================================================
 
 [colors]
-background = #263238
-foreground = #BEC2C4
+background = #15191B
+foreground = #a6a6a6
 red = #CB2B16
 green = #859900
 yellow = #B58900
@@ -24,12 +24,11 @@ unselected = ${colors.foreground}
 margin-top = 3
 margin-bottom = 3
 
-[bar/bot]
+[bar/top]
 width = 100%
-height = 30
+height = 27
 offset-x = 0
 offset-y = 0
-bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,37 +46,14 @@ module-margin-right = 2
 font-0 = Iosevka Term:pixelsize=10;2
 font-1 = FontAwesome:pixelsize=10;1
 
-modules-left =
-modules-center = mpd
-modules-right = sound battery date
+modules-left = i3 xwindow
+modules-center = 
+modules-right = mpd github weather pkg wifi battery date
 
-tray-position = left
+tray-position = right
 tray-padding = 1
 tray-maxsize = 16
 tray-scale = 1
-
-[module/sound]
-type = internal/volume
-
-master-soundcard = default
-speaker-soundcard = default
-headphone-soundcard = default
-
-format-volume = <ramp-volume> <label-volume>
-label-muted = 🔇 muted
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
-
-[module/openbox]
-type = internal/xworkspaces
-
-enable-click = true
-
-label-active-foreground = ${colors.background}
-label-active-background = ${colors.unselected}
-label-occupied-foreground = ${colors.selected}
-label-empty-foreground = ${colors.unselected}
 
 [module/menu]
 type = custom/menu
@@ -105,7 +81,12 @@ menu-2-2-exec = poweroff
 
 [module/wifi]
 type = internal/network
+; BEGIN lili
 interface = wlp4s0
+; END lili
+; BEGIN fry
+;interface = wlp2s0
+; END fry
 
 interval = 3
 format-connected = <ramp-signal> <label-connected>
@@ -115,7 +96,7 @@ ramp-signal-0 = 
 [module/battery]
 type = internal/battery
 ; if battery never reachs 100%
-full-at = 95
+full-at = 99
 poll-interval = 5
 
 time-format = %H:%M
@@ -230,8 +211,10 @@ label-visible-padding = 1
 
 [module/date]
 type = internal/date
-date = %d.%m.%Y 
-time = %H:%M
+date-alt = %d.%m.%Y
+date = %A, %d %B %Y 
+time-alt = %H:%M
+time = %H:%M:%S
 format-foreground = ${colors.foreground}
 format-padding = 2
 label = %time%   %date%

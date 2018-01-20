@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -15,10 +15,14 @@ xset fp rehash
 [[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
 
 ## budgie
-export XDG_CURRENT_DESKTOP=Budgie:GNOME
-exec budgie-desktop
+#export XDG_CURRENT_DESKTOP=Budgie:GNOME
+#exec budgie-desktop
+
+## openbox
+setxkbmap -model pc105 -layout fr -variant oss -option compose:rctrl
+exec openbox-session
 
 ## i3
 #xsetroot -cursor_name left_ptr
-#setxkbmap -model pc105 -layout fr -variant oss
+#setxkbmap -model pc105 -layout fr -variant oss -option compose:rctrl
 #exec i3
