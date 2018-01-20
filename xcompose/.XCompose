@@ -15,6 +15,9 @@ include "%L"
 
 
 <Multi_key>	<e>		<e>	: "∈"		# Elem of…
+<Multi_key>	<i>		<n>	 <f>: "∞"		# Infinite
+<Multi_key>	<exclam>	<e>		<e>	: "∉"		# Not an elem of…
+
 <Multi_key>	<E>		<E>	: "∃"		# Exist
 <Multi_key>	<A>		<A>	: "∀"		# For all
 <Multi_key>	<exclam>	<equal>	: "≠"		# Different
@@ -74,6 +77,7 @@ include "%L"
 <Multi_key>	<Up>		<equal>		: "⁼"		# super =
 <Multi_key>	<Up>		<parenleft>	: "⁽"		# super (
 <Multi_key>	<Up>		<parenright>	: "⁾"		# super )
+<Multi_key>	<Up>		<c>		: "ᶜ"		# super c
 <Multi_key>	<Up>		<h>		: "ʰ"		# super h
 <Multi_key>	<Up>		<i>		: "ⁱ"		# super i
 <Multi_key>	<Up>		<j>		: "ʲ"		# super j
@@ -97,11 +101,14 @@ include "%L"
 <Multi_key>	<Down>		<equal>		: "₌"		# sub =
 <Multi_key>	<Down>		<parenleft>	: "₍"		# sub (
 <Multi_key>	<Down>		<parenright>	: "₎"		# sub )
+<Multi_key>	<Down>		<a>		: "ₐ"		# sub a
 <Multi_key>	<Down>		<h>		: "ₕ"		# sub h
 <Multi_key>	<Down>		<i>		: "ᵢ"		# sub i
 <Multi_key>	<Down>		<j>		: "ⱼ"		# sub j
 <Multi_key>	<Down>		<k>		: "ₖ"		# sub k
+<Multi_key>	<Down>		<m>		: "ₘ"		# sub m
 <Multi_key>	<Down>		<n>		: "ₙ"		# sub n
+<Multi_key>	<Down>		<p>		: "ₚ"		# sub p
 
 
 # Greek letters
