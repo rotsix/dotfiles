@@ -1,6 +1,6 @@
 [options]
 #font = Roboto Mono for Powerline 11
-font = Iosevka Term 11
+font = Iosevka Term 10
 
 ##
 clickable_url = true
