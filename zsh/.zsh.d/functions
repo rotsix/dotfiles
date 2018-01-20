@@ -150,4 +150,24 @@ open () {
   nohup xdg-open "$@" &> /dev/null &
 }
 
+pin() {
+    pindir=$HOME/.pins
+    case "$1" in 
+        "")
+      		count=1
+      		while read -r pin; do
+        		echo "$count $(basename "$pin")"
+        		(( count++ ))
+    		done < $pindir ;;
+        "p")
+            echo "$PWD" >> $pindir ;;
+        "del"|"d")
+            sed -i "$2d" "$pindir" ;;
+        "[0-9][0-9]*")
+            echo "$1" >> $pindir ;;
+        *)
+            cd "$(sed "$1q;d" "$pindir")" ;;
+    esac
+}
+
 # vim: ft=zsh:

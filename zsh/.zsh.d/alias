@@ -52,4 +52,6 @@ alias emoji='for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; do
 
 alias inutile='curl -s https://www.savoir-inutile.com/ | grep phrase | cut -d">" -f2 | cut -d"<" -f1'
 
+alias d='pin'
+
 # vim: ft=zsh:
