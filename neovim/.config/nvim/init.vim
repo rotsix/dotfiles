@@ -17,8 +17,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'itchyny/lightline.vim'
 " auto-completion with tab-key
 Plug 'ervandew/supertab'
-" same NERDTree on all tabs
-Plug 'jistr/vim-nerdtree-tabs'
 " auto-close backets…
 Plug 'Raimondi/delimitMate'
 " trololo, NERDTree
@@ -359,19 +357,6 @@ imap <C-A> <Home>
 imap <C-E> <End>
 cmap <C-A> <Home>
 cmap <C-E> <End>
-"}}}
-""""
-
-""""
-"" VIM-NERDTREE-TABS
-"{{{
-" binds
-nnoremap <silent> <C-Right> <Esc>:tabnext<CR>
-nnoremap <silent> <C-Left> <Esc>:tabprev<CR>
-nnoremap <silent> <C-S-Tab> :tabprev<CR>
-nnoremap <silent> <C-Tab> :tabnext<CR>
-inoremap <C-t> <Esc>:tabnew<CR>
-inoremap <C-w> <Esc>:tabclose<CR>
 "}}}
 """"
 
