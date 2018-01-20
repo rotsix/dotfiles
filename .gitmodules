@@ -10,3 +10,6 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
 	url = https://github.com/hlissner/.emacs.d
+[submodule "locker/.betterlockscreen"]
+	path = locker/.betterlockscreen
+	url = https://github.com/pavanjadhaw/betterlockscreen.git
