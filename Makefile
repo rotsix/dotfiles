@@ -37,7 +37,6 @@ laptop:
 	@stow firefox
 	@stow homePage
 	@stow mpv
-	@stow wallpaper
 	@stow xcompose
 	@stow zathura
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
