@@ -1,9 +1,0 @@
-# 'body':
-#   'ctrl-tab': 'pane:show-next-item'
-#   'ctrl-shift-tab': 'pane:show-previous-item'
-#   'ctrl-pagedown': 'pane:show-recently-used-next-item'
-#   'ctrl-pageup': 'pane:show-recently-used-previous-item'
-
-'atom-text-editor':
-  'ctrl-alt-l': 'editor:auto-indent',
-  'ctrl-:': 'editor:toggle-line-comments'
