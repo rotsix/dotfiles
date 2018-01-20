@@ -23,9 +23,6 @@ case "$(whoami)" in
   	;;
 esac
 shift
-
-cd "$HOME/dotfiles" && git config filter.qualia.clean qualia
-cd "$HOME/dotfiles" && git config filter.qualia.smudge "qualia $(hostname)"
 echo "Done"
 
 echo "Managing simlinks"
