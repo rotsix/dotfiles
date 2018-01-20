@@ -41,6 +41,7 @@ laptop:
 	@stow xcompose
 	@stow zathura
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
+	@dconf load / < "${HOME}/dotfiles/dconf.conf"
 
 server:
 	@echo "stow $@"
