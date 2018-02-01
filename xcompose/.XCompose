@@ -26,6 +26,7 @@ include "%L"
 <Multi_key> <o>		<u>	: "∨"		# logical or
 <Multi_key> <e>		<t>	: "∧"		# logical and
 <Multi_key> <n>		<o>		<n>	: "¬"	# logical not
+<Multi_key> <d>		<e>		<d>	: "⊢"	# deduction / provable
 
 
 <Multi_key>	<equal>	<equal>	<equal>	: "≡"   U2261   # Identical to
