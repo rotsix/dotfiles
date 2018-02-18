@@ -16,7 +16,7 @@ alias lhs='(lh;lha) | sort -hr'
 alias CLEAN='rrm -fr ${HOME}/trash/{expunged,files,info}/*; rrm -fr ${HOME}/trash/.*; rrm -fr ${HOME}/trash/..*'
 alias nano='nano -c -w'
 
-alias up='pacaur -Syu'
+alias up='trizen -Syu'
 alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
 
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
@@ -53,5 +53,6 @@ alias emoji='for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; do
 alias inutile='curl -s https://www.savoir-inutile.com/ | grep phrase | cut -d">" -f2 | cut -d"<" -f1'
 
 alias d='pin'
+alias p='trizen'
 
 # vim: ft=zsh:
