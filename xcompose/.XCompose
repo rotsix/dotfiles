@@ -110,6 +110,7 @@ include "%L"
 <Multi_key>	<Down>		<m>		: "ₘ"		# sub m
 <Multi_key>	<Down>		<n>		: "ₙ"		# sub n
 <Multi_key>	<Down>		<p>		: "ₚ"		# sub p
+<Multi_key>	<Down>		<r>		: "ᵣ"		# sub r
 
 
 # Greek letters
