@@ -14,13 +14,15 @@ include "%L"
 
 
 
-<Multi_key>	<e>		<e>	: "∈"		# Elem of…
+<Multi_key>	<e>		<e>	: "∈"		# In
+<Multi_key> <n>     <e> <e> : "∉"   # Not in
 <Multi_key>	<i>		<n>	 <f>: "∞"		# Infinite
-<Multi_key>	<exclam>	<e>		<e>	: "∉"		# Not an elem of…
 
 <Multi_key>	<E>		<E>	: "∃"		# Exist
+<Multi_key>	<n> <E>		<E>	: "∄"		# Not exist
 <Multi_key>	<A>		<A>	: "∀"		# For all
 <Multi_key>	<exclam>	<equal>	: "≠"		# Different
+<Multi_key> <r> <o> <n> <d> : "∘"
 
 # logical symbols
 <Multi_key> <o>		<u>	: "∨"		# logical or
@@ -28,6 +30,11 @@ include "%L"
 <Multi_key> <n>		<o>		<n>	: "¬"	# logical not
 <Multi_key> <d>		<e>		<d>	: "⊢"	# deduction / provable
 
+#
+<Multi_key> <i> <n> <c> : "⊂"
+<Multi_key> <i> <n> <q> : "⊆"
+<Multi_key> <n> <i> <n> <c> : "⊄"
+<Multi_key> <n> <i> <n> <q> : "⊈"
 
 <Multi_key>	<equal>	<equal>	<equal>	: "≡"   U2261   # Identical to
 
@@ -37,7 +44,7 @@ include "%L"
 <Multi_key>	<asterisk>	<Up>	<Left>	: "⌈"
 <Multi_key>	<asterisk>	<Up>	<Right>	: "⌉"
 
-<Multi_key>	<s>	<q>		: "√"   U221A   # Square Root
+<Multi_key>	<s>	<q>    	: "√"   U221A   # Square Root
 <Multi_key>	<3>	<s>	<q>	: "∛"   U221B   # Cube Root
 <Multi_key>	<4>	<s>	<q>	: "∜"   U221C   # Fourth Root
 <Multi_key>	<i>	<n>	<t>	: "∫"   U222B   # Integral
