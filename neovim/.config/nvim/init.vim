@@ -1,237 +1,126 @@
 set nocompatible
 
-
-""""
-"" VIM-PLUG
-"{{{
-" auto-install vim-plug + plugins
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoloads/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-" colorize all text in the form #rgb, #rgba, #rrggbb, #rrggbbaa, rgb(…), rgba(…)
+
+" Colorizer: colorize all text in the form #rgb, #rgba, #rrggbb, #rrggbbaa,
+" rgb(...), rgba(...)
 Plug 'lilydjwg/colorizer'
-" status bar
-Plug 'itchyny/lightline.vim'
-" auto-completion with tab-key
-Plug 'ervandew/supertab'
-" auto-close backets…
-Plug 'Raimondi/delimitMate'
-" trololo, NERDTree
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }
-" tabs, easy
-Plug 'godlygeek/tabular'
-" prettier parentheses
-Plug 'kien/rainbow_parentheses.vim'
-" colorscheme
-Plug 'junegunn/seoul256.vim'
-" git integration
-Plug 'tpope/vim-fugitive'
-" git modifications
+
+" Vinegar: kind of nerdtree, but simpler/smaller
+Plug 'tpope/vim-vinegar'
+
+" Auto Pairs: insert or delete brackets, parens, quotes in pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
-" show methods/functions/… on right
-Plug 'majutsushi/tagbar'
-" fuzzy file and buffer finder
-Plug 'ctrlpvim/ctrlp.vim'
-" hide every thing (reading, and writing texts)
-Plug 'junegunn/goyo.vim'
-" more focus on current paragraph
-Plug 'junegunn/limelight.vim'
-" syntastic lol
-Plug 'vim-syntastic/syntastic'
-" autocomment
-Plug 'tomtom/tcomment_vim'
+
+" Dracula: a spooky theme
+Plug 'dracula/vim'
+
+" Polyglot: syntax highlighting for common languages
+Plug 'sheerun/vim-polyglot'
+
+" Ale: asynchronous lint engine
+Plug 'w0rp/ale'
+
+" Automatically set tabstop
+Plug 'tpope/vim-sleuth'
+
+" Lightline: prettier status bar
+Plug 'itchyny/lightline.vim'
+
 call plug#end()
-"}}}
-""""
 
-""""
-"" SYNTASTIC
-"{{{
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"}}}
-""""
 
-""""
-"" LIMELIGHT
-"{{{
-let g:limelight_conceal_ctermfg = 240
-"}}}
-""""
+" leader key is comma
+let mapleader = ","
 
-""""
-"" GOYO
-"{{{
-function! s:goyo_enter()
-  RainbowParenthesesToggleAll
-  Limelight
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-function! s:goyo_leave()
-  hi Normal ctermbg=NONE
-  hi CursorLine ctermbg=NONE
-  RainbowParenthesesToggleAll
-  Limelight!
-endfunction
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-"}}}
-""""
+" quick exit/save
+nmap <leader>w :w!<cr>
 
-""""
-"" COMMON OPTIONS
-"{{{
-" indent guide
-" lol, gotta explain ?
+" easy split nav
+map <C-j> <C-w>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" hide search highlights with ,<cr>
+map <silent> <leader><cr> :noh<cr>
+
+" prettier colorscheme
+color dracula
+
+" and some ameliorations
+hi Normal ctermbg=none
+hi CursorLine ctermbg=none
+hi luaFunction ctermfg=27
+hi Comment cterm=italic
+
+" set syntax
 syntax on
-" show line numbers
+
+" show line number
 set number
-" mh, same, no explainations required
+
+" auto-indentation
 set autoindent
+
+" mouse
 set mouse=a
-" show cmd on right
+
+" show cmd on right on statusbar
 set showcmd
-" can go everywhere
+
+" keys/hjkl can go on new lines/*
 set backspace=indent,eol,start
-" go to next line with h/l/keys
 set whichwrap+=<,>,h,l,[,]
+
 " always show N lines above/below cursor
 set scrolloff=5
+
 " autoload file changes
 set autoread
-" http://vim.wikia.com/wiki/Searching
+
+" smarter searching
 set ignorecase
 set smartcase
+
 " highlight current line
 set cursorline
-" treat broken lines as multiple lines with j/k
+
+" wrapped lines are multiple lines with j/k
 map j gj
 map k gk
-"
-filetype plugin on
-filetype indent on
-set laststatus=2
-"}}}
-""""
 
-""""
-"" INDENTATION
-"{{{
+" c indent
 set cindent
+
+" spaces
 set noexpandtab
+
+" keep current indent
 set copyindent
 set preserveindent
+
+" tab length
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-"}}}
-""""
 
-""""
-"" GUI-FONT
-"{{{
-" i don't use GUI :(
-"set guifont=Roboto\ Mono\ for\ Powerline\ 11
-"}}}
-""""
-
-""""
-"" STATUS-BAR
-"{{{
-" useful when not using lightline
-"set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
-"}}}
-""""
-
-""""
-"" CURSOR SHAPE
-"{{{
-" restore shape when leaving
+" cursor in gui
 set guicursor=
-" set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-" au VimLeave * set guicursor=a:hor20-blinkon175
-"}}}
-""""
 
-""""
-"" HIGHLIGHT CLASSES
-"{{{
-" name, use for hilighting
-nmap <C-S-N> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-"}}}
-""""
-
-""""
-"" NERDTREE
-"{{{
-" open NerdTree when nothing is opened
-nmap <C-S-P> :NERDTreeToggle<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-let NERDTreeMinimalUI = 1
-"}}}
-""""
-
-""""
-"" RAINBOW-PARENTHESES
-"{{{
-" always-on colorize parentheses
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesActivate
-"}}}
-""""
-
-""""
-"" TAGBAR
-"{{{
-" open tagbar on startup
-"autocmd StdinReadPre * let s:std_in = 1
-"autocmd vimenter * f argc() == 0 || !exists("s:std_in") | TagbarClose | TagbarOpen | endif
-" default : 40
-let g:tagbar_width = 40
-" hide <F1>, ? for help
-let g:tagbar_compact = 1
-" more compact
-let g:tagbar_indent = 1
-"}}}
-""""
-
-""""
-"" TXT2TAGS
-"{{{
-" Txt2tags syntax
-au BufNewFile,BufRead *.t2t                     setf txt2tags
-au BufNewFile,BufRead *.flex                    setf jflex
-"}}}
-""""
-
-""""
-"" ENCODAGE
-"{{{
-" should I explain ?
+" all in UTF-8
 set encoding=utf-8
 scriptencoding utf-8
-"}}}
-""""
 
-""""
-"" LIGHTLINE
-"{{{
+" lightline config
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'mode_map': { 'c': 'NORMAL' },
@@ -295,69 +184,18 @@ endfunction
 
 " hide -- INSERT bar
 set noshowmode
-"}}}
-""""
 
-""""
-"" COLORS
-"{{{
-colorscheme brogrammer
-hi Normal ctermbg=none
-hi CursorLine ctermbg=none
-" hi Cursorline cterm=bold term=bold gui=bold
-hi luaFunction ctermfg=27
-hi t2tTable ctermfg=155
-hi t2tTableTit ctermfg=155
-hi t2tList ctermfg=127
-hi Comment cterm=italic
-"}}}
-""""
-
-""""
-"" INDENTATION
-"{{{
-" tab to indent (emacs-like)
+" tab to indent (like emacs)
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 map <Tab> i<Tab><Esc>^
-" set cinoptions=:0,(0,u0,W1s
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
-"}}}
-""""
 
-""""
-"" TO SET THE TITLE IN TERM
-"{{{
-"let &titlestring = "vim - " . expand("%:t")
-"set t_ts=^[k
-"set t_fs=^[\
-"set title
-"auto VimLeave * :set t_ts=^[k^[\
-"}}}
-""""
-
-""""
-"" FISH
-"{{{
-" 'cuz fish isn't posix
-if &shell =~# 'fish$'
-	set shell=bash
-endif
-"}}}
-""""
-
-""""
-"" BINDS
-"{{{
-" home/end -> begin/end of line
+" ctrl a-e go to bol/eol
 map <C-A> <Home>
 map <C-E> <End>
 imap <C-A> <Home>
 imap <C-E> <End>
 cmap <C-A> <Home>
 cmap <C-E> <End>
-"}}}
-""""
-
-" vim: fdm=marker:
