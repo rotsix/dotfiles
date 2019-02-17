@@ -1,6 +1,7 @@
 # Global settings
 MNML_OK_COLOR="${MNML_OK_COLOR:-2}"
 MNML_ERR_COLOR="${MNML_ERR_COLOR:-1}"
+MNML_WHITE_COLOR="${MNML_WHITE_COLOR:-7}"
 
 MNML_USER_CHAR="${MNML_USER_CHAR:-λ}"
 MNML_INSERT_CHAR="${MNML_INSERT_CHAR:-›}"
@@ -72,9 +73,19 @@ function mnml_git {
     local bname="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 
     if [ -n "$bname" ]; then
-        if [ -n "$(git status --porcelain 2> /dev/null)" ]; then
+        local rs="$(git status --porcelain -b)"
+        if $(echo "$rs" | grep -v '^##' &> /dev/null); then # is dirty
             statc="%{\e[0;3${MNML_ERR_COLOR}m%}"
+        elif $(echo "$rs" | grep '^## .*diverged' &> /dev/null); then # has diverged
+            statc="%{\e[0;3${MNML_ERR_COLOR}m%}"
+        elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
+            statc="%{\e[0;3${MNML_WHITE_COLOR}m%}"
+        elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
+            statc="%{\e[0;3${MNML_WHITE_COLOR}m%}"
+        else # is clean
+            statc="%{\e[0;3${MNML_OK_COLOR}m%}"
         fi
+
         echo -n "$statc$bname%{\e[0m%}"
     fi
 }
@@ -234,13 +245,16 @@ source /usr/share/fzf/key-bindings.zsh
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/autojump/autojump.zsh
 
 
-. $HOME/.zsh.d/alias
-. $HOME/.zsh.d/functions
-. $HOME/.zsh.d/syntax
-. $HOME/.zsh.d/variables
-. $HOME/.zsh.d/binds
-. $HOME/.zsh.d/completion
-. $HOME/.zsh.d/colors
-. $HOME/.zsh.d/main
+source $HOME/.zsh.d/alias
+source $HOME/.zsh.d/functions
+source $HOME/.zsh.d/syntax
+source $HOME/.zsh.d/variables
+source $HOME/.zsh.d/binds
+source $HOME/.zsh.d/completion
+source $HOME/.zsh.d/colors
+source $HOME/.zsh.d/main
+source $HOME/.zsh.d/history
+source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

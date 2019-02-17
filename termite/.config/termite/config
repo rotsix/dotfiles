@@ -1,0 +1,60 @@
+[options]
+#font = Roboto Mono 11
+#font = Iosevka Term 10
+#font = Dina 9
+font = Fira Mono 9
+
+##
+clickable_url = true
+browser = qutebrowser
+urgent_on_bell = true
+audible_bell = false
+
+allow_bold = true
+
+# system, on, off
+cursor_blink = system
+
+# block, underline, ibeam
+cursor_shape = underline
+
+
+
+[colors]
+#background = rgba(0,0,0,0.39)
+#background = rgba(21,25,27,0.9)
+background = rgba(0, 0, 0, 0.85)
+#background = #000000
+foreground = #f5f5f5
+
+# black dark/light
+color0 = #000000
+color8 = #909090
+
+# red dark/light
+color1 = #d61d15
+color9 = #fa331b
+
+# green dark/light
+color2 = #98971a
+color10 = #b8bb26
+
+# yellow dark/light
+color3 = #d79921
+color11 = #fabd2f
+
+# blue dark/light
+color4 = #458588
+color12 = #83a598
+
+# magenta dark/light
+color5 = #b16286
+color13 = #d3869b
+
+# cyan dark/light
+color6 = #689d6a
+color14 = #8ec07c
+
+# white dark/light
+color7 = #F9D2AB
+color15 = #F9E5D1

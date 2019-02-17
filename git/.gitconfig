@@ -1,12 +1,26 @@
 [user]
-  name = rotsix
+  name = Victor Franzi
   email = victor.franzi@gmail.com
-	
+	signingkey = 6DA5214B8957696191C65F2F4AEA961D2B73877D
+
 [alias]
-  ci = commit
-  co = checkout
-  st = status
+  a = add
   br = branch
+  c = commit
+  ca = commit -a
+  cam = commit -am
+  ci = commit
+  cm = commit -m
+  co = checkout
+  d = diff
+  l = log
+  pl = pull
+  ps = push
+  st = status -sb
+  ts = status -sb
+
+[core]
+  editor = nvim
 
 [push]
   default = simple
@@ -21,12 +35,19 @@
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow
   frag = magenta
   old = red
   new = green
+
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
+
+[help]
+  autocorrect = 1
+[init]
+	templatedir = ~/.git-template

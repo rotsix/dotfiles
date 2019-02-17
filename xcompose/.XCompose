@@ -11,7 +11,30 @@ include "%L"
 <Multi_key>	<colon>		<O>			: "😮"	# :O
 <Multi_key>	<h>		<i>			: "🙋"	# hi		
 
+# invisible space
+<Multi_key> <space> : "﻿" # uFEFF
 
+<Multi_key> <n> <~> : "≁" # not tilde
+
+# fractions
+<Multi_key> <1> <slash> <2>: "½"
+<Multi_key> <1> <slash> <3>: "⅓"
+<Multi_key> <2> <slash> <3>: "⅔"
+<Multi_key> <1> <slash> <4>: "¼"
+<Multi_key> <3> <slash> <4>: "¾"
+<Multi_key> <1> <slash> <5>: "⅕"
+<Multi_key> <2> <slash> <5>: "⅖"
+<Multi_key> <3> <slash> <5>: "⅗"
+<Multi_key> <4> <slash> <5>: "⅘"
+<Multi_key> <1> <slash> <6>: "⅙"
+<Multi_key> <5> <slash> <6>: "⅚"
+<Multi_key> <1> <slash> <7>: "⅐"
+<Multi_key> <1> <slash> <8>: "⅛"
+<Multi_key> <3> <slash> <8>: "⅜"
+<Multi_key> <5> <slash> <8>: "⅝"
+<Multi_key> <7> <slash> <8>: "⅞"
+<Multi_key> <1> <slash> <9>: "⅑"
+<Multi_key> <1> <slash> <1> <0>: "⅒"
 
 
 <Multi_key>	<e>		<e>	: "∈"		# In
@@ -118,6 +141,7 @@ include "%L"
 <Multi_key>	<Down>		<n>		: "ₙ"		# sub n
 <Multi_key>	<Down>		<p>		: "ₚ"		# sub p
 <Multi_key>	<Down>		<r>		: "ᵣ"		# sub r
+<Multi_key> <Down>		<v>		: "ᵥ"		# sub v
 
 
 # Greek letters

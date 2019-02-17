@@ -112,7 +112,7 @@ set nowrap
 # set operatingdir ""
 
 ## Remember the cursor position in each file for the next editing session.
-# set positionlog
+set positionlog
 ## (The old form, 'poslog', is deprecated.)
 
 ## Preserve the XON and XOFF keys (^Q and ^S).
@@ -164,7 +164,7 @@ set smooth
 
 ## Use this spelling checker instead of the internal one.  This option
 ## does not properly have a default value.
-# set speller "aspell -x -c"
+set speller "aspell -x -c"
 
 ## Allow nano to be suspended.
 # set suspend

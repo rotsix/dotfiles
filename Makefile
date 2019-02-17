@@ -8,7 +8,7 @@ default: $(HOSTNAME)
 fry: common laptop
 	@echo "stow $@"
 
-lili: common laptop
+lili-linux: common laptop
 	@echo "stow $@"
 
 isaac: common server

@@ -10,7 +10,7 @@ function git_branch_name() {
 }
 
 function git_repo_status(){
-  local rs="$(git status --porcelain -b)"
+  local rs="$(git status --porcelain)"
 
   if $(echo "$rs" | grep -v '^##' &> /dev/null); then # is dirty
     echo "%{$fg[red]%}"
@@ -19,7 +19,8 @@ function git_repo_status(){
   elif $(echo "$rs" | grep '^## .*behind' &> /dev/null); then # is behind
     echo "%{[38;5;011m%}%}"
   elif $(echo "$rs" | grep '^## .*ahead' &> /dev/null); then # is ahead
-    echo "%{$reset_color%}"
+    echo "%{$fg[white]%}"
+#    echo "%{$reset_color%}"
   else # is clean
     echo "%{$fg[green]%}"
   fi

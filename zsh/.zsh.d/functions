@@ -8,31 +8,31 @@ SWAP () {
 
 conf () {
   case $1 in
-	vi|nvim) $EDITOR ~/.nvimrc ;;
-	ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
-	xrdb) $EDITOR ~/.Xresources ;;
-	tmux) $EDITOR ~/.tmux.conf ;;
-	zsh) $EDITOR ~/.zshrc ;;
-	zsh-global) sudo $EDITOR /etc/zsh/zshrc ;;
-	i3) $EDITOR ~/.config/i3/config ;;
-	awesome) $EDITOR ~/.config/awesome/rc.lua ;;
-	dwm) $EDITOR ~/src/c/dwm/config.h ;;
-	dvtm) $EDITOR ~/src/c/dvtm/config.h ;;
-	st) $EDITOR ~/src/c/st/config.h ;;
-	polybar) $EDITOR ~/.config/polybar/config ;;
-	*) echo "Mh, something goes wrong" ;;
+    vi|nvim) $EDITOR ~/.nvimrc ;;
+    ncmpcpp) $EDITOR ~/.config/ncmpcpp/config ;;
+    xrdb) $EDITOR ~/.Xresources ;;
+    tmux) $EDITOR ~/.tmux.conf ;;
+    zsh) $EDITOR ~/.zshrc ;;
+    zsh-global) sudo $EDITOR /etc/zsh/zshrc ;;
+    i3) $EDITOR ~/.config/i3/config ;;
+    awesome) $EDITOR ~/.config/awesome/rc.lua ;;
+    dwm) $EDITOR ~/src/c/dwm/config.h ;;
+    dvtm) $EDITOR ~/src/c/dvtm/config.h ;;
+    st) $EDITOR ~/src/c/st/config.h ;;
+    polybar) $EDITOR ~/.config/polybar/config ;;
+    *) echo "Mh, something goes wrong" ;;
   esac
 }
 
 
 src () {
   case $1 in
-	zsh) source /etc/zsh/zshrc && sleep .5s && source $HOME/.zshrc ;;
-	xrdb) xrdb -merge ~/.Xresources ;;
-	dwm) pwd=$(pwd) && cd $HOME/src/c/dwm && makepkg -efi && cd $pwd ;;
-	dvtm) pwd=$(pwd) && cd $HOME/src/c/dvtm && makepkg -efi && cd $pwd ;;
-	st) pwd=$(pwd) && cd $HOME/src/c/st && makepkg -efi && cd $pwd ;;
-	*) echo "Mh, something goes wrong" ;;
+    zsh) source /etc/zsh/zshrc && sleep .5s && source $HOME/.zshrc ;;
+    xrdb) xrdb -merge ~/.Xresources ;;
+    dwm) pwd=$(pwd) && cd $HOME/src/c/dwm && makepkg -efi && cd $pwd ;;
+    dvtm) pwd=$(pwd) && cd $HOME/src/c/dvtm && makepkg -efi && cd $pwd ;;
+    st) pwd=$(pwd) && cd $HOME/src/c/st && makepkg -efi && cd $pwd ;;
+    *) echo "Mh, something goes wrong" ;;
   esac
 }
 
@@ -46,10 +46,10 @@ imgur () { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690
 
 npp () {
   if [ -n "$DISPLAY" ]; then
-	#urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit
-	termite --name=ncmpcpp -d $HOME -e ncmpcpp && exit
+    #urxvtc -name ncmpcpp -cd $HOME -e ncmpcpp && exit
+    termite --name=ncmpcpp -d $HOME -e ncmpcpp && exit
   else
-	ncmpcpp
+    ncmpcpp
   fi
 }
 
@@ -59,12 +59,12 @@ pbx () {
 
 tmux_tty () {
   tmux \
-	new -s tty -n "I" \; \
-	neww -n "II" \; \
-	neww -n "III" \; \
-	neww -n "IV" \; \
-	neww -n "V" \; \
-	selectw -t "I" \;
+    new -s tty -n "I" \; \
+    neww -n "II" \; \
+    neww -n "III" \; \
+    neww -n "IV" \; \
+    neww -n "V" \; \
+    selectw -t "I" \;
 }
 
 mk () {
@@ -105,90 +105,87 @@ maj () {
 }
 
 dvtm-status () {
-  FIFO="/tmp/dvtm-status.$$"
-  [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
+FIFO="/tmp/dvtm-status.$$"
+[ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
 
-  while true; do
-  	# wifi name
-  	test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
+while true; do
+  # wifi name
+  test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
 
-  	# song name
-  	test -n "$( mpc current )" && SONG="$( mpc current ) | " || SONG=""
+  # song name
+  test -n "$( mpc current )" && SONG="$( mpc current ) | " || SONG=""
 
-  	# volume
-  	VOL_STATUS=$( amixer get Master | grep '\[on\]' )
-  	if [ "${VOL_STATUS}" = "" ]; then
-	  VOL="mute"
-  	else
-	  VOL=$( amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1 )
-  	fi
+  # volume
+  VOL_STATUS=$( amixer get Master | grep '\[on\]' )
+  if [ "${VOL_STATUS}" = "" ]; then
+    VOL="mute"
+  else
+    VOL=$( amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1 )
+  fi
 
-  	# date 'n time
-  	DATE=$( date +"%F %R" )
+  # date 'n time
+  DATE=$( date +"%F %R" )
 
-  	echo -e "${SONG}${WIFI}${VOL} | ${DATE}"
-  	sleep 1s
-  done 2> /dev/null > "$FIFO" &
+  echo -e "${SONG}${WIFI}${VOL} | ${DATE}"
+  sleep 1s
+done 2> /dev/null > "$FIFO" &
 
-  STATUS_PID=$!
-  dvtm -s "$FIFO" 2> /dev/null
-  kill $STATUS_PID
-  rm -f "$FIFO"
+STATUS_PID=$!
+dvtm -s "$FIFO" 2> /dev/null
+kill $STATUS_PID
+rm -f "$FIFO"
 }
 
 omx () {
   regex='^(https?://)?(www\.)?(youtu(be\.(com|([a-z]{2}))|\.be)|nvimeo\.com|twitch\.tv)/[^ ]+$'
   #if printf '%s' "$1" | grep -Ee "${regex}"; then
   if grep -Ee "${regex}" <<< "$1"; then
-	omxplayer -o local `youtube-dl -g -f 22/18/43/36/17 "$@"`
+    omxplayer -o local `youtube-dl -g -f 22/18/43/36/17 "$@"`
   else
-	omxplayer -o local "$@"
+    omxplayer -o local "$@"
   fi
 }
 
 open () {
-  nohup xdg-open "$@" &> /dev/null &
+  nohup mimeopen "$@" &> /dev/null &
 }
 
 pin() {
-    pindir=$HOME/.pins
-    case "$1" in 
-        "")
-      		count=1
-      		while read -r pin; do
-        		echo "$count $(basename "$pin")"
-        		(( count++ ))
-    		done < $pindir ;;
-        "p")
-            echo "$PWD" >> $pindir ;;
-        "del"|"d")
-            sed -i "$2d" "$pindir" ;;
-        "[0-9][0-9]*")
-            echo "$1" >> $pindir ;;
-        *)
-            cd "$(sed "$1q;d" "$pindir")" ;;
-    esac
+  pindir=$HOME/.pins
+  case "$1" in 
+    "")
+      count=1
+      while read -r pin; do
+        echo "$count: $pin"
+        (( count++ ))
+      done < $pindir ;;
+    "p")
+      echo "$PWD" >> $pindir ;;
+    "del"|"d")
+      sed -i "$2d" "$pindir" ;;
+    "[0-9][0-9]*")
+      echo "$1" >> $pindir ;;
+    *)
+      cd "$(sed "$1q;d" "$pindir")" ;;
+  esac
 }
 
-## magic enter
-magic-enter () {
-  # check if the buffer does not contain any words
-  if [[ -z $BUFFER ]]
-  then
-  	# put newline so that the output does not start next
-  	# to the prompt
-  	echo
-  	# check if inside git repository
-  	if git rev-parse --git-dir > /dev/null 2>&1 ; then
-      # if so, execute `git status'
-      git status
-  	else
-      # else run `ls'
-      ls -Fh --color=always
-  	fi
+drun() {
+  systemctl status docker &> /dev/null
+
+  if [[ "$?" != "0" ]]; then
+    echo "docker is not running"
+    return 1
+  else
+    case "$1" in
+      "kali"|"k"|"kalilinux")
+        docker start 5553c075a2e7 > /dev/null && docker attach 5553c075a2e7
+      	;;
+      *)
+      	echo "option not supported"
+      	;;
+    esac
   fi
-  # in any case run the `accept-line' widget
-  zle accept-line
 }
 
 # vim: ft=zsh:
