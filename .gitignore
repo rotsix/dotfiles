@@ -5,3 +5,8 @@
 # neovim plugins
 neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
+
+# no worries
+mpd/*
+ncmpcpp/*
+

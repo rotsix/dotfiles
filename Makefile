@@ -25,7 +25,9 @@ common:
 	@echo "stow $@"
 	@stow bin
 	@stow git
+	@stow mpd
 	@stow neovim
+	@stow ncmpcpp
 	@stow tmux
 	@stow zsh
 
