@@ -4,28 +4,21 @@
 # trololo install script
 
 echo "Creating default folders"
-mkdir -pv "$HOME/backup"
-mkdir -pv "$HOME/log"
-mkdir -pv "$HOME/mnt"
-mkdir -pv "$HOME/src"
-mkdir -pv "$HOME/tmp"
-mkdir -pv "$HOME/trash"
-mkdir -pv "$HOME/usr"
+mkdir -p "$HOME/src"
+mkdir -p "$HOME/trash"
+mkdir -p "$HOME/usr"
 echo "Done"
 
 echo "Cloning dotfiles in ~/dotfiles"
-case "$(whoami)" in
-  "victor"|"piczel"|"rotsix")
-  	git clone "git@github.com:rotsix/dotfiles.git" "$HOME/dotfiles" &> /dev/null
-  	;;
-  *)
-	git clone "https://github.com/rotsix/dotfiles.git" "$HOME/dotfiles" &> /dev/null
-  	;;
-esac
+if [ "$1" = "--ssh" ]; then
+  git clone "git@github.com:rotsix/dotfiles.git" "$HOME/dotfiles" > /dev/null 2>&1
+else
+  git clone "https://github.com/rotsix/dotfiles.git" "$HOME/dotfiles" > /dev/null 2>&1
+fi
 shift
 echo "Done"
 
 echo "Managing simlinks"
-cd "$HOME/dotfiles" && make
+cd "$HOME/dotfiles" && make > /dev/null 2>&1
 echo "Done"
 

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+check_run() {
+  echo "$changed_files" | grep -E --quiet "$1" && eval "$2"
+}
+
+check_run package.json "npm install && npm prune"
+check_run bower.json "bower install && bower prune"
+check_run requirements.txt "pip install -r requirements.txt"
+
+if [ -f "config.rb" ]; then
+	check_run ".scss|.sass" "compass compile"
+elif [[ -n $(find . -maxdepth 1 -iname "gruntfile.js" -o -iname "gruntfile.coffee") ]]; then
+	check_run ".scss|.sass" "grunt sass"
+elif [[ -n $(find . -maxdepth 1 -iname "gulpfile.js" -iname "gulpfile.coffee") ]]; then
+	check_run ".scss|.sass" "gulp sass"
+fi

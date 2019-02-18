@@ -15,8 +15,6 @@ exec --no-startup-id "xset r rate 200 20"
 exec --no-startup-id "$HOME/.fehbg"
 # notifications (see systemd user services)
 exec --no-startup-id "dunst"
-# bar
-#exec --no-startup-id "$HOME/.config/polybar/manager.sh launch top"
 # tray icons
 #exec --no-startup-id "volumeicon"
 exec --no-startup-id "nm-applet"
@@ -24,22 +22,10 @@ exec --no-startup-id "nm-applet"
 exec --no-startup-id "numlockx"
 # hide idle
 exec --no-startup-id "unclutter -grab -idle 5"
-# transparency
-#exec --no-startup-id "compton"
 # battery reminder
 exec --no-startup-id "$HOME/bin/bat.notify.sh"
 # redshift, easy for eyes
 exec --no-startup-id "redshift -l 48.5140:2.2111"
-# screenlock
-#exec --no-startup-id "xautolock -time 8 -locker \"$HOME/.lock_screen/lock\" -notify 30 -notifier \"popup -t 5 -g 210x40+1650+20 -B \#888 -F \#000 -p '%{r}' -f 'Iosevka Term-11' 'Screen will be locked in 30s'\""
-# screensaver
-#exec --no-startup-id "xscreensaver -no-splash"
-# manage removeable media
-#exec --no-startup-id "udiskie --tray"
-# clipboard manager using rofi
-#exec --no-startup-id "greenclip daemon"
-# whatsapp/messenger
-#exec --no-startup-id "rambox"
 # blur background if not workspace is not empty
 exec --no-startup-id "blurwal"
 
@@ -54,20 +40,9 @@ bindsym XF86AudioMute exec "$HOME/bin/stm vol toggle"
 bindsym Print exec "scrot"
 bindsym shift+Print exec "scrot -s && wait 1"
 
-bindsym XF86Explorer exec "xscreensaver-command --lock"
-
-
-# open a terminal in the current working directory of the currently focused window
-bindsym $mod+t exec "$term -d $(xcwd)"
-
-# yep, useless bar
-#bindsym $mod+twosuperior exec "$HOME/bin/infos.sh"
 bindsym $mod+twosuperior exec notify-send "Calendar:" "$(cal -3)"
 
-
 # gaps, relative to i3-gaps
-#gaps inner 12
-#gaps outer 6
 gaps inner 0
 gaps outer 0
 
@@ -82,7 +57,8 @@ bindsym $mod+Shift+KP_0        gaps outer current set 8
 bindsym $mod+Shift+colon move scratchpad
 bindsym $mod+colon scratchpad show
 
-font pango:Dina 8
+# pretty font
+font pango:Fira Mono 8
 
 # revolve i3 transparency bug
 new_window pixel
@@ -150,11 +126,11 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 
-set $workspace1 ""
-set $workspace2 ""
-set $workspace3 ""
-set $workspace4 ""
-set $workspace5 ""
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
@@ -197,10 +173,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit' 'i3-msg exit' -b 'restart' 'i3-msg restart'"
 #bindsym $mod+Shift+q exec "i3-msg exit"
 
-# reload polybar
-bindsym $mod+q exec "$HOME/.config/polybar/manager.sh reload top"
-
-
 # specefics floating windows
 for_window[class=".*"] border pixel 1
 for_window[class="mpv"] floating enable
@@ -214,8 +186,6 @@ for_window [title="(?i)authy"] floating enable
 for_window [class="Pinentry"] floating enable
 for_window [class="Display"] floating enable
 
-for_window [class="Rambox"] move scratchpad
-
 assign [class="discord"] $workspace1
 assign [class="Hexchat"] $workspace1
 assign [class="Caprine"] $workspace1
@@ -225,7 +195,6 @@ assign [class="qutebrowser"] $workspace2
 
 assign [class="code"] $workspace3
 assign [class="Code"] $workspace3
-assign [class="Atom"] $workspace3
 assign [class="Gummi"] $workspace3
 
 

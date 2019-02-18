@@ -1,7 +1,4 @@
 [options]
-#font = Roboto Mono 11
-#font = Iosevka Term 10
-#font = Dina 9
 font = Fira Mono 9
 
 ##
@@ -21,8 +18,6 @@ cursor_shape = underline
 
 
 [colors]
-#background = rgba(0,0,0,0.39)
-#background = rgba(21,25,27,0.9)
 background = rgba(0, 0, 0, 0.85)
 #background = #000000
 foreground = #f5f5f5

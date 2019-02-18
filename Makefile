@@ -21,27 +21,25 @@ abraham: common server
 	@echo "stow $@"
 
 
-
 common:
 	@echo "stow $@"
 	@stow bin
-	@stow emacs
 	@stow git
-	@stow nano
 	@stow neovim
 	@stow tmux
 	@stow zsh
 
 laptop:
 	@echo "stow $@"
-	@stow firefox
-	@stow homePage
+	@stow dunst
+	@stow i3
 	@stow mpv
+	@stow qutebrowser
+	@stow termite
 	@stow xcompose
 	@stow zathura
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
-	@dconf load / < "${HOME}/dotfiles/dconf.conf"
 
 server:
 	@echo "stow $@"
-	@ln -sf "${HOME}/.tmux.conf.rpi" "${HOME}/.tmux.conf"
+	@ln -sf "${HOME}/.tmux.conf.server" "${HOME}/.tmux.conf"

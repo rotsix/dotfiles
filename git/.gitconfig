@@ -1,7 +1,7 @@
 [user]
   name = Victor Franzi
   email = victor.franzi@gmail.com
-	signingkey = 6DA5214B8957696191C65F2F4AEA961D2B73877D
+  signingkey = 6DA5214B8957696191C65F2F4AEA961D2B73877D
 
 [alias]
   a = add
@@ -50,4 +50,4 @@
 [help]
   autocorrect = 1
 [init]
-	templatedir = ~/.git-template
+  templatedir = ~/.git-template

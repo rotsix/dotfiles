@@ -5,10 +5,3 @@
 # neovim plugins
 neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
-
-# emacs plugins
-emacs/.emacs.d/elpa/
-emacs/.emacs.d/history
-emacs/.emacs.d/recentf
-emacs/.emacs.d/ac-comphist.dat
-emacs/.emacs.d/session.*
