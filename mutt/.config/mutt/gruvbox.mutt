@@ -1,0 +1,64 @@
+# See http://www.mutt.org/doc/manual/#color
+
+color attachment  color109 default
+color bold        color229 default
+color error       color167 default
+color hdrdefault  color246 default
+color indicator   default color237
+color markers     color243 default
+color normal      default default
+color quoted      color250 default
+color quoted1     color108 default
+color quoted2     color250 default
+color quoted3     color108 default
+color quoted4     color250 default
+color quoted5     color108 default
+color search      default color208
+color signature   color108 default
+color status      default color237
+color tilde       color243 default
+color tree        color142 default
+color underline   default color239
+
+color sidebar_divider    color250 default
+color sidebar_new        color142 default
+#color sidebar_highlight black color246
+
+color index color142 default ~N
+color index color108 default ~O
+color index color109 default ~P
+color index color214 default ~F
+color index color175 default ~Q
+color index color167 default ~=
+color index default default ~T
+color index default color167 ~D
+
+color header color214 default "^(To:|From:)"
+color header color142 default "^Subject:"
+color header color108 default "^X-Spam-Status:"
+color header color108 default "^Received:"
+
+color body color142 default "[a-z]{3,256}://[-a-zA-Z0-9@:%._\\+~#=/?&,]+"
+#color body color142 default "[a-zA-Z]([-a-zA-Z0-9_]+\\.){2,256}[-a-zA-Z0-9_]{2,256}"
+color body color208 default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body color208 default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+color body default color214 "[;:]-*[)>(<lt;|]"
+color body color229 default "\\*[- A-Za-z]+\\*"
+
+color body color214 default "^-.*PGP.*-*"
+color body color142 default "^gpg: Good signature from"
+color body color167 default "^gpg: Can't.*$"
+color body color214 default "^gpg: WARNING:.*$"
+color body color167 default "^gpg: BAD signature from"
+color body color167 default "^gpg: Note: This key has expired!"
+color body color214 default "^gpg: There is no indication that the signature belongs to the owner."
+color body color214 default "^gpg: can't handle these multiple signatures"
+color body color214 default "^gpg: signature verification suppressed"
+color body color214 default "^gpg: invalid node with packet of type"
+
+color compose header            default default
+color compose security_encrypt  color175 default
+color compose security_sign     color109 default
+color compose security_both     color142 default
+color compose security_none     color208 default
+
