@@ -393,18 +393,6 @@ config.set('content.javascript.enabled', True, '*://onesignal.com/*')
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'file://*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
-
-# Enable JavaScript.
-# Type: Bool
 config.set('content.javascript.enabled', True, 'https://console.firebase.google.com/project/babybabz-c1b90/settings/cloudmessaging/')
 
 # Enable JavaScript.
@@ -426,6 +414,22 @@ config.set('content.javascript.enabled', False, 'https://dashboard.ionicframewor
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, '*://dashboard.ionicframework.com/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'file://*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'chrome://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'https://www.destroyallsoftware.com/screencasts')
 
 # Number of commands to save in the command history. 0: no history / -1:
 # unlimited
@@ -468,6 +472,14 @@ c.editor.command = ['nvim-qt', '{file}']
 # Characters used for hint strings.
 # Type: UniqueCharString
 c.hints.chars = 'qsdfghjkl'
+
+# When to show the scrollbar.
+# Type: String
+# Valid values:
+#   - always: Always show the scrollbar.
+#   - never: Never show the scrollbar.
+#   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
+c.scrolling.bar = 'when-searching'
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
