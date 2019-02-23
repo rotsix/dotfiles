@@ -27,7 +27,9 @@ exec --no-startup-id "$HOME/bin/bat.notify.sh"
 # redshift, easy for eyes
 exec --no-startup-id "redshift -l 48.5140:2.2111"
 # blur background if not workspace is not empty
-exec --no-startup-id "blurwal"
+exec --no-startup-id "$HOME/.local/bin/blurwal -m 1"
+# mutt on start
+exec --no-startup-id "termite -t 'neomutt' -e 'neomutt'"
 
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
@@ -40,19 +42,24 @@ bindsym XF86AudioMute exec "$HOME/bin/stm vol toggle"
 bindsym Print exec "scrot"
 bindsym shift+Print exec "scrot -s && wait 1"
 
+bindsym XF86Explorer exec "i3lock-fancy-dualmonitor"
+
 bindsym $mod+twosuperior exec notify-send "Calendar:" "$(cal -3)"
 
 # gaps, relative to i3-gaps
 gaps inner 0
 gaps outer 0
 
+bindsym $mod+KP_Multiply gaps inner current set 70
+bindsym $mod+shift+KP_Multiply gaps outer current set 20
+
 bindsym $mod+KP_Add      gaps inner current plus 3
 bindsym $mod+KP_Subtract gaps inner current minus 3
-bindsym $mod+KP_0        gaps inner current set 12
+bindsym $mod+KP_0        gaps inner current set 0
 
 bindsym $mod+Shift+KP_Add      gaps outer current plus 3
 bindsym $mod+Shift+KP_Subtract gaps outer current minus 3
-bindsym $mod+Shift+KP_0        gaps outer current set 8
+bindsym $mod+Shift+KP_0        gaps outer current set 0
 
 bindsym $mod+Shift+colon move scratchpad
 bindsym $mod+colon scratchpad show
@@ -185,10 +192,14 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="(?i)authy"] floating enable
 for_window [class="Pinentry"] floating enable
 for_window [class="Display"] floating enable
+for_window [title="Event Tester"] floating enable
+for_window [class="Sxiv"] floating enable
+for_window [class="Minecraft .*"] floating enable
 
 assign [class="discord"] $workspace1
 assign [class="Hexchat"] $workspace1
 assign [class="Caprine"] $workspace1
+assign [title="neomutt"] $workspace1
 
 assign [class="Firefox"] $workspace2
 assign [class="qutebrowser"] $workspace2
