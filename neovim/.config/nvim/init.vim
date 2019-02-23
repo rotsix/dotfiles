@@ -25,6 +25,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rotsix/gruvbox'
 Plug 'itchyny/landscape.vim'
 
+" Yats: typescript syntax
+Plug 'HerringtonDarkholme/yats.vim'
+
 " Polyglot: syntax highlighting for common languages
 Plug 'sheerun/vim-polyglot'
 
@@ -90,6 +93,7 @@ colorscheme gruvbox
 "highlight Normal ctermbg=None
 highlight luaFunction ctermfg=27
 highlight Comment cterm=italic
+highlight Todo ctermbg=red
 
 " set syntax
 syntax on
@@ -375,7 +379,10 @@ let g:startify_session_before_save = [
       \ ]
 let g:startify_bookmarks = [
       \ { 'v': '~/.config/nvim/init.vim' },
-      \ { 'z': '~/.zshrc' }
+      \ { 'z': '~/.zshrc' },
+      \ { 'i': '~/.config/i3/config' },
+      \ { 't': '~/.config/termite/config' },
+      \ { 'm': '~/.config/mutt/muttrc' }
       \ ]
 
 " indentline config
