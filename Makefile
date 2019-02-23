@@ -26,6 +26,7 @@ common:
 	@stow bin
 	@stow git
 	@stow mpd
+	@stow mutt
 	@stow neovim
 	@stow ncmpcpp
 	@stow tmux
