@@ -44,7 +44,7 @@ bindsym shift+Print exec "scrot -s && wait 1"
 
 bindsym XF86Explorer exec "i3lock-fancy-dualmonitor"
 
-bindsym $mod+twosuperior exec notify-send "Calendar:" "$(cal -3)"
+bindsym $mod+twosuperior exec notify-send "Calendar ($(date '+%B %d %Y'))" "$(cal -3)"
 
 # gaps, relative to i3-gaps
 gaps inner 0
