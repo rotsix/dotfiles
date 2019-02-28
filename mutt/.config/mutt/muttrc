@@ -1,12 +1,12 @@
 set header_cache     = "~/.config/mutt/cache/headers"
 set message_cachedir = "~/.config/mutt/cache/bodies"
 set send_charset	 = "utf-8"
-set editor           = `echo \$EDITOR`
+set editor           = "`echo \$EDITOR` '+:7'"
 
 
 # victor.franzi@gmail.com
 set my_name			 = "Victor Franzi"
-source "gpg -dq $HOME/.config/mutt/victor.franzi.at.gmail.com.gpg |"
+source "gpg -dq $HOME/.password-store/google/victor.franzi-mutt.gpg |"
 set folder			 = imaps://victor.franzi@imap.gmail.com:993/
 set spoolfile		 = +INBOX
 set postponed		 = "+[Gmail]/Drafts"
@@ -40,6 +40,7 @@ source "~/.config/mutt/gruvbox.mutt"
 
 
 # binds
+macro generic,pager <Home> "<change-folder> =INBOX<enter>"
 bind pager <down> next-line
 bind pager <up> previous-line
 bind pager j next-line
