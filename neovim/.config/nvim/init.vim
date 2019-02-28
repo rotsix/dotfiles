@@ -23,7 +23,6 @@ Plug 'airblade/vim-gitgutter'
 "Plug 'dracula/vim'
 " Gruvbox: pretty theme (darker-fork)
 Plug 'rotsix/gruvbox'
-Plug 'itchyny/landscape.vim'
 
 " Yats: typescript syntax
 Plug 'HerringtonDarkholme/yats.vim'
@@ -145,6 +144,9 @@ nnoremap <silent> K 3k
 nnoremap <silent> <S-Down> 3j
 nnoremap <silent> <S-Up> 3k
 
+" escape terminal mode with esc
+tnoremap <Esc> <C-\><C-n>
+
 " chdir to current file on BufEnter
 set autochdir
 
@@ -175,7 +177,7 @@ scriptencoding utf-8
 
 " lightline config
 let g:lightline = {
-      \ 'colorscheme': 'landscape',
+      \ 'colorscheme': 'deus',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
