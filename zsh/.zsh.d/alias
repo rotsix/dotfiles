@@ -4,9 +4,6 @@
 #alias lla='ll -A'
 #alias lll='ll | less'
 #alias llla='ll -A | less'
-alias xs='cd'
-alias sl='ls'
-
 alias ls='exa -s name'
 alias la='ls -a'
 alias ll='ls -l'
@@ -14,66 +11,51 @@ alias lla='la -l'
 alias lll='\ls -FhNv --color=auto | less'
 alias llla='\ls -AFhNv --color=auto | less'
 
-alias lh='du -hsc * | sort -hr'
-alias lha='du -hsc .* | sort -hr'
-alias lhs='(lh;lha) | sort -hr'
-
-alias CLEAN='rm -fr -- ${HOME}/trash/* 2>&1 > /dev/null; rm -rf -- ${HOME}/trash/.* 2>&1 > /dev/null'
 alias nano='nano -c -w'
-
-alias up='trizen -Syu'
-alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
-
-alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
-alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
-
-alias pkgfile='sudo pacman -Fy && pacman -Fs'
-
 alias grep='grep --color=auto'
-
-alias sudo='sudo '
-alias tmania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/TmNationsForever.lnk; clear'
-alias isaacr='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Rebirth; wine isaac-ng.exe; cd $pref; clear'
-alias isaacab='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/The\ Binding\ of\ Isaac\ Afterbirth; wine isaac-ng.exe; cd $pref; clear'
-alias isaacwold='pref=$(pwd); cd $HOME/.isaac; wine Isaac.exe; cd $pref; clear'
-alias portal2='pref=$(pwd); cd $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Valve/Portal\ 2; wine Launcher.exe; cd $pref; clear'
-alias smania='env WINEPREFIX="$HOME/.wine" wine C:\\windows\\command\\start.exe /Unix $HOME/.wine/dosdevices/c:/users/Public/Bureau/SMStorm.lnk; clear'
-
-alias ps_mem='\sudo ps_mem'
-alias nichons='curl z3bra.org/tits'
-
-#alias mpv='mpv --geometry=1366x768-277-156'
-
-alias t411='sshfs -p 22202 piczel@krkrkr.org:/srv/deluge/Downloads /home/victor/mnt'
-
 alias vim='nvim'
-
 alias hoogle='hoogle --color=true'
-
-alias music='echo "main(i){for(i=0;;i++)putchar(((i*(i>>17|i>>9)&46&i>>3))^(i&i>>10|i>>100));}" | gcc -w -x c - -o /tmp/music && /tmp/music | aplay'
-alias music2='echo "g(i,x,t,o){return((3&x&(i*((3&i>>16?\"BY}6YB6%\":\"Qj}6jQ6%\")[t%8]+51)>>o))<<4);};main(i,n,s){for(i=0;;i++)putchar(g(i,1,n=i>>14,12)+g(i,s=i>>17,n^i>>13,10)+g(i,s/3,n+((i>>11)%3),10)+g(i,s/5,8+n-((i>>10)%3),9));}" | gcc -w -x c - -o /tmp/music && /tmp/music | aplay'
-
-alias emoji='for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; done'
-
-alias inutile='curl -s https://www.savoir-inutile.com/ | grep phrase | cut -d">" -f2 | cut -d"<" -f1'
-
 alias d='pin'
 alias p='trizen'
 alias g='git'
 alias agh='git add -A && git commit -am "$(hostname)" && git push'
-
-alias ocaml='rlwrap \ocaml'
-alias eclipse-clp='rlwrap \eclipse-clp'
-alias f='ssh victor@franklin'
 alias mkt='mk /tmp/$$'
 alias swapy='sudo swapon $HOME/usr/swapfile'
 alias cat='bat'
 alias mutt='neomutt'
 
-alias pip-update='pip list --outdated --format=freeze 2> /dev/null | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+# sorry i'm drunk
+alias sl='ls'
+alias xs='cd'
 
+# sorting files in dir by size
+alias lh='du -hsc * | sort -hr'
+alias lha='du -hsc .* | sort -hr'
+alias lhs='(lh;lha) | sort -hr'
+
+# clean trash
+alias trash-clean='rm -fr -- ${HOME}/trash/* 2>&1 > /dev/null; rm -rf -- ${HOME}/trash/.* 2>&1 > /dev/null'
+
+# mh
+alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
+
+# pacman
+alias up='trizen -Syu'
+alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
+alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
+alias pkgfile='sudo pacman -Fy && pacman -Fs'
+
+# ps dump sorted by memory
+alias ps_mem='/usr/bin/sudo ps_mem'
+
+# fix sudo
+alias sudo='sudo '
+
+# rlwrap
+alias ocaml='rlwrap \ocaml'
+alias eclipse-clp='rlwrap \eclipse-clp'
 alias hopix='rlwrap /home/victor/cours/M1/S1/IDP/compilation-m1-2018/flap/flap -i true -s hopix -V true'
 alias retrolix='rlwrap /home/victor/cours/M1/S2/Compilation/compilation-m1-2018/flap/flap -s retrolix -d true -r true -i true'
 
-
-# vim: ft=zsh:
+# pip
+alias pip-update='pip list --outdated --format=freeze 2> /dev/null | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
