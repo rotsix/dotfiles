@@ -39,7 +39,7 @@ laptop:
 	@stow mpv
 	@stow qutebrowser
 	@stow termite
-	@stow xcompose
+	@stow xorg
 	@stow zathura
 	@ln -sf "${HOME}/.tmux.conf.laptop" "${HOME}/.tmux.conf"
 
