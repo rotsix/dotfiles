@@ -1,4 +1,4 @@
-SWAP () {
+swap () {
   local TMPFILE=tmp.$$
   cp --reflink=auto -- "$1" "$TMPFILE"
   mv -- "$2" "$1"
@@ -13,7 +13,7 @@ conf () {
     xrdb) $EDITOR ~/.Xresources ;;
     tmux) $EDITOR ~/.tmux.conf ;;
     zsh) $EDITOR ~/.zshrc ;;
-    zsh-global) sudo $EDITOR /etc/zsh/zshrc ;;
+    zsh-global) sudo -e /etc/zsh/zshrc ;;
     i3) $EDITOR ~/.config/i3/config ;;
     awesome) $EDITOR ~/.config/awesome/rc.lua ;;
     dwm) $EDITOR ~/src/c/dwm/config.h ;;
@@ -43,6 +43,7 @@ autogit () {
 ix () { [ -z "$1" -o -r "$1" ] && curl -F "f:1=<${1:--}" ix.io || printf '$ %s\n\n%s' "$*" "$("$@")" | ix ; }
 sprunge () { [ -z "$1" -o -r "$1" ] && curl -F "sprunge=<${1:--}" http://sprunge.us || printf '$ %s\n\n%s' "$*" "$("$@")" | sprunge ; }
 imgur () { [ -z "$1" -o -r "$1" ] &&  curl -s -F "image=<${1:--}" -F "key=486690f872c678126a2c09a9e196ce1b" https://imgur.com/api/upload.xml || printf '$ %s\n\n%s' "$*" "$("$@")" | imgur ; }
+pbx () { curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b }
 
 npp () {
   if [ -n "$DISPLAY" ]; then
@@ -53,9 +54,6 @@ npp () {
   fi
 }
 
-pbx () {
-  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
-}
 
 tmux_tty () {
   tmux \
@@ -105,52 +103,52 @@ maj () {
 }
 
 dvtm-status () {
-FIFO="/tmp/dvtm-status.$$"
-[ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
+  FIFO="/tmp/dvtm-status.$$"
+  [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
 
-while true; do
-  # wifi name
-  test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
+  while true; do
+    # wifi name
+    test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
+    
+    # song name
+    test -n "$( mpc current )" && SONG="$( mpc current ) | " || SONG=""
 
-  # song name
-  test -n "$( mpc current )" && SONG="$( mpc current ) | " || SONG=""
+    # volume
+    VOL_STATUS=$( amixer get Master | grep '\[on\]' )
+    if [ "${VOL_STATUS}" = "" ]; then
+      VOL="mute"
+    else
+      VOL=$( amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1 )
+    fi
 
-  # volume
-  VOL_STATUS=$( amixer get Master | grep '\[on\]' )
-  if [ "${VOL_STATUS}" = "" ]; then
-    VOL="mute"
-  else
-    VOL=$( amixer get Master | grep -E -o '[0-9]{1,3}?%' | head -1 )
-  fi
+    # date 'n time
+    DATE=$( date +"%F %R" )
 
-  # date 'n time
-  DATE=$( date +"%F %R" )
+    echo -e "${SONG}${WIFI}${VOL} | ${DATE}"
+    sleep 1s
+  done 2> /dev/null > "$FIFO" &
 
-  echo -e "${SONG}${WIFI}${VOL} | ${DATE}"
-  sleep 1s
-done 2> /dev/null > "$FIFO" &
-
-STATUS_PID=$!
-dvtm -s "$FIFO" 2> /dev/null
-kill $STATUS_PID
-rm -f "$FIFO"
+  STATUS_PID=$!
+  dvtm -s "$FIFO" 2> /dev/null
+  kill $STATUS_PID
+  rm -f "$FIFO"
 }
 
 omx () {
   regex='^(https?://)?(www\.)?(youtu(be\.(com|([a-z]{2}))|\.be)|nvimeo\.com|twitch\.tv)/[^ ]+$'
   #if printf '%s' "$1" | grep -Ee "${regex}"; then
-  if grep -Ee "${regex}" <<< "$1"; then
-    omxplayer -o local `youtube-dl -g -f 22/18/43/36/17 "$@"`
-  else
-    omxplayer -o local "$@"
-  fi
-}
+    if grep -Ee "${regex}" <<< "$1"; then
+      omxplayer -o local `youtube-dl -g -f 22/18/43/36/17 "$@"`
+    else
+      omxplayer -o local "$@"
+    fi
+  }
 
 open () {
   nohup mimeopen "$@" &> /dev/null &
 }
 
-pin() {
+pin () {
   pindir=$HOME/.pins
   case "$1" in 
     "")
@@ -170,7 +168,7 @@ pin() {
   esac
 }
 
-drun() {
+drun () {
   systemctl status docker &> /dev/null
 
   if [[ "$?" != "0" ]]; then
