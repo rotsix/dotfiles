@@ -10,4 +10,5 @@ neovim/.config/nvim/autoload/*
 mpd/*
 ncmpcpp/*
 mutt/*
+qutebrowser/*
 

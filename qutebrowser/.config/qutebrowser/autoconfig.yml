@@ -3,9 +3,9 @@
 
 config_version: 2
 settings:
-  scrolling.bar:
-    global: when-searching
-  statusbar.hide:
-    global: false
-  tabs.show:
-    global: multiple
+  editor.command:
+    global:
+    - termite
+    - -e
+    - nvim
+    - '{file}'
