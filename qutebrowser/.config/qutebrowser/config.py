@@ -4,12 +4,18 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig()
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'x': 'quit --save', 'o': 'open'}
+c.aliases = {
+    "q": "quit",
+    "w": "session-save",
+    "wq": "quit --save",
+    "x": "quit --save",
+    "o": "open",
+}
 
 # Load a restored tab as soon as it takes focus.
 # Type: Bool
@@ -20,7 +26,7 @@ c.session.lazy_restore = True
 # https://peter.sh/experiments/chromium-command-line-switches/ for a
 # list) will work.
 # Type: List of String
-c.qt.args = ['ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so']
+c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -38,7 +44,7 @@ c.content.autoplay = False
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-c.content.cookies.accept = 'all'
+c.content.cookies.accept = "all"
 
 # Store cookies. Note this option needs a restart with QtWebEngine on Qt
 # < 5.9.
@@ -48,7 +54,7 @@ c.content.cookies.store = False
 # Default encoding to use for websites. The encoding must be a string
 # describing an encoding such as _utf-8_, _iso-8859-1_, etc.
 # Type: String
-c.content.default_encoding = 'utf-8'
+c.content.default_encoding = "utf-8"
 
 # User agent to send. Unset to send the default. Note that the value
 # read from JavaScript is always the global value.
@@ -57,379 +63,7 @@ c.content.headers.user_agent = None
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'https://gitlab.com/cunidev/gestures')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://imgur.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.macmaniack.com/fr/pieces-detachees/3628-batterie-interne-originale-reconditionnee-pour-iphone-6s.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.amazon.fr/EMNT-replacement-rechargeable-Lithium-ion-r%C3%A9paration/dp/B07HDZ4VCF/ref=sr_1_1_sspa?ie=UTF8&qid=1545828132&sr=8-1-spons&keywords=batterie+interne+iphone+6s&psc=1')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.macmaniack.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ileauxfleurs77.fr/fleuriste-melun.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ileauxfleurs77.fr/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.amazon.fr/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.google.fr/maps?q=rue%20beauregars')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://back/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://gitlab.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://localhost/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://passeport.ants.gouv.fr/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://phabricator.babycloudlab.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://twitter.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.facebook.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.netflix.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.ovh.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.youtube.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.reddit.com/*')
-
-# Enable JavaScript.
-# Type: Bool
 c.content.javascript.enabled = False
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://app.keeweb.info/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://hostux.social/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.messenger.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://accounts.google.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://mail.google.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://google.com/maps*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.routedurhum.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.dropbox.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://tweetdeck.twitter.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://ionicframework.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://github.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://webmail.cri.ens.fr/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://overthewire.org/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.amazon.com/dp/B00OFM6F80/ref=twister_B07FF5PS4S?_encoding=UTF8&psc=1')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.linkedin.com/search/results/all/?keywords=julie%20faule')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'http://udsmed.u-strasbg.fr/med_notes/page_en_construction.htm')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://translate.google.com/#auto/fr/mess')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.youtube.com/watch?v=NbXhMK_-Tm8&list=UUUopvBtHeCwvIQJwiUI6Wmw')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.decathlon.fr/velo-route-triban-rc-520-id_8502389.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.specialized.com/fr/fr/mens-diverge-e5-comp/p/154247?color=239533-154247')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.probikeshop.fr/soldes/route-c1503.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.probikeshop.fr/soldes/accessoires-c1501.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.probikeshop.fr/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ortlieb.com/fr/sport-roller-high-visibility')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ortlieb.com/fr/produits/sacoches-de-velo/sacoches-de-roue-avant')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.ortlieb.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ortlieb.com/fr/sport-roller-plus')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.vaude.com/fr-FR/Produits/Sacoches-pour-velo/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.vaude.com/fr-FR/Produits/Type-de-Sport/Gagnant-du-Test/Aqua-Front?number=124930100')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.vaude.com/fr-FR/Produits/Type-de-Sport/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.vaude.com/fr-FR/Produits/Type-de-Sport/Cyclisme/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://voyageforum.com/discussion/votre-sacoche-vaude-aqua-pro-back-d4875155/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.deezer.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://soundcloud.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'http://192.168.1.1/html/quicksetup.html?randid=1909661330?updataredirect=www.quatuor-hermes.com')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://192.168.1.1/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.cyclable.com/459-porte-bagages-arriere-tubus-fly.html#fichetechnique')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.cyclable.com/165-porte-bagages-velo#fabricant-tubus')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.cyclable.com/452-porte-bagages-avant-tubus-tara.html#fichetechnique')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.probikeshop.fr/tubus-adaptateur-pour-porte-bagages-avant/85011.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.cyclo-randonnee.fr/porte-bagages-tubus-144/porte-bagages-avant-tubus-tara-1125.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.tubus.com/product.php?xn=16')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.atlasobscura.com/articles/pointing-and-calling-japan-trains')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://wifi.ens.fr/coova.html?loginurl=https%3A%2F%2Fwifi.ens.fr%2Findex.html%3Fres%3Dnotyet%26uamip%3D10.1.2.1%26uamport%3D3990%26challenge%3De14d63eb01014ff8ffea8cbbb50d5ed7%26called%3D52-54-00-20-76-E1%26mac%3D48-51-B7-9E-62-4F%26ip%3D10.1.2.15%26nasid%3Dnas01%26sessionid%3D5c4ad0ec00000033%26ssl%3Dhttps%253a%252f%252fchilli.ens.fr%253a4990%252f%26userurl%3Dhttp%253a%252f%252fgoogle.fr%252f%26md%3D09C3245ABAC3BE15A9820C6AB57C3DE4')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://wifi.ens.fr/index.html?res=notyet&uamip=10.1.2.1&uamport=3990&challenge=e14d63eb01014ff8ffea8cbbb50d5ed7&called=52-54-00-20-76-E1&mac=48-51-B7-9E-62-4F&ip=10.1.2.15&nasid=nas01&sessionid=5c4ad0ec00000033&ssl=https%3A%2F%2Fchilli.ens.fr%3A4990%2F&userurl=http%3A%2F%2Fgoogle.fr%2F&md=09C3245ABAC3BE15A9820C6AB57C3DE4')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.ornikar.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://app.ornikar.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://erikdubois.be/changing-colours-i3-status-bar/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://wifi.ens.fr/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'http://jsfiddle.net/rj593/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://jsfiddle.net/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.sncf.com/fr/engagements/transparence/info-regularite')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.ratp.fr/infos-trafic')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.lesnumeriques.com/casque-audio/comparatif-ecouteurs-intra-auriculaires-a531.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://forum.lesnumeriques.com/t/topic-unique-test-casque-audio-taotronics-tt-ep01/56575')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.etymotic.com/consumer/earphones.html')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://medium.freecodecamp.org/how-to-get-push-notifications-working-with-ionic-4-and-firebase-ad87cc92394e')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://onesignal.com/ionic')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://onesignal.com/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://documentation.onesignal.com/docs')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://www.yopmail.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://onesignal.com/apps/f7f0e1cc-aa0d-4669-9a59-851b3b27f20b')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://onesignal.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://console.firebase.google.com/project/babybabz-c1b90/settings/cloudmessaging/')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://console.firebase.google.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://forum.ionicframework.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://dashboard.ionicframework.com/sso/forum?sso=bm9uY2U9NmM3YWEzODA1MjY2ODBhMjU0YmY1MjY3ZjI0YzNjMjImcmV0dXJuX3Nzb191cmw9aHR0cHMlM0ElMkYlMkZmb3J1bS5pb25pY2ZyYW1ld29yay5jb20lMkZzZXNzaW9uJTJGc3NvX2xvZ2lu&sig=6160b10eeaba9ddc5d887f5a83329bd2f432fb4e9b1f37f4ed6fa811db6d1a44')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', False, 'https://dashboard.ionicframework.com/undefined?sso=bm9uY2U9NmM3YWEzODA1MjY2ODBhMjU0YmY1MjY3ZjI0YzNjMjImcmV0dXJuX3Nzb191cmw9aHR0cHMlM0ElMkYlMkZmb3J1bS5pb25pY2ZyYW1ld29yay5jb20lMkZzZXNzaW9uJTJGc3NvX2xvZ2lu&sig=6160b10eeaba9ddc5d887f5a83329bd2f432fb4e9b1f37f4ed6fa811db6d1a44')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, '*://dashboard.ionicframework.com/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'file://*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'https://www.destroyallsoftware.com/screencasts')
 
 # Number of commands to save in the command history. 0: no history / -1:
 # unlimited
@@ -438,7 +72,7 @@ c.completion.cmd_history_max_items = 100
 
 # Height (in pixels or as percentage of the window) of the completion.
 # Type: PercOrInt
-c.completion.height = '40%'
+c.completion.height = "40%"
 
 # Width (in pixels) of the scrollbar in the completion window.
 # Type: Int
@@ -446,19 +80,19 @@ c.completion.scrollbar.width = 12
 
 # Format of timestamps (e.g. for the history completion).
 # Type: TimestampTemplate
-c.completion.timestamp_format = '%Y-%m-%d %H:%M'
+c.completion.timestamp_format = "%Y-%m-%d %H:%M"
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
 # Type: Directory
-c.downloads.location.directory = '/home/victor'
+c.downloads.location.directory = "/home/victor"
 
 # Where to show the downloaded files.
 # Type: VerticalPosition
 # Valid values:
 #   - top
 #   - bottom
-c.downloads.position = 'bottom'
+c.downloads.position = "bottom"
 
 # Editor (and arguments) to use for the `open-editor` command. The
 # following placeholders are defined: * `{file}`: Filename of the file
@@ -467,11 +101,11 @@ c.downloads.position = 'bottom'
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['nvim-qt', '{file}']
+c.editor.command = ["termite", "-e", "'nvim {file}'"]
 
 # Characters used for hint strings.
 # Type: UniqueCharString
-c.hints.chars = 'qsdfghjkl'
+c.hints.chars = "qsdfghjkl"
 
 # When to show the scrollbar.
 # Type: String
@@ -479,7 +113,7 @@ c.hints.chars = 'qsdfghjkl'
 #   - always: Always show the scrollbar.
 #   - never: Never show the scrollbar.
 #   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
-c.scrolling.bar = 'when-searching'
+c.scrolling.bar = "when-searching"
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
@@ -534,7 +168,7 @@ c.scrolling.smooth = False
 #   - tr-TR: Turkish (Turkey)
 #   - uk-UA: Ukrainian (Ukraine)
 #   - vi-VN: Vietnamese (Viet Nam)
-c.spellcheck.languages = ['en-US', 'fr-FR']
+c.spellcheck.languages = ["en-US", "fr-FR"]
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
@@ -550,7 +184,7 @@ c.statusbar.hide = False
 #   - tabs: Current active tab, e.g. `2`.
 #   - keypress: Display pressed keys when composing a vi command.
 #   - progress: Progress bar for the current page loading.
-c.statusbar.widgets = ['keypress', 'progress', 'url', 'scroll']
+c.statusbar.widgets = ["keypress", "progress", "url", "scroll"]
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
@@ -564,7 +198,7 @@ c.tabs.background = True
 #   - startpage: Load the start page.
 #   - default-page: Load the default page.
 #   - close: Close the window.
-c.tabs.last_close = 'default-page'
+c.tabs.last_close = "default-page"
 
 # Switch between tabs using the mouse wheel.
 # Type: Bool
@@ -577,7 +211,7 @@ c.tabs.mousewheel_switching = False
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'left'
+c.tabs.position = "left"
 
 # Which tab to select when the focused tab is removed.
 # Type: SelectOnRemove
@@ -585,7 +219,7 @@ c.tabs.position = 'left'
 #   - prev: Select the tab which came before the closed one (left in horizontal, above in vertical).
 #   - next: Select the tab which came after the closed one (right in horizontal, below in vertical).
 #   - last-used: Select the previously selected tab.
-c.tabs.select_on_remove = 'next'
+c.tabs.select_on_remove = "next"
 
 # When to show the tab bar.
 # Type: String
@@ -594,7 +228,7 @@ c.tabs.select_on_remove = 'next'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'multiple'
+c.tabs.show = "multiple"
 
 # Format to use for the tab title. The following placeholders are
 # defined:  * `{perc}`: Percentage as a string like `[10%]`. *
@@ -608,17 +242,17 @@ c.tabs.show = 'multiple'
 # `{protocol}`: Protocol (http/https/...) of the current web page. *
 # `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
-c.tabs.title.format = '{audio} {title}'
+c.tabs.title.format = "{audio} {title}"
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
 # Type: PercOrInt
-c.tabs.width = '15%'
+c.tabs.width = "15%"
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'file:///home/victor/dotfiles/homePage/.config/homePage/index.html'
+c.url.default_page = "file:///home/victor/dotfiles/homePage/.config/homePage/index.html"
 
 # Open base URL of the searchengine if a searchengine shortcut is
 # invoked without parameters.
@@ -634,118 +268,132 @@ c.url.open_base_url = False
 # used by prepending the search engine name to the search term, e.g.
 # `:open google qutebrowser`.
 # Type: Dict
-c.url.searchengines = {'DEFAULT': 'https://searx.me/search?q={}', 'g': 'https://www.google.fr/search?q={}', 'y': 'https://www.youtube.com/results?search_query={}', 'r': 'https://reddit.com/r/{}', 'w': 'https://en.wikipedia.org/w/index.php?search={}', 'wf': 'https://fr.wikipedia.org/w/index.php?search={}', 'gt': 'https://translate.google.com/#auto/fr/{}', 'gh': 'https://github.com/search?q={}', 'alf': 'https://wiki.archlinux.fr/{}', 'al': 'https://wiki.archlinux.org/index.php/{}', 'aur': 'https://aur.archlinux.org/packages/?K={}', 'yt': 'https://www.youtube.com/results?search_query={}', 'maps': 'https://www.google.fr/maps?q={}'}
+c.url.searchengines = {
+    "DEFAULT": "https://searx.me/search?q={}",
+    "g": "https://www.google.fr/search?q={}",
+    "y": "https://www.youtube.com/results?search_query={}",
+    "r": "https://reddit.com/r/{}",
+    "w": "https://en.wikipedia.org/w/index.php?search={}",
+    "wf": "https://fr.wikipedia.org/w/index.php?search={}",
+    "gt": "https://translate.google.com/#auto/fr/{}",
+    "gh": "https://github.com/search?q={}",
+    "al": "https://wiki.archlinux.org/index.php/{}",
+    "alf": "https://wiki.archlinux.fr/{}",
+    "aur": "https://aur.archlinux.org/packages/?K={}",
+    "yt": "https://www.youtube.com/results?search_query={}",
+    "maps": "https://www.google.fr/maps?q={}",
+}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'file:///home/victor/dotfiles/homePage/.config/homePage/index.html'
+c.url.start_pages = "file:///home/victor/dotfiles/homePage/.config/homePage/index.html"
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-c.colors.completion.odd.bg = '#151515'
+c.colors.completion.odd.bg = "#151515"
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-c.colors.completion.even.bg = '#0C0C0C'
+c.colors.completion.even.bg = "#0C0C0C"
 
 # Background color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.category.bg = '#151515'
+c.colors.completion.category.bg = "#151515"
 
 # Foreground color of the selected completion item.
 # Type: QtColor
-c.colors.completion.item.selected.fg = 'white'
+c.colors.completion.item.selected.fg = "white"
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = '#404040'
+c.colors.completion.item.selected.bg = "#404040"
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.item.selected.border.top = '#000000'
+c.colors.completion.item.selected.border.top = "#000000"
 
 # Bottom border color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.border.bottom = '#000000'
+c.colors.completion.item.selected.border.bottom = "#000000"
 
 # Foreground color of the matched text in the completion.
 # Type: QssColor
-c.colors.completion.match.fg = '#CC1111'
+c.colors.completion.match.fg = "#CC1111"
 
 # Font color for hints.
 # Type: QssColor
-c.colors.hints.fg = 'white'
+c.colors.hints.fg = "white"
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = 'black'
+c.colors.hints.bg = "black"
 
 # Font color for the matched part of hints.
 # Type: QssColor
-c.colors.hints.match.fg = 'red'
+c.colors.hints.match.fg = "red"
 
 # Background color of the tab bar.
 # Type: QtColor
-c.colors.tabs.bar.bg = '#000000'
+c.colors.tabs.bar.bg = "#000000"
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#808080'
+c.colors.tabs.odd.fg = "#808080"
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#151515'
+c.colors.tabs.odd.bg = "#151515"
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#808080'
+c.colors.tabs.even.fg = "#808080"
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#0C0C0C'
+c.colors.tabs.even.bg = "#0C0C0C"
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = 'white'
+c.colors.tabs.selected.odd.fg = "white"
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#404040'
+c.colors.tabs.selected.odd.bg = "#404040"
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = 'white'
+c.colors.tabs.selected.even.fg = "white"
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#404040'
+c.colors.tabs.selected.even.bg = "#404040"
 
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = "white"
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = 'Iosevka Term'
+c.fonts.monospace = "Iosevka Term"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = 'Iosevka Term'
+c.fonts.completion.entry = "Iosevka Term"
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = 'Iosevka Term'
+c.fonts.prompts = "Iosevka Term"
 
 # Font family for standard fonts.
 # Type: FontFamily
-c.fonts.web.family.standard = 'monospace'
+c.fonts.web.family.standard = "monospace"
 
 # Font family for fixed fonts.
 # Type: FontFamily
-c.fonts.web.family.fixed = 'monospace'
+c.fonts.web.family.fixed = "monospace"
 
 # Font family for serif fonts.
 # Type: FontFamily
@@ -772,14 +420,17 @@ c.fonts.web.size.default = 14
 c.fonts.web.size.default_fixed = 11
 
 # Bindings for normal mode
-config.bind('"<Ctrl+e>"', 'open-editor')
-config.bind('<', 'tab-move -')
-config.bind('<Ctrl+Shift+Tab>', 'tab-prev')
-config.bind('<Ctrl+Tab>', 'tab-next')
-config.bind('>', 'tab-move +')
-config.bind('D', 'quickmark-save')
-config.bind('M', 'hint links spawn --detach /home/victor/bin/mpv_miniature {hint-url}')
-config.bind('j', 'scroll-px 0 75')
-config.bind('k', 'scroll-px 0 -75')
-config.bind('m', 'spawn --detach /home/victor/bin/mpv_miniature {url}')
-config.bind('xx', 'config-cycle statusbar.hide ;; config-cycle tabs.show multiple switching ;; fullscreen')
+config.bind("<", "tab-move -")
+config.bind("<Ctrl+Shift+Tab>", "tab-prev")
+config.bind("<Ctrl+Tab>", "tab-next")
+config.bind("<Ctrl+e>", "open-editor")
+config.bind(">", "tab-move +")
+config.bind("D", "quickmark-save")
+config.bind("M", "hint links spawn --detach /home/victor/bin/mpv_miniature {hint-url}")
+config.bind("j", "scroll-px 0 75")
+config.bind("k", "scroll-px 0 -75")
+config.bind("m", "spawn --detach /home/victor/bin/mpv_miniature {url}")
+config.bind(
+    "xx",
+    "config-cycle statusbar.hide ;; config-cycle tabs.show multiple switching ;; fullscreen",
+)
