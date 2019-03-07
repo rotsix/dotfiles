@@ -66,7 +66,7 @@ tmux_tty () {
 }
 
 mk () {
-  mkdir -p $@ && cd $@
+  mkdir -p "$@" && cd "$@"
 }
 
 news () {

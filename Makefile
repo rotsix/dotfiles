@@ -35,6 +35,7 @@ common:
 laptop:
 	@echo "stow $@"
 	@stow dunst
+	@stow homepage
 	@stow i3
 	@stow mpv
 	@stow qutebrowser

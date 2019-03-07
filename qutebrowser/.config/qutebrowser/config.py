@@ -252,7 +252,7 @@ c.tabs.width = "15%"
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = "file:///home/victor/dotfiles/homePage/.config/homePage/index.html"
+c.url.default_page = "file:///home/victor/dotfiles/homepage/.config/homepage/index.html"
 
 # Open base URL of the searchengine if a searchengine shortcut is
 # invoked without parameters.
