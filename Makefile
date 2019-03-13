@@ -49,4 +49,5 @@ laptop:
 
 server:
 	@echo "stow $@"
+	@rm -rf ${HOME}/.zprofile
 	@ln -sf "${HOME}/.tmux.conf.server" "${HOME}/.tmux.conf"
