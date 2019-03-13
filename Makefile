@@ -31,6 +31,8 @@ common:
 	@stow mpd
 	@stow mutt
 	@stow neovim
+	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@stow ncmpcpp
 	@stow tmux
 	@stow zsh
