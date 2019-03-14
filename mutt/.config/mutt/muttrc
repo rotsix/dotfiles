@@ -1,7 +1,7 @@
 set header_cache     = "~/.config/mutt/cache/headers"
 set message_cachedir = "~/.config/mutt/cache/bodies"
 set send_charset	 = "utf-8"
-set editor           = "`echo \$EDITOR` '+:7'"
+set editor           = "nvim '+:7'"
 
 
 # victor.franzi@gmail.com
@@ -40,7 +40,8 @@ source "~/.config/mutt/gruvbox.mutt"
 
 
 # binds
-macro generic,pager <Home> "<change-folder> =INBOX<enter>"
+macro generic,pager i "<change-folder> =INBOX<enter>"
+macro generic,pager I "<change-folder> =[Gmail]/Corbeille<enter>"
 bind pager <down> next-line
 bind pager <up> previous-line
 bind pager j next-line
