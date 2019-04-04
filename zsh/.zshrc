@@ -1,10 +1,10 @@
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh || true
+source /usr/share/fzf/key-bindings.zsh || true
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/autojump/autojump.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh || true
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh || true
+source /usr/share/autojump/autojump.zsh || true
 
 for src in $(find $HOME/.zsh.d/plugins -name "*.zsh"); do
   source $src
