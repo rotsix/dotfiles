@@ -8,7 +8,7 @@ source /usr/share/autojump/autojump.zsh || true
 
 for src in $(find $HOME/.zsh.d/plugins -name "*.zsh"); do
   source $src
-done
+done || true
 
 source $HOME/.zsh.d/alias.zsh
 source $HOME/.zsh.d/functions.zsh
