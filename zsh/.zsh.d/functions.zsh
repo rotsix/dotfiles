@@ -63,7 +63,7 @@ tmux_tty () {
     neww -n "IV" \; \
     neww -n "V" \; \
     selectw -t "I" \;
-}
+  }
 
 mk () {
   mkdir -p "$@" && cd "$@"
@@ -91,7 +91,7 @@ g
 s/\n//;
 }
 EOF
-echo -e "$(curl -s https://archlinux.fr/feed |sed """$sed_trt""")"
+echo -e "$(curl -s https://archlinux.fr/feed | sed """$sed_trt""")"
 
 }
 
@@ -103,13 +103,13 @@ maj () {
 }
 
 dvtm-status () {
-  FIFO="/tmp/dvtm-status.$$"
-  [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
+FIFO="/tmp/dvtm-status.$$"
+[ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
 
-  while true; do
-    # wifi name
-    test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
-    
+while true; do
+  # wifi name
+  test -n "$( iwgetid -r )" && WIFI="$( iwgetid -r ) | " || WIFI=""
+
     # song name
     test -n "$( mpc current )" && SONG="$( mpc current ) | " || SONG=""
 
@@ -148,26 +148,6 @@ open () {
   nohup mimeopen "$@" &> /dev/null &
 }
 
-pin () {
-  pindir=$HOME/.pins
-  case "$1" in 
-    "")
-      count=1
-      while read -r pin; do
-        echo "$count: $pin"
-        (( count++ ))
-      done < $pindir ;;
-    "p")
-      echo "$PWD" >> $pindir ;;
-    "del"|"d")
-      sed -i "$2d" "$pindir" ;;
-    "[0-9][0-9]*")
-      echo "$1" >> $pindir ;;
-    *)
-      cd "$(sed "$1q;d" "$pindir")" ;;
-  esac
-}
-
 drun () {
   systemctl status docker &> /dev/null
 
@@ -179,6 +159,11 @@ drun () {
       "kali"|"k"|"kalilinux")
         docker start 5553c075a2e7 > /dev/null && docker attach 5553c075a2e7
       	;;
+      "mc"|"m"|"minecraft")
+        echo "# TODO"
+        echo "~/.zsh.d/functions:164"
+        # docker run -d -p 25565:25565 --name mc itzg/minecraft-server
+        ;;
       *)
       	echo "option not supported"
       	;;
