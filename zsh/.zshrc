@@ -6,6 +6,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/autojump/autojump.zsh
 
+for src in $(find $HOME/.zsh.d/plugins -name "*.zsh"); do
+  source $src
+done
+
 source $HOME/.zsh.d/alias.zsh
 source $HOME/.zsh.d/functions.zsh
 source $HOME/.zsh.d/variables.zsh
