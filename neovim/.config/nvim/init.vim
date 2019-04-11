@@ -19,8 +19,24 @@ Plug 'scrooloose/nerdtree'
 " Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
 
-" Dracula: a spooky theme
-"Plug 'dracula/vim'
+" Deoplete: completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Python
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'davidhalter/jedi'
+" Clang
+Plug 'Shougo/deoplete-clangx'
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+" OCaml
+Plug 'copy/deoplete-ocaml'
+" Go
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make' } 
+
+" Go: go-mode for vim
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Gruvbox: pretty theme (darker-fork)
 Plug 'rotsix/gruvbox'
 
@@ -29,9 +45,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Polyglot: syntax highlighting for common languages
 Plug 'sheerun/vim-polyglot'
-
-" Auto Omni: trigger omnicomplete popup menu automatically
-" Plug 'BrandonRoehl/auto-omni'
 
 " Ale: asynchronous lint engine
 Plug 'w0rp/ale'
@@ -60,9 +73,6 @@ Plug 'jceb/vim-orgmode'
 " Fzf: fuzzy finder/commands
 Plug 'junegunn/fzf.vim'
 
-" Pydiction: python omni-completion
-Plug 'vim-scripts/Pydiction'
-
 " Vim Stariy: start screen
 Plug 'mhinz/vim-startify' 
 
@@ -76,9 +86,6 @@ command! ReloadConfig exec "source ~/.config/nvim/init.vim"
 
 " leader key is comma
 let mapleader = ','
-
-" quick exit/save
-nnoremap <silent> <Leader>w :w!<Cr>
 
 " hide search highlights with ,<Cr>
 noremap <silent> <Leader><Cr> :noh<Cr>
@@ -115,6 +122,9 @@ set noshowcmd
 " hide ruler
 set noruler
 
+" don't wrap on words
+set linebreak 
+
 " keys/hjkl can go on new lines/*
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
@@ -131,6 +141,9 @@ set smartcase
 
 " highlight current line
 set cursorline
+
+" forgot sudo-editing?
+cabbrev w!! w !sudo tee > /dev/null "%"
 
 " wrapped lines are multiple lines with j/k
 nnoremap <silent> j gj
@@ -241,9 +254,8 @@ endfunction
 let g:fzf_layout = { 'down': '~30%' }
 nnoremap <silent> <C-M-t> :Files<Cr>
 inoremap <silent> <C-M-t> <Esc>:Files<Cr>
-
-nnoremap <silent> <C-p> :Tags<Cr>
-inoremap <silent> <C-p> <Esc>:Tags<Cr>
+nnoremap <silent> <C-M-p> :Tags<Cr>
+inoremap <silent> <C-M-p> <Esc>:Tags<Cr>
 
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
@@ -276,18 +288,15 @@ noremap <silent> <Tab> i<Tab><Esc>^
 set cinoptions={1s,>2s,e-1s,^-1s,n-1s,:1s,p5,i4,(0,u0,W1s shiftwidth=2
 autocmd FileType * setlocal indentkeys+=!<Tab>
 
-" auto-complete
-inoremap <silent> <C-Space> <C-x><C-o>
-
 " pretty tabs
-nnoremap <silent> <C-S-Tab> :tabprevious<Cr>
-nnoremap <silent> <C-Tab>   :tabnext<Cr>
-nnoremap <silent> <C-t>     :tabnew<Cr>
-nnoremap <silent> <C-w>     :tabclose<Cr>
-inoremap <silent> <C-S-Tab> <Esc>:tabprevious<Cr>i
-inoremap <silent> <C-Tab>   <Esc>:tabnext<Cr>i
-inoremap <silent> <C-t>     <Esc>:tabnew<Cr>
-inoremap <silent> <C-w>     <Esc>:tabclose<Cr>
+"nnoremap <silent> <C-S-Tab> :tabprevious<Cr>
+"nnoremap <silent> <C-Tab>   :tabnext<Cr>
+"nnoremap <silent> <C-t>     :tabnew<Cr>
+"nnoremap <silent> <C-S-w>     :tabclose<Cr>
+"inoremap <silent> <C-S-Tab> <Esc>:tabprevious<Cr>i
+"inoremap <silent> <C-Tab>   <Esc>:tabnext<Cr>i
+"inoremap <silent> <C-t>     <Esc>:tabnew<Cr>
+"inoremap <silent> <C-S-w>     <Esc>:tabclose<Cr>
 
 " panes
 set splitbelow
@@ -302,10 +311,29 @@ nnoremap <silent> <M-S-Down> :wincmd J<Cr>
 nnoremap <silent> <M-S-Left> :wincmd H<Cr>
 nnoremap <silent> <M-S-Right> :wincmd L<Cr>
 
+" smart home key
+if !exists(':SmartHomeKey')
+	command! SmartHomeKey call SmartHomeKey()
+endif
+
+function! SmartHomeKey()
+  let l:lnum = line('.')
+  let l:ccol = col('.')
+  execute 'normal! ^'
+  let l:fcol = col('.')
+  execute 'normal! 0'
+  let l:hcol = col('.')
+  if l:ccol != l:fcol
+    call cursor(l:lnum, l:fcol)
+  else
+    call cursor(l:lnum, l:hcol)
+  endif
+endfun 
+
 " ctrl a-e go to bol/eol
-noremap <silent> <C-a> ^
+noremap <silent> <C-a> :SmartHomeKey<Cr>
 noremap <silent> <C-e> $
-inoremap <silent> <C-a> <Home>
+inoremap <silent> <C-a> <C-o>:SmartHomeKey<Cr>
 inoremap <silent> <C-e> <End>
 "cnoremap <silent> <C-a> ^
 "cnoremap <silent> <C-e> $
@@ -367,10 +395,6 @@ let g:ale_fixers = {
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
-" pydiction config
-let g:pydiction_location = '/home/victor/.config/nvim/plugged/Pydiction/complete-dict'
-let g:pydiction_menu_height = 5
-
 " startify config
 let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = []
@@ -390,3 +414,35 @@ let g:startify_bookmarks = [
 " indentline config
 let g:indentLine_color_term = 234
 let g:indentLine_char = '│'
+
+" deoplete config
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+      \ 'min_pattern_length': 3,
+      \ })
+set hidden
+set completeopt=longest,menuone
+" enter in completion doesn't insert new line
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" rust
+let g:racer_cmd = "/home/victor/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+autocmd FileType rust nnoremap gd <Plug>(rust-def)
+autocmd FileType rust nnoremap gs <Plug>(rust-def-split)
+autocmd FileType rust nnoremap gv <Plug>(rust-def-vertical)
+autocmd FileType rust nnoremap gk <Plug>(rust-doc)
+
+" vim-go config
+let g:go_fmt_command = "goimports"
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_type_info = 1
+let g:go_addtags_transform = "snakecase"
