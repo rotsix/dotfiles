@@ -15,7 +15,7 @@ color quoted4     color250 default
 color quoted5     color108 default
 color search      default color208
 color signature   color108 default
-color status      default color237
+color status      blue default
 color tilde       color243 default
 color tree        color142 default
 color underline   default color239

@@ -17,7 +17,6 @@ set smtp_pass		 = $my_pass
 set smtp_url		 = "smtp://victor.franzi@gmail.com@smtp.gmail.com:587/"
 set mail_check		 = 120
 unset record
-color status blue default
 
 auto_view text/html
 
