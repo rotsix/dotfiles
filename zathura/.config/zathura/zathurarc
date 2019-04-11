@@ -1,10 +1,7 @@
-#open document in fit-widht mode by default
+#open document in fit-width mode by default
 set adjust-open "best-fit"
 
-
-# zathurarc-dark
-
-set font "Iosevka Term 10"
+set font "Fira Mono 10"
 set default-bg "#000000" #00
 set default-fg "#F7F7F7" #01
 
@@ -38,9 +35,17 @@ set recolor-darkcolor "#A6A6A6" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
+# ~ instead of /home/...
+set window-title-home-tilde "true"
+set statusbar-home-tilde "true"
+
+# no status-bar
+set guioptions ""
 
 set render-loading "false"
 set scroll-step 50
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
+
+map p print
