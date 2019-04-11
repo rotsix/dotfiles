@@ -5,8 +5,8 @@
 set $mod Mod4
 set $browser qutebrowser
 set $term termite
-set $editor emacs
-set $editor_alt nvim-qt
+set $editor termite -e 'nvim'
+set $mail thunderbird
 
 ## start-up
 # key pressed repeat
@@ -28,8 +28,6 @@ exec --no-startup-id "$HOME/bin/bat.notify.sh"
 exec --no-startup-id "redshift -l 48.5140:2.2111"
 # blur background if not workspace is not empty
 exec --no-startup-id "$HOME/.local/bin/blurwal -m 1"
-# mutt on start
-exec --no-startup-id "termite -t 'neomutt' -e 'neomutt'"
 
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
@@ -38,6 +36,7 @@ bindsym XF86MonBrightnessUp exec "$HOME/bin/stm bl up"
 bindsym XF86AudioLowerVolume exec "$HOME/bin/stm vol down"
 bindsym XF86AudioRaiseVolume exec "$HOME/bin/stm vol up"
 bindsym XF86AudioMute exec "$HOME/bin/stm vol toggle"
+bindsym XF86AudioMicMute exec "$HOME/bin/stm mic toggle"
 
 bindsym Print exec "scrot"
 bindsym shift+Print exec "scrot -s && wait 1"
@@ -80,9 +79,9 @@ floating_modifier $mod
 bindsym $mod+Return exec $term
 # start browser
 bindsym $mod+Shift+Return exec $browser
-# start editor
+# start editor/mail
 bindsym $mod+u exec $editor
-bindsym $mod+Shift+u exec $editor_alt
+bindsym $mod+Shift+u exec $mail
 
 # todo list
 #bindsym $mod+twosuperior exec "$HOME/bin/todo --read"
@@ -246,11 +245,13 @@ for_window [class="Display"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="Minecraft .*"] floating enable
+for_window [class="Matplotlib"] floating enable
 
 assign [class="discord"] $workspace1
 assign [class="Hexchat"] $workspace1
 assign [class="Caprine"] $workspace1
 assign [title="neomutt"] $workspace1
+assign [class="Thunderbird"] $workspace1
 
 assign [class="Firefox"] $workspace2
 assign [class="qutebrowser"] $workspace2
@@ -287,11 +288,11 @@ mode "resize" {
 bindsym $mod+d mode "resize"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #6C6C6C #6C6C6C #FFFFFF #FFFFFF   #6C6C6C
+client.focused          #FFFFFF #FFFFFF #FFFFFF #3030FF   #FFFFFF
 client.focused_inactive #2C2C2C #6C6C6C #FFFFFF #6C6C6C   #2C2C2C
 client.unfocused        #2C2C2C #2C2C2C #FFFFFF #2C2C2C   #2C2C2C
 client.urgent           #FF0000 #FF0000 #FFFFFF #FF0000   #FF0000
-client.placeholder      #000000 #0c0c0c #FFFFFF #000000   #0c0c0c
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 bar {
