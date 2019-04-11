@@ -269,7 +269,7 @@ c.url.open_base_url = False
 # `:open google qutebrowser`.
 # Type: Dict
 c.url.searchengines = {
-    "DEFAULT": "https://searx.me/search?q={}",
+    "DEFAULT": "https://www.startpage.com/do/dsearch?query={}",
     "g": "https://www.google.fr/search?q={}",
     "y": "https://www.youtube.com/results?search_query={}",
     "r": "https://reddit.com/r/{}",
@@ -282,6 +282,7 @@ c.url.searchengines = {
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "maps": "https://www.google.fr/maps?q={}",
+    "gol": "https://golang.org/pkg/{}/",
 }
 
 # Page(s) to open at the start.
