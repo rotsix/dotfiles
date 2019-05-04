@@ -1,5 +1,5 @@
 [options]
-font = Fira Mono 9
+font = Input Mono Condensed 9
 
 ##
 clickable_url = true
@@ -18,8 +18,7 @@ cursor_shape = underline
 
 
 [colors]
-background = rgba(0, 0, 0, 0.85)
-#background = #000000
+background = rgba(0, 0, 0, 1)
 foreground = #f5f5f5
 
 # black dark/light

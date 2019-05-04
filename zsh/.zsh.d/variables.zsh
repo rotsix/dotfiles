@@ -24,4 +24,6 @@ export NPM_PACKAGES="$HOME/.npm-packages"
 export PATH=$NPM_PACKAGES/bin:$PATH
 export NODE_PATH=$NPM_PACKAGES/lib/node_modules:$NODE_PATH
 
+export XKB_DEFAULT_LAYOUT=fr
+
 # vim: ft=sh:
