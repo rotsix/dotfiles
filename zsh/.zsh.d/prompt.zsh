@@ -135,8 +135,8 @@ function mnml_files {
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
 
-    local a_files="$(ls -1A | sed -n '$=')"
-    local v_files="$(ls -1 | sed -n '$=')"
+    local a_files="$(/usr/bin/ls -1A | sed -n '$=')"
+    local v_files="$(/usr/bin/ls -1 | sed -n '$=')"
     local h_files="$((a_files - v_files))"
 
     local output="${_w}[$_g${v_files:-0}"
