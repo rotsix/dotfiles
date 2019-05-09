@@ -19,6 +19,9 @@
   st = status -sb
   ts = status -sb
 
+[url "https://aur.archlinux.org/"]
+  insteadOf = aur:
+
 [core]
   editor = nvim
 
