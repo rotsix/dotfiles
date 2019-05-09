@@ -271,7 +271,6 @@ c.url.open_base_url = False
 c.url.searchengines = {
     "DEFAULT": "https://www.startpage.com/do/dsearch?query={}",
     "g": "https://www.google.fr/search?q={}",
-    "y": "https://www.youtube.com/results?search_query={}",
     "r": "https://reddit.com/r/{}",
     "w": "https://en.wikipedia.org/w/index.php?search={}",
     "wf": "https://fr.wikipedia.org/w/index.php?search={}",
@@ -378,15 +377,15 @@ c.colors.webpage.bg = "white"
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = "Iosevka Term"
+c.fonts.monospace = "Input Mono Condensed"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = "Iosevka Term"
+c.fonts.completion.entry = "Input Mono Condensed"
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = "Iosevka Term"
+c.fonts.prompts = "Input Mono Condensed"
 
 # Font family for standard fonts.
 # Type: FontFamily
