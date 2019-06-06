@@ -10,10 +10,10 @@ audible_bell = false
 allow_bold = true
 
 # system, on, off
-cursor_blink = system
+cursor_blink = off
 
 # block, underline, ibeam
-cursor_shape = underline
+cursor_shape = block
 
 
 
