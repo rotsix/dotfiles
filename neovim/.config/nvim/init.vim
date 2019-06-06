@@ -23,6 +23,18 @@ noremap <M-l> <C-]>
 " quoting/parenthesizing
 Plug 'tpope/vim-surround'
 
+" because, Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_fmt_command = 'goimports'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+
 " repeating commands (useful for surround)
 Plug 'tpope/vim-repeat'
 
@@ -32,6 +44,9 @@ let g:ale_fixers = {
 	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 	\ }
 let g:ale_fix_on_save = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
 
 " detect indentation
 Plug 'tpope/vim-sleuth'
@@ -62,6 +77,7 @@ set linebreak
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
 set scrolloff=5
+set autowrite
 set autoread
 set ignorecase
 set smartcase

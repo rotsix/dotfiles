@@ -5,6 +5,7 @@
 # neovim plugins
 neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
+neovim/.config/nvim/.netrwhist
 
 # font outputs
 font/Output_Fonts/*
