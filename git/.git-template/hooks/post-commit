@@ -1,3 +1,0 @@
-#!/bin/bash
-GIT_DIR="$(git rev-parse --git-dir)"
-git ls-files | ctags --tag-relative=yes -L - -f "$GIT_DIR/tags"
