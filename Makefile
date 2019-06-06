@@ -1,4 +1,4 @@
-default:          #
+default:   # help #
 	@command -v "stow" &> /dev/null &> /dev/null || echo "[*] install stow first"
 	@grep -E "^[a-z]+:" Makefile
 
@@ -19,9 +19,16 @@ common:           #
 	stow tmux
 	@command -v zsh &> /dev/null || echo "[*] install zsh"
 	stow zsh
+	# 'sudo' you know
+	@command -v sudo &> /dev/null || echo "[*] install and configure sudo"
+	sudo stow nano -t / &> /dev/null
+	sudo stow pacman -t / &> /dev/null
 
 laptop: graphic   #
 	@echo "# TODO: tlp, lid closing"
+	@command -v sudo &> /dev/null || echo "[*] install and configure sudo"
+	sudo systemctl enable tlp.service
+	sudo systemctl start tlp.service
 
 graphic: common   #
 	@command -v dunst &> /dev/null || echo "[*] install dunst"
@@ -42,6 +49,6 @@ graphic: common   #
 	ln -sf ${HOME}/.tmux.conf.laptop ${HOME}/.tmux.conf
 	#@bash font/mk.sh
 
-server:           #
+server: common    #
 	rm -rf ${HOME}/.zprofile
 	ln -sf ${HOME}/.tmux.conf.server ${HOME}/.tmux.conf
