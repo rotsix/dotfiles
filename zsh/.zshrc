@@ -1,27 +1,4 @@
-plugins=( \
-  "/usr/share/fzf/completion.zsh" \
-  "/usr/share/fzf/key-bindings.zsh" \
-  "/usr/share/autojump/autojump.zsh" \
-  "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
-  "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-  )
-
-for plugin in "${plugins[@]}"; do
-  if [[ -f $plugin ]]; then
-    source $plugin
-
-    if [[ $plugin = "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor line root)
-      ZSH_HIGHLIGHT_STYLES[alias]='fg=blue'
-      ZSH_HIGHLIGHT_STYLES[builtin]='fg=blue'
-      ZSH_HIGHLIGHT_STYLES[function]='fg=blue'
-      ZSH_HIGHLIGHT_STYLES[command]='fg=blue'
-      ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta'
-      ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=red'
-    fi
-  fi
-done
-
+source $HOME/.zsh.d/plugins.zsh
 source $HOME/.zsh.d/alias.zsh
 source $HOME/.zsh.d/functions.zsh
 source $HOME/.zsh.d/variables.zsh

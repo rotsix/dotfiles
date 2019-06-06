@@ -6,9 +6,11 @@
 neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
 
+# font outputs
+font/Output_Fonts/*
+
 # no worries
 mpd/*
 ncmpcpp/*
 mutt/*
 qutebrowser/*
-
