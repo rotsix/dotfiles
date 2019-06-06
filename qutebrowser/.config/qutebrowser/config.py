@@ -381,7 +381,7 @@ c.fonts.monospace = "Input Mono Condensed"
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = "Input Mono Condensed"
+c.fonts.completion.entry = "10pt monospace"
 
 # Font used for prompts.
 # Type: Font
@@ -397,19 +397,19 @@ c.fonts.web.family.fixed = "monospace"
 
 # Font family for serif fonts.
 # Type: FontFamily
-c.fonts.web.family.serif = None
+c.fonts.web.family.serif = "monospace"
 
 # Font family for sans-serif fonts.
 # Type: FontFamily
-c.fonts.web.family.sans_serif = None
+c.fonts.web.family.sans_serif = "monospace"
 
 # Font family for cursive fonts.
 # Type: FontFamily
-c.fonts.web.family.cursive = None
+c.fonts.web.family.cursive = "monospace"
 
 # Font family for fantasy fonts.
 # Type: FontFamily
-c.fonts.web.family.fantasy = None
+c.fonts.web.family.fantasy = "monospace"
 
 # Default font size (in pixels) for regular text.
 # Type: Int
