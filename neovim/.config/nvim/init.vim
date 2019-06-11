@@ -52,7 +52,6 @@ let g:ale_set_quickfix = 1
 Plug 'tpope/vim-sleuth'
 
 " fuzzy finding for everything (files, buffers..)
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 inoremap <C-b> <Esc>:Buffers<CR>
 nnoremap <C-b> :Buffers<CR>
