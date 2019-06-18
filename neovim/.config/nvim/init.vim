@@ -138,6 +138,13 @@ function! Date()
 	return system("date '+%d.%m.%Y' 2> /dev/null | tr -d '\n'")
 endfunction
 
+" latex mode (export to PDF on save + aspell)
+augroup tex
+  autocmd!
+  autocmd BufWritePost *.tex silent! !pdflatex %
+  autocmd FileReadPost *.tex silent! setlocal spell spelllang=fr
+augroup END
+
 " prettier status line
 highlight User1 ctermfg=white ctermbg=240
 highlight User2 ctermfg=white ctermbg=235
