@@ -26,8 +26,9 @@ common:           #
 	sudo stow pacman -t / &> /dev/null
 
 laptop: graphic   #
-	@echo "# TODO: tlp, lid closing"
+	@echo "# TODO: lid closing"
 	@command -v sudo &> /dev/null || echo "[*] install and configure sudo"
+	@command -v tlp &> /dev/null || echo "[*] install tlp"
 	sudo systemctl enable tlp.service
 	sudo systemctl start tlp.service
 
