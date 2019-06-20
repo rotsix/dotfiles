@@ -22,6 +22,7 @@ common:           #
 	# 'sudo' you know
 	@command -v sudo &> /dev/null || echo "[*] install and configure sudo"
 	sudo stow nano -t / &> /dev/null
+	sed -r -e 's/^set (.*)color/# # set \1color/g' -e 's/# set (.*)color/set \1color/g' ~/dotfiles/nano/etc/nanorc > ~/.nanorc
 	sudo stow pacman -t / &> /dev/null
 
 laptop: graphic   #
@@ -46,9 +47,9 @@ graphic: common   #
 	stow xorg
 	@command -v zathura &> /dev/null || echo "[*] install zathura"
 	stow zathura
-	ln -sf ${HOME}/.tmux.conf.laptop ${HOME}/.tmux.conf
 	#@bash font/mk.sh
 
 server: common    #
 	rm -rf ${HOME}/.zprofile
-	ln -sf ${HOME}/.tmux.conf.server ${HOME}/.tmux.conf
+	@command -v tmux &> /dev/null || echo "[*] install tmux"
+	stow tmux
