@@ -1,15 +1,3 @@
-[submodule "tmux/.tmux.laptop/plugins/tmux-battery"]
-	path = tmux/.tmux.laptop/plugins/tmux-battery
-	url = https://github.com/tmux-plugins/tmux-battery
-[submodule "tmux/.tmux.laptop/plugins/tpm"]
-	path = tmux/.tmux.laptop/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "bin/bin"]
 	path = bin/bin
     url = git@github.com:rotsix/bin.git
-[submodule "emacs/.emacs.d"]
-	path = emacs/.emacs.d
-	url = https://github.com/hlissner/.emacs.d
-[submodule "locker/.betterlockscreen"]
-	path = locker/.betterlockscreen
-	url = https://github.com/pavanjadhaw/betterlockscreen.git
