@@ -26,7 +26,7 @@ c.session.lazy_restore = True
 # https://peter.sh/experiments/chromium-command-line-switches/ for a
 # list) will work.
 # Type: List of String
-c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
+# c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -68,7 +68,7 @@ c.content.javascript.enabled = False
 # Number of commands to save in the command history. 0: no history / -1:
 # unlimited
 # Type: Int
-c.completion.cmd_history_max_items = 100
+c.completion.cmd_history_max_items = 500
 
 # Height (in pixels or as percentage of the window) of the completion.
 # Type: PercOrInt
@@ -286,7 +286,7 @@ c.url.searchengines = {
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = "file:///home/victor/dotfiles/homePage/.config/homePage/index.html"
+c.url.start_pages = "file:///home/victor/dotfiles/homepage/.config/homePage/index.html"
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
