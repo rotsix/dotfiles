@@ -42,16 +42,14 @@ graphic: common   #
 	@command -v dunst &> /dev/null || echo "[*] install dunst"
 	stow dunst
 	stow homepage
-	@command -v i3 &> /dev/null || echo "[*] install i3"
-	stow i3
+	@command -v sway &> /dev/null || echo "[*] install sway"
+	stow sway
 	@command -v mpv &> /dev/null || echo "[*] install mpv"
 	stow mpv
 	@command -v qutebrowser &> /dev/null || echo "[*] install qutebrowser"
 	stow qutebrowser
 	@command -v termite &> /dev/null || echo "[*] install termite"
 	stow termite
-	@command -v startx &> /dev/null || echo "[*] install startx"
-	stow xorg
 	@command -v zathura &> /dev/null || echo "[*] install zathura"
 	stow zathura
 	#@bash font/mk.sh

@@ -8,27 +8,6 @@ set $term termite
 set $editor termite -e 'nvim'
 set $mail thunderbird
 
-## start-up
-# key pressed repeat
-exec --no-startup-id "xset r rate 200 20"
-# wallpaper
-exec --no-startup-id "$HOME/.fehbg"
-# notifications (see systemd user services)
-exec --no-startup-id "dunst"
-# tray icons
-#exec --no-startup-id "volumeicon"
-exec --no-startup-id "nm-applet"
-# auto numlock
-exec --no-startup-id "numlockx"
-# hide idle
-exec --no-startup-id "unclutter -grab -idle 5"
-# battery reminder
-exec --no-startup-id "$HOME/bin/bat.notify.sh"
-# redshift, easy for eyes
-exec --no-startup-id "redshift -l 48.5140:2.2111"
-# blur background if not workspace is not empty
-exec --no-startup-id "$HOME/.local/bin/blurwal -m 1"
-
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
 bindsym XF86MonBrightnessDown exec "$HOME/bin/stm bl down"
@@ -41,11 +20,7 @@ bindsym XF86AudioMicMute exec "$HOME/bin/stm mic toggle"
 bindsym Print exec "scrot"
 bindsym shift+Print exec "scrot -s && wait 1"
 
-bindsym XF86Explorer exec "i3lock-fancy-dualmonitor"
-
-bindsym $mod+twosuperior exec notify-send "Calendar ($(date '+%B %d %Y'))" "$(cal -3)"
-
-# gaps, relative to i3-gaps
+# gaps
 gaps inner 0
 gaps outer 0
 
@@ -66,8 +41,8 @@ bindsym $mod+colon scratchpad show
 # pretty font
 font pango:Fira Mono 8
 
-# revolve i3 transparency bug
-new_window pixel
+# thin line as a border
+default_border pixel 1
 
 # can be useful
 focus_follows_mouse yes
@@ -82,9 +57,6 @@ bindsym $mod+Shift+Return exec $browser
 # start editor/mail
 bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
-
-# todo list
-#bindsym $mod+twosuperior exec "$HOME/bin/todo --read"
 
 # kill focused window
 bindsym $mod+Shift+X kill
@@ -207,16 +179,16 @@ bindsym $mod+ccedilla workspace $workspace9
 bindsym $mod+agrave workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+1 move container to workspace $workspace1
+bindsym $mod+2 move container to workspace $workspace2
+bindsym $mod+3 move container to workspace $workspace3
+bindsym $mod+4 move container to workspace $workspace4
+bindsym $mod+5 move container to workspace $workspace5
+bindsym $mod+6 move container to workspace $workspace6
+bindsym $mod+7 move container to workspace $workspace7
+bindsym $mod+8 move container to workspace $workspace8
+bindsym $mod+9 move container to workspace $workspace9
+bindsym $mod+0 move container to workspace $workspace10
 
 # move workspace between screens
 bindsym $mod+v exec i3-msg move workspace to output left
@@ -228,15 +200,14 @@ bindsym $mod+Shift+c reload
 # bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit' 'i3-msg exit' -b 'restart' 'i3-msg restart'"
-#bindsym $mod+Shift+q exec "i3-msg exit"
 
 # specefics floating windows
-for_window[class=".*"] border pixel 1
-for_window[class="mpv"] floating enable
-for_window[class="feh"] floating enable
-for_window[class=".*"] split h
-for_window[instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
-#for_window[class="Adl"] floating enable # Dofus
+# for_window[class=".*"] border pixel 1
+for_window [class="mpv"] floating enable
+for_window [class="feh"] floating enable
+for_window [class=".*"] split h
+for_window [instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
+#for_window [class="Adl"] floating enable # Dofus
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="(?i)authy"] floating enable
@@ -301,6 +272,6 @@ bar {
                 hidden_state hide
                 modifier Mod4
                 workspace_buttons no
-                font pango:Fira Mono 9
+                font pango:Input Mono Condensed 8
                 status_command bumblebee-status -m arch-update nic cpu memory weather battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" date.left-click="gsimplecal" -t default
 }
