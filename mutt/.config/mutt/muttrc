@@ -1,30 +1,21 @@
+# common options
 set header_cache     = "~/.config/mutt/cache/headers"
 set message_cachedir = "~/.config/mutt/cache/bodies"
 set send_charset	 = "utf-8"
 set editor           = "nvim '+:7'"
+unset imap_passive
+set mail_check		 = 60
 
 
-# victor.franzi@gmail.com
-set my_name			 = "Victor Franzi"
-source "gpg -dq $HOME/.password-store/google/victor.franzi-mutt.gpg |"
-set folder			 = imaps://victor.franzi@imap.gmail.com:993/
-set spoolfile		 = +INBOX
-set postponed		 = "+[Gmail]/Drafts"
-set from			 = "victor.franzi@gmail.com"
-set imap_user		 = "victor.franzi@gmail.com"
-set imap_pass		 = $my_pass
-set smtp_pass		 = $my_pass
-set smtp_url		 = "smtp://victor.franzi@gmail.com@smtp.gmail.com:587/"
-set mail_check		 = 120
-unset record
+# victor.franzi_gmail.com
+source "~/.config/mutt/victor.franzi_gmail.com"
+folder-hook $folder 'source ~/.config/mutt/victor.franzi_gmail.com'
 
-auto_view text/html
 
 # TLS for GMail
 set ssl_starttls     = yes
 set ssl_force_tls    = yes
 set imap_check_subscribed
-unset imap_passive
 set imap_keepalive	 = 300
 
 
@@ -36,9 +27,13 @@ set date_format     = "[%d/%m/%y - %H:%M]"
 #set index_format    = "%3C [%Z] %D %-20.18F //   %s"
 set index_format    = "%D %-25.23F | %s"
 source "~/.config/mutt/gruvbox.mutt"
+# mailcap
+auto_view text/html
+alternative_order text/plain text/enriched text/html
 
 
 # binds
+macro pager \cb 'urlscan' 'Follow links with urlscan'
 macro generic,pager i "<change-folder> =INBOX<enter>"
 macro generic,pager I "<change-folder> =[Gmail]/Corbeille<enter>"
 bind pager <down> next-line
@@ -58,7 +53,7 @@ set delete
 set quit
 set edit_headers=yes
 set menu_scroll
-
+auto_view text/html
 
 # neomutt
 set trash = "+[Gmail]/Corbeille"
@@ -69,4 +64,3 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 bind index,pager B sidebar-toggle-visible
-

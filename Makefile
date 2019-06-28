@@ -8,7 +8,7 @@ common:           #
 	stow git
 	@command -v mpd &> /dev/null || echo "[*] install mpd"
 	stow mpd
-	@command -v mutt &> /dev/null || echo "[*] install mutt"
+	@command -v neomutt &> /dev/null || echo "[*] install neomutt"
 	stow mutt
 	@command -v neovim &> /dev/null || echo "[*] install neovim"
 	stow neovim
