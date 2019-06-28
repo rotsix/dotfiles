@@ -1,5 +1,5 @@
 default:   # help #
-	@command -v "stow" &> /dev/null &> /dev/null || echo "[*] install stow first"
+	@command -v "stow" &> /dev/null || echo "[*] install stow first"
 	@grep -E "^[a-z]+:" Makefile
 
 common:           #
