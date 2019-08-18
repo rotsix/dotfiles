@@ -242,7 +242,7 @@ c.tabs.show = "multiple"
 # `{protocol}`: Protocol (http/https/...) of the current web page. *
 # `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
-c.tabs.title.format = "{audio} {title}"
+c.tabs.title.format = "{audio} {current_title}"
 
 # Width (in pixels or as percentage of the window) of the tab bar if
 # it's vertical.
