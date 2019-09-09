@@ -7,7 +7,7 @@ call plug#begin("~/.local/share/nvim/plugged")
 
 " minimal completion with tab
 Plug 'ajh17/VimCompletesMe'
-set completeopt=longest,menuone
+set completeopt=preview,menuone,longest
 
 " syntax for ALL files
 Plug 'sheerun/vim-polyglot'
@@ -46,7 +46,6 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-
 
 " detect indentation
 Plug 'tpope/vim-sleuth'
