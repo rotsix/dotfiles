@@ -7,7 +7,7 @@ call plug#begin("~/.local/share/nvim/plugged")
 
 " minimal completion with tab
 Plug 'ajh17/VimCompletesMe'
-set completeopt=preview,menuone,longest
+set completeopt=menuone,longest
 
 " syntax for ALL files
 Plug 'sheerun/vim-polyglot'
@@ -23,7 +23,7 @@ noremap <M-l> <C-]>
 " quoting/parenthesizing
 Plug 'tpope/vim-surround'
 
-" because, Go
+" because, go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_types = 1
@@ -34,6 +34,11 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
+
+" and because python
+Plug 'psf/black'
+let g:black_virtualenv = '~/.virtual-env/black'
+autocmd BufWritePre *.py execute ':Black'
 
 " repeating commands (useful for surround)
 Plug 'tpope/vim-repeat'
