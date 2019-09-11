@@ -24,6 +24,9 @@ bindsym shift+Print exec "scrot -s && wait 1"
 gaps inner 0
 gaps outer 0
 
+# cursor (wayland specific)
+seat * hide_cursor 5000
+
 bindsym $mod+KP_Multiply gaps inner current set 70
 bindsym $mod+shift+KP_Multiply gaps outer current set 20
 
@@ -273,5 +276,5 @@ bar {
     modifier Mod4
     workspace_buttons no
     font pango:Input Mono Condensed 8
-    status_command bumblebee-status -m arch-update nic cpu memory weather battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" date.left-click="gsimplecal" -t default
+    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" -t default
 }
