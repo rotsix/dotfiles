@@ -148,27 +148,4 @@ open () {
   nohup mimeopen "$@" &> /dev/null &
 }
 
-drun () {
-  systemctl status docker &> /dev/null
-
-  if [[ "$?" != "0" ]]; then
-    echo "docker is not running"
-    return 1
-  else
-    case "$1" in
-      "kali"|"k"|"kalilinux")
-        docker start 5553c075a2e7 > /dev/null && docker attach 5553c075a2e7
-      	;;
-      "mc"|"m"|"minecraft")
-        echo "# TODO"
-        echo "~/.zsh.d/functions:164"
-        # docker run -d -p 25565:25565 --name mc itzg/minecraft-server
-        ;;
-      *)
-      	echo "option not supported"
-      	;;
-    esac
-  fi
-}
-
 # vim: ft=zsh:
