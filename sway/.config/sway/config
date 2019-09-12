@@ -20,29 +20,34 @@ bindsym XF86AudioMicMute exec "$HOME/bin/stm mic toggle"
 bindsym Print exec "scrot"
 bindsym shift+Print exec "scrot -s && wait 1"
 
-# gaps
-gaps inner 0
-gaps outer 0
+gaps {
+    inner 0
+    outer 0
+}
 
 # cursor (wayland specific)
 seat * hide_cursor 5000
 
-bindsym $mod+KP_Multiply gaps inner current set 70
-bindsym $mod+shift+KP_Multiply gaps outer current set 20
+# background (wayland specific)
+output * bg "#000000" solid_color
 
-bindsym $mod+KP_Add      gaps inner current plus 3
-bindsym $mod+KP_Subtract gaps inner current minus 3
-bindsym $mod+KP_0        gaps inner current set 0
-
-bindsym $mod+Shift+KP_Add      gaps outer current plus 3
-bindsym $mod+Shift+KP_Subtract gaps outer current minus 3
-bindsym $mod+Shift+KP_0        gaps outer current set 0
+# input configs
+# keyboard
+input * {
+    xkb_layout fr
+    xkb_model oss
+    xkb_options compose:rctrl
+    repeat_delay 250
+    repeat_rate 25
+}
+# trackpad
+input * tap enabled
 
 bindsym $mod+Shift+colon move scratchpad
 bindsym $mod+colon scratchpad show
 
 # pretty font
-font pango:Fira Mono 8
+font pango:Input Mono Condensed 8
 
 # thin line as a border
 default_border pixel 1
@@ -202,7 +207,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 # bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "i3-nagbar -m 'Exit or restart ?' -t warning -b 'exit' 'i3-msg exit' -b 'restart' 'i3-msg restart'"
+bindsym $mod+Shift+q exit
 
 # specefics floating windows
 # for_window[class=".*"] border pixel 1
