@@ -8,6 +8,12 @@ set $term termite
 set $editor termite -e 'nvim'
 set $mail thunderbird
 
+exec "$HOME/bin/bat.notify.sh"
+
+set $menu termite -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'" -t "launcher"
+bindsym $mod+r exec $menu
+for_window [app_id="termite" title="launcher"] floating enable, border pixel 3
+
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
 bindsym XF86MonBrightnessDown exec "$HOME/bin/stm bl down"
@@ -43,6 +49,10 @@ input * {
 # trackpad
 input * tap enabled
 
+# clear notifications
+bindsym Ctrl+Space exec "makoctl dismiss"
+bindsym Ctrl+Shift+Space exec "makoctl dismiss -a"
+
 bindsym $mod+Shift+colon move scratchpad
 bindsym $mod+colon scratchpad show
 
@@ -68,11 +78,6 @@ bindsym $mod+Shift+u exec $mail
 
 # kill focused window
 bindsym $mod+Shift+X kill
-
-# start rofi
-bindsym $mod+r exec "zsh -c 'rofi -show run'"
-# start rofi-pass
-bindsym $mod+Shift+r exec "rofi-pass"
 
 # change focus
 bindsym $mod+h focus left
@@ -238,6 +243,8 @@ assign [class="qutebrowser"] $workspace2
 assign [class="code"] $workspace3
 assign [class="Code"] $workspace3
 assign [class="Gummi"] $workspace3
+
+assign [class="VMWare"] $workspace4
 
 
 # resize window (you can also use the mouse for that)
