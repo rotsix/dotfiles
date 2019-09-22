@@ -42,6 +42,8 @@ laptop: graphic   #
 
 graphic: common   #
 	stow homepage
+	@command -v mako > /dev/null || echo "[*] install mako"
+	stow mako
 	@command -v sway > /dev/null || echo "[*] install sway"
 	stow sway
 	@command -v mpv > /dev/null || echo "[*] install mpv"
