@@ -1,9 +1,9 @@
 #open document in fit-width mode by default
 set adjust-open "best-fit"
 
-set font "Fira Mono 10"
+set font "Input Mono Condensed 10"
 set default-bg "#000000" #00
-set default-fg "#F7F7F7" #01
+set default-fg "#FFFFFF" #01
 
 set statusbar-fg "#B0B0B0" #04
 set statusbar-bg "#000000" #01
