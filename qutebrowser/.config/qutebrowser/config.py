@@ -168,7 +168,8 @@ c.scrolling.smooth = False
 #   - tr-TR: Turkish (Turkey)
 #   - uk-UA: Ukrainian (Ukraine)
 #   - vi-VN: Vietnamese (Viet Nam)
-c.spellcheck.languages = ["en-US", "fr-FR"]
+# c.spellcheck.languages = ["en-US", "fr-FR"]
+c.spellcheck.languages = []
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
@@ -286,7 +287,7 @@ c.url.searchengines = {
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = "file:///home/victor/dotfiles/homepage/.config/homePage/index.html"
+c.url.start_pages = "file:///home/victor/dotfiles/homepage/.config/homepage/index.html"
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
