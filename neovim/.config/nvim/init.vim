@@ -100,6 +100,10 @@ set tabstop=4
 set splitbelow
 set splitright
 
+" exit insert mode with jk/kj
+inoremap <silent> jk <Esc>
+inoremap <silent> kj <Esc>
+
 " autoclose ", ', (, [, {    (plugins are so useless)
 inoremap <silent> " ""<Left>
 inoremap <silent> <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
