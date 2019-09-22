@@ -1,0 +1,11 @@
+# globals
+max-visible=-1
+layer=overlay
+
+# style
+font=Input Mono Condensed 10
+max-icon-size=32
+
+# colors
+border-color=#FFFFFF
+background-color=#202020
