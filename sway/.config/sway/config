@@ -43,7 +43,7 @@ input * {
     xkb_layout fr
     xkb_model oss
     xkb_options compose:rctrl
-    repeat_delay 250
+    repeat_delay 200
     repeat_rate 25
 }
 # trackpad
