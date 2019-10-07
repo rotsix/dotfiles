@@ -427,10 +427,10 @@ config.bind("<Ctrl+Tab>", "tab-next")
 config.bind("<Ctrl+e>", "open-editor")
 config.bind(">", "tab-move +")
 config.bind("D", "quickmark-save")
+config.bind("m", "spawn --detach /home/victor/bin/mpv_queue {url}")
 config.bind("M", "hint links spawn --detach /home/victor/bin/mpv_queue {hint-url}")
 config.bind("j", "scroll-px 0 75")
 config.bind("k", "scroll-px 0 -75")
-config.bind("m", "spawn --detach /home/victor/bin/mpv_queue {url}")
 config.bind(
     "xx",
     "config-cycle statusbar.hide ;; config-cycle tabs.show multiple switching ;; fullscreen",
