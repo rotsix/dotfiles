@@ -31,7 +31,7 @@ set notification-fg "#000000" #00
 
 set recolor "true"
 set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#A6A6A6" #06
+set recolor-darkcolor "#F5F5F5" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
@@ -41,6 +41,9 @@ set statusbar-home-tilde "true"
 
 # no status-bar
 set guioptions ""
+
+# clipboard
+set selection-clipboard clipboard
 
 set render-loading "false"
 set scroll-step 50
