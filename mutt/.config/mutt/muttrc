@@ -28,6 +28,7 @@ set date_format     = "[%d/%m/%y - %H:%M]"
 set index_format    = "%D %-25.23F | %s"
 source "~/.config/mutt/gruvbox.mutt"
 # mailcap
+set mailcap_path = ~/.config/mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
@@ -56,7 +57,7 @@ set menu_scroll
 auto_view text/html
 
 # neomutt
-set trash = "+[Gmail]/Corbeille"
+set trash = "=[Gmail]/Corbeille"
 set sidebar_width=30
 set sidebar_visible=yes
 set new_mail_command="notify-send 'new mail' '%n new, %u unread.' -i '$HOME/.config/mutt/mail.png'"
