@@ -1,19 +1,31 @@
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Sway config
 
 set $mod Mod4
+floating_modifier $mod
 set $browser qutebrowser
 set $term termite
-set $editor termite -e 'nvim'
-set $mail thunderbird
+set $editor termite -e "bash -c 'sleep 0.1 && nvim'"
+set $mail termite -e 'neomutt'
 
 exec "$HOME/bin/bat.notify.sh"
 
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $browser
+bindsym $mod+u exec $editor
+bindsym $mod+Shift+u exec $mail
+bindsym $mod+Shift+X kill
+
+# rofi-style
 set $menu termite -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'" -t "launcher"
 bindsym $mod+r exec $menu
 for_window [app_id="termite" title="launcher"] floating enable, border pixel 3
 
+# FIXME pass integration (rofi-pass not available on wayland)
+set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass -c'"
+bindsym $mod+Shift+r exec $pass
+for_window [app_id="termite" title="pass"] floating enable, border pixel 3
+
+# media keys
 bindsym $mod+a exec pavucontrol
 bindsym $mod+Shift+a exec blueman-applet
 bindsym XF86MonBrightnessDown exec "$HOME/bin/stm bl down"
@@ -31,25 +43,23 @@ gaps {
     outer 0
 }
 
-# cursor (wayland specific)
+# cursor
 seat * hide_cursor 5000
 
-# background (wayland specific)
+# background + screens
 output * bg "#000000" solid_color
 
-# input configs
-# keyboard
+# keyboard + touchpad
 input * {
+    tap enabled
     xkb_layout fr
     xkb_model oss
     xkb_options compose:rctrl
     repeat_delay 200
-    repeat_rate 25
+    repeat_rate 20
 }
-# trackpad
-input * tap enabled
 
-# clear notifications
+# notifications
 bindsym Ctrl+Space exec "makoctl dismiss"
 bindsym Ctrl+Shift+Space exec "makoctl dismiss -a"
 
@@ -65,26 +75,11 @@ default_border pixel 1
 # can be useful
 focus_follows_mouse yes
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec $term
-# start browser
-bindsym $mod+Shift+Return exec $browser
-# start editor/mail
-bindsym $mod+u exec $editor
-bindsym $mod+Shift+u exec $mail
-
-# kill focused window
-bindsym $mod+Shift+X kill
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -95,8 +90,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -110,7 +103,7 @@ mode "miniature" {
     # q     s     d
     # |           |
     # w-----x-----c
-
+    #
     # corner
     # <border>   <window>       <gap>
     # ± 1920     ± (1920 / 5)   ± (1920 / 20)
@@ -167,7 +160,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-
+# workspaces
 set $workspace1 "1"
 set $workspace2 "2"
 set $workspace3 "3"
@@ -204,8 +197,8 @@ bindsym $mod+9 move container to workspace $workspace9
 bindsym $mod+0 move container to workspace $workspace10
 
 # move workspace between screens
-bindsym $mod+v exec i3-msg move workspace to output left
-bindsym $mod+b exec i3-msg move workspace to output right
+bindsym $mod+v move workspace to output left
+bindsym $mod+b move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -214,12 +207,13 @@ bindsym $mod+Shift+c reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exit
 
+for_window [class=".*"] split h
+
 # specefics floating windows
 # for_window[class=".*"] border pixel 1
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable
-for_window [class=".*"] split h
-for_window [instance="sun-awt-X11-XFramePeer"] floating enable # Java windows
+for_window [class="sxiv"] floating enable
 #for_window [class="Adl"] floating enable # Dofus
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -231,20 +225,8 @@ for_window [class="Sxiv"] floating enable
 for_window [class="Minecraft .*"] floating enable
 for_window [class="Matplotlib"] floating enable
 
-assign [class="discord"] $workspace1
-assign [class="Hexchat"] $workspace1
-assign [class="Caprine"] $workspace1
-assign [title="neomutt"] $workspace1
-assign [class="Thunderbird"] $workspace1
-
-assign [class="Firefox"] $workspace2
 assign [class="qutebrowser"] $workspace2
-
-assign [class="code"] $workspace3
-assign [class="Code"] $workspace3
 assign [class="Gummi"] $workspace3
-
-assign [class="VMWare"] $workspace4
 
 
 # resize window (you can also use the mouse for that)
@@ -288,5 +270,5 @@ bar {
     modifier Mod4
     workspace_buttons no
     font pango:Input Mono Condensed 8
-    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" -t default
+    status_command bumblebee-status -m arch-update vault nic cpu memory battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" vault.text="<pass>" -t default
 }
