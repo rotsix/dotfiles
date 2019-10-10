@@ -52,6 +52,7 @@ graphic: common   #
 	stow qutebrowser
 	@command -v termite > /dev/null || echo "[*] install termite"
 	stow termite
+	stow wallpaper
 	@command -v zathura > /dev/null || echo "[*] install zathura"
 	stow zathura
 	#@bash font/mk.sh
