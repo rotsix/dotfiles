@@ -431,7 +431,4 @@ config.bind("m", "spawn --detach /home/victor/bin/mpv_queue {url}")
 config.bind("M", "hint links spawn --detach /home/victor/bin/mpv_queue {hint-url}")
 config.bind("j", "scroll-px 0 75")
 config.bind("k", "scroll-px 0 -75")
-config.bind(
-    "xx",
-    "config-cycle statusbar.hide ;; config-cycle tabs.show multiple switching ;; fullscreen",
-)
+config.bind("xx", "config-cycle tabs.show multiple switching ;; fullscreen")
