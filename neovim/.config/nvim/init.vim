@@ -40,6 +40,10 @@ Plug 'psf/black'
 let g:black_virtualenv = '~/.virtual-env/black'
 autocmd BufWritePre *.py execute ':Black'
 
+" and, don't forget rust
+Plug 'rust-lang/rust.vim'
+let g:rustfmt_autosave = 1
+
 " repeating commands (useful for surround)
 Plug 'tpope/vim-repeat'
 
@@ -61,6 +65,7 @@ inoremap <C-b> <Esc>:Buffers<CR>
 nnoremap <C-b> :Buffers<CR>
 inoremap <C-e> <Esc>:Files<CR>
 nnoremap <C-e> :Files<CR>
+nnoremap T :Tags<CR>
 
 call plug#end()
 
@@ -68,7 +73,7 @@ call plug#end()
 colorscheme newbz
 
 " common options
-set number
+set number relativenumber
 syntax on
 filetype on
 filetype plugin on
@@ -107,8 +112,8 @@ inoremap <silent> kj <Esc>
 " autoclose ", ', (, [, {    (plugins are so useless)
 inoremap <silent> " ""<Left>
 inoremap <silent> <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
-inoremap <silent> ' ''<Left>
-inoremap <silent> <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+" inoremap <silent> ' ''<Left>
+" inoremap <silent> <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
 inoremap <silent> ( ()<Left>
 inoremap <silent> <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <silent> [ []<Left>
@@ -118,7 +123,7 @@ inoremap <silent> <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Righ
 inoremap <silent> {<CR> {<CR>}<ESC>O
 inoremap <silent> {;<CR> {<CR>};<ESC>O
 inoremap <silent> "" ""
-inoremap <silent> '' ''
+" inoremap <silent> '' ''
 inoremap <silent> () ()
 inoremap <silent> [] []
 inoremap <silent> {} {}

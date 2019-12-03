@@ -13,7 +13,7 @@ let g:colors_name = "newbz"
 
 " highlight CTagsMember -- no settings --
 " highlight CTagsGlobalConstant -- no settings --
-highlight Normal guifg=NONE guibg=#000000 guisp=#000000 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+highlight Normal ctermfg=NONE ctermbg=NONE cterm=NONE
 " highlight CTagsImport -- no settings --
 " highlight CTagsGlobalVariable -- no settings --
 " highlight EnumerationValue -- no settings --
@@ -23,84 +23,84 @@ highlight Normal guifg=NONE guibg=#000000 guisp=#000000 gui=NONE ctermfg=NONE ct
 " highlight LocalVariable -- no settings --
 " highlight CTagsClass -- no settings --
 " highlight clear -- no settings --
-highlight IncSearch guifg=#ffffff guibg=#455354 guisp=#000000 gui=NONE ctermfg=15 ctermbg=240 cterm=NONE
-highlight WildMenu guifg=#5fd7ff guibg=#121212 guisp=#121212 gui=NONE ctermfg=81 ctermbg=233 cterm=NONE
-highlight SignColumn guifg=#a6e22e guibg=#232526 guisp=#232526 gui=NONE ctermfg=112 ctermbg=235 cterm=NONE
-highlight SpecialComment guifg=#5f8787 guibg=NONE guisp=NONE gui=bold ctermfg=66 ctermbg=NONE cterm=bold
-highlight Typedef guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight Title guifg=#fc7649 guibg=NONE guisp=NONE gui=NONE ctermfg=209 ctermbg=NONE cterm=NONE
-highlight Folded guifg=#465457 guibg=#000000 guisp=#000000 gui=NONE ctermfg=240 ctermbg=NONE cterm=NONE
-highlight PreCondit guifg=#afd75f guibg=NONE guisp=NONE gui=bold ctermfg=149 ctermbg=NONE cterm=bold
-highlight Include guifg=lightblue guibg=NONE guisp=NONE gui=NONE ctermfg=lightblue ctermbg=NONE cterm=NONE
-highlight Float guifg=#af87ff guibg=NONE guisp=NONE gui=NONE ctermfg=141 ctermbg=NONE cterm=NONE
-highlight StatusLine guifg=NONE guibg=#202020 guisp=#202020 gui=NONE ctermfg=NONE ctermbg=240 cterm=NONE
-highlight StatusLineNC guifg=#7f7f7f guibg=#080808 guisp=#080808 gui=NONE ctermfg=8 ctermbg=235 cterm=NONE
-highlight NonText guifg=#bcbcbc guibg=NONE guisp=NONE gui=NONE ctermfg=250 ctermbg=NONE cterm=NONE
-highlight DiffText guifg=#ad81ff guibg=#4a7800 guisp=#4a7800 gui=bold ctermfg=141 ctermbg=2 cterm=bold
-highlight ErrorMsg guifg=#ff242f guibg=NONE guisp=NONE gui=bold ctermfg=196 ctermbg=NONE cterm=bold
-highlight Ignore guifg=#7f7f7f guibg=NONE guisp=NONE gui=NONE ctermfg=8 ctermbg=NONE cterm=NONE
-highlight Debug guifg=#af8787 guibg=NONE guisp=NONE gui=bold ctermfg=138 ctermbg=NONE cterm=bold
-highlight PMenuSbar guifg=#5fd7ff guibg=#080808 guisp=#080808 gui=NONE ctermfg=81 ctermbg=232 cterm=NONE
-highlight Identifier guifg=#ffff87 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
-highlight SpecialChar guifg=#ff8700 guibg=NONE guisp=NONE gui=bold ctermfg=208 ctermbg=NONE cterm=bold
-highlight Conditional guifg=#af0000 guibg=NONE guisp=NONE gui=bold ctermfg=124 ctermbg=NONE cterm=bold
-highlight StorageClass guifg=#ff8700 guibg=NONE guisp=NONE gui=NONE ctermfg=208 ctermbg=NONE cterm=NONE
-highlight Todo guifg=#000000 guibg=#ffff00 guisp=#ffff00 gui=bold ctermfg=NONE ctermbg=red cterm=bold
-highlight Special guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight LineNr guifg=#ffffff guibg=#000000 guisp=#000000 gui=NONE ctermfg=15 ctermbg=NONE cterm=NONE
-highlight Label guifg=#ffff87 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
-highlight PMenuSel guifg=#ffffff guibg=#202020 guisp=#202020 gui=NONE ctermfg=15 ctermbg=234 cterm=NONE
-highlight Search guifg=#ffffff guibg=#455354 guisp=#455354 gui=NONE ctermfg=15 ctermbg=240 cterm=NONE
-highlight Delimiter guifg=#8a8a8a guibg=NONE guisp=NONE gui=NONE ctermfg=245 ctermbg=NONE cterm=NONE
-highlight Statement guifg=#ff5f00 guibg=NONE guisp=NONE gui=NONE ctermfg=202 ctermbg=NONE cterm=NONE
-highlight SpellRare guifg=#eeeeee guibg=#ff40ff guisp=#ff40ff gui=NONE ctermfg=255 ctermbg=13 cterm=NONE
-highlight Comment guifg=#5f8787 guibg=NONE guisp=NONE gui=NONE ctermfg=66 ctermbg=NONE cterm=NONE
-highlight Character guifg=#ffff87 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
-highlight TabLineSel guifg=#eeeeee guibg=NONE guisp=NONE gui=NONE ctermfg=255 ctermbg=NONE cterm=NONE
-highlight Number guifg=#af00ff guibg=NONE guisp=NONE gui=NONE ctermfg=129 ctermbg=NONE cterm=NONE
-highlight Boolean guifg=#8700af guibg=NONE guisp=NONE gui=NONE ctermfg=91 ctermbg=NONE cterm=NONE
-highlight Operator guifg=#ffaf00 guibg=NONE guisp=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE
-highlight CursorLine guifg=NONE guibg=#262626 guisp=#262626 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
-highlight TabLineFill guifg=NONE guibg=#262626 guisp=#262626 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
-highlight Question guifg=#39c2f0 guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight WarningMsg guifg=#ffffff guibg=#303030 guisp=#303030 gui=bold ctermfg=15 ctermbg=236 cterm=bold
-highlight VisualNOS guifg=#eeeeee guibg=#875f5f guisp=#875f5f gui=NONE ctermfg=255 ctermbg=95 cterm=NONE
-highlight DiffDelete guifg=NONE guibg=#5c0000 guisp=#5c0000 gui=NONE ctermfg=NONE ctermbg=52 cterm=NONE
-highlight ModeMsg guifg=#ffff87 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
-highlight CursorColumn guifg=NONE guibg=#262626 guisp=#262626 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
-highlight Define guifg=#af0000 guibg=NONE guisp=NONE gui=bold ctermfg=124 ctermbg=NONE cterm=bold
-highlight Function guifg=#008cff guibg=NONE guisp=NONE gui=NONE ctermfg=33 ctermbg=NONE cterm=NONE
-highlight FoldColumn guifg=#465457 guibg=#000000 guisp=#000000 gui=NONE ctermfg=240 ctermbg=NONE cterm=NONE
-highlight PreProc guifg=#edf511 guibg=NONE guisp=NONE gui=NONE ctermfg=11 ctermbg=NONE cterm=NONE
-highlight Visual guifg=#eeeeee guibg=#875f5f guisp=#875f5f gui=NONE ctermfg=255 ctermbg=95 cterm=NONE
-highlight MoreMsg guifg=#ffff87 guibg=NONE guisp=NONE gui=NONE ctermfg=228 ctermbg=NONE cterm=NONE
-highlight SpellCap guifg=#eeeeee guibg=#8080ff guisp=#8080ff gui=NONE ctermfg=255 ctermbg=12 cterm=NONE
-highlight VertSplit guifg=#7f7f7f guibg=#080808 guisp=#080808 gui=bold ctermfg=240 ctermbg=235 cterm=bold
-highlight Exception guifg=#87af00 guibg=NONE guisp=NONE gui=bold ctermfg=106 ctermbg=NONE cterm=bold
-highlight Keyword guifg=#87d700 guibg=NONE guisp=NONE gui=bold ctermfg=112 ctermbg=NONE cterm=bold
-highlight Type guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight DiffChange guifg=#89807d guibg=#4c4745 guisp=#4c4745 gui=NONE ctermfg=245 ctermbg=239 cterm=NONE
-highlight Cursor guifg=#e5e5e5 guibg=#005fd7 guisp=#005fd7 gui=NONE ctermfg=254 ctermbg=26 cterm=NONE
-highlight SpellLocal guifg=#eeeeee guibg=#00ffff guisp=#00ffff gui=NONE ctermfg=255 ctermbg=14 cterm=NONE
-highlight Error guifg=#af005f guibg=#e5e5e5 guisp=#e5e5e5 gui=NONE ctermfg=125 ctermbg=254 cterm=NONE
-highlight PMenu guifg=#ababab guibg=#101010 guisp=#101010 gui=NONE ctermfg=248 ctermbg=233 cterm=NONE
-highlight SpecialKey guifg=#585858 guibg=NONE guisp=NONE gui=NONE ctermfg=240 ctermbg=NONE cterm=NONE
-highlight Constant guifg=#8700af guibg=NONE guisp=NONE gui=bold ctermfg=91 ctermbg=NONE cterm=bold
-highlight Tag guifg=#87d7ff guibg=NONE guisp=NONE gui=NONE ctermfg=117 ctermbg=NONE cterm=NONE
-highlight String guifg=#87d700 guibg=NONE guisp=NONE gui=NONE ctermfg=112 ctermbg=NONE cterm=NONE
-highlight PMenuThumb guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight MatchParen guifg=#000000 guibg=#ff8700 guisp=#ff8700 gui=bold ctermfg=NONE ctermbg=208 cterm=bold
-highlight Repeat guifg=#af0000 guibg=NONE guisp=NONE gui=bold ctermfg=124 ctermbg=NONE cterm=bold
-highlight SpellBad guifg=#eeeeee guibg=#ff6060 guisp=#ff6060 gui=NONE ctermfg=255 ctermbg=9 cterm=NONE
-highlight Directory guifg=#afd75f guibg=NONE guisp=NONE gui=bold ctermfg=149 ctermbg=NONE cterm=bold
-highlight Structure guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight Macro guifg=#d7d787 guibg=NONE guisp=NONE gui=NONE ctermfg=186 ctermbg=NONE cterm=NONE
-highlight Underlined guifg=#7f7f7f guibg=NONE guisp=NONE gui=underline ctermfg=8 ctermbg=NONE cterm=underline
-highlight DiffAdd guifg=NONE guibg=#005e03 guisp=#005e03 gui=NONE ctermfg=NONE ctermbg=22 cterm=NONE
-highlight TabLine guifg=#eeeeee guibg=#080808 guisp=#080808 gui=NONE ctermfg=255 ctermbg=232 cterm=NONE
-highlight type guifg=#5fd7ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-highlight conceal guifg=#e5e5e5 guibg=#080808 guisp=#080808 gui=NONE ctermfg=254 ctermbg=232 cterm=NONE
-highlight gitgutterdelete guifg=#af005f guibg=#121212 guisp=#121212 gui=bold ctermfg=125 ctermbg=233 cterm=bold
-highlight gitgutteradd guifg=#d7ff00 guibg=#121212 guisp=#121212 gui=bold ctermfg=190 ctermbg=233 cterm=bold
-highlight cursorline guifg=NONE guibg=#262626 guisp=#262626 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
-highlight gitgutterchange guifg=#ff5f00 guibg=#121212 guisp=#121212 gui=bold ctermfg=202 ctermbg=233 cterm=bold
+highlight IncSearch ctermfg=15 ctermbg=240 cterm=NONE
+highlight WildMenu ctermfg=81 ctermbg=233 cterm=NONE
+highlight SignColumn ctermfg=112 ctermbg=235 cterm=NONE
+highlight SpecialComment ctermfg=66 ctermbg=NONE cterm=bold
+highlight Typedef ctermfg=81 ctermbg=NONE cterm=NONE
+highlight Title ctermfg=209 ctermbg=NONE cterm=NONE
+highlight Folded ctermfg=240 ctermbg=NONE cterm=NONE
+highlight PreCondit ctermfg=149 ctermbg=NONE cterm=bold
+highlight Include ctermfg=lightblue ctermbg=NONE cterm=NONE
+highlight Float ctermfg=141 ctermbg=NONE cterm=NONE
+highlight StatusLine ctermfg=NONE ctermbg=240 cterm=NONE
+highlight StatusLineNC ctermfg=8 ctermbg=235 cterm=NONE
+highlight NonText ctermfg=250 ctermbg=NONE cterm=NONE
+highlight DiffText ctermfg=141 ctermbg=2 cterm=bold
+highlight ErrorMsg ctermfg=196 ctermbg=NONE cterm=bold
+highlight Ignore ctermfg=8 ctermbg=NONE cterm=NONE
+highlight Debug ctermfg=138 ctermbg=NONE cterm=bold
+highlight PMenuSbar ctermfg=81 ctermbg=232 cterm=NONE
+highlight Identifier ctermfg=228 ctermbg=NONE cterm=NONE
+highlight SpecialChar ctermfg=208 ctermbg=NONE cterm=bold
+highlight Conditional ctermfg=124 ctermbg=NONE cterm=bold
+highlight StorageClass ctermfg=208 ctermbg=NONE cterm=NONE
+highlight Todo ctermfg=NONE ctermbg=red cterm=bold
+highlight Special ctermfg=81 ctermbg=NONE cterm=NONE
+highlight LineNr ctermfg=15 ctermbg=NONE cterm=NONE
+highlight Label ctermfg=228 ctermbg=NONE cterm=NONE
+highlight PMenuSel ctermfg=15 ctermbg=234 cterm=NONE
+highlight Search ctermfg=15 ctermbg=240 cterm=NONE
+highlight Delimiter ctermfg=245 ctermbg=NONE cterm=NONE
+highlight Statement ctermfg=202 ctermbg=NONE cterm=NONE
+highlight SpellRare ctermfg=255 ctermbg=13 cterm=NONE
+highlight Comment ctermfg=66 ctermbg=NONE cterm=NONE
+highlight Character ctermfg=228 ctermbg=NONE cterm=NONE
+highlight TabLineSel ctermfg=255 ctermbg=NONE cterm=NONE
+highlight Number ctermfg=129 ctermbg=NONE cterm=NONE
+highlight Boolean ctermfg=91 ctermbg=NONE cterm=NONE
+highlight Operator ctermfg=214 ctermbg=NONE cterm=NONE
+highlight CursorLine ctermfg=NONE ctermbg=235 cterm=NONE
+highlight TabLineFill ctermfg=NONE ctermbg=235 cterm=NONE
+highlight Question ctermfg=81 ctermbg=NONE cterm=NONE
+highlight WarningMsg ctermfg=15 ctermbg=236 cterm=bold
+highlight VisualNOS ctermfg=255 ctermbg=95 cterm=NONE
+highlight DiffDelete ctermfg=NONE ctermbg=52 cterm=NONE
+highlight ModeMsg ctermfg=228 ctermbg=NONE cterm=NONE
+highlight CursorColumn ctermfg=NONE ctermbg=235 cterm=NONE
+highlight Define ctermfg=124 ctermbg=NONE cterm=bold
+highlight Function ctermfg=33 ctermbg=NONE cterm=NONE
+highlight FoldColumn ctermfg=240 ctermbg=NONE cterm=NONE
+highlight PreProc ctermfg=11 ctermbg=NONE cterm=NONE
+highlight Visual ctermfg=255 ctermbg=95 cterm=NONE
+highlight MoreMsg ctermfg=228 ctermbg=NONE cterm=NONE
+highlight SpellCap ctermfg=255 ctermbg=12 cterm=NONE
+highlight VertSplit ctermfg=240 ctermbg=235 cterm=bold
+highlight Exception ctermfg=106 ctermbg=NONE cterm=bold
+highlight Keyword ctermfg=112 ctermbg=NONE cterm=bold
+highlight Type ctermfg=81 ctermbg=NONE cterm=NONE
+highlight DiffChange ctermfg=245 ctermbg=239 cterm=NONE
+highlight Cursor ctermfg=254 ctermbg=26 cterm=NONE
+highlight SpellLocal ctermfg=255 ctermbg=14 cterm=NONE
+highlight Error ctermfg=125 ctermbg=254 cterm=NONE
+highlight PMenu ctermfg=248 ctermbg=233 cterm=NONE
+highlight SpecialKey ctermfg=240 ctermbg=NONE cterm=NONE
+highlight Constant ctermfg=91 ctermbg=NONE cterm=bold
+highlight Tag ctermfg=117 ctermbg=NONE cterm=NONE
+highlight String ctermfg=112 ctermbg=NONE cterm=NONE
+highlight PMenuThumb ctermfg=81 ctermbg=NONE cterm=NONE
+highlight MatchParen ctermfg=NONE ctermbg=208 cterm=bold
+highlight Repeat ctermfg=124 ctermbg=NONE cterm=bold
+highlight SpellBad ctermfg=255 ctermbg=9 cterm=NONE
+highlight Directory ctermfg=149 ctermbg=NONE cterm=bold
+highlight Structure ctermfg=81 ctermbg=NONE cterm=NONE
+highlight Macro ctermfg=186 ctermbg=NONE cterm=NONE
+highlight Underlined ctermfg=8 ctermbg=NONE cterm=underline
+highlight DiffAdd ctermfg=NONE ctermbg=22 cterm=NONE
+highlight TabLine ctermfg=255 ctermbg=232 cterm=NONE
+highlight type ctermfg=81 ctermbg=NONE cterm=NONE
+highlight conceal ctermfg=254 ctermbg=232 cterm=NONE
+highlight gitgutterdelete ctermfg=125 ctermbg=233 cterm=bold
+highlight gitgutteradd ctermfg=190 ctermbg=233 cterm=bold
+highlight cursorline ctermfg=NONE ctermbg=235 cterm=NONE
+highlight gitgutterchange ctermfg=202 ctermbg=233 cterm=bold
