@@ -14,6 +14,7 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
+bindsym $mod+Escape exec swaylock -i ~/.wallpaper.png
 
 # rofi-style
 set $menu termite -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'" -t "launcher"
@@ -21,7 +22,7 @@ bindsym $mod+r exec $menu
 for_window [app_id="termite" title="launcher"] floating enable, border pixel 3
 
 # FIXME pass integration (rofi-pass not available on wayland)
-set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass -c'"
+set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass -c | wl-copy'"
 bindsym $mod+Shift+r exec $pass
 for_window [app_id="termite" title="pass"] floating enable, border pixel 3
 
@@ -48,7 +49,7 @@ seat * hide_cursor 5000
 
 # background + screens
 # output * bg "#000000" solid_color
-output * background ~/.wallpaper.jpg center
+output * background ~/.wallpaper.png fit "#000000"
 
 # keyboard + touchpad
 input * {
