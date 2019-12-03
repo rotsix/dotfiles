@@ -11,6 +11,7 @@ alias lla='la -l'
 alias lll='\ls -FhNv --color=auto | less'
 alias llla='\ls -AFhNv --color=auto | less'
 
+# can't waste time typing
 alias nano='nano -c -w'
 alias grep='grep --color=auto'
 alias vim='nvim'
@@ -23,6 +24,7 @@ alias mkt='mk /tmp/$$'
 alias swapy='sudo swapon $HOME/usr/swapfile'
 alias cat='bat'
 alias mutt='neomutt'
+alias dc='docker-compose'
 
 # sorry i'm drunk
 alias sl='ls'

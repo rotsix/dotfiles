@@ -1,7 +1,6 @@
 plugins=( \
   "/usr/share/fzf/completion.zsh" \
   "/usr/share/fzf/key-bindings.zsh" \
-  "/usr/share/autojump/autojump.zsh" \
   "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
   "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" \
   )
