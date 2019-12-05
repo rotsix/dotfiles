@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Upgrade
+Target= *
+
+[Action]
+Description = Clean pacman cache...
+When = PostTransaction
+Depends = pacman
+Exec = /usr/bin/bash -c "paccache -rk1 | sed '/^$/d'"
