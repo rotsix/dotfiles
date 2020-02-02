@@ -65,7 +65,8 @@ inoremap <C-b> <Esc>:Buffers<CR>
 nnoremap <C-b> :Buffers<CR>
 inoremap <C-e> <Esc>:Files<CR>
 nnoremap <C-e> :Files<CR>
-nnoremap T :Tags<CR>
+inoremap <C-t> <Esc>:Tags<CR>
+nnoremap <C-t> :Tags<CR>
 
 call plug#end()
 
@@ -110,10 +111,12 @@ inoremap <silent> jk <Esc>
 inoremap <silent> kj <Esc>
 
 " autoclose ", ', (, [, {    (plugins are so useless)
-inoremap <silent> " ""<Left>
-inoremap <silent> <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+" inoremap <silent> " ""<Left>
+" inoremap <silent> <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
 " inoremap <silent> ' ''<Left>
 " inoremap <silent> <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+" inoremap <silent> "" ""
+" inoremap <silent> '' ''
 inoremap <silent> ( ()<Left>
 inoremap <silent> <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
 inoremap <silent> [ []<Left>
@@ -122,8 +125,6 @@ inoremap <silent> { {}<Left>
 inoremap <silent> <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 inoremap <silent> {<CR> {<CR>}<ESC>O
 inoremap <silent> {;<CR> {<CR>};<ESC>O
-inoremap <silent> "" ""
-" inoremap <silent> '' ''
 inoremap <silent> () ()
 inoremap <silent> [] []
 inoremap <silent> {} {}
