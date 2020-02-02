@@ -4,7 +4,7 @@ export PATH=$HOME/src/sh/vem:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
-export MAKEFLAGS=' -j 4'
+export MAKEFLAGS=' -j 8'
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=10000

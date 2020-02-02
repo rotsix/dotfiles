@@ -45,7 +45,7 @@ alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias up='p -Syu'
 alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
 alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
-alias pkgfile='sudo pacman -Fy && pacman -Fs'
+alias pkgfile='sudo pacman -Fy && pacman -F'
 
 # ps dump sorted by memory
 alias ps_mem='/usr/bin/sudo ps_mem'
