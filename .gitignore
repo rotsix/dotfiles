@@ -3,9 +3,9 @@
 \#*\#
 
 # neovim plugins
-neovim/.config/nvim/plugged/*
-neovim/.config/nvim/autoload/*
-neovim/.config/nvim/.netrwhist
+nvim/.config/nvim/plugged/*
+nvim/.config/nvim/autoload/*
+nvim/.config/nvim/.netrwhist
 
 # font outputs
 font/Output_Fonts/*
@@ -13,5 +13,5 @@ font/Output_Fonts/*
 # no worries
 mpd/*
 ncmpcpp/*
-mutt/*
+neomutt/*
 qutebrowser/*
