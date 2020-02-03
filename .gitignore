@@ -2,15 +2,11 @@
 *~
 \#*\#
 
-# neovim plugins
-nvim/.config/nvim/plugged/*
-nvim/.config/nvim/autoload/*
-nvim/.config/nvim/.netrwhist
-
 # font outputs
 font/Output_Fonts/*
 
 # no worries
+nvim/*
 mpd/*
 ncmpcpp/*
 neomutt/*
