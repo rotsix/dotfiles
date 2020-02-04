@@ -44,7 +44,7 @@ verbose () {
 # verbose_exec MSG
 verbose_exec () {
     verbose "$1"
-    $1 &> /dev/null
+    eval $1 &> /dev/null
 }
 
 
@@ -65,20 +65,11 @@ exists () {
     fi
 }
 
-# install PKG
-install () {
-    # if running arch, download pkg
-    if command -v "pacman" &> /dev/null; then
-    	verbose_exec "$SUDO $PACMAN $1"
-    fi
-}
-
 # deploy PKG
 deploy () {
     say "deploy '$1'"
     exists "$1" || return
     stow "$1"
-    install "$1"
 }
 
 # deploy_root PKG
