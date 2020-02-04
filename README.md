@@ -33,7 +33,7 @@ mpd/
 My dot-files are mostly self-contained, and deployed by `stow`.
 It should be available on most platforms (at least on Arch Linux).
 
-Clone this repository and there it is.
+Cloning this repository and there it is.
 
 > Note: to build fonts, Python's `virtualenv2` must be installed.
 
