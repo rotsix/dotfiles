@@ -9,6 +9,7 @@ check_run() {
 check_run package.json "npm install && npm prune"
 check_run bower.json "bower install && bower prune"
 check_run requirements.txt "pip install -r requirements.txt"
+check_run go.mod "go mod download"
 
 if [ -f "config.rb" ]; then
 	check_run ".scss|.sass" "compass compile"
