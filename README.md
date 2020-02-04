@@ -7,7 +7,7 @@ Here are my dot-files.
 I've been managing my dot-files for a few years, and so always did everything I could to ease their management.
 I finally started liking the way I manage them.
 
-My main goal is to set-up a new machine quickly, and with the least human-interaction.
+My main goal is to set up a new machine quickly, and with the least human-interaction.
 I also want my dot-files to be portable and easily deployed on different environments.
 
 I previously used a Makefile to manage everything, but the more I added files and configurations, the more it became uglier and uglier.
@@ -39,7 +39,7 @@ Cloning this repository and there it is.
 
 ## Deployment
 
-> As my dot-files are.. mine, everything is made to match *my* set-up.
+> As my dot-files are.. mine, everything is made to match *my* setup.
 
 A deployment script is available (`./deploy.sh`).
 Here are the usage:
