@@ -4,7 +4,7 @@ Here are my dot-files.
 
 ## Introduction
 
-I've been managing my dot-files for a few years, and also always did everything I could to ease their management.
+I've been managing my dot-files for a few years, and so always did everything I could to ease their management.
 I finally started liking the way I manage them.
 
 My main goal is to set-up a new machine quickly, and with the least human-interaction.
