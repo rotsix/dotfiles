@@ -77,6 +77,9 @@ A few remarks to read before deploying:
 - I'm also using dhcpcd/wpa_supplicant combo to provide Wi-Fi.
 - TLP is enabled to reduce battery consumption.
 
+ Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).
+ By default, `sway` and `swaylock` will use `~/.wallpaper`.
+
 ## To-do list and improvements
 
 - [ ] automate arch install
