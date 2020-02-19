@@ -23,6 +23,9 @@ noremap <M-l> <C-]>
 " quoting/parenthesizing
 Plug 'tpope/vim-surround'
 
+" latex
+Plug 'lervag/vimtex'
+
 " because, go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = 'goimports'
@@ -38,7 +41,7 @@ let g:go_highlight_generate_tags = 1
 " and because python
 Plug 'psf/black'
 let g:black_virtualenv = '~/.virtual-env/black'
-autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py silent! execute ':Black'
 
 " and, don't forget rust
 Plug 'rust-lang/rust.vim'
@@ -155,8 +158,9 @@ endfunction
 " latex mode (export to PDF on save + aspell)
 augroup tex
   autocmd!
-  autocmd BufWritePost *.tex silent! !pdflatex %
+  autocmd BufWritePost *.tex silent! !latexmk -pdf %
   autocmd FileReadPost *.tex silent! setlocal spell spelllang=fr
+  let g:tex_comment_nospell=1
 augroup END
 
 " prettier status line
