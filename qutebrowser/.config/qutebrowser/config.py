@@ -375,10 +375,13 @@ c.colors.tabs.selected.even.bg = "#404040"
 # Type: QtColor
 c.colors.webpage.bg = "white"
 
+c.colors.webpage.prefers_color_scheme_dark = True
+
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = "Input Mono Condensed"
+# c.fonts.monospace = "Input Mono Condensed"
+c.fonts.default_family = ["Input Mono Condensed"]
 
 # Font used in the completion widget.
 # Type: Font
