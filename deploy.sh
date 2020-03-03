@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # dotfiles deployment manager
 
@@ -22,20 +22,20 @@ SUDO="${RED}sudo$GREY"
 
 # title MSG
 title () {
-    echo -e "$BLUE[>]$RESET$BOLD $1$RESET"
+    echo -e "${BLUE}[>]$RESET$BOLD $1$RESET"
 }
 
 # say MSG [ECHO_OPT]
 say () {
-    echo -e $2 "$GREEN[+]$RESET $1"
+    echo -e $2 "${GREEN}[+]$RESET $1"
 }
 # yell MSG [ECHO_OPT]
 yell () {
-    echo -e $2 "$RED[-]$RESET $1" > /dev/stderr
+    echo -e $2 "${RED}[-]$RESET $1" > /dev/stderr
 }
 # log MSG [ECHO_OPT]
 log () {
-    echo -e $2 "$YELLOW[·]$RESET $1"
+    echo -e $2 "${YELLOW}[·]$RESET $1"
 }
 # verbose MSG
 verbose () {
@@ -44,24 +44,22 @@ verbose () {
 # verbose_exec MSG
 verbose_exec () {
     verbose "$1"
-    eval $1 &> /dev/null
+    eval "$1" &> /dev/null
 }
 
 
 ## UTILS
 
-PACMAN="sudo pacman -Syu --noconfirm"
-
 # exists PKG
 exists () {
     if ! command -v "$1" &> /dev/null; then
 	yell "package not found: '$1'"
-	return -1
+	echo -1
     fi
 
     if ! stow "$1" &> /dev/null; then
 	yell "config not found: '$1'"
-	return
+	echo -1
     fi
 }
 
@@ -82,16 +80,16 @@ deploy_root () {
 # deploy_pkgs PKGS
 deploy_pkgs () {
     for pkg in $1; do
-	deploy $pkg
+	deploy "$pkg"
     done
 }
+
 
 ## PROFILES
 
 common () {
     title "common"
 
-    rm -r ~/.zshrc &> /dev/null || yell "~/.zshrc already exists"
     deploy_pkgs "git mpd neomutt nvim ncmpcpp zsh"
 
     if command -v "pacman" &> /dev/null; then
@@ -119,6 +117,12 @@ graphic () {
     say "deploy 'homepage'"
     stow homepage
 
+    say "deploy 'wallpaper'"
+    stow wallpaper
+    if [ ! -e "$HOME/.wallpaper" ]; then
+    	verbose "choose wallpaper"
+    fi
+
     say "build font..." -n
     bash ./font/mk.sh &> /dev/null
     echo " done"
@@ -137,7 +141,7 @@ laptop () {
     verbose_exec "$SUDO rm /etc/wpa_supplicant.conf"
     verbose_exec "$SUDO rm -r /etc/wpa_supplicant"
     deploy_root "wpa_supplicant"
-    wifi_card="$(ip a | grep -Eo '[0-9]+: w[a-z0-9]+:' | cut -d ':' -f 2 | sed 's/ //')"
+    wifi_card="$(ip a | grep -Eo '[0-9]+: w[a-z0-9]+:' | cut -d ':' -f 2 | sed 's: ::g')"
     log "get wifi card name $GREY(found: $wifi_card)$RESET"
     verbose_exec "$SUDO systemctl enable dhcpcd@$wifi_card"
     verbose_exec "$SUDO systemctl start dhcpcd@$wifi_card"
@@ -148,7 +152,7 @@ server () {
     title "server"
 
     deploy_pkgs "tmux"
-    rm -- $HOME/.zprofile
+    rm -- "$HOME"/.zprofile
 }
 
 minimal () {
@@ -205,7 +209,7 @@ case "$1" in
 	;;
 esac
 
-file ~/.zshrc &> /dev/null && (source ~/.zshrc &> /dev/null)
+file ~/.zshrc &> /dev/null && (source $HOME/.zshrc &> /dev/null)
 
 say "${BOLD}done"
 echo -e "    $BLUE----$RESET"

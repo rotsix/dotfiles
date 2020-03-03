@@ -78,7 +78,10 @@ A few remarks to read before deploying:
 - TLP is enabled to reduce battery consumption.
 
  Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).
- By default, `sway` and `swaylock` will use `~/.wallpaper`.
+ By default, `swaylock` will use `~/.wallpaper`.
+`~/.wallpapers/arch.sh` is also launched, this script is inspired from [amirashabani](https://github.com/amirashabani/bain)'s script.
+It displays arch logo with battery indicator as a background.
+
 
 ## To-do list and improvements
 

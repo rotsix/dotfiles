@@ -14,7 +14,7 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
-bindsym $mod+Escape exec swaylock -i ~/.wallpaper.jpg
+bindsym $mod+Escape exec swaylock -i ~/.wallpaper
 
 # rofi-style
 set $menu termite -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'" -t "launcher"
@@ -48,8 +48,9 @@ gaps {
 seat * hide_cursor 5000
 
 # background + screens
-# output * bg "#000000" solid_color
-output * background ~/.wallpaper.jpg center "#000000"
+# output * bg "#000000" solid_color # solid black
+# output * background ~/.wallpaper center "#000000" # static wallpaper
+exec_always "$HOME/.wallpapers/arch.sh" # arch logo with battery indicator
 
 # keyboard + touchpad
 input * {
@@ -272,5 +273,5 @@ bar {
     modifier Mod4
     workspace_buttons no
     font pango:Input Mono Condensed 8
-    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p timeout=1 time.format="%R" date.format="%B %d %Y" -t default
+    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p time.format="%R" date.format="%B %d %Y" -t default
 }
