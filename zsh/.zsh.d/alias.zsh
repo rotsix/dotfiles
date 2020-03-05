@@ -21,6 +21,7 @@ alias p='trizen'
 alias g='git'
 alias agh='git add -A && git commit -am "$(hostname)" && git push'
 alias mkt='mk /tmp/$$'
+alias mkdir='mkdir -p'
 alias swapy='sudo swapon $HOME/usr/swapfile'
 alias cat='bat'
 alias mutt='neomutt'
@@ -35,9 +36,6 @@ alias lh='du -hsc * | sort -hr'
 alias lha='du -hsc .* | sort -hr'
 alias lhs='(lh;lha) | sort -hr'
 
-# clean trash
-alias trash-clean='rm -fr -- ${HOME}/trash/* 2>&1 > /dev/null; rm -rf -- ${HOME}/trash/.* 2>&1 > /dev/null'
-
 # mh
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 
@@ -48,7 +46,7 @@ alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --th
 alias pkgfile='sudo pacman -Fy && pacman -F'
 
 # ps dump sorted by memory
-alias ps_mem='/usr/bin/sudo ps_mem'
+alias ps_mem='sudo ps_mem'
 
 # fix sudo
 alias sudo='sudo '
@@ -56,8 +54,8 @@ alias sudo='sudo '
 # rlwrap
 alias ocaml='rlwrap \ocaml'
 alias eclipse-clp='rlwrap \eclipse-clp'
-alias hopix='rlwrap /home/victor/cours/M1/S1/IDP/compilation-m1-2018/flap/flap -i true -s hopix -V true'
-alias retrolix='rlwrap /home/victor/cours/M1/S2/Compilation/compilation-m1-2018/flap/flap -s retrolix -d true -r true -i true'
+alias hopix='rlwrap $HOME/cours/M1/S1/IDP/compilation-m1-2018/flap/flap -i true -s hopix -V true'
+alias retrolix='rlwrap $HOME/cours/M1/S2/Compilation/compilation-m1-2018/flap/flap -s retrolix -d true -r true -i true'
 
 # pip
 alias pip-update="pip list --outdated --format=freeze 2> /dev/null | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
