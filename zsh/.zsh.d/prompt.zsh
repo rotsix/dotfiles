@@ -135,8 +135,8 @@ function mnml_files {
     local _w="%{\e[0m%}"
     local _g="%{\e[38;5;244m%}"
 
-    local a_files="$(/usr/bin/ls -1A | sed -n '$=')"
-    local v_files="$(/usr/bin/ls -1 | sed -n '$=')"
+    local a_files="$(/bin/ls -1A | sed -n '$=')"
+    local v_files="$(/bin/ls -1 | sed -n '$=')"
     local h_files="$((a_files - v_files))"
 
     local output="${_w}[$_g${v_files:-0}"
@@ -160,10 +160,10 @@ function mnml_me_dirs {
 }
 
 function mnml_me_ls {
-    if [ "$(uname)" = "Darwin" ] && ! /usr/bin/ls --version &> /dev/null; then
-        COLUMNS=$COLUMNS CLICOLOR_FORCE=1 /usr/bin/ls -C -G -F
+    if [ "$(uname)" = "Darwin" ] && ! /bin/ls --version &> /dev/null; then
+        COLUMNS=$COLUMNS CLICOLOR_FORCE=1 /bin/ls -C -G -F
     else
-        /usr/bin/ls -C -F --color="always" -w $COLUMNS
+        /bin/ls -C -F --color="always" -w $COLUMNS
     fi
 }
 
