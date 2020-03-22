@@ -45,35 +45,39 @@ A deployment script is available (`./deploy.sh`).
 Here are the usage:
 
 ```
-./deploy.sh CONF
-	common:
-		base configs
-		git - mpd - neomutt - nvim - ncmpcpp - zsh - nano
-		sudo: pacman - nano
+./deploy.sh OPTS PROFILE
+    options:
+	-i   deploy AND install packages (apt and pacman supported)
+	-b   add blackarch repository (pacman only)
 
-	graphic:
-		graphical machines
-		:common:
-		mako - sway - mpv - qutebrowser - termite - zathura - font
+    common:
+	base configs
+	git - mpd - neomutt - nvim - ncmpcpp - zsh - nano
+	sudo: pacman - nano
 
-	laptop:
-		battery and wireless
-		:graphic:
-		tlp - wpa_supplicant/dhcpcd
+    graphic:
+	graphical machines
+	:common:
+	mako - sway - mpv - qutebrowser - termite - zathura - font
 
-	server:
-		remove unwanted files
-		:common:
-		tmux
+    laptop:
+	battery and wireless
+	:graphic:
+	tlp - wpa_supplicant/dhcpcd
 
-	minimal:
-		on user-only machine (VM, work..)
-		nano - nvim - zsh
+    server:
+	remove unwanted files
+	:common:
+	tmux
+
+    minimal:
+	on user-only machines (VM, work..)
+	nano - nvim - zsh
 ```
 
 A few remarks to read before deploying:
 
-- i use arch btw, so a pacman configuration is deployed.
+- btw i use arch, a pacman configuration is deployed.
 - I'm also using dhcpcd/wpa_supplicant combo to provide Wi-Fi.
 - TLP is enabled to reduce battery consumption.
 
@@ -87,6 +91,8 @@ It displays arch logo with battery indicator as a background.
 
 - [ ] automate arch install
 - [ ] install packages on deployment
+- [ ] add blackarch repo
 - [X] fix pacman deployment
-- [ ] clean 'nvim' config for 'minimal' set
+- [ ] clean 'nvim' config for 'minimal' profile
+- [ ] in 'minimal' profile, copy 'nvim' to 'vim'
 - [ ] clean this dirty 'zsh' config
