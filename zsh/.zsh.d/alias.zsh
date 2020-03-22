@@ -42,7 +42,7 @@ alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 # pacman
 alias up='p -Syu'
 alias orphans='pacman -Qdtq | sudo pacman -Rnsc --noconfirm - 2> /dev/null || echo "Nothing to delete"'
-alias mirrorlist-update='sudo reflector --verbose -l 10 -p http --sort rate --threads 1 --save /etc/pacman.d/mirrorlist && sudo pacman -Syy'
+alias mirrorlist-update='sudo reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist; rm -f /etc/pacman.d/mirrorlist.pacnew'
 alias pkgfile='sudo pacman -Fy && pacman -F'
 
 # ps dump sorted by memory
