@@ -63,7 +63,7 @@ Here are the usage:
     laptop:
 	battery and wireless
 	:graphic:
-	tlp - wpa_supplicant/dhcpcd
+	tlp - wpa_supplicant/network-manager
 
     server:
 	remove unwanted files
@@ -78,7 +78,7 @@ Here are the usage:
 A few remarks to read before deploying:
 
 - btw i use arch, a pacman configuration is deployed.
-- I'm also using dhcpcd/wpa_supplicant combo to provide Wi-Fi.
+- I'm also using Network-Manager to provide Wi-Fi.
 - TLP is enabled to reduce battery consumption.
 
  Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).

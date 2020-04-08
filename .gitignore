@@ -2,10 +2,8 @@
 *~
 \#*\#
 
-# font outputs
 font/Output_Fonts/*
 
-# no worries
 nvim/*
 mpd/*
 ncmpcpp/*
