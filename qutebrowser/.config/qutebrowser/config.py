@@ -27,6 +27,7 @@ c.session.lazy_restore = True
 # list) will work.
 # Type: List of String
 # c.qt.args = ["ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so"]
+c.qt.args = ["blink-settings=darkMode=1"]
 
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
@@ -101,7 +102,7 @@ c.downloads.position = "bottom"
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ["termite", "-e", "'nvim {file}'"]
+c.editor.command = ["termite", "-e", "'nvim {}'"]
 
 # Characters used for hint strings.
 # Type: UniqueCharString
@@ -258,7 +259,7 @@ c.url.default_page = "file:///home/victor/dotfiles/homepage/.config/homepage/ind
 # Open base URL of the searchengine if a searchengine shortcut is
 # invoked without parameters.
 # Type: Bool
-c.url.open_base_url = False
+c.url.open_base_url = True
 
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -273,16 +274,16 @@ c.url.searchengines = {
     "DEFAULT": "https://www.startpage.com/do/dsearch?query={}",
     "g": "https://www.google.fr/search?q={}",
     "r": "https://reddit.com/r/{}",
-    "w": "https://en.wikipedia.org/w/index.php?search={}",
+    "we": "https://en.wikipedia.org/w/index.php?search={}",
     "wf": "https://fr.wikipedia.org/w/index.php?search={}",
-    "gt": "https://translate.google.com/#auto/fr/{}",
+    "gtf": "https://translate.google.com/#auto/fr/{}",
+    "gte": "https://translate.google.com/#auto/en/{}",
     "gh": "https://github.com/search?q={}",
     "al": "https://wiki.archlinux.org/index.php/{}",
     "alf": "https://wiki.archlinux.fr/{}",
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "yt": "https://www.youtube.com/results?search_query={}",
-    "maps": "https://www.google.fr/maps?q={}",
-    "gol": "https://golang.org/pkg/{}/",
+    "maps": "https://maps.google.com/?q={}",
 }
 
 # Page(s) to open at the start.
@@ -425,10 +426,10 @@ c.fonts.web.size.default_fixed = 11
 
 # Bindings for normal mode
 config.bind("<", "tab-move -")
+config.bind(">", "tab-move +")
 config.bind("<Ctrl+Shift+Tab>", "tab-prev")
 config.bind("<Ctrl+Tab>", "tab-next")
 config.bind("<Ctrl+e>", "open-editor")
-config.bind(">", "tab-move +")
 config.bind("D", "quickmark-save")
 config.bind("m", "spawn --detach /home/victor/bin/mpv_queue {url}")
 config.bind("M", "hint links spawn --detach /home/victor/bin/mpv_queue {hint-url}")
