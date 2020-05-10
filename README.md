@@ -91,7 +91,7 @@ It displays arch logo with battery indicator as a background.
 
 - [ ] automate arch install
 - [ ] install packages on deployment
-- [ ] add blackarch repo
+- [X] add blackarch repo (`-b` option)
 - [X] fix pacman deployment
 - [ ] clean 'nvim' config for 'minimal' profile
 - [ ] in 'minimal' profile, copy 'nvim' to 'vim'
