@@ -11,5 +11,6 @@ bindkey "^[[6~"	end-of-line
 bindkey "^E"	end-of-line
 bindkey "^[[2~"	overwrite-mode
 bindkey "^[[3~"	delete-char
+bindkey '^H'    backward-kill-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
