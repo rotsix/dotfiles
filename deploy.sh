@@ -33,25 +33,19 @@ title () {
 }
 
 # say MSG [ECHO_OPT]
-say () {
-    echo -e $2 "${GREEN}[+]$RESET $1"
-}
+say () { echo -e $2 "${GREEN}[+]$RESET $1" ;}
 # yell MSG [ECHO_OPT]
-yell () {
-    echo -e $2 "${RED}[-]$RESET $1" > /dev/stderr
-}
+yell () { echo -e $2 "${RED}[-]$RESET $1" > /dev/stderr ;}
 # log MSG [ECHO_OPT]
-log () {
-    echo -e $2 "${YELLOW}[·]$RESET $1"
-}
+log () { echo -e $2 "${YELLOW}[·]$RESET $1" ;}
 # verbose MSG
-verbose () {
-    echo -e "    $GREY$1$RESET"
-}
+verbose () { echo -e "    $GREY$1$RESET" ;}
 # verbose_exec MSG
 verbose_exec () {
     verbose "$1"
-    eval "$1" &> /dev/null
+    cmd="${1//\\$RED/}"
+    cmd="${cmd//\\$GREY/}"
+    eval "$cmd" # &> /dev/null
 }
 
 
@@ -109,8 +103,8 @@ common () {
 	verbose_exec "$SUDO pacman-key --init"
 	verbose_exec "$SUDO pacman-key --populate"
 
-	if [ -z "$BLACKARCH" ]; then
-	    verbose_exec "echo -e '\n[blackarch]\ninclude = /etc/pacman.d/blackarch-mirrorlist' | $SUDO tee -a /etc/pacman.conf"
+	if [ -n "$BLACKARCH" ]; then
+	    verbose_exec "echo -e '\n[blackarch]\nInclude = /etc/pacman.d/blackarch-mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 	    verbose_exec "curl 'https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst' | sed -E 's:.*\|(.*)\|.*:# Server = \1:g' | $SUDO tee /etc/pacman.d/blackarch-mirrorlist"
 	fi
     fi
@@ -119,7 +113,7 @@ common () {
     verbose_exec "$SUDO rm /etc/nanorc"
     say "deploy 'nano' as root..."
     verbose "sed -r -e 's/^set (.*)color/# # set \1color/g' \n\t-e 's/# set (.*)color/set \1color/g' \n\t~/dotfiles/nano/.nanorc \n\t| $SUDO tee /etc/nanorc"
-    sed -r -e 's/^set (.*)color/# # set \1color/g' -e 's/# set (.*)color/set \1color/g' ~/dotfiles/nano/.nanorc | $SUDO tee /etc/nanorc &> /dev/null
+    sed -r -e 's/^set (.*)color/# # set \1color/g' -e 's/# set (.*)color/set \1color/g' ~/dotfiles/nano/.nanorc | sudo tee /etc/nanorc &> /dev/null
 }
 
 graphic () {
