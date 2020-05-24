@@ -3,8 +3,15 @@
 # dotfiles deployment manager
 
 usage () {
-    echo "$(basename "$0"):"
-    echo "  please refer to README.md, or read this script"
+    say "usage:"
+    verbose "${RESET}opts:"
+    verbose "  -b: add blackarch repository"
+    verbose "${RESET}profiles:"
+    verbose "  common"
+    verbose "  graphic"
+    verbose "  laptop"
+    verbose "  server"
+    verbose "  minimal"
 }
 
 
@@ -54,12 +61,12 @@ verbose_exec () {
 exists () {
     if ! command -v "$1" &> /dev/null; then
 	yell "package not found: '$1'"
-	echo -1
+	return 1
     fi
 
     if ! stow "$1" &> /dev/null; then
 	yell "config not found: '$1'"
-	echo -1
+	return 1
     fi
 }
 
@@ -87,10 +94,12 @@ deploy_pkgs () {
 
 ## PROFILES
 
+# profile common: contains common
 common () {
     title "common"
 
-    deploy_pkgs "git mpd neomutt nvim ncmpcpp zsh"
+    pkgs="git mpd neomutt nvim ncmpcpp zsh"
+    deploy_pkgs "$pkgs"
 
     if command -v "pacman" &> /dev/null; then
 	verbose_exec "$SUDO rm /etc/pacman.conf"
@@ -99,20 +108,26 @@ common () {
 	verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 	verbose_exec "$SUDO pacman-key --init"
 	verbose_exec "$SUDO pacman-key --populate"
+
+	if [ -z "$BLACKARCH" ]; then
+	    verbose_exec "echo -e '\n[blackarch]\ninclude = /etc/pacman.d/blackarch-mirrorlist' | $SUDO tee -a /etc/pacman.conf"
+	    verbose_exec "curl 'https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst' | sed -E 's:.*\|(.*)\|.*:# Server = \1:g' | $SUDO tee /etc/pacman.d/blackarch-mirrorlist"
+	fi
     fi
 
     deploy "nano"
     verbose_exec "$SUDO rm /etc/nanorc"
     say "deploy 'nano' as root..."
-    sed -r -e 's/^set (.*)color/# # set \1color/g' -e 's/# set (.*)color/set \1color/g' ~/dotfiles/nano/.nanorc | $SUDO tee /etc/nanorc &> /dev/null
     verbose "sed -r -e 's/^set (.*)color/# # set \1color/g' \n\t-e 's/# set (.*)color/set \1color/g' \n\t~/dotfiles/nano/.nanorc \n\t| $SUDO tee /etc/nanorc"
+    sed -r -e 's/^set (.*)color/# # set \1color/g' -e 's/# set (.*)color/set \1color/g' ~/dotfiles/nano/.nanorc | $SUDO tee /etc/nanorc &> /dev/null
 }
 
 graphic () {
     common
     title "graphic"
 
-    deploy_pkgs "mako sway mpv qutebrowser termite zathura"
+    pkgs="mako sway mpv qutebrowser termite zathura"
+    deploy_pkgs "$pkgs"
 
     say "deploy 'homepage'"
     stow homepage
@@ -137,14 +152,8 @@ laptop () {
     verbose_exec "$SUDO systemctl start tlp.service"
 
     say "set up wifi"
-    verbose_exec "$SUDO ln -sf /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/"
-    verbose_exec "$SUDO rm /etc/wpa_supplicant.conf"
-    verbose_exec "$SUDO rm -r /etc/wpa_supplicant"
-    deploy_root "wpa_supplicant"
-    wifi_card="$(ip a | grep -Eo '[0-9]+: w[a-z0-9]+:' | cut -d ':' -f 2 | sed 's: ::g')"
-    log "get wifi card name $GREY(found: $wifi_card)$RESET"
-    verbose_exec "$SUDO systemctl enable dhcpcd@$wifi_card"
-    verbose_exec "$SUDO systemctl start dhcpcd@$wifi_card"
+    verbose_exec "$SUDO systemctl enable NetworkManager.service"
+    verbose_exec "$SUDO systemctl start NetworkManager.service"
 }
 
 server () {
@@ -158,20 +167,22 @@ server () {
 minimal () {
     title "minimal"
 
-    rm -f ~/.zshrc
-    deploy_pkgs "nano nvim zsh"
+    pkgs="nano nvim zsh"
+    deploy_pkgs "$pkgs"
 
     verbose "configure 'zsh'"
-    sed -i "1d" ~/.zshrc # plugins
-    sed -i "1,6d" ~/.zsh.d/alias.zsh
-    sed -i "1,6s/^#//" ~/.zsh.d/alias.zsh
-    sed -i "s/^alias cat=.*$//g" ~/.zsh.d/alias.zsh
+    sed -i "1d" ~/.zshrc  # remove zsh plugins
+    sed -i "1,6d" ~/.zsh.d/alias.zsh  # remove 'exa' binds
+    sed -i "1,6s/^#//" ~/.zsh.d/alias.zsh  # uncomment 'ls' binds
+    sed -i "s/^alias cat=.*$//g" ~/.zsh.d/alias.zsh  # remove 'bat' bind
 
     verbose "configure 'nvim'"
+    # TODO
 }
 
 
 ## MAIN
+
 
 if ! command -v "stow" &> /dev/null; then
     echo "please first install stow"
@@ -182,7 +193,22 @@ echo -e "$BLUE+------------------------+$RESET"
 echo -e "$BLUE|$RESET$BOLD welcome to my dotfiles $RESET$BLUE|$RESET"
 echo -e "$BLUE+------------------------+$RESET"
 
+while getopts "ib" opt &> /dev/null; do
+    case $opt in
+    	b)
+    	    BLACKARCH="smash mouth - all star"
+    	    ;;
+	*)
+	    yell "wrong option"
+	    usage
+	    exit 1
+	    ;;
+    esac
+done
+shift $((OPTIND-1))
+
 say "update git modules"
+git submodule init
 git submodule update
 
 test -n "$1" && log "current selection: $YELLOW'$1'$RESET"
@@ -204,6 +230,9 @@ case "$1" in
 	minimal
 	;;
     *)
+    	if [ -n "$1" ]; then
+    	    verbose "profile not found"
+    	fi
 	usage
 	exit 0
 	;;
