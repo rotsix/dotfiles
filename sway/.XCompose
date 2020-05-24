@@ -9,7 +9,7 @@ include "%L"
 <Multi_key>	<O>	<colon>	<parenright>		: "😇"	# O:)
 <Multi_key>	<colon>		<asterisk>		: "😙"	# :*
 <Multi_key>	<colon>		<O>			: "😮"	# :O
-<Multi_key>	<h>		<i>			: "🙋"	# hi		
+<Multi_key>	<h>		<i>			: "🙋"	# hi
 
 
 
@@ -146,8 +146,6 @@ include "%L"
 <Multi_key> <asterisk> <T>		: "Τ"	U03A4		# GREEK CAPITAL LETTER TAU
 <Multi_key> <asterisk> <U>		: "Θ"	U0398		# GREEK CAPITAL LETTER THETA
 <Multi_key> <asterisk> <V>		: "Ω"	U03A9		# GREEK CAPITAL LETTER OMEGA
-# Emacs maps W to "Σ", but I think that’s stupid
-# I think that's from the Greek keyboard.
 <Multi_key> <asterisk> <X>		: "Χ"	U03A7		# GREEK CAPITAL LETTER CHI
 <Multi_key> <asterisk> <Y>		: "Υ"	U03A5		# GREEK CAPITAL LETTER UPSILON
 <Multi_key> <asterisk> <Z>		: "Ζ"	U0396		# GREEK CAPITAL LETTER ZETA
