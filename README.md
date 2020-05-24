@@ -23,9 +23,7 @@ Here is an example with `mpd`:
 mpd/
 └── .config/
     └── mpd/
-        ├── database
-        ├── log
-        ...
+        └── mpd.conf
 ```
 
 ## Installation
@@ -42,7 +40,7 @@ Cloning this repository and there it is.
 > As my dot-files are.. mine, everything is made to match *my* setup.
 
 A deployment script is available (`./deploy.sh`).
-Here are the usage:
+Here is the usage:
 
 ```
 ./deploy.sh OPTS PROFILE
@@ -78,7 +76,7 @@ Here are the usage:
 A few remarks to read before deploying:
 
 - btw i use arch, a pacman configuration is deployed.
-- I'm also using Network-Manager to provide Wi-Fi.
+- I'm also using NetworkManager to provide Wi-Fi.
 - TLP is enabled to reduce battery consumption.
 
  Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).
