@@ -6,6 +6,7 @@ font/Output_Fonts/*
 
 nvim/*
 mpd/*
+mpv/*
 ncmpcpp/*
 neomutt/*
 qutebrowser/*
