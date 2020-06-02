@@ -24,10 +24,10 @@ noremap <M-l> <C-]>
 Plug 'tpope/vim-surround'
 
 " latex
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 
 " because, go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -39,12 +39,12 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
 
 " and because python
-Plug 'psf/black'
+Plug 'psf/black', { 'for': 'python' }
 let g:black_virtualenv = '~/.virtual-env/black'
 autocmd BufWritePre *.py silent! execute ':Black'
 
 " and, don't forget rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 let g:rustfmt_autosave = 1
 
 " repeating commands (useful for surround)
