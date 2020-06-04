@@ -6,6 +6,7 @@ usage () {
     say "usage:"
     verbose "${RESET}opts:"
     verbose "  -b: add blackarch repository"
+    verbose "  -a: adapt pacman to ARM architecture"
     verbose "${RESET}profiles:"
     verbose "  common"
     verbose "  graphic"
@@ -45,7 +46,7 @@ verbose_exec () {
     verbose "$1"
     cmd="${1//\\$RED/}"
     cmd="${cmd//\\$GREY/}"
-    eval "$cmd" # &> /dev/null
+    eval "$cmd" &> /dev/null
 }
 
 
@@ -88,7 +89,6 @@ deploy_pkgs () {
 
 ## PROFILES
 
-# profile common: contains common
 common () {
     title "common"
 
@@ -99,7 +99,12 @@ common () {
 	verbose_exec "$SUDO rm /etc/pacman.conf"
 	verbose_exec "$SUDO rm -r /etc/pacman.d"
 	deploy_root "pacman"
-	verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+
+	if [ -n "$ARM" ]; then
+	    verbose_exec "echo 'Server = https://mirror.archlinuxarm.org/\$repo/os/\$arch' | $SUDO tee /etc/pacman.d/mirrorlist"
+	else
+	    verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+	fi
 	verbose_exec "$SUDO pacman-key --init"
 	verbose_exec "$SUDO pacman-key --populate"
 
@@ -164,14 +169,15 @@ minimal () {
     pkgs="nano nvim zsh"
     deploy_pkgs "$pkgs"
 
-    verbose "configure 'zsh'"
+    log "configuring 'zsh'"
     sed -i "1d" ~/.zshrc  # remove zsh plugins
     sed -i "1,6d" ~/.zsh.d/alias.zsh  # remove 'exa' binds
     sed -i "1,6s/^#//" ~/.zsh.d/alias.zsh  # uncomment 'ls' binds
+    rm -- "$HOME"/.zprofile
     sed -i "s/^alias cat=.*$//g" ~/.zsh.d/alias.zsh  # remove 'bat' bind
 
-    verbose "configure 'nvim'"
-    # TODO
+    log "configuring 'nvim'"
+    verbose "TODO"
 }
 
 
@@ -187,10 +193,13 @@ echo -e "$BLUE+------------------------+$RESET"
 echo -e "$BLUE|$RESET$BOLD welcome to my dotfiles $RESET$BLUE|$RESET"
 echo -e "$BLUE+------------------------+$RESET"
 
-while getopts "b" opt &> /dev/null; do
+while getopts "ba" opt &> /dev/null; do
     case $opt in
     	b)
     	    BLACKARCH="smash mouth - all star"
+    	    ;;
+    	a)
+    	    ARM="rick astley - never gonna give you up"
     	    ;;
 	*)
 	    yell "wrong option"
