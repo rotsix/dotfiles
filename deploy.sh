@@ -102,6 +102,7 @@ common () {
 
 	if [ -n "$ARM" ]; then
 	    verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
+	    verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 	else
 	    verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 	fi
