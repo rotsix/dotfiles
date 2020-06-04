@@ -187,7 +187,7 @@ echo -e "$BLUE+------------------------+$RESET"
 echo -e "$BLUE|$RESET$BOLD welcome to my dotfiles $RESET$BLUE|$RESET"
 echo -e "$BLUE+------------------------+$RESET"
 
-while getopts "ib" opt &> /dev/null; do
+while getopts "b" opt &> /dev/null; do
     case $opt in
     	b)
     	    BLACKARCH="smash mouth - all star"
