@@ -101,7 +101,7 @@ common () {
 	deploy_root "pacman"
 
 	if [ -n "$ARM" ]; then
-	    verbose_exec "echo 'Server = https://mirror.archlinuxarm.org/\$repo/os/\$arch' | $SUDO tee /etc/pacman.d/mirrorlist"
+	    verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 	else
 	    verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 	fi
