@@ -129,6 +129,8 @@ graphic () {
     pkgs="mako sway mpv qutebrowser termite zathura"
     deploy_pkgs "$pkgs"
 
+    ln -s ~/.zprofile.graphic ~/.zprofile
+
     say "deploy 'homepage'"
     stow homepage
 
@@ -161,7 +163,7 @@ server () {
     title "server"
 
     deploy_pkgs "tmux"
-    rm -- "$HOME"/.zprofile
+    ln -s ~/.zprofile.server ~/.zprofile
 }
 
 minimal () {
@@ -174,7 +176,6 @@ minimal () {
     sed -i "1d" ~/.zshrc  # remove zsh plugins
     sed -i "1,6d" ~/.zsh.d/alias.zsh  # remove 'exa' binds
     sed -i "1,6s/^#//" ~/.zsh.d/alias.zsh  # uncomment 'ls' binds
-    rm -- "$HOME"/.zprofile
     sed -i "s/^alias cat=.*$//g" ~/.zsh.d/alias.zsh  # remove 'bat' bind
 
     log "configuring 'nvim'"
