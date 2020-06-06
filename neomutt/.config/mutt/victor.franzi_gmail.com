@@ -1,4 +1,4 @@
-source "gpg -dq $HOME/.password-store/google/victor.franzi-mutt.gpg |"
+source "rbw get google/victor.franzi-mutt |"
 set imap_user		 = victor.franzi@gmail.com
 set imap_pass		 = $my_pass
 set folder			 = imaps://victor.franzi@imap.gmail.com:993/
