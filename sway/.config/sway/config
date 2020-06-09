@@ -17,14 +17,18 @@ bindsym $mod+Shift+X kill
 bindsym $mod+Escape exec swaylock -i ~/.wallpaper
 
 # rofi-style
-set $menu termite -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'" -t "launcher"
+set $menu termite -t launcher -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'"
 bindsym $mod+r exec $menu
 for_window [app_id="termite" title="launcher"] floating enable, border pixel 3
 
-# FIXME pass integration (rofi-pass not available on wayland)
-set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass | head -n 1 | wl-copy '" -t "pass"
+# bitwarden integration
+exec "wl-paste -t text --watch clipman store"
+set $pass termite -t "pass" -e "$HOME/.config/sway/rbw_get.sh"
 bindsym $mod+Shift+r exec $pass
 for_window [app_id="termite" title="pass"] floating enable, border pixel 3
+
+# if using 'pass', use this line
+# set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass | head -n 1 | wl-copy '" -t "pass"
 
 # media keys
 bindsym $mod+a exec pavucontrol
