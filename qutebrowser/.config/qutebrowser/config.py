@@ -24,6 +24,7 @@ c.content.cookies.store = False
 c.content.default_encoding = "utf-8"
 # c.content.headers.user_agent = None
 c.content.javascript.enabled = False
+c.content.user_stylesheets = "/home/victor/.config/qutebrowser/stylesheet.css"
 
 # Completion bar
 c.completion.cmd_history_max_items = 500
