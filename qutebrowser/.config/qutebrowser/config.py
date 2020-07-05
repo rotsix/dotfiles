@@ -41,7 +41,7 @@ c.scrolling.smooth = False
 c.spellcheck.languages = []
 
 # Status bar
-c.statusbar.hide = False
+c.statusbar.show = True
 c.statusbar.widgets = ["keypress", "progress", "url", "scroll"]
 
 # Tabs
