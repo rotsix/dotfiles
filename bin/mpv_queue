@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ ! -p $HOME/.mpvinput ]]; then
+	mkfifo $HOME/.mpvinput
+fi
+if pgrep -f MPV-Q > /dev/null
+then
+	printf "%s\n" "loadfile \"$1\" append-play" > $HOME/.mpvinput
+else
+	/usr/bin/mpv --no-terminal --x11-name=MPV-Q --input-file=$HOME/.mpvinput --geometry=384x216-144-80 --osd-level=3 "$@"
+fi

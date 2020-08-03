@@ -1,0 +1,184 @@
+#!/bin/bash
+#
+# rotsix - (c) wtfpl 2016
+# a small script to manage simply some easy tasks as volume or backlight
+
+
+usage () {
+	echo -e "${0}"
+	echo -e "Simple Task Manager"
+	echo -e "  usage : "
+	echo -e "\t$(basename "$0") backlight|bl +|-|up|down|get [value]"
+	echo -e "\t$(basename "$0") vol|volume|v +|-|up|toggle|down [value]"
+	echo -e "\t$(basename "$0") bluetooth|bt start|up|stop|kill|restart|on|off|down"
+	echo -e "\t$(basename "$0") mysql|sql|sqld|mysqld start|up|stop|kill|restart|on|stop|off"
+	echo -e "\t$(basename "$0") http|httpd start|up|stop|kill|restart|on|stop|off"
+	echo -e "\t$(basename "$0") lamp|LAMP start|up|stop|kill|restart|on|stop|off"
+}
+
+
+if [ -z "$1" ]; then
+	usage
+	exit 1
+fi
+
+if [ -z "$2" ] && [ "$1" != "help" ] && [ "$1" != "h" ] && [ "$1" != "-h" ] && [ "$1" != "--help" ]; then
+	usage
+	exit 1
+fi
+
+case $1 in
+	help|h|-h|--help)
+		usage
+		exit 0
+		;;
+	vol|volume|v)
+		# card name can be obtained via `pactl list sinks`
+		card_laptop="alsa_output.pci-0000_00_1f.3.analog-stereo"
+		card_soundcard="alsa_output.usb-Audient_iD4-00.iec958-stereo"
+		soundcard_name="usb-Audient_iD4-00.iec958-stereo"
+		test -n "$(pactl list sinks | grep $soundcard_name)" && card=$card_soundcard || card=$card_laptop
+		echo $card
+		test -n "$3" && perc="$3" || perc="3"
+		case $2 in
+			up|+)
+				pactl set-sink-mute "${card}" false
+				pactl set-sink-volume "${card}" +${perc}%
+				;;
+			toggle)
+				pactl set-sink-mute ${card} toggle
+				;;
+			down|-)
+				pactl set-sink-mute "${card}" false
+				pactl set-sink-volume "${card}" -${perc}%
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		# set the sound you prefer
+		aplay "$HOME/.sounds/popup.wav"
+		;;
+	mic|micro|microphone|m)
+		card_laptop="alsa_input.pci-0000_00_1b.0.analog-stereo"
+		card=$card_laptop
+		case $2 in
+			toggle)
+				pactl set-source-mute "${card}" toggle
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+	backlight|bl)
+		test -n "$3" && perc="$3" || perc="2"
+		#actual="$(brightnessctl get | grep "Current" | cut -d '(' -f 2 | cut -d '%' -f 1)"
+		case $2 in
+			+|up)
+				brightnessctl set "$perc"%+
+				;;
+			-|down)
+				brightnessctl set "$perc"%-
+				;;
+			get)
+				brightnessctl get
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+	bluetooth|bt)
+		case $2 in
+			up|start|on)
+				sudo systemctl start bluetooth
+				echo "Bluetooth started"
+				;;
+			stop|kill|down|off)
+				sudo systemctl stop bluetooth
+				echo "Bluetooth stopped"
+				;;
+			restart)
+				sudo systemctl restart bluetooth
+				echo "Bluetooth restarted"
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+
+	mysql|sql|mysqld|sqld)
+		case $2 in
+			up|start|on)
+				sudo systemctl start mysqld
+				echo "MySQL daemon started"
+				;;
+			stop|kill|down|off)
+				sudo systemctl stop mysqld
+				echo "MySQL daemon stopped"
+				;;
+			restart)
+				sudo systemctl restart mysqld
+				echo "MySQL daemon restarted"
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+
+	http|httpd)
+		case $2 in
+			up|start|on)
+				sudo systemctl start httpd
+				echo "HTTP daemon started"
+				;;
+			stop|kill|down|off)
+				sudo systemctl stop httpd
+				echo "HTTP daemon stopped"
+				;;
+			restart)
+				sudo systemctl restart httpd
+				echo "HTTP daemon restarted"
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+
+	lamp|LAMP)
+		case $2 in
+			up|start|on)
+				stm sql start
+				stm http start
+				;;
+			stop|kill|down|off)
+				stm sql stop
+				stm http stop
+				;;
+			restart)
+				stm sql restart
+				stm httm restart
+				;;
+			*)
+				usage
+				exit 1
+				;;
+		esac
+		;;
+	*)
+		usage
+		exit 1
+		;;
+esac
+
+exit 0

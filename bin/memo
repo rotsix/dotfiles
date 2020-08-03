@@ -1,0 +1,97 @@
+#!/bin/bash
+#
+# rotsix - (c) wtfpl 2017
+# memo manager using git
+
+
+# custom variables
+memo_dir="$HOME/memo"
+#
+
+
+usage () {
+    echo "$0"
+    echo -e "usage:"
+    echo -e "\\t$(basename "$0") list|show|l|s\\t\\tsimple \`tree \$memo_dir\`"
+    echo -e "\\t$(basename "$0") add|a <item>\\t\\tcreate the selected item (and directories if needed)"
+    echo -e "\\t$(basename "$0") edit|e <item>\\t\\tedit the selected item"
+    echo -e "\\t$(basename "$0") delete|d <item|dir>\\tdelete the selected item (directory requires -r option)"
+    echo -e "\\t$(basename "$0") git|g <git-command>\\tuses git directly, so uses ~/.gitconfig"
+    echo -e "\\t$(basename "$0") help|h|?\\t\\t\\tdisplay this message"
+}
+
+die () {
+    echo "$@" >&2
+    exit 1
+}
+
+case "$1" in
+    "list"|"show"|"l"|"s")
+        tree "$memo_dir" || exit 1
+        exit 0
+        ;;
+    "add"|"a")
+        shift
+        mkdir -p "$(dirname "$*")"
+        if [[ -n "$EDITOR" ]]; then
+            "$EDITOR" "$memo_dir/$*" || exit 1
+        else
+            die "Set $EDITOR first please, or use \`EDITOR=<editor> memo ...\`"
+        fi
+
+        git -C "$memo_dir" add "$@"
+        git -C "$memo_dir" commit -m "Adding $*"
+        git -C "$memo_dir" push
+        ;;
+    "edit"|"e")
+        shift
+        mkdir -p "$(dirname "$*")"
+        if [[ -n "$EDITOR" ]]; then
+            "$EDITOR" "$memo_dir/$*" || exit 1
+        else
+            die "Set \$EDITOR first please, or use \`EDITOR=<editor> memo ...\`"
+        fi
+
+        git -C "$memo_dir" add "$@"
+        git -C "$memo_dir" commit -m "Editing $*"
+        git -C "$memo_dir" push
+        ;;
+    "delete"|"d")
+        shift
+        
+        __type="f"
+        while getopts "rf" opt; do
+            case "$opt" in
+                "r")
+                    __type="d"
+                    shift
+                    ;;
+                *)
+                    echo "Invalid option: -$OPTARG" >&2
+                    echo "Considering it is a file and not a directory."
+                    ;;
+            esac
+        done
+
+        test "$(dirname "$*")" == "." && __dir="" || __dir="$(dirname "$*")"
+
+        find "$memo_dir/$__dir" --type "$__type" -name "$(basename "$*")" -delete || exit 1
+
+        if [[ "$__type" == "f" ]]; then
+            git -C "$memo_dir" add "$@"
+            git -C "$memo_dir" commit -m "Deleting $*"
+            git -C "$memo_dir" push
+        fi
+        ;;
+    "git"|"g")
+        shift
+        git -C "$memo_dir" "$@" || exit 1
+        ;;
+    "help"|"h"|"?")
+        usage
+        exit 0;;
+    *)
+        usage
+        exit 1
+        ;;
+esac

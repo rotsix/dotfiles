@@ -1,0 +1,93 @@
+#!/usr/bin/env python
+#
+# rotsix - (c) wtfpl 2017
+# minimal brainfuck interpreter
+
+import sys
+from getopt import getopt
+
+
+def usage():
+	print("./brainfuck -f|--file <file>")
+	print("./brainfuck -e|--exp <expression>")
+	print("./brainfuck -h|--help")
+
+
+def exe(filename):
+	try:
+		f = open(filename, "r")
+		trans(f.read())
+		f.close()
+	except FileNotFoundError:
+		print(f"Sorry, ${filename} not found.")
+		usage()
+		sys.exit(1)
+
+
+def clean(code):
+	return filter(lambda x: x in ['.', ',' ,'[', ']', '<', '>', '+', '-'], code)
+
+
+def bracemap(code):
+	stack, map = [], {}
+	for pos, cmd in enumerate(code):
+		if cmd == "[": stack.append(pos)
+		if cmd == "]":
+			start = stack.pop()
+			map[start] = pos
+			map[pos] = start
+	return map
+
+
+def trans(code):
+	code = list(clean(list(code)))
+	braces = bracemap(code)
+
+	cells, head, ptr = [0], 0, 0
+
+	while head < len(code):
+		cmd = code[head]
+		if cmd == ">":
+			ptr += 1
+			if ptr == len(cells):
+				cells.append(0)
+		elif cmd == "<":
+			ptr = ptr - 1 if ptr > 0 else 0
+		elif cmd == "+":
+			cells[ptr] = cells[ptr] + 1 if cells[ptr] < 255 else 0
+		elif cmd == "-":
+			cells[ptr] = cells[ptr] - 1 if cells[ptr] > 0 else 255
+		elif cmd == "[" and cells[ptr] == 0:
+			head = braces[head]
+		elif cmd == "]" and cells[ptr] != 0:
+			head = braces[head]
+		elif cmd == ".":
+			sys.stdout.write(chr(cells[ptr]))
+		elif cmd == ",":
+			# TODO
+			a = 0
+
+		head += 1
+
+
+def main(args):
+	try:
+		opts, args = getopt(args, "f:e:h", ["file", "exp", "help"])
+	except getopt.GetoptError:
+		usage()
+		sys.exit(1)
+
+	for opt,arg in opts:
+		if opt in ("-h", "--help"):
+			usage()
+			sys.exit(0)
+		elif opt in ("-f", "--file"):
+			exe(arg)
+			sys.exit(0)
+		elif opt in ("-e", "--exp"):
+			trans(arg)
+			sys.exit(0)
+
+
+if __name__ == "__main__":
+	main(sys.argv[1:])
