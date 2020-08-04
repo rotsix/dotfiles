@@ -1,7 +1,6 @@
 [options]
 font = Input Mono Condensed 9
 
-##
 clickable_url = true
 browser = qutebrowser
 urgent_on_bell = true
@@ -15,10 +14,8 @@ cursor_blink = off
 # block, underline, ibeam
 cursor_shape = block
 
-
-
 [colors]
-background = rgba(0, 0, 0, 1)
+background = #000000
 foreground = #f5f5f5
 
 # black dark/light
@@ -27,7 +24,7 @@ color8 = #909090
 
 # red dark/light
 color1 = #d61d15
-color9 = #F00F05
+color9 = #f00f05
 
 # green dark/light
 color2 = #98971a
@@ -50,5 +47,5 @@ color6 = #689d6a
 color14 = #8ec07c
 
 # white dark/light
-color7 = #D8D8D8
-color15 = #F9E5D1
+color7 = #d8d8d8
+color15 = #f9e5d1
