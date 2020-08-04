@@ -22,6 +22,9 @@
 [url "https://aur.archlinux.org/"]
   insteadOf = aur:
 
+[url "git@github.com:"]
+  insteadOf = gh:
+
 [core]
   editor = nvim
 
