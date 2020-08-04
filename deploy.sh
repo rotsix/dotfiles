@@ -95,6 +95,9 @@ common () {
     pkgs="git mpd neomutt nvim ncmpcpp zsh"
     deploy_pkgs "$pkgs"
 
+    say "deploy 'bin'"
+    stow "bin"
+
     if command -v "pacman" &> /dev/null; then
 	verbose_exec "$SUDO rm /etc/pacman.conf"
 	verbose_exec "$SUDO rm -r /etc/pacman.d"
@@ -213,8 +216,7 @@ done
 shift $((OPTIND-1))
 
 say "update git modules"
-git submodule init
-git submodule update
+git submodule update --init
 
 test -n "$1" && log "current selection: $YELLOW'$1'$RESET"
 
