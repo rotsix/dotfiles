@@ -9,8 +9,8 @@ export PATH=$HOME/.cargo/bin:$PATH
 export MAKEFLAGS=' -j 8'
 
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 export GREP_COLOR=31
 
