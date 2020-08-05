@@ -1,6 +1,6 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-image/*; sxiv %s
+image/*; display %s
 audio/*; mpv %s
 video/*; mpv %s
 
