@@ -74,6 +74,7 @@ nnoremap <C-t> :Tags<CR>
 call plug#end()
 
 " colorsceheme
+set background=dark
 colorscheme newbz
 
 " common options
