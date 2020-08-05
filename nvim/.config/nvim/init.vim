@@ -174,7 +174,7 @@ set statusline+=%1*\ %F\ %2*              " file full path
 set statusline+=\ %h%w%m%r                " help file + modified + read only
 set statusline+=%=%1*                     " swith to right
 set statusline+=\ [%p%%,\ %l/%L:%c]       " current line/column
-set statusline+=\ %{Hour()}\ -\ %{Date()} " current hour
+"set statusline+=\ %{Hour()}\ -\ %{Date()} " current hour
 set statusline+=\                         " final space
 
 set fillchars+=vert:\  " vertical separator
