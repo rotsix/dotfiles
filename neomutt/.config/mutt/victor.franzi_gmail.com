@@ -3,7 +3,7 @@ set imap_user		 = victor.franzi@gmail.com
 set imap_pass		 = $my_pass
 set folder			 = imaps://victor.franzi@imap.gmail.com:993/
 set spoolfile		 = +INBOX
-set postponed		 = "+[Gmail]/Drafts"
+set postponed		 = "+[Gmail]/Brouillons"
 
 set smtp_url		 = smtp://victor.franzi@gmail.com@smtp.gmail.com:587/
 set smtp_pass		 = $my_pass
