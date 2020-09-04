@@ -41,7 +41,7 @@ c.scrolling.smooth = False
 c.spellcheck.languages = []
 
 # Status bar
-c.statusbar.show = True
+c.statusbar.show = "always"
 c.statusbar.widgets = ["keypress", "progress", "url", "scroll"]
 
 # Tabs
@@ -130,4 +130,6 @@ config.bind("j", "scroll-px 0 75")
 config.bind("k", "scroll-px 0 -75")
 config.bind("xx", "config-cycle tabs.show multiple switching ;; fullscreen")
 # hide floating windows (cookies) https://medium.com/@jacob.tan.en/floating-elements-on-web-pages-annoying-48c4a0a5a2db
-config.bind("cc", "jseval --quiet --file /home/victor/.config/qutebrowser/no-cookies.js")
+config.bind(
+    "cc", "jseval --quiet --file /home/victor/.config/qutebrowser/no-cookies.js"
+)
