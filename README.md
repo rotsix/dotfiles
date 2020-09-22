@@ -73,15 +73,15 @@ Here is the usage:
 	nano - nvim - zsh
 ```
 
-A few remarks to read before deploying:
+A few remarks worth reading before deployment:
 
 - btw i use arch, a pacman configuration is deployed.
 - I'm also using NetworkManager to provide Wi-Fi.
 - TLP is enabled to reduce battery consumption.
 
- Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).
- By default, `swaylock` will use `~/.wallpaper`.
-`~/.wallpapers/arch.sh` is also launched, this script is inspired from [amirashabani](https://github.com/amirashabani/bain)'s script.
+Some wallpapers are available in `~/.wallpapers/`, to use one, link it to `~/.wallpaper` (without any extension).
+By default, `swaylock` will use `~/.wallpaper`.
+Currently, `~/.wallpapers/arch.sh` is launched, this script is inspired from [amirashabani/bain](https://github.com/amirashabani/bain)'s.
 It displays arch logo with battery indicator as a background.
 
 
