@@ -22,7 +22,10 @@ c.content.autoplay = False
 c.content.cookies.accept = "all"
 c.content.cookies.store = False
 c.content.default_encoding = "utf-8"
-# c.content.headers.user_agent = None
+c.content.headers.user_agent = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)"
+    " Chrome/80.0.3987.163 Safari/537.36"
+)
 c.content.javascript.enabled = False
 c.content.user_stylesheets = "/home/victor/.config/qutebrowser/stylesheet.css"
 
@@ -74,6 +77,7 @@ c.url.searchengines = {
     "aur": "https://aur.archlinux.org/packages/?K={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "maps": "https://maps.google.com/?q={}",
+    "hn": "https://news.ycombinator.com/item?id={}",
 }
 
 
