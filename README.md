@@ -15,7 +15,7 @@ A script is now available to manage and deploy them.
 
 My dot-files work using symbolic links, and are deployed using [stow](https://www.gnu.org/software/stow/).
 Each folder in this repository contains an application configuration.
-Within these folders, they are structured as if being on `$HOME`.
+Within these folders, they are structured as if being located at `$HOME`.
 
 Here is an example with `mpd`:
 
@@ -33,7 +33,7 @@ It should be available on most platforms (at least on Arch Linux).
 
 Cloning this repository and there it is.
 
-> Note: to build fonts, Python's `virtualenv2` must be installed.
+> Note: to build fonts, Python3's `virtualenv` must be installed.
 
 ## Deployment
 
@@ -94,3 +94,6 @@ It displays arch logo with battery indicator as a background.
 - [ ] clean 'nvim' config for 'minimal' profile
 - [ ] in 'minimal' profile, copy 'nvim' to 'vim'
 - [ ] clean this dirty 'zsh' config
+- immuable and easily deployable config?
+- ansible?
+- vim autocmd groups depending on language?
