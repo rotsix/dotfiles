@@ -1,20 +1,24 @@
 #!/bin/bash
 
-dir="$(dirname $0)"
+dir="$(dirname "$0")"
+
 echo "creating env"
-rm -rf $dir/env 
-virtualenv2 $dir/env 
-source $dir/env/bin/activate  
-pip install fontTools 
+rm -rf "$dir/env" &> /dev/null
+virtualenv "$dir/env" &> /dev/null
+source "$dir/env/bin/activate" &> /dev/null
+pip install fontTools &> /dev/null
+
 echo "customizing font"
-rm -rf $dir/Output_Fonts 
-mkdir $dir/Output_Fonts 
-mkdir ~/.local/share/fonts 
-shopt -s globstar
-python $dir/Scripts/inputCustomize.py $dir/Input_Fonts/**/*.ttf --dest=$dir/Output_Fonts --a --g --asterisk 
+rm -rf "$dir/output" &> /dev/null
+mkdir "$dir/output" &> /dev/null
+mkdir ~/.local/share/fonts &> /dev/null
+shopt -s globstar &> /dev/null
+python "$dir/mk.py" "$dir"/input/**/*.ttf --dest="$dir/output" --a --g --asterisk &> /dev/null
+
 echo "generating cache"
-cp $dir/Output_Fonts/**/*.ttf ~/.local/share/fonts 
-fc-cache -fv 
+cp "$dir"/output/**/*.ttf ~/.local/share/fonts &> /dev/null
+fc-cache -fv &> /dev/null
+
 echo "done"
-deactivate 
-rm -rf $dir/env 
+deactivate &> /dev/null
+rm -rf "$dir/env" &> /dev/null
