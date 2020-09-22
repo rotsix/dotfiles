@@ -39,6 +39,7 @@ bindsym XF86AudioLowerVolume exec "$HOME/bin/stm vol down"
 bindsym XF86AudioRaiseVolume exec "$HOME/bin/stm vol up"
 bindsym XF86AudioMute exec "$HOME/bin/stm vol toggle"
 bindsym XF86AudioMicMute exec "$HOME/bin/stm mic toggle"
+bindsym Shift+XF86AudioMute exec "$HOME/bin/stm mic toggle"
 
 bindsym Print exec grim "$HOME/$(date +'%y-%m-%d.%H:%M:%S.png')"
 bindsym shift+Print exec grim -g "$(slurp)" "$HOME/$(date +'%y-%m-%d.%H:%M:%S.png')"
