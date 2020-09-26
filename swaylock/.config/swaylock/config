@@ -1,0 +1,19 @@
+# common configs
+image=~/.wallpaper
+font=Input Mono Condensed
+font-size=15
+
+# indicator
+indicator-radius=200
+indicator-thickness=5
+
+# colors
+## inside color
+inside-color=00000000
+inside-clear-color=00000000
+inside-caps-lock-color=00000000
+inside-ver-color=00000000
+inside-wrong-color=200000
+## ring
+key-hl-color=FFFFFF
+ring-color=909090

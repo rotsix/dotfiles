@@ -14,7 +14,7 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
-bindsym $mod+Escape exec swaylock -i ~/.wallpaper
+bindsym $mod+Escape exec swaylock
 
 # rofi-style
 set $menu termite -t launcher -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'"
