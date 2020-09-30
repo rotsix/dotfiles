@@ -129,7 +129,7 @@ graphic () {
     common
     title "graphic"
 
-    pkgs="mako sway mpv qutebrowser termite zathura"
+    pkgs="mako sway swaylock mpv qutebrowser termite zathura"
     deploy_pkgs "$pkgs"
 
     ln -s ~/.zprofile.graphic ~/.zprofile
@@ -143,9 +143,9 @@ graphic () {
     	verbose "choose wallpaper"
     fi
 
-    say "build font..." -n
-    bash ./font/mk.sh &> /dev/null
-    echo " done"
+    say "build font..." # -n
+    bash ./font/mk.sh
+    #echo " done"
 }
 
 laptop () {
@@ -218,34 +218,11 @@ shift $((OPTIND-1))
 say "update git modules"
 git submodule update --init
 
-test -n "$1" && log "current selection: $YELLOW'$1'$RESET"
+test -n "$1" && log "current selection: $YELLOW'$1'$RESET" || usage && exit 0
 
-case "$1" in
-    common)
-	common
-	;;
-    graphic)
-	graphic
-	;;
-    laptop)
-	laptop
-	;;
-    server)
-	server
-	;;
-    minimal)
-	minimal
-	;;
-    *)
-    	if [ -n "$1" ]; then
-    	    verbose "profile not found"
-    	fi
-	usage
-	exit 0
-	;;
-esac
+$1 || verbose "profile not found" && usage && exit 0
 
-file ~/.zshrc &> /dev/null && (source $HOME/.zshrc &> /dev/null)
+file ~/.zshrc &> /dev/null && (source "$HOME"/.zshrc &> /dev/null)
 
 say "${BOLD}done"
 echo -e "    $BLUE----$RESET"
