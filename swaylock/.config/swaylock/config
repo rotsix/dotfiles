@@ -8,12 +8,14 @@ indicator-radius=200
 indicator-thickness=5
 
 # colors
+
 ## inside color
 inside-color=00000000
 inside-clear-color=00000000
 inside-caps-lock-color=00000000
 inside-ver-color=00000000
-inside-wrong-color=200000
+inside-wrong-color=FF000040
+
 ## ring
 key-hl-color=FFFFFF
 ring-color=909090
