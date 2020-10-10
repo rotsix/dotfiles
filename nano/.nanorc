@@ -76,6 +76,9 @@ set linenumbers
 ## no plans to implement vim-style undo state in these files.
 set locking
 
+## Fall back to slow libmagic to try and determine an applicable syntax.
+# set magic
+
 ## The opening and closing brackets that can be found by bracket
 ## searches.  They cannot contain blank characters.  The former set must
 ## come before the latter set, and both must be in the same order.
@@ -159,6 +162,10 @@ set softwrap
 ## does not have a default value.
 # set speller "aspell -x -c"
 
+## Use the end of the title bar for some state flags: I = auto-indenting,
+## M = mark, L = hard-wrapping long lines, R = recording, S = soft-wrapping.
+set stateflags
+
 ## Allow nano to be suspended (with ^Z by default).
 set suspendable
 ## (The old form of this option, 'set suspend', is deprecated.)
@@ -203,6 +210,7 @@ set statuscolor bold,lightwhite,green
 set errorcolor bold,lightwhite,red
 set selectedcolor lightwhite,magenta
 set stripecolor ,yellow
+set scrollercolor magenta
 set numbercolor cyan
 set keycolor cyan
 set functioncolor green
@@ -212,6 +220,7 @@ set functioncolor green
 # set errorcolor bold,lightwhite,red
 # set selectedcolor lightwhite,cyan
 # set stripecolor ,yellow
+# set scrollercolor magenta
 # set numbercolor magenta
 # set keycolor lightmagenta
 # set functioncolor magenta
