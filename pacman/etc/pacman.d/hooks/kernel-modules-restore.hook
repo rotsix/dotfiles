@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = linux
+
+[Action]
+Depends = bash
+Depends = ln
+When = PostTransaction
+Exec = /usr/bin/bash -c "/usr/bin/ln -s /tmp/save-running-kernel-modules/$(uname -r) /usr/lib/modules/$(uname -r)"
