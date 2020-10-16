@@ -165,11 +165,18 @@ server () {
     common
     title "server"
 
+    log "configure ssh"
 	verbose_exec "$SUDO rm -r /etc/ssh/sshd_config"
     say "deploy 'ssh'"
     deploy_root "ssh"
     verbose "you should run '$SUDO systemctl restart sshd'"
-
+    verbose "ensure you've filled '~/.ssh/authorized_keys'"
+    #     -s FILE exists and has a size greater than zero
+    if [[ -s ~/.ssh/authorized_keys ]]; then
+        verbose "  keys detected"
+    else
+        verbose "  no keys detected"
+    fi
 
     deploy_pkgs "tmux"
     ln -s ~/.zprofile.server ~/.zprofile
