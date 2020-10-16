@@ -165,6 +165,12 @@ server () {
     common
     title "server"
 
+	verbose_exec "$SUDO rm -r /etc/ssh/sshd_config"
+    say "deploy 'ssh'"
+    deploy_root "ssh"
+    verbose "you should run '$SUDO systemctl restart sshd'"
+
+
     deploy_pkgs "tmux"
     ln -s ~/.zprofile.server ~/.zprofile
 }
