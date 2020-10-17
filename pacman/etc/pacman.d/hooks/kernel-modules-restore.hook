@@ -6,6 +6,6 @@ Target = linux
 
 [Action]
 Depends = bash
-Depends = ln
+Depends = coreutils
 When = PostTransaction
 Exec = /usr/bin/bash -c "/usr/bin/ln -s /tmp/save-running-kernel-modules/$(uname -r) /usr/lib/modules/$(uname -r)"
