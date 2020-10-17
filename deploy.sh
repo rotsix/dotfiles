@@ -76,7 +76,7 @@ deploy () {
 deploy_root () {
     say "deploy '$1' (as root)"
     exists "$1" || return
-    verbose_exec "$SUDO stow $1 -t /"
+    verbose_exec "$SUDO stow -t / $1"
 }
 
 # deploy_pkgs PKGS
