@@ -231,9 +231,14 @@ shift $((OPTIND-1))
 say "update git modules"
 git submodule update --init
 
-test -n "$1" && log "current selection: $YELLOW'$1'$RESET" || usage && exit 0
+if [[ -n "$1" ]]; then
+    test -n "$1" && log "current selection: $YELLOW'$1'$RESET"
+else
+    usage
+    exit 0
+fi
 
-$1 || verbose "profile not found" && usage && exit 0
+$1 || (verbose "profile not found"; usage; exit 0)
 
 file ~/.zshrc &> /dev/null && (source "$HOME"/.zshrc &> /dev/null)
 
