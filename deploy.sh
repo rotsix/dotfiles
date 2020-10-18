@@ -232,7 +232,7 @@ say "update git modules"
 git submodule update --init
 
 if [[ -n "$1" ]]; then
-    test -n "$1" && log "current selection: $YELLOW'$1'$RESET"
+    log "current selection: $YELLOW'$1'$RESET"
 else
     usage
     exit 0
