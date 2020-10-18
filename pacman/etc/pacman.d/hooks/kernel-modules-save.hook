@@ -5,10 +5,9 @@ Type = Package
 Target = linux
 
 [Action]
-Despcription = "Saving current kernel modules..."
+Description = "Saving current kernel modules..."
 When = PreTransaction
 Depends = bash
 Depends = findutils
 Depends = coreutils
-When = PreTransaction
 Exec = /usr/bin/bash -c "/usr/bin/find . -type l -exec test ! -e {} \; -delete; /usr/bin/mkdir -p /tmp/save-running-kernel-modules && /usr/bin/cp -a /usr/lib/modules/$(uname -r) /tmp/save-running-kernel-modules"
