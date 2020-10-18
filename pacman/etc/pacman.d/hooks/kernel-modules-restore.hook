@@ -5,6 +5,8 @@ Type = Package
 Target = linux
 
 [Action]
+Description = Restoring current kernel modules...
+When = PostTransaction
 Depends = bash
 Depends = coreutils
 When = PostTransaction

@@ -5,6 +5,8 @@ Type = Package
 Target = linux
 
 [Action]
+Despcription = "Saving current kernel modules..."
+When = PreTransaction
 Depends = bash
 Depends = findutils
 Depends = coreutils
