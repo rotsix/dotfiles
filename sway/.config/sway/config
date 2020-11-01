@@ -279,5 +279,5 @@ bar {
     modifier Mod4
     workspace_buttons no
     font pango:Input Mono Condensed 8
-    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p time.format="%R" date.format="%B %d %Y" nic.exclude="lo,virbr,docker,vboxnet,veth,br,vmnet" -t default
+    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p time.format="%R" date.format="%B %d %Y" nic.exclude="lo,virbr,docker,vboxnet,veth,br,vmnet,ve-wg" -t default
 }
