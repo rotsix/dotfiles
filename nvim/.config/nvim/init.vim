@@ -43,7 +43,7 @@ Plug 'psf/black', { 'for': 'python' }
 let g:black_virtualenv = '~/.virtual-env/black'
 autocmd BufWritePre *.py silent! execute ':Black'
 
-" and, don't forget rust
+" and don't forget rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 let g:rustfmt_autosave = 1
 
@@ -63,6 +63,9 @@ let g:ale_set_quickfix = 1
 Plug 'tpope/vim-sleuth'
 
 " fuzzy finding for everything (files, buffers..)
+if empty(glob('/usr/bin/fzf'))
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+endif
 Plug 'junegunn/fzf.vim'
 inoremap <C-b> <Esc>:Buffers<CR>
 nnoremap <C-b> :Buffers<CR>
@@ -85,6 +88,7 @@ filetype indent on
 set autoindent
 set mouse=a
 set clipboard=unnamedplus " universal clipboard
+set wrap
 set linebreak
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l,[,]
@@ -108,6 +112,8 @@ set tabstop=4
 " splits orientations
 set splitbelow
 set splitright
+" better incrementation/decrementation with ^A/^X
+set nrformats+=alpha
 
 " exit insert mode with jk/kj
 inoremap <silent> jk <Esc>
