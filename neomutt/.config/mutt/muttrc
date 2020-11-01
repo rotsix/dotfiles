@@ -34,7 +34,7 @@ alternative_order text/plain text/enriched text/html
 
 
 # binds
-macro pager \cb 'urlscan' 'Follow links with urlscan'
+macro pager \cb <pipe-entry>'urlscan'<enter> 'Follow links with urlscan'
 macro generic,pager i "<change-folder> =INBOX<enter>"
 macro generic,pager I "<change-folder> =[Gmail]/Corbeille<enter>"
 bind pager <down> next-line
