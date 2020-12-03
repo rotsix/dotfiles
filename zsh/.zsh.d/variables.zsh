@@ -6,7 +6,8 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-export MAKEFLAGS=' -j 8'
+MAKEFLAGS="-j$(nproc)"
+export MAKEFLAGS
 
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=100000
