@@ -10,4 +10,4 @@ When = PreTransaction
 Depends = bash
 Depends = findutils
 Depends = coreutils
-Exec = /usr/bin/bash -c "/usr/bin/find . -type l -exec test ! -e {} \; -delete; /usr/bin/mkdir -p /tmp/save-running-kernel-modules && /usr/bin/cp -a /usr/lib/modules/$(uname -r) /tmp/save-running-kernel-modules"
+Exec = /usr/bin/bash -c "/usr/bin/find /usr/lib/modules -type l -exec test ! -e {} \; -delete; /usr/bin/mkdir -p /tmp/save-running-kernel-modules && /usr/bin/cp -a /usr/lib/modules/$(uname -r) /tmp/save-running-kernel-modules"

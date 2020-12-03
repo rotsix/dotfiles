@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Listing new configuration files...
+When = PostTransaction
+Depends = findutils
+Exec = /usr/bin/find /etc -name "*.pacnew"
