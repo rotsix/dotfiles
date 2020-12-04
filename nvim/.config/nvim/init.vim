@@ -46,6 +46,7 @@ autocmd BufWritePre *.py silent! execute ':Black'
 " and don't forget rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 let g:rustfmt_autosave = 1
+Plug 'rhysd/rust-doc.vim', { 'for': 'rust' }
 
 " repeating commands (useful for surround)
 Plug 'tpope/vim-repeat'
@@ -53,8 +54,8 @@ Plug 'tpope/vim-repeat'
 " lint
 Plug 'w0rp/ale'
 let g:ale_fixers = {
-	\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-	\ }
+			\ '*': ['remove_trailing_lines', 'trim_whitespace'],
+			\ }
 let g:ale_fix_on_save = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
@@ -64,7 +65,7 @@ Plug 'tpope/vim-sleuth'
 
 " fuzzy finding for everything (files, buffers..)
 if empty(glob('/usr/bin/fzf'))
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 endif
 Plug 'junegunn/fzf.vim'
 inoremap <C-b> <Esc>:Buffers<CR>
@@ -153,21 +154,21 @@ nnoremap <silent> <Esc> :noh<Esc>
 " leave insert mode in terminal with Esc
 tnoremap <silent> <Esc> <C-\><C-n>
 
-" date
-function! Hour()
-	return system("date '+%H:%M' 2> /dev/null | tr -d '\n'")
-endfunction
-function! Date()
-	return system("date '+%d.%m.%Y' 2> /dev/null | tr -d '\n'")
-endfunction
-
 " latex mode (export to PDF on save + aspell)
 augroup tex
-  autocmd!
-  autocmd BufWritePost *.tex silent! !latexmk -pdf %
-  autocmd FileReadPost *.tex silent! setlocal spell spelllang=fr
-  let g:tex_comment_nospell=1
+  	autocmd!
+  	autocmd BufWritePost *.tex silent! !latexmk -pdf %
+  	autocmd FileReadPost *.tex silent! setlocal spell spelllang=fr
+  	let g:tex_comment_nospell=1
 augroup END
+
+" files templates
+augroup templates
+	autocmd!
+	autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/skeleton.sh
+	autocmd BufNewFile *.py 0r ~/.config/nvim/templates/skeleton.py
+augroup END
+
 
 " prettier status line
 highlight User1 ctermfg=white ctermbg=240
@@ -180,7 +181,6 @@ set statusline+=%1*\ %F\ %2*              " file full path
 set statusline+=\ %h%w%m%r                " help file + modified + read only
 set statusline+=%=%1*                     " swith to right
 set statusline+=\ [%p%%,\ %l/%L:%c]       " current line/column
-"set statusline+=\ %{Hour()}\ -\ %{Date()} " current hour
 set statusline+=\                         " final space
 
 set fillchars+=vert:\  " vertical separator
@@ -188,8 +188,8 @@ set fillchars+=vert:\  " vertical separator
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+  	if !exists("*synstack")
+    	return
+  	endif
+  	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
