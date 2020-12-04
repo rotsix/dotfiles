@@ -2,17 +2,17 @@
 #
 # dotfiles deployment manager
 
+profiles=$(grep 'title ".*"' ./deploy.sh | sed -E -e 's/    title "(\w+)"/\1/g' -e 1d)
+
 usage () {
     say "usage:"
     verbose "${RESET}opts:"
     verbose "  -b: add blackarch repository"
     verbose "  -a: adapt pacman to ARM architecture"
     verbose "${RESET}profiles:"
-    verbose "  common"
-    verbose "  graphic"
-    verbose "  laptop"
-    verbose "  server"
-    verbose "  minimal"
+    for p in $profiles; do
+    	verbose "  $p"
+    done
 }
 
 
@@ -238,7 +238,15 @@ else
     exit 0
 fi
 
-$1 || (verbose "profile not found"; usage; exit 0)
+if grep "\b$1\b" <<< "$profiles" > /dev/null; then
+	$1
+else
+	verbose "profile not found"
+	usage
+	exit 0
+fi
+
+# $1 || (verbose "profile not found"; usage; exit 0)
 
 file ~/.zshrc &> /dev/null && (source "$HOME"/.zshrc &> /dev/null)
 
