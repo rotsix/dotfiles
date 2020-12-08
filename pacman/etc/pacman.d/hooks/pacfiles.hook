@@ -7,4 +7,4 @@ Target = *
 Description = Listing new configuration files...
 When = PostTransaction
 Depends = findutils
-Exec = /usr/bin/find /etc -name "*.pacnew"
+Exec = /usr/bin/find /etc -regextype posix-extended -regex ".+\.pac(new|save)"
