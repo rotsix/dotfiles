@@ -4,7 +4,8 @@ Operation = Remove
 Target= *
 
 [Action]
-Description = Clean pacman cache...
+Description = Cleaning pacman cache...
 When = PostTransaction
-Depends = pacman
+Depends = pacman-contrib
+Depends = sed
 Exec = /usr/bin/bash -c "paccache -ruk0 | sed '/^$/d'"

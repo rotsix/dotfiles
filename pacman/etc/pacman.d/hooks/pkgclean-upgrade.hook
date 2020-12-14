@@ -4,7 +4,8 @@ Operation = Upgrade
 Target= *
 
 [Action]
-Description = Clean pacman cache...
+Description = Cleaning pacman cache...
 When = PostTransaction
-Depends = pacman
+Depends = pacman-contrib
+Depends = sed
 Exec = /usr/bin/bash -c "paccache -rk1 | sed '/^$/d'"
