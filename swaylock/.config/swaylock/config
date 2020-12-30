@@ -1,4 +1,5 @@
 # common configs
+daemonize
 image=~/.wallpaper
 font=Input Mono Condensed
 font-size=15

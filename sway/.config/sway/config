@@ -16,6 +16,13 @@ bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
 bindsym $mod+Escape exec swaylock
 
+# locker
+exec swayidle \
+		timeout 600 'swaymsg "output * dpms off"' \
+		resume 'swaymsg "output * dpms on "' \
+		# timeout 15 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi'
+		# timeout 900 swaylock \
+
 # rofi-style
 set $menu termite -t launcher -e "bash -c 'compgen -c | sort -u | fzf --reverse | xargs -r swaymsg -t command exec'"
 bindsym $mod+r exec $menu
@@ -52,19 +59,27 @@ gaps {
 # cursor
 seat * hide_cursor 5000
 
-# background + screens
+# background
 # output * bg "#000000" solid_color # solid black
 # output * background ~/.wallpaper center "#000000" # static wallpaper
 exec_always "$HOME/.wallpapers/arch.sh" # arch logo with battery indicator
 
-# keyboard + touchpad
+# keyboard + touchpad (on laptop)
+# common inputs config
 input * {
-    tap enabled
-    xkb_layout fr
-    xkb_model oss
     xkb_options compose:rctrl
     repeat_delay 200
     repeat_rate 20
+}
+
+# azerty keyboard on laptop
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout fr
+    xkb_model oss
+}
+# tap on touchpad on laptop
+input "1739:30383:DELL08AF:00_06CB:76AF_Touchpad" {
+	tap enabled # tap on
 }
 
 # notifications
@@ -230,8 +245,6 @@ for_window [class="Matplotlib"] floating enable
 for_window [class="discord"] floating disable
 
 assign [class="qutebrowser"] $workspace2
-assign [class="Gummi"] $workspace3
-
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
