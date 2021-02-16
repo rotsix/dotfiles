@@ -16,6 +16,7 @@ c.hints.chars = "qsdfghjkl"
 c.session.lazy_restore = True
 c.qt.args = []
 c.auto_save.session = True
+c.content.blocking.method = "both"
 
 # Content (JS, cookies, encoding, etc)
 c.content.autoplay = False
