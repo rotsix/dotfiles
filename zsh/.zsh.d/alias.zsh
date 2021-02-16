@@ -27,6 +27,7 @@ alias cat='bat'
 alias mutt='neomutt'
 alias dc='docker-compose'
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
+alias muttr='mutt -R'
 
 # sorting files in dir by size
 alias lh='du -hsc * | sort -hr'
