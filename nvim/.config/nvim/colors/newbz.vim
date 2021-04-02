@@ -11,6 +11,8 @@ endif
 set t_Co=256
 let g:colors_name = "newbz"
 
+" TODO clear existing highlights before adding new ones
+"
 " highlight CTagsMember -- no settings --
 " highlight CTagsGlobalConstant -- no settings --
 highlight Normal ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -60,7 +62,7 @@ highlight TabLineSel ctermfg=255 ctermbg=NONE cterm=NONE
 highlight Number ctermfg=129 ctermbg=NONE cterm=NONE
 highlight Boolean ctermfg=91 ctermbg=NONE cterm=NONE
 highlight Operator ctermfg=214 ctermbg=NONE cterm=NONE
-highlight CursorLine ctermfg=NONE ctermbg=235 cterm=NONE
+highlight CursorLine ctermfg=NONE ctermbg=232 cterm=NONE
 highlight TabLineFill ctermfg=NONE ctermbg=235 cterm=NONE
 highlight Question ctermfg=81 ctermbg=NONE cterm=NONE
 highlight WarningMsg ctermfg=15 ctermbg=236 cterm=bold
@@ -104,3 +106,9 @@ highlight gitgutterdelete ctermfg=125 ctermbg=233 cterm=bold
 highlight gitgutteradd ctermfg=190 ctermbg=233 cterm=bold
 highlight cursorline ctermfg=NONE ctermbg=235 cterm=NONE
 highlight gitgutterchange ctermfg=202 ctermbg=233 cterm=bold
+
+highlight ocamlConstructor ctermfg=39 ctermbg=NONE cterm=bold
+highlight ocamlKeyword ctermfg=196 ctermbg=NONE cterm=NONE
+highlight ocamlKeychar ctermfg=226 ctermbg=NONE cterm=NONE
+highlight ocamlStar ctermfg=226 ctermbg=NONE cterm=NONE
+highlight ocamlAnyVar ctermfg=242 ctermbg=NONE cterm=NONE
