@@ -12,7 +12,7 @@ include "%L"
 <Multi_key>	<h>		<i>			: "🙋"	# hi
 
 
-
+<Multi_key> <e>     <u>     <r> : "€" # Euro
 
 <Multi_key>	<e>		<e>	: "∈"		# Elem of…
 <Multi_key>	<E>		<E>	: "∃"		# Exist
@@ -123,7 +123,6 @@ include "%L"
 <Multi_key> <asterisk> <y>		: "υ"	U03C5		# GREEK SMALL LETTER UPSILON
 <Multi_key> <asterisk> <z>		: "ζ"	U03B6		# GREEK SMALL LETTER ZETA
 
-# Capital greek letters.
 <Multi_key> <asterisk> <A>		: "Α"	U0391		# GREEK CAPITAL LETTER ALPHA
 <Multi_key> <asterisk> <B>		: "Β"	U0392		# GREEK CAPITAL LETTER BETA
 <Multi_key> <asterisk> <C>		: "Ψ"	U03A8		# GREEK CAPITAL LETTER PSI
