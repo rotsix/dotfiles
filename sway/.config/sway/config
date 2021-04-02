@@ -15,11 +15,13 @@ bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
 bindsym $mod+Escape exec swaylock
+bindsym $mod+shift+Escape exec "systemctl suspend"
 
 # locker
-exec swayidle \
-		timeout 600 'swaymsg "output * dpms off"' \
-		resume 'swaymsg "output * dpms on "' \
+# exec swayidle \
+		# timeout 300 'swaymsg "output * dpms off"' \
+		# timeout 900 'systemctl suspend' \
+		# resume 'swaymsg "output * dpms on "' \
 		# timeout 15 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi'
 		# timeout 900 swaylock \
 
@@ -64,30 +66,37 @@ seat * hide_cursor 5000
 # output * background ~/.wallpaper center "#000000" # static wallpaper
 exec_always "$HOME/.wallpapers/arch.sh" # arch logo with battery indicator
 
-# keyboard + touchpad (on laptop)
-# common inputs config
+# inputs (keyboard, touchpad, mouse)
+# common
 input * {
-    xkb_options compose:rctrl
+	xkb_options compose:rctrl,grp:shifts_toggle
     repeat_delay 200
     repeat_rate 20
 }
 
-# azerty keyboard on laptop
+# home: keyboard
+input "1452:591:Keychron_Keychron_K3" {
+	xkb_layout us
+}
+
+# laptop: keyboard
 input "1:1:AT_Translated_Set_2_keyboard" {
-    xkb_layout fr
+    xkb_layout fr,us
     xkb_model oss
 }
-# tap on touchpad on laptop
+# laptop: touchpad
 input "1739:30383:DELL08AF:00_06CB:76AF_Touchpad" {
-	tap enabled # tap on
+	tap enabled
 }
 
 # notifications
 bindsym Ctrl+Space exec "makoctl dismiss"
 bindsym Ctrl+Shift+Space exec "makoctl dismiss -a"
 
-bindsym $mod+Shift+colon move scratchpad
-bindsym $mod+colon scratchpad show
+# bindsym $mod+Shift+colon move scratchpad
+# bindsym $mod+colon scratchpad show
+bindsym $mod+colon move scratchpad
+bindsym $mod+semicolon scratchpad show
 
 # pretty font
 font pango:Input Mono Condensed 8
@@ -196,28 +205,52 @@ set $workspace9 "9"
 set $workspace10 "10"
 
 # switch to workspace
-bindsym $mod+ampersand workspace $workspace1
-bindsym $mod+eacute workspace $workspace2
-bindsym $mod+quotedbl workspace $workspace3
-bindsym $mod+apostrophe workspace $workspace4
-bindsym $mod+parenleft workspace $workspace5
-bindsym $mod+minus workspace $workspace6
-bindsym $mod+egrave workspace $workspace7
-bindsym $mod+underscore workspace $workspace8
-bindsym $mod+ccedilla workspace $workspace9
-bindsym $mod+agrave workspace $workspace10
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+1 move container to workspace $workspace1
-bindsym $mod+2 move container to workspace $workspace2
-bindsym $mod+3 move container to workspace $workspace3
-bindsym $mod+4 move container to workspace $workspace4
-bindsym $mod+5 move container to workspace $workspace5
-bindsym $mod+6 move container to workspace $workspace6
-bindsym $mod+7 move container to workspace $workspace7
-bindsym $mod+8 move container to workspace $workspace8
-bindsym $mod+9 move container to workspace $workspace9
-bindsym $mod+0 move container to workspace $workspace10
+bindsym $mod+shift+1 move container to workspace $workspace1
+bindsym $mod+shift+2 move container to workspace $workspace2
+bindsym $mod+shift+3 move container to workspace $workspace3
+bindsym $mod+shift+4 move container to workspace $workspace4
+bindsym $mod+shift+5 move container to workspace $workspace5
+bindsym $mod+shift+6 move container to workspace $workspace6
+bindsym $mod+shift+7 move container to workspace $workspace7
+bindsym $mod+shift+8 move container to workspace $workspace8
+bindsym $mod+shift+9 move container to workspace $workspace9
+bindsym $mod+shift+0 move container to workspace $workspace10
+
+# # switch to workspace
+# bindsym $mod+ampersand workspace $workspace1
+# bindsym $mod+eacute workspace $workspace2
+# bindsym $mod+quotedbl workspace $workspace3
+# bindsym $mod+apostrophe workspace $workspace4
+# bindsym $mod+parenleft workspace $workspace5
+# bindsym $mod+minus workspace $workspace6
+# bindsym $mod+egrave workspace $workspace7
+# bindsym $mod+underscore workspace $workspace8
+# bindsym $mod+ccedilla workspace $workspace9
+# bindsym $mod+agrave workspace $workspace10
+#
+# # move focused container to workspace
+# bindsym $mod+1 move container to workspace $workspace1
+# bindsym $mod+2 move container to workspace $workspace2
+# bindsym $mod+3 move container to workspace $workspace3
+# bindsym $mod+4 move container to workspace $workspace4
+# bindsym $mod+5 move container to workspace $workspace5
+# bindsym $mod+6 move container to workspace $workspace6
+# bindsym $mod+7 move container to workspace $workspace7
+# bindsym $mod+8 move container to workspace $workspace8
+# bindsym $mod+9 move container to workspace $workspace9
+# bindsym $mod+0 move container to workspace $workspace10
 
 # move workspace between screens
 bindsym $mod+v move workspace to output left
