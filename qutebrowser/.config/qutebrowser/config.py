@@ -67,7 +67,7 @@ c.url.open_base_url = True
 c.url.searchengines = {
     "DEFAULT": "https://www.startpage.com/do/dsearch?query={}",
     "g": "https://www.google.fr/search?q={}",
-    "r": "https://reddit.com/r/{}",
+    "r": "https://old.reddit.com/r/{}",
     "we": "https://en.wikipedia.org/w/index.php?search={}",
     "wf": "https://fr.wikipedia.org/w/index.php?search={}",
     "gtf": "https://translate.google.com/#auto/fr/{}",
@@ -106,7 +106,7 @@ c.colors.tabs.selected.even.bg = "#404040"
 c.colors.webpage.bg = "white"
 
 # Darkmode
-c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = "dark"
 c.colors.webpage.darkmode.enabled = True
 
 # Fonts
