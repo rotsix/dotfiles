@@ -81,7 +81,8 @@ call plug#end()
 colorscheme newbz
 
 " common options
-set number relativenumber
+set number "relativenumber
+set cursorline
 syntax on
 filetype on
 filetype plugin on
@@ -115,6 +116,7 @@ set splitbelow
 set splitright
 " better incrementation/decrementation with ^A/^X
 set nrformats+=alpha
+set virtualedit=all
 
 " exit insert mode with jk/kj
 inoremap <silent> jk <Esc>
@@ -145,9 +147,6 @@ nnoremap <silent> k gk
 nnoremap <silent> <Down> gj
 nnoremap <silent> <Up> gk
 
-" 'cause I fail so much
-nnoremap <silent> q: :q<CR>
-
 " hide hightlight when not searching ('/' key)
 nnoremap <silent> <Esc> :noh<Esc>
 
@@ -169,11 +168,30 @@ augroup templates
 	autocmd BufNewFile *.py 0r ~/.config/nvim/templates/skeleton.py
 augroup END
 
+" indent on save
+function! Preserve(command)
+  let search = @/
+  let cursor_position = getpos('.')
+  normal! H
+  let window_position = getpos('.')
+  call setpos('.', cursor_position)
+  execute a:command
+  let @/ = search
+  call setpos('.', window_position)
+  normal! zt
+  call setpos('.', cursor_position)
+endfunction
+
+function! Indent()
+  call Preserve('normal gg=G')
+endfunction
+
+autocmd BufWritePre *.c,*.sh,*.xml call Indent()
 
 " prettier status line
 highlight User1 ctermfg=white ctermbg=240
 highlight User2 ctermfg=white ctermbg=235
-" <path> <flags>                       [<percent> <line/column>] <hour/date>
+" <path> <flags>                       [<percent> <line/column>]
 set laststatus=2
 set statusline=
 set statusline+=%2*                       " set colors
