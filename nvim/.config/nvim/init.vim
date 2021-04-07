@@ -116,7 +116,7 @@ set splitbelow
 set splitright
 " better incrementation/decrementation with ^A/^X
 set nrformats+=alpha
-set virtualedit=all
+set virtualedit=block
 
 " exit insert mode with jk/kj
 inoremap <silent> jk <Esc>
@@ -186,7 +186,7 @@ function! Indent()
   call Preserve('normal gg=G')
 endfunction
 
-autocmd BufWritePre *.c,*.sh,*.xml call Indent()
+autocmd BufWritePre *.c,*.sh,*.xml,*.tex call Indent()
 
 " prettier status line
 highlight User1 ctermfg=white ctermbg=240
