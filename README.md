@@ -45,8 +45,8 @@ Here is the usage:
 ```
 ./deploy.sh OPTS PROFILE
     options:
-	-i   deploy AND install packages (apt and pacman supported)
-	-b   add blackarch repository (pacman only)
+	-a   adapt pacman to ARM architecture
+	-b   add blackarch repository
 
     common:
 	base configs

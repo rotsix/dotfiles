@@ -7,8 +7,8 @@ profiles=$(grep 'title ".*"' ./deploy.sh | sed -E -e 's/    title "(\w+)"/\1/g' 
 usage () {
 	say "usage:"
 	verbose "${RESET}opts:"
-	verbose "  -b: add blackarch repository"
 	verbose "  -a: adapt pacman to ARM architecture"
+	verbose "  -b: add blackarch repository"
 	verbose "${RESET}profiles:"
 	for p in $profiles; do
 		verbose "  $p"
@@ -211,13 +211,13 @@ echo -e "$BLUE+------------------------+$RESET"
 echo -e "$BLUE|$RESET$BOLD welcome to my dotfiles $RESET$BLUE|$RESET"
 echo -e "$BLUE+------------------------+$RESET"
 
-while getopts "ba" opt &> /dev/null; do
+while getopts "ab" opt &> /dev/null; do
 	case $opt in
-		b)
-			BLACKARCH="smash mouth - all star"
-			;;
 		a)
 			ARM="rick astley - never gonna give you up"
+			;;
+		b)
+			BLACKARCH="smash mouth - all star"
 			;;
 		*)
 			yell "wrong option"
