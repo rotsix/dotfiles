@@ -106,7 +106,7 @@ common () {
 
 		if [ -n "$ARM" ]; then
 			log "set ARM repository"
-			verbose_exec "$SUDO sed -i -e 's/(Architecture = ).*/\1armv7h/' /etc/pacman.conf"
+			verbose_exec "$SUDO sed -i -E 's/(Architecture = ).*/\1armv7h/' /etc/pacman.conf"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 		else
