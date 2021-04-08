@@ -106,9 +106,9 @@ common () {
 
 		if [ -n "$ARM" ]; then
 			log "set ARM repository"
+			verbose_exec "sed -i -e 's/(Architecture = ).*/\1armv7h/' /etc/pacman.conf"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
-			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
-			verbose_exec "curl https://archlinuxarm.org/packages/any/pacman-mirrorlist/files/mirrorlist \n\t| grep -zo '<code>.*</code>' \n\tsed -r 's:</?code>::g' \n\t| $SUDO tee /etc/pacman.d/mirrorlist"
+			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 		else
 			verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 		fi
