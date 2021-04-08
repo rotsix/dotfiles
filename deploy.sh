@@ -108,6 +108,7 @@ common () {
 			log "set ARM repository"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
+			verbose_exec "curl https://archlinuxarm.org/packages/any/pacman-mirrorlist/files/mirrorlist \n\t| grep -zo '<code>.*</code>' \n\tsed -r 's:</?code>::g' \n\t| $SUDO tee /etc/pacman.d/mirrorlist"
 		else
 			verbose_exec "$SUDO reflector --country France --country Germany --latest 3 --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 		fi
@@ -115,8 +116,8 @@ common () {
 		verbose_exec "$SUDO pacman-key --populate"
 
 		if [ -n "$BLACKARCH" ]; then
-			verbose_exec "echo -e '\n[blackarch]\nInclude = /etc/pacman.d/blackarch-mirrorlist' | $SUDO tee -a /etc/pacman.conf"
-			verbose_exec "curl 'https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst' | sed -E 's:.*\|(.*)\|.*:# Server = \1:g' | $SUDO tee /etc/pacman.d/blackarch-mirrorlist"
+			verbose_exec "echo -e '\n\t[blackarch]\n\tInclude = /etc/pacman.d/blackarch-mirrorlist' | $SUDO tee -a /etc/pacman.conf"
+			verbose_exec "curl 'https://raw.githubusercontent.com/BlackArch/blackarch/master/mirror/mirror.lst' \n\t| sed -E 's:.*\|(.*)\|.*:# Server = \1:g' \n\t| $SUDO tee /etc/pacman.d/blackarch-mirrorlist"
 		fi
 	fi
 
