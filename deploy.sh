@@ -105,6 +105,7 @@ common () {
 		deploy_root "pacman"
 
 		if [ -n "$ARM" ]; then
+			log "set ARM repository"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 		else
