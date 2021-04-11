@@ -87,6 +87,26 @@ deploy_pkgs () {
 	done
 }
 
+# choose MSG OPTS...
+choose () {
+	say "$1"
+	shift
+
+	PS3="> "
+	select opt in "$@"; do
+		case $opt in
+			"$@")
+				echo "$opt"
+				return
+				;;
+			*)
+				yell "invalid choice"
+				exit
+				;;
+		esac
+	done
+}
+
 
 ## PROFILES
 
@@ -106,7 +126,8 @@ common () {
 
 		if [ -n "$ARM" ]; then
 			log "set ARM repository"
-			verbose_exec "$SUDO sed -i -E 's/(Architecture = ).*/\1armv7h/' /etc/pacman.conf"
+			arch=$(choose "which architecture to use?" armv7h aarch64)
+			verbose_exec "$SUDO sed -i -E 's/(Architecture = ).*/\1$arch/' /etc/pacman.conf"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
 		else
