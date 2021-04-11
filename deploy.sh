@@ -94,16 +94,12 @@ choose () {
 
 	PS3="> "
 	select opt in "$@"; do
-		case $opt in
-			"$@")
-				echo "$opt"
-				return
-				;;
-			*)
-				yell "invalid choice"
-				exit
-				;;
-		esac
+		if ! grep "$opt" <<<"$@" &> /dev/null; then
+			yell "invalid choice"
+			exit
+		fi
+		echo "$opt"
+		return
 	done
 }
 
@@ -126,7 +122,7 @@ common () {
 
 		if [ -n "$ARM" ]; then
 			log "set ARM repository"
-			arch=$(choose "which architecture to use?" armv7h aarch64)
+			arch=$(choose "which architecture to use?" armv7h aarch64 | tail -n 1)
 			verbose_exec "$SUDO sed -i -E 's/(Architecture = ).*/\1$arch/' /etc/pacman.conf"
 			verbose_exec "echo 'Server = http://mirror.archlinuxarm.org/\$arch/\$repo' | $SUDO tee /etc/pacman.d/mirrorlist"
 			verbose_exec "echo -e '\n[alarm]\nInclude = /etc/pacman.d/mirrorlist\n[aur]\nInclude = /etc/pacman.d/mirrorlist' | $SUDO tee -a /etc/pacman.conf"
