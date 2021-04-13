@@ -9,13 +9,17 @@ set $mail termite -e 'neomutt'
 
 exec "$HOME/bin/bat.notify.sh"
 
+bindsym $mod+Shift+c reload
+bindsym $mod+q restart
+bindsym $mod+Shift+q exit
+
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 bindsym $mod+u exec $editor
 bindsym $mod+Shift+u exec $mail
 bindsym $mod+Shift+X kill
 bindsym $mod+Escape exec swaylock
-bindsym $mod+shift+Escape exec "systemctl suspend"
+bindsym $mod+Shift+Escape exec "systemctl suspend"
 
 # locker
 # exec swayidle \
@@ -62,9 +66,9 @@ gaps {
 seat * hide_cursor 5000
 
 # background
-# output * bg "#000000" solid_color # solid black
-# output * background ~/.wallpaper center "#000000" # static wallpaper
-exec_always "$HOME/.wallpapers/arch.sh" # arch logo with battery indicator
+# output * bg "#000000" solid_color  # solid black
+# output * background ~/.wallpaper center "#000000"  # static wallpaper
+exec_always "$HOME/.wallpapers/arch.sh"  # arch logo with battery indicator
 
 # inputs (keyboard, touchpad, mouse)
 # common
@@ -155,7 +159,7 @@ mode "miniature" {
     bindsym s move position 768 432
 
     # (1920x1080)/5 = 384x216
-    bindsym Shift+S resize set 384 216
+    bindsym Shift+s resize set 384 216
 
     # toggle between floating/tiling windows
     bindsym $mod+space focus mode_toggle
@@ -204,68 +208,38 @@ set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
 
+## use `bindcode` instead of `bindsym` so it works with both azerty and qwerty
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindcode $mod+10 workspace $workspace1
+bindcode $mod+11 workspace $workspace2
+bindcode $mod+12 workspace $workspace3
+bindcode $mod+13 workspace $workspace4
+bindcode $mod+14 workspace $workspace5
+bindcode $mod+15 workspace $workspace6
+bindcode $mod+16 workspace $workspace7
+bindcode $mod+17 workspace $workspace8
+bindcode $mod+18 workspace $workspace9
+bindcode $mod+19 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+shift+1 move container to workspace $workspace1
-bindsym $mod+shift+2 move container to workspace $workspace2
-bindsym $mod+shift+3 move container to workspace $workspace3
-bindsym $mod+shift+4 move container to workspace $workspace4
-bindsym $mod+shift+5 move container to workspace $workspace5
-bindsym $mod+shift+6 move container to workspace $workspace6
-bindsym $mod+shift+7 move container to workspace $workspace7
-bindsym $mod+shift+8 move container to workspace $workspace8
-bindsym $mod+shift+9 move container to workspace $workspace9
-bindsym $mod+shift+0 move container to workspace $workspace10
-
-# # switch to workspace
-# bindsym $mod+ampersand workspace $workspace1
-# bindsym $mod+eacute workspace $workspace2
-# bindsym $mod+quotedbl workspace $workspace3
-# bindsym $mod+apostrophe workspace $workspace4
-# bindsym $mod+parenleft workspace $workspace5
-# bindsym $mod+minus workspace $workspace6
-# bindsym $mod+egrave workspace $workspace7
-# bindsym $mod+underscore workspace $workspace8
-# bindsym $mod+ccedilla workspace $workspace9
-# bindsym $mod+agrave workspace $workspace10
-#
-# # move focused container to workspace
-# bindsym $mod+1 move container to workspace $workspace1
-# bindsym $mod+2 move container to workspace $workspace2
-# bindsym $mod+3 move container to workspace $workspace3
-# bindsym $mod+4 move container to workspace $workspace4
-# bindsym $mod+5 move container to workspace $workspace5
-# bindsym $mod+6 move container to workspace $workspace6
-# bindsym $mod+7 move container to workspace $workspace7
-# bindsym $mod+8 move container to workspace $workspace8
-# bindsym $mod+9 move container to workspace $workspace9
-# bindsym $mod+0 move container to workspace $workspace10
+bindcode $mod+Shift+10 move container to workspace $workspace1
+bindcode $mod+Shift+11 move container to workspace $workspace2
+bindcode $mod+Shift+12 move container to workspace $workspace3
+bindcode $mod+Shift+13 move container to workspace $workspace4
+bindcode $mod+Shift+14 move container to workspace $workspace5
+bindcode $mod+Shift+15 move container to workspace $workspace6
+bindcode $mod+Shift+16 move container to workspace $workspace7
+bindcode $mod+Shift+17 move container to workspace $workspace8
+bindcode $mod+Shift+18 move container to workspace $workspace9
+bindcode $mod+Shift+19 move container to workspace $workspace10
 
 # move workspace between screens
 bindsym $mod+v move workspace to output left
 bindsym $mod+b move workspace to output right
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# bindsym $mod+q restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exit
-
 for_window [class=".*"] split h
 
-# specifics floating windows
+# specific floating windows
 for_window [app_id="imv"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [window_role="pop-up"] floating enable
@@ -281,24 +255,16 @@ assign [class="qutebrowser"] $workspace2
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym j resize shrink width 1 px or 1 ppt
     bindsym k resize grow height 1 px or 1 ppt
     bindsym l resize shrink height 1 px or 1 ppt
     bindsym m resize grow width 1 px or 1 ppt
 
-    # same bindings, but for the arrow keys
     bindsym Left resize shrink width 1 px or 1 ppt
     bindsym Down resize grow height 1 px or 1 ppt
     bindsym Up resize shrink height 1 px or 1 ppt
     bindsym Right resize grow width 1 px or 1 ppt
 
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
