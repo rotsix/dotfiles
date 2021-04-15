@@ -7,10 +7,13 @@ set $term termite
 set $editor termite -e "bash -c 'sleep 0.1 && nvim'"
 set $mail termite -e 'neomutt'
 
+bar {
+	swaybar_command waybar
+}
+exec "nm-applet --indicator"
 exec "$HOME/bin/bat.notify.sh"
 
 bindsym $mod+Shift+c reload
-bindsym $mod+q restart
 bindsym $mod+Shift+q exit
 
 bindsym $mod+Return exec $term
@@ -67,8 +70,8 @@ seat * hide_cursor 5000
 
 # background
 # output * bg "#000000" solid_color  # solid black
-# output * background ~/.wallpaper center "#000000"  # static wallpaper
-exec_always "$HOME/.wallpapers/arch.sh"  # arch logo with battery indicator
+output * background ~/.wallpaper fit "#000000"
+exec "$HOME/.wallpapers/arch.sh"
 
 # inputs (keyboard, touchpad, mouse)
 # common
@@ -278,13 +281,3 @@ client.unfocused        #2C2C2C #2C2C2C #FFFFFF #2C2C2C   #2C2C2C
 client.urgent           #FF0000 #FF0000 #FFFFFF #FF0000   #FF0000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
-
-bar {
-    position bottom
-    mode hide
-    hidden_state hide
-    modifier Mod4
-    workspace_buttons no
-    font pango:Input Mono Condensed 8
-    status_command bumblebee-status -m arch-update nic cpu memory battery date time pasink pasource -p time.format="%R" date.format="%B %d %Y" nic.exclude="lo,virbr,docker,vboxnet,veth,br,vmnet,ve-wg" -t default
-}
