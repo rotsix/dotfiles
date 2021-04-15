@@ -8,4 +8,4 @@ Description = Cleaning pacman cache...
 When = PostTransaction
 Depends = pacman-contrib
 Depends = sed
-Exec = /usr/bin/bash -c "paccache -rk1 | sed '/^$/d'"
+Exec = /usr/bin/bash -c "paccache -rk2 | sed '/^$/d'"
