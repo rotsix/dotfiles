@@ -3,9 +3,17 @@
     "position": "bottom",
     "height": 20,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["network", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
+    "modules-right": ["custom/pacman", "network", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
     "sway/window": {
         "max-length": 50
+    },
+    "custom/pacman": {
+        "format": "{}  ",
+        "interval": 600,
+        "exec": "checkupdates | wc -l",
+        "exec-if": "test $(checkupdates | wc -l) -gt 0",
+        "on-click": "termite -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
+        "signal": 8
     },
     "network": {
     	"format-wifi": "{essid}  {ipaddr}",
