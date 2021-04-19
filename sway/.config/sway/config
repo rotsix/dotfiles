@@ -58,7 +58,8 @@ bindsym XF86AudioMicMute exec "$HOME/bin/stm mic toggle"
 bindsym Shift+XF86AudioMute exec "$HOME/bin/stm mic toggle"
 
 bindsym Print exec grim "$HOME/$(date +'%y-%m-%d.%H:%M:%S.png')"
-bindsym shift+Print exec grim -g "$(slurp)" "$HOME/$(date +'%y-%m-%d.%H:%M:%S.png')"
+bindsym Shift+Print exec grim -g "$(slurp)" "$HOME/$(date +'%y-%m-%d.%H:%M:%S.png')"
+bindsym Alt+Print exec 'grim -g "$(slurp)" - | swappy -f -'
 
 gaps {
     inner 0
