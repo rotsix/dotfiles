@@ -12,7 +12,7 @@
         "interval": 600,
         "exec": "checkupdates | wc -l",
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
-        "on-click": "termite -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
+        "on-click": "termite -e \"sh -c 'sudo pacman -Syu && read'\"; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
     "network": {
