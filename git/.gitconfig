@@ -1,61 +1,62 @@
 [user]
-  name = Victor Franzi
-  email = victor.franzi@gmail.com
-  signingkey = 6DA5214B8957696191C65F2F4AEA961D2B73877D
+  	name = Victor Franzi
+  	email = victor.franzi@gmail.com
+  	signingkey = 6DA5214B8957696191C65F2F4AEA961D2B73877D
 
 [alias]
-  a = add
-  br = branch
-  c = commit
-  ca = commit -a
-  cam = commit -am
-  ci = commit
-  cm = commit -m
-  co = checkout
-  d = diff
-  l = log
-  pl = pull
-  ps = push
-  st = status -sb
-  ts = status -sb
+  	a = add
+  	br = branch
+  	c = commit
+  	ca = commit -a
+  	cam = commit -am
+  	ci = commit
+  	cm = commit -m
+  	co = checkout
+  	d = diff
+  	l = log
+  	pl = pull
+  	ps = push
+  	st = status -sb
+  	ts = status -sb
 
 [url "https://aur.archlinux.org/"]
-  insteadOf = aur:
+  	insteadOf = aur:
 
 [url "git@github.com:"]
-  insteadOf = gh:
+  	insteadOf = gh:
 
 [core]
-  editor = nvim
+  	editor = nvim
 
 [push]
-  default = simple
+  	default = simple
 
 [color]
-  ui = auto
-  diff = auto
-  branch = auto
-  status = auto
+  	ui = auto
+  	diff = auto
+  	branch = auto
+  	status = auto
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+  	current = yellow reverse
+  	local = yellow
+  	remote = green
 
 [color "diff"]
-  meta = yellow
-  frag = magenta
-  old = red
-  new = green
+  	meta = yellow
+  	frag = magenta
+  	old = red
+  	new = green
 
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+  	added = yellow
+  	changed = green
+  	untracked = cyan
 
 [help]
-  autocorrect = 1
+  	autocorrect = 1
 [init]
-  templatedir = ~/.git-template
+  	templatedir = ~/.git-template
+	defaultBranch = main
 [pull]
 	rebase = false
