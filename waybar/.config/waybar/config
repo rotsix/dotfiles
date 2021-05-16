@@ -12,7 +12,7 @@
         "interval": 600,
         "exec": "checkupdates | wc -l",
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
-        "on-click": "termite -e \"sh -c 'sudo pacman -Syu && read'\"; pkill -SIGRTMIN+8 waybar",
+        "on-click": "termite -e \"sh -c 'sudo pacman -Syu && echo :: DONE - press any key to quit && read'\"; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
     "network": {
@@ -54,7 +54,7 @@
         "full-at": 95
     },
     "clock": {
-        "format": "{:%A, %d %B - %H:%M}"
+        "format": "{:%A, %B %d - %H:%M}"
     },
     "tray": {
     	"icon-size": 16,
