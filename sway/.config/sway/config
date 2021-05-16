@@ -10,8 +10,10 @@ set $mail termite -e 'neomutt'
 bar {
 	swaybar_command waybar
 }
+
 exec "nm-applet --indicator"
 exec "$HOME/bin/bat.notify.sh"
+exec "kanshi"
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+q exit
