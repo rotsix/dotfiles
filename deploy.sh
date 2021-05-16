@@ -149,7 +149,7 @@ graphic () {
 	common
 	title "graphic"
 
-	pkgs="mako sway swaylock mpv qutebrowser termite zathura"
+	pkgs="kanshi mako sway swaylock mpv qutebrowser termite zathura"
 	deploy_pkgs "$pkgs"
 
 	ln -sf ~/.zprofile.graphic ~/.zprofile
