@@ -34,7 +34,7 @@ create_and_set() {
 	# and set it on black background
 	convert -limit thread 1 "$orig" "$TMP" -resize "$factor" -gravity Center -composite -background "#000000" -extent 1920x1080 "$background"
 
-	swaymsg output "*" background "$background" fit "#000000"
+	swaymsg output "*" background "$background" center "#000000"
 }
 
 find_battery_path() {

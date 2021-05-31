@@ -73,7 +73,7 @@ seat * hide_cursor 5000
 
 # background
 # output * bg "#000000" solid_color  # solid black
-output * background ~/.wallpaper fit "#000000"
+output * background ~/.wallpaper center "#000000"
 exec "$HOME/.wallpapers/arch.sh"
 
 # inputs (keyboard, touchpad, mouse)
