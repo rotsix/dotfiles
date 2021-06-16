@@ -173,12 +173,10 @@ laptop () {
 	title "laptop"
 
 	say "deploy 'tlp'"
-	verbose_exec "$SUDO systemctl enable tlp.service"
-	verbose_exec "$SUDO systemctl start tlp.service"
+	verbose_exec "$SUDO systemctl enable --now tlp.service"
 
 	say "set up wifi"
-	verbose_exec "$SUDO systemctl enable NetworkManager.service"
-	verbose_exec "$SUDO systemctl start NetworkManager.service"
+	verbose_exec "$SUDO systemctl enable --now NetworkManager.service"
 }
 
 server () {
