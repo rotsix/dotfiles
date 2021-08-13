@@ -3,9 +3,9 @@
 set $mod Mod4
 floating_modifier $mod
 set $browser qutebrowser
-set $term termite
-set $editor termite -e "bash -c 'sleep 0.1 && nvim'"
-set $mail termite -e 'neomutt'
+set $term alacritty
+set $editor alacritty -e "bash -c 'sleep 0.1 && nvim'"
+set $mail alacritty -e 'neomutt'
 
 bar {
 	swaybar_command waybar
