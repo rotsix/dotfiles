@@ -2,25 +2,30 @@
     "layer": "bottom",
     "position": "bottom",
     "height": 20,
+
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-right": ["custom/pacman", "network", "pulseaudio", "cpu", "memory", "battery", "clock", "tray"],
+
     "sway/window": {
         "max-length": 50
     },
+
     "custom/pacman": {
         "format": "{}  ",
         "interval": 600,
         "exec": "checkupdates | wc -l",
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
-        "on-click": "termite -e \"sh -c 'sudo pacman -Syu && echo :: DONE - press any key to quit && read'\"; pkill -SIGRTMIN+8 waybar",
+        "on-click": "alacritty -e sh -c 'yay && echo :: DONE - press any key to quit && read'; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
+
     "network": {
     	"format-wifi": "{essid}  {ipaddr}",
     	"format-ethernet": "{ifname}  {ipaddr}",
     	"format-disconnected": "",
     	"max-length": 50
 	},
+
 	"pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
@@ -44,18 +49,26 @@
     	"interval": 1,
     	"format": "{}% "
 	},
+
 	"memory": {
     	"interval": 1,
     	"format": "{used:0.1f}G/{total:0.1f}G "
 	},
+
     "battery": {
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""],
-        "full-at": 95
+        "full-at": 95,
+        "states": {
+        	"warning": 25,
+        	"critical": 10
+    	}
     },
+
     "clock": {
         "format": "{:%A, %B %d - %H:%M}"
     },
+
     "tray": {
     	"icon-size": 16,
     	"spacing": 8

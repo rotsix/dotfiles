@@ -23,7 +23,7 @@ window#waybar {
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
-/* If tray is the leftmost module, omit left margin */
+/* If tray is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #tray {
     margin-right: 0;
 }
@@ -70,6 +70,11 @@ window#waybar {
 
 #battery.charging, #battery.plugged {
     background-color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    background-color: #aa0000;
+    color: #ffffff;
 }
 
 #battery.critical:not(.charging) {
