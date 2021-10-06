@@ -9,7 +9,7 @@ call plug#begin("~/.local/share/nvim/plugged")
 Plug 'ajh17/VimCompletesMe'
 set completeopt=menuone,longest
 
-" syntax for ALL files
+" syntax for ALL files (+ indentation)
 Plug 'sheerun/vim-polyglot'
 
 " pain-less tags management
@@ -187,6 +187,12 @@ function! Indent()
 endfunction
 
 autocmd BufWritePre *.c,*.sh,*.xml,*.tex call Indent()
+
+" no line wrap when writing emails
+augroup mail_no_wrap
+    autocmd!
+    autocmd FileType mail set textwidth=0
+augroup END
 
 " prettier status line
 highlight User1 ctermfg=white ctermbg=240
