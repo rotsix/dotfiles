@@ -44,8 +44,7 @@ set breaklonglines
 ## Do case-sensitive searches by default.
 # set casesensitive
 
-## Constantly display the cursor position in the status bar.  Note that
-## this overrides "quickblank".
+## Constantly display the cursor position in the status bar or minibar.
 set constantshow
 
 ## Use cut-from-cursor-to-end-of-line by default.
@@ -79,15 +78,19 @@ set locking
 ## Fall back to slow libmagic to try and determine an applicable syntax.
 # set magic
 
-## The opening and closing brackets that can be found by bracket
-## searches.  They cannot contain blank characters.  The former set must
-## come before the latter set, and both must be in the same order.
+## The opening and closing brackets that are found by a matching-bracket
+## search.  This may not contain blank characters.  The opening brackets
+## must come before the closing ones, and they must be in the same order.
 set matchbrackets "(<[{)>]}"
+
+## Suppress the title bar and show the filename plus a cursor-position
+## percentage in the space of the status bar.
+set minibar
 
 ## Enable mouse support, if available for your system.  When enabled,
 ## mouse clicks can be used to place the cursor, set the mark (with a
-## double click), and execute shortcuts.  The mouse will work in the X
-## Window System, and on the console when gpm is running.
+## double click), and execute shortcuts.  The mouse will work in the
+## X Window System, and on the console when gpm is running.
 set mouse
 
 ## Switch on multiple file buffers (inserting a file will put it into
@@ -115,14 +118,12 @@ set mouse
 ## Preserve the XON and XOFF keys (^Q and ^S).
 # set preserve
 
-## The characters treated as closing punctuation when justifying
-## paragraphs.  They cannot contain blank characters.  Only closing
-## punctuation, optionally followed by closing brackets, can end
-## sentences.
+## The characters treated as closing punctuation when justifying paragraphs.
+## This may not contain blank characters.  Only these closing punctuations,
+## optionally followed by closing brackets, can end sentences.
 set punct "!.?"
 
-## Do quick status-bar blanking.  Status-bar messages will disappear after
-## 1 keystroke instead of 26.  Note that "constantshow" overrides this.
+## Make status-bar messages disappear after 1 keystroke instead of after 20.
 set quickblank
 
 ## The regular expression that matches quoting characters in email
@@ -143,16 +144,16 @@ set regexp
 set saveonexit
 ## (The old form of this option, 'set tempfile', is deprecated.)
 
-## Put the cursor on the highlighted item in the file browser, and show
-## the cursor in the help viewer; useful for people who use a braille
-## display and people with poor vision.
+## Put the cursor on the highlighted item in the file browser, and
+## show the cursor in the help viewer; useful for people who use a
+## braille display and people with poor vision.
 set showcursor
 
-## Make the Home key smarter.  When Home is pressed anywhere but at the
+## Make the Home key smarter: when Home is pressed anywhere but at the
 ## very beginning of non-whitespace characters on a line, the cursor
 ## will jump to that beginning (either forwards or backwards).  If the
-## cursor is already at that position, it will jump to the true
-## beginning of the line.
+## cursor is already at that position, it will jump to the true start
+## of the line (the left edge).
 set smarthome
 
 ## Spread overlong lines over multiple screen lines.
@@ -173,14 +174,11 @@ set suspendable
 ## Use this tab size instead of the default; it must be greater than 0.
 set tabsize 4
 
-## Convert typed tabs to spaces.
+## Convert each typed tab to the fitting number of spaces.
 set tabstospaces
 
 ## Snip whitespace at the end of lines when justifying or hard-wrapping.
 # set trimblanks
-
-## Disallow file modification.  Why would you want this in an rcfile? ;)
-# set view
 
 ## The two single-column characters used to display the first characters
 ## of tabs and spaces.  187 in ISO 8859-1 (0000BB in Unicode) and 183 in
@@ -203,21 +201,27 @@ set tabstospaces
 ## of a single character, and without affecting the cutbuffer).
 # set zap
 
-## Paint the interface elements of nano.  These are examples;
-## by default there are no colors, except for errorcolor.
-set titlecolor bold,lightwhite,blue
-set statuscolor bold,lightwhite,green
-set errorcolor bold,lightwhite,red
+
+## Paint the interface elements of nano.  These are examples; there are
+## no colors by default, except for errorcolor and spotlightcolor.
+set titlecolor bold,white,blue
+set promptcolor lightwhite,grey
+set statuscolor bold,white,green
+set errorcolor bold,white,red
+set spotlightcolor black,lightyellow
 set selectedcolor lightwhite,magenta
 set stripecolor ,yellow
-set scrollercolor magenta
+set scrollercolor cyan
 set numbercolor cyan
 set keycolor cyan
 set functioncolor green
+
 ## In root's .nanorc you might want to use:
-# set titlecolor bold,lightwhite,magenta
-# set statuscolor bold,lightwhite,magenta
-# set errorcolor bold,lightwhite,red
+# set titlecolor bold,white,magenta
+# set promptcolor black,yellow
+# set statuscolor bold,white,magenta
+# set errorcolor bold,white,red
+# set spotlightcolor black,orange
 # set selectedcolor lightwhite,cyan
 # set stripecolor ,yellow
 # set scrollercolor magenta
@@ -229,7 +233,7 @@ set functioncolor green
 ## === Syntax coloring ===
 ## For all details, see 'man nanorc', section SYNTAX HIGHLIGHTING.
 
-## To include all existing syntax definitions, you can do:
+## To include most of the existing syntax definitions, you can do:
 include "/usr/share/nano/*.nanorc"
 
 ## Or you can select just the ones you need.  For example:
@@ -238,7 +242,8 @@ include "/usr/share/nano/*.nanorc"
 # include "/usr/share/nano/sh.nanorc"
 
 ## In /usr/share/nano/extra/ you can find some syntaxes that are
-## specific for certain distros or for less common languages.
+## specific for certain distros or for some less common languages.
+
 
 ## If <Tab> should always produce four spaces when editing a Python file,
 ## independent of the settings of 'tabsize' and 'tabstospaces':
@@ -260,6 +265,12 @@ include "/usr/share/nano/*.nanorc"
 ## <Ctrl+Backspace> delete the word to the left of the cursor with:
 # bind ^H chopwordleft main
 
+## For quickly uppercasing or lowercasing the word under the cursor.
+## (These effectively do a Ctrl+Right followed by a Shift+Ctrl+Left,
+## and then pipe the selected text through a sed command.)
+#bind Sh-M-U "Oc[1;6D|sed 's/.*/\U&/'" main
+#bind Sh-M-L "Oc[1;6D|sed 's/.*/\L&/'" main
+
 ## If you would like nano to have keybindings that are more "usual",
 ## such as ^O for Open, ^F for Find, ^H for Help, and ^Q for Quit,
 ## then uncomment these:
@@ -274,11 +285,11 @@ include "/usr/share/nano/*.nanorc"
 #bind ^B wherewas all
 #bind ^D findprevious all
 #bind ^R replace main
-#bind M-X flipnewbuffer all
-#bind ^X cut all
+#bind ^X cut main
 #bind ^C copy main
 #bind ^V paste all
 #bind ^P location main
+#bind ^E execute main
 #bind ^A mark main
 #unbind ^K main
 #unbind ^U all
@@ -288,9 +299,10 @@ include "/usr/share/nano/*.nanorc"
 #unbind M-T main
 #bind ^T gotoline main
 #bind ^T gotodir browser
-#bind ^Y speller main
+#bind ^T cutrestoffile execute
+#bind ^L linter execute
 #bind M-U undo main
 #bind M-R redo main
-#bind ^U undo main
-#bind ^E redo main
+#bind ^Z undo main
+#bind ^Y redo main
 #set multibuffer
