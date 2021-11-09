@@ -112,3 +112,6 @@ highlight ocamlKeyword ctermfg=196 ctermbg=NONE cterm=NONE
 highlight ocamlKeychar ctermfg=226 ctermbg=NONE cterm=NONE
 highlight ocamlStar ctermfg=226 ctermbg=NONE cterm=NONE
 highlight ocamlAnyVar ctermfg=242 ctermbg=NONE cterm=NONE
+
+highlight User1 ctermfg=white ctermbg=240
+highlight User2 ctermfg=white ctermbg=235
