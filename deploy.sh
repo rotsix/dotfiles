@@ -2,7 +2,7 @@
 #
 # dotfiles deployment manager
 
-profiles=$(grep 'title ".*"' ./deploy.sh | sed -E -e 's/    title "(\w+)"/\1/g' -e 1d)
+profiles=$(grep 'title ".*"' $0 | sed -e 1d | cut -d \" -f 2)
 
 usage () {
 	say "usage:"
@@ -149,7 +149,7 @@ graphic () {
 	common
 	title "graphic"
 
-	pkgs="alacritty kanshi mako sway swaylock mpv qutebrowser zathura"
+	pkgs="alacritty kanshi mako sway swaylock mpv qutebrowser waybar zathura"
 	deploy_pkgs "$pkgs"
 
 	ln -sf ~/.zprofile.graphic ~/.zprofile
