@@ -131,6 +131,9 @@ require("packer").startup(function(use)
   		ft = "python",
   	}
 
+  	-- terraform utils
+	use "hashivim/vim-terraform"
+
   	-- go stuff
   	use {
   		"fatih/vim-go",
@@ -143,6 +146,9 @@ require("packer").startup(function(use)
 
   	-- trim spaces / whitelines
   	use "cappyzawa/trim.nvim"
+
+  	-- comment lines
+	use "tpope/vim-commentary"
 
   	-- colorscheme
   	-- use "tjdevries/colorbuddy.vim"
@@ -171,6 +177,10 @@ require('trim').setup({
     	[[%s/\%^\n\+//]],
     },
 })
+
+---- TERRAFORM CONFIGS ----
+g.terraform_fmt_on_save = 1
+g.terraform_align = 1
 
 ---- PYTHON INDENTATION ----
 
@@ -284,7 +294,7 @@ end
 
 -- Use a loop to conveniently call "setup" on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "bashls", "gopls" }
+local servers = { "pyright", "bashls", "gopls", "terraformls", "tsserver" }
 for _, lsp in ipairs(servers) do
   	nvim_lsp[lsp].setup {
     	on_attach = on_attach,
