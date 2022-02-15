@@ -12,7 +12,6 @@ alias llla='\ls -AFhNv --color=auto | less'
 #alias llla='ll -A | less'
 
 # can't waste time typing
-alias nano='nano -c -w'
 alias grep='grep --color=auto'
 alias vim='nvim'
 alias hoogle='hoogle --color=true'
@@ -26,6 +25,7 @@ alias swapy='sudo swapon $HOME/usr/swapfile'
 alias cat='bat'
 alias mutt='neomutt'
 alias dc='docker-compose'
+alias tf='terraform'
 alias youtube-audio='youtube-dl -ix --audio-quality 0 --audio-format mp3'
 alias muttr='mutt -R'
 
