@@ -13,8 +13,9 @@
     "custom/pacman": {
         "format": "{}  ",
         "interval": 600,
-        "exec": "checkupdates | wc -l",
+        "exec": "up=$(checkupdates) ; echo \"{\\\"text\\\":\\\"$(checkupdates | wc -l)\\\", \\\"tooltip\\\":\\\"$(echo $up)\\\"}\"",
         "exec-if": "test $(checkupdates | wc -l) -gt 0",
+        "return-type": "json",
         "on-click": "alacritty -e sh -c 'yay && echo :: DONE - press any key to quit && read'; pkill -SIGRTMIN+8 waybar",
         "signal": 8
     },
@@ -47,7 +48,7 @@
 
     "cpu": {
     	"interval": 1,
-    	"format": "{}% "
+    	"format": "{:0.2f}% "
 	},
 
 	"memory": {
