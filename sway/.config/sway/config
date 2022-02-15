@@ -46,6 +46,10 @@ set $pass $term -t pass -e "$HOME/.config/sway/rbw_get.sh"
 bindsym $mod+Shift+r exec $pass
 for_window [app_id="Alacritty" title="pass"] floating enable, border pixel 3
 
+# notifications
+for_window [app_id="Alacritty" title="notif"] floating enable, border pixel 3, move down 400 px, resize set 250 50, sticky enable
+no_focus [app_id="Alacritty" title="notif"]
+
 # if using 'pass', use this line
 # set $pass termite -e "bash -c 'find $HOME/.password-store -type f | fzf --reverse | cut -d\'/\' -f5- | sed \'s/.gpg//\' | xargs -r pass | head -n 1 | wl-copy '" -t "pass"
 

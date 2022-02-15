@@ -4,13 +4,12 @@ include "%L"
 # for i in 1F6{0..4}{{0..9},{A..F}} ; do printf "\\\\U$i \U$i\n" ; done
 <Multi_key>	<colon>		<parenright>		: "☺"	 # :)
 <Multi_key>	<colon>		<parenleft>		: "🙁"	# :(
-<Multi_key>	<colon>	<apostroph>	<parenleft>	: "😭""	 # :'(
-<Multi_key>	<colon>		<D>			: "😄""	# :D
+<Multi_key>	<colon>	<apostrophe>	<parenleft>	: "😭"	 # :'(
+<Multi_key>	<colon>		<D>			: "😄"	# :D
 <Multi_key>	<O>	<colon>	<parenright>		: "😇"	# O:)
 <Multi_key>	<colon>		<asterisk>		: "😙"	# :*
 <Multi_key>	<colon>		<O>			: "😮"	# :O
 <Multi_key>	<h>		<i>			: "🙋"	# hi
-
 
 <Multi_key> <e>     <u>     <r> : "€" # Euro
 
@@ -32,7 +31,6 @@ include "%L"
 <Multi_key>	<4>	<s>	<q>	: "∜"   U221C   # Fourth Root
 <Multi_key>	<i>	<n>	<t>	: "∫"   U222B   # Integral
 
-
 <Multi_key>	<Left>		<Left>	: "←"	leftarrow	# LEFTWARDS ARROW
 <Multi_key>	<Up>		<Up>	: "↑"	uparrow		# UPWARDS ARROW
 <Multi_key>	<Right>		<Right>	: "→"	rightarrow	# RIGHTWARDS ARROW
@@ -47,6 +45,10 @@ include "%L"
 <Multi_key> <equal>		<Up>	: "⇑"		# Top = Arrow
 <Multi_key> <equal>		<Down>	: "⇓"		# Down = Arrow
 
+# logical symbols
+<Multi_key> <n>	<o>	<t>	: "¬"
+<Multi_key> <a>	<n>	<d>	: "∧"
+<Multi_key>	<o>	<r>	: "∨"
 
 # https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts
 # Superscript
@@ -94,7 +96,6 @@ include "%L"
 <Multi_key>	<Down>		<j>		: "ⱼ"		# sub j
 <Multi_key>	<Down>		<k>		: "ₖ"		# sub k
 <Multi_key>	<Down>		<n>		: "ₙ"		# sub n
-
 
 # Greek letters
 <Multi_key> <asterisk> <a>		: "α"	U03B1		# GREEK SMALL LETTER ALPHA
@@ -148,10 +149,6 @@ include "%L"
 <Multi_key> <asterisk> <X>		: "Χ"	U03A7		# GREEK CAPITAL LETTER CHI
 <Multi_key> <asterisk> <Y>		: "Υ"	U03A5		# GREEK CAPITAL LETTER UPSILON
 <Multi_key> <asterisk> <Z>		: "Ζ"	U0396		# GREEK CAPITAL LETTER ZETA
-
-
-
-
 
 # Playing Cards?  It's a lot, but so what?  I don't think the [] convention
 # will conflict with anything.
