@@ -199,15 +199,15 @@ cmp.setup {
 
   	-- key mapping
   	mapping = {
-    	['<C-n>'] = cmp.mapping.select_next_item(),
-    	['<C-p>'] = cmp.mapping.select_prev_item(),
-    	['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    	['<C-f>'] = cmp.mapping.scroll_docs(4),
-    	['<C-Space>'] = cmp.mapping.complete(),
-    	['<C-e>'] = cmp.mapping.close(),
-    	['<CR>'] = cmp.mapping.confirm {
-      		behavior = cmp.ConfirmBehavior.Replace,
-      		select = true,
+		['<C-n>'] = cmp.mapping.select_next_item(),
+		['<C-p>'] = cmp.mapping.select_prev_item(),
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.close(),
+		['<CR>'] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
     	},
 
     	-- Tab mapping
@@ -249,13 +249,13 @@ cmp.setup.cmdline(':', {
       	{ name = 'path' }
     }, {
       		{ name = 'cmdline' }
-    	})
+    })
 })
 
 -- disable completion with Markdown files
 utils.create_augroups { nocmp_md = {{"FileType", "*.md", "lua require('cmp').setup.buffer { enabled = false }"}} }
 
-local capabilities = require "cmp_nvim_lsp".update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require "cmp_nvim_lsp".default_capabilities()
 
 ---- LSPCONFIG ----
 
@@ -294,7 +294,7 @@ end
 
 -- Use a loop to conveniently call "setup" on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "bashls", "gopls", "terraformls", "tsserver" }
+local servers = { "pyright", "bashls", "gopls", "terraformls" }
 for _, lsp in ipairs(servers) do
   	nvim_lsp[lsp].setup {
     	on_attach = on_attach,
