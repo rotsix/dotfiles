@@ -9,8 +9,10 @@
   	c = commit
   	ca = commit -a
   	cam = commit -am
+  	canm = commit -anm
   	ci = commit
   	cm = commit -m
+  	cnm = commit -nm
   	co = checkout
   	d = diff
   	l = log
