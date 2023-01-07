@@ -46,28 +46,28 @@ opt.updatetime = 50
 
 opt.laststatus = 2
 opt.statusline = "" ..
-	"%2*" ..               -- colors
-	"%1* %F %2*" ..        -- file full path
-	" %h%w%m%r" ..         -- help file + modified + read only
-	"%=%1*" ..             -- swith to right
-	" [%p%%, %l/%L:%c]" .. -- current line/column
-	" "                    -- final space
+  "%2*" ..               -- colors
+  "%1* %F %2*" ..        -- file full path
+  " %h%w%m%r" ..         -- help file + modified + read only
+  "%=%1*" ..             -- swith to right
+  " [%p%%, %l/%L:%c]" .. -- current line/column
+  " "                    -- final space
 opt.fillchars:append "vert: "
 
 ---- AUTO COMMANDS ----
 
 local autocmds = {
-	tex = {
-		{ "BufWritePost", "*.tex", "silent! !latexmk -pdf %"};
-		{ "FileReadPost", "*.tex", "silent! setlocal spell spelllang=fr"};
-	};
-	templates = {
-		{"BufNewFile", "*.sh", "0r ~/.config/nvim/templates/skeleton.sh"};
-		{"BufNewFile", "*.py", "0r ~/.config/nvim/templates/skeleton.py"};
-	};
-	mail_no_wrap = {
-		{"FileType", "mail", "set textwidth=0"};
-	};
+  tex = {
+    { "BufWritePost", "*.tex", "silent! !latexmk -pdf %"};
+    { "FileReadPost", "*.tex", "silent! setlocal spell spelllang=fr"};
+  };
+  templates = {
+    {"BufNewFile", "*.sh", "0r ~/.config/nvim/templates/skeleton.sh"};
+    {"BufNewFile", "*.py", "0r ~/.config/nvim/templates/skeleton.py"};
+  };
+  mail_no_wrap = {
+    {"FileType", "mail", "set textwidth=0"};
+  };
 }
 
 utils.create_augroups(autocmds)
@@ -103,55 +103,60 @@ utils.map {"i", "(;<CR>", "(<CR>);<Esc>O"}
 cmd [[packadd packer.nvim]]
 
 require("packer").startup(function(use)
-  	use "wbthomason/packer.nvim"
+    use "wbthomason/packer.nvim"
 
-  	-- auto-completion
-  	use {
-  		"hrsh7th/nvim-cmp",
-  		requires = {
-  			"hrsh7th/cmp-nvim-lsp",
-  			"hrsh7th/cmp-path",
-  			"hrsh7th/cmp-cmdline",
-  			"hrsh7th/cmp-buffer",
-  		}
-  	}
+    -- auto-completion
+    use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-buffer",
+      }
+    }
 
-  	-- lsp configs
-  	use "neovim/nvim-lspconfig"
+    -- snippets
+  use "hrsh7th/cmp-vsnip"
+  use "hrsh7th/vim-vsnip"
 
-  	-- lsp signatures (function calls, etc)
-  	use "ray-x/lsp_signature.nvim"
 
-	-- better syntax highlighting
-  	use "nvim-treesitter/nvim-treesitter"
+    -- lsp configs
+    use "neovim/nvim-lspconfig"
 
-  	-- python indentation
-  	use {
-  		"psf/black",
-  		ft = "python",
-  	}
+    -- lsp signatures (function calls, etc)
+    use "ray-x/lsp_signature.nvim"
 
-  	-- terraform utils
-	use "hashivim/vim-terraform"
+  -- better syntax highlighting
+    use "nvim-treesitter/nvim-treesitter"
 
-  	-- go stuff
-  	use {
-  		"fatih/vim-go",
-  		ft = "go",
-  		run = "GoUpdateBinaries",
-  	}
+    -- python indentation
+    use {
+      "psf/black",
+      ft = "python",
+    }
 
-  	-- quoting / parenthesizing
-  	use "tpope/vim-surround"
+    -- terraform utils
+  use "hashivim/vim-terraform"
 
-  	-- trim spaces / whitelines
-  	use "cappyzawa/trim.nvim"
+    -- go stuff
+    use {
+      "fatih/vim-go",
+      ft = "go",
+      run = "GoUpdateBinaries",
+    }
 
-  	-- comment lines
-	use "tpope/vim-commentary"
+    -- quoting / parenthesizing
+    use "tpope/vim-surround"
 
-  	-- colorscheme
-  	-- use "tjdevries/colorbuddy.vim"
+    -- trim spaces / whitelines
+    use "cappyzawa/trim.nvim"
+
+    -- comment lines
+  use "tpope/vim-commentary"
+
+    -- colorscheme
+    -- use "tjdevries/colorbuddy.vim"
 
 end)
 
@@ -164,17 +169,17 @@ cmd [[colorscheme newbz]]
 ---- LSP FUNCTION SIGNATURES ----
 
 require "lsp_signature".setup{
-	doc_lines = 0,
-	hint_enable = false,
+  doc_lines = 0,
+  hint_enable = false,
 }
 
 ---- TRIM SPACES / WHITELINES ----
 
 require('trim').setup({
     patterns = {
-    	[[%s/\s\+$//e]],
-    	[[%s/\($\n\s*\)\+\%$//]],
-    	[[%s/\%^\n\+//]],
+      [[%s/\s\+$//e]],
+      [[%s/\($\n\s*\)\+\%$//]],
+      [[%s/\%^\n\+//]],
     },
 })
 
@@ -191,64 +196,91 @@ utils.create_augroups { py_indent = {{"BufWritePre", "*.py", "execute ':Black'"}
 
 local cmp = require "cmp"
 
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 cmp.setup {
-  	-- completion settings
-  	completion = {
-    	completeopt = 'menuone,noselect',
-  	},
+    -- completion settings
+    completion = {
+      completeopt = 'menuone,noselect',
+    },
 
-  	-- key mapping
-  	mapping = {
-		['<C-n>'] = cmp.mapping.select_next_item(),
-		['<C-p>'] = cmp.mapping.select_prev_item(),
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.close(),
-		['<CR>'] = cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-    	},
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
 
-    	-- Tab mapping
-    	['<Tab>'] = function(fallback)
-      		if cmp.visible() then
-        		cmp.select_next_item()
-      		else
-        		fallback()
-      		end
-    	end,
-    	['<S-Tab>'] = function(fallback)
-      		if cmp.visible() then
-        		cmp.select_prev_item()
-      		else
-        		fallback()
-      		end
-    	end
-  	},
+    -- key mapping
+    mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
-  	-- load sources, see: https://github.com/topics/nvim-cmp
-  	sources = {
-      	{ name = 'nvim_lsp' },
-      	{ name = 'path' },
-    	{ name = 'buffer' },
-    	{ name = 'cmdline' },
-  	},
+      -- Tab mapping
+      ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif vim.fn["vsnip#available"](1) == 1 then
+            feedkey("<Plug>(vsnip-expand-or-jump)", "")
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+          end
+        end, { "i", "s" }),
+
+      ["<S-Tab>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+            feedkey("<Plug>(vsnip-jump-prev)", "")
+          end
+        end, { "i", "s" }),
+  }),
+
+    -- load sources, see: https://github.com/topics/nvim-cmp
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        { name = 'path' },
+      { name = 'buffer' },
+      -- { name = 'cmdline' },
+    },
 }
+
+-- -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline(':', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({
+--         { name = 'path' }
+--     }, {
+--           { name = 'cmdline' }
+--       })
+-- })
 
 -- use buffer source for `/`
 cmp.setup.cmdline('/', {
     sources = {
-      	{ name = 'buffer' }
+        { name = 'buffer' }
     }
 })
 
 -- use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
-      	{ name = 'path' }
+        { name = 'path' }
     }, {
-      		{ name = 'cmdline' }
+          { name = 'cmdline' }
     })
 })
 
@@ -262,33 +294,33 @@ local capabilities = require "cmp_nvim_lsp".default_capabilities()
 local nvim_lsp = require "lspconfig"
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  	virtual_text = { prefix = "" },
-  	signs = false,
-  	underline = false,
-  	update_in_insert = true,
+    virtual_text = { prefix = "" },
+    signs = false,
+    underline = false,
+    update_in_insert = true,
 })
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  	-- :help vim.lsp.*
-  	utils.map {"n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>"}
-  	utils.map {"n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>"}
-  	utils.map {"n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"}
-  	utils.map {"n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>"}
-  	utils.map {"n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>"}
-  	utils.map {"n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>"}
-  	utils.map {"n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>"}
-  	utils.map {"n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>"}
-  	utils.map {"n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>"}
-  	utils.map {"n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>"}
-  	utils.map {"n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>"}
-  	utils.map {"n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>"}
-  	utils.map {"n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>"}
-  	utils.map {"n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>"}
-  	utils.map {"n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>"}
-  	utils.map {"n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>"}
-  	utils.map {"n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>"}
+    -- :help vim.lsp.*
+    utils.map {"n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>"}
+    utils.map {"n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>"}
+    utils.map {"n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"}
+    utils.map {"n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>"}
+    utils.map {"n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>"}
+    utils.map {"n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>"}
+    utils.map {"n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>"}
+    utils.map {"n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>"}
+    utils.map {"n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>"}
+    utils.map {"n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>"}
+    utils.map {"n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>"}
+    utils.map {"n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>"}
+    utils.map {"n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>"}
+    utils.map {"n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>"}
+    utils.map {"n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>"}
+    utils.map {"n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>"}
+    utils.map {"n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>"}
 
 end
 
@@ -296,20 +328,20 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = { "pyright", "bashls", "gopls", "terraformls" }
 for _, lsp in ipairs(servers) do
-  	nvim_lsp[lsp].setup {
-    	on_attach = on_attach,
-    	flags = {
-      		debounce_text_changes = 50,
-    	},
-    	capabilities = capabilities,
-  	}
+    nvim_lsp[lsp].setup {
+      on_attach = on_attach,
+      flags = {
+          debounce_text_changes = 50,
+      },
+      capabilities = capabilities,
+    }
 end
 
 ---- TREESITTER ----
 
 require "nvim-treesitter.configs".setup {
-  	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  	highlight = { enable = true },
-  	indent = { enable = true},
+    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+    highlight = { enable = true },
+    indent = { enable = true},
 }
